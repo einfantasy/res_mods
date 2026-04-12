@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dictionary>
+	<asia>
+		<badWords>
+		</badWords>
+	</asia>
+
+	<cn>
+		<badWords>
+		</badWords>
+	</cn>
+	
+	<ru>
+		<badWords>
+		</badWords>
+	</ru>
+	
+	<na>
+		<badWords>
+		</badWords>
+	</na>
+	
+	<eu>
+		<badWords>
+		</badWords>
+	</eu>
+</dictionary>

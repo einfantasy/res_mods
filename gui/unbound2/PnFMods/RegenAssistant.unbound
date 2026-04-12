@@ -1,0 +1,180 @@
+(def constant RA_ELEMENT_NAME "'regenAssistant'")
+(def constant TT_REGENASSISTANT_INSTALLED "true")
+(def constant RA_ANIM_LIMIT_INF 7)
+(def constant RA_ELEMENT_SIZE {
+	WIDTH: 95,
+	HEIGHT: 44
+})
+(def constant RA_REGEN_CONSUMABLE_ID {
+	LESTA	: '9_-1',
+	WG		: '8_-1',
+})
+
+(def element RegenAssistantUb2 () layout=true
+	(scope
+		(macro STAGE_SIZE)
+
+		(macro RA_GET_IS_LESTA)
+		(var consumableId:str = "isLesta ? RA_REGEN_CONSUMABLE_ID.LESTA : RA_REGEN_CONSUMABLE_ID.WG")
+
+		# Entities
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var _markerEntity:gfx = "$datahub.getSingleEntity(CC.selfVehicle)")
+		(var regenConsEntity:gfx = "$datahub.getPrimaryEntity(CC.battleConsumable, consumableId)")
+		(var regenConsComponent:gfx = "regenConsEntity ? regenConsEntity.battleConsumable : null")
+		(var workTimeEntity:gfx = "regenConsEntity ? $datahub.getPrimaryEntity(CC.parameter, toString(regenConsEntity.id) + '_' + 'workTime') : null")
+		(var regenSpeedEntity:gfx = "regenConsEntity ? $datahub.getPrimaryEntity(CC.parameter, toString(regenConsEntity.id) + '_' + 'regenerationHPSpeed') : null")
+
+		# Prefs
+		(macro TT_GET_USERPREF)
+		(macro TT_GET_PREF_NUMBER _varName="'warningRepeatCountsPref'"	_pref="RA_PREFS.WARNING_REPEATS")
+		(macro TT_GET_PREF_NUMBER _varName="'scale'" 				_pref="RA_PREFS.SCALE")
+		(macro TT_GET_PREF_NUMBER _varName="'backgroundAlpha'" 		_pref="RA_PREFS.BACKGROUND_ALPHA")
+		(macro TT_GET_PREF_BOOL   _varName="'isPositionLocked'" 	_pref="RA_PREFS.DISABLE_DRAGDROP")
+
+		# Calculations
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var currentHealth:number = "healthComponent ? healthComponent.value : 0" (event "healthComponent.evValueChanged"))
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'regeneration')
+		(var afterRegenHealth:number = "regenerationComponent ? regenerationComponent.maxValue : 0" (event "regenerationComponent.evChanged"))
+
+		(var regenWorkTime:number = "workTimeEntity ? workTimeEntity.parameter.currentValue : 0" (event "workTimeEntity.parameter.evChanged"))
+		(var regenSpeed:number = "regenSpeedEntity ? regenSpeedEntity.parameter.currentValue : 0" (event "regenSpeedEntity.parameter.evChanged"))
+		(var regenMaxValue:number = "round(regenSpeed * regenWorkTime)")
+		(var regenValue:number = "afterRegenHealth - currentHealth")
+		
+		# Booleans
+		(var isRegenMaxEffeciency:number = "regenValue > regenMaxValue * 0.97")
+		(var isRegenValueValid:bool = "regenValue >= 0")
+		(var regenNum:number = "regenConsComponent ? regenConsComponent.currentCharge : 0" (event "regenConsComponent.evCurrentChargeChanged"))
+		(var regenState:number = "regenConsComponent ? regenConsComponent.state : -1" (event "regenConsComponent.evStateChanged"))
+		(var isRegenReady:bool = "regenState == SC.Battle.CONSUMABLE_STATES.READY || (regenNum > 0 && regenState == SC.Battle.CONSUMABLE_STATES.NO_AMMO)") # Increment from UniqueSkill
+		(var isLocked:bool = "regenConsComponent ? regenConsComponent.isLocked : false" (event "regenConsComponent.evIsLockedChanged"))
+		(var isAlive:number = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+		(var shouldUseRegen:bool = "isAlive && isRegenMaxEffeciency && isRegenReady && !isLocked")
+
+		# Effect Animation
+		(event evAnimLimitChanged)
+		(event evPlayWarningAnim)
+		(event evStopWarningAnim)
+
+		(var warningRepeatCounts:number = "warningRepeatCountsPref >= RA_ANIM_LIMIT_INF ? -1 : warningRepeatCountsPref")
+		(var isRepeatEnabled:bool = "warningRepeatCountsPref >= 1")
+		(var isAnimationEnabled:bool = "isRepeatEnabled && shouldUseRegen")
+		(dispatch evPlayWarningAnim (bind trigger "isAnimationEnabled") (bind enabled "!shouldUseRegen && isRepeatEnabled"))
+		(dispatch evStopWarningAnim (bind trigger "isAnimationEnabled") (bind enabled "shouldUseRegen"))
+		(var effectRadius:number = "0" watch=false)
+		(var isEffectVisible:bool = "false" watch=false)
+		(bind isEffectVisible "true" init=false (event "evPlayWarningAnim"))
+		(bind isEffectVisible "false" init=false (event "evStopWarningAnim"))
+		(controller $Animation
+			(bindcall play  id='regen_assistant_anim'
+							duration=0.5
+							repeatCount="warningRepeatCounts"
+							easing="Easing.quint_out"
+							from=	"{ effectRadius: 0 }"
+							to	=	"{ effectRadius: 100 }"
+							(event "evPlayWarningAnim")
+			)
+			(bindcall stop	id='regen_assistant_anim' (event "evStopWarningAnim"))
+			(dispatch evStopWarningAnim on=evAnimEnded)
+		)
+
+		# Styles
+		(var isModVisible:bool = "isAlive && regenConsEntity && isRegenValueValid")
+		(var regenValueTextColor:number = "isRegenMaxEffeciency ? SC.Ui_styles.SERVICE_COLORS.ORANGE : SC.Ui_styles.SERVICE_COLORS.GREEN")
+		(macro DRAGGABLE_GET_DROP_POSITION _elementName = "RA_ELEMENT_NAME" _defaultPosition = "{positionX: 320, positionY: (stageHeight - 290)}")
+	)
+	(block
+		# Draggable
+		(controller $Instance renderer='ModDraggableElement'
+			(bind enabled "!isPositionLocked")
+			(args
+				_elementName="RA_ELEMENT_NAME"
+				_defaultPosition = "{positionX: 320, positionY: (stageHeight - 290)}"
+			)
+		)
+		# Style
+		(bind visible "isModVisible")
+		(style
+			(position = "absolute")
+			(bind left "dragPosX")
+			(bind top "dragPosY")
+			(margin = 2px)
+		)
+		(hblock	
+			(style
+				(hitTest = false)
+				(height = "RA_ELEMENT_SIZE.HEIGHT")
+				(width = "RA_ELEMENT_SIZE.WIDTH")
+
+				(bind scaleX "scale")
+				(bind scaleY "scale")
+			)
+			# Background
+			(mc contrast_panel
+				(class $FullsizeAbsolute)
+				(bind alpha "backgroundAlpha")
+			)
+			# Effect
+			(block
+				(bind visible "isEffectVisible")
+				(style
+					(position = "absolute")
+					(left = 50%)
+					(top = 50%)
+				)
+				(controller $Sector
+					(bind arc "360")
+					(bind radius "effectRadius")
+					(bind innerRadius "effectRadius")
+					(bind lineThickness "3")
+					(bind lineAlpha "1")
+					(bind lineColor "0xFFFFFF")
+				)
+			)
+			# Image
+			(block
+				(style
+					(marginTop = 1px)
+					(width = 40)
+					(height = 40)
+					(backgroundImage = "'url:../consumables/consumable_PCY010_RegenCrewPremium.png'")
+					(backgroundSize = "fill")
+				)
+			)
+			# Text
+			(block
+				(element RA_TextItem "regenValue" "regenValueTextColor")
+				(element RA_TextItem "regenMaxValue")
+			)
+		)
+
+		# Mod Config
+		(element TT_ConfigButtonElement _modIndex = "11" _tooltipAlign="top|center"
+			(style
+				(left = -30px)
+			)
+		)
+	)
+)
+
+(def element RA_TextItem(_text:str, _color:number="SC.Ui_styles.SERVICE_COLORS.GREEN") layout=true
+	(tf
+		(class $TextDefaultBoldNM)
+		(style
+			(width = 50px)
+			(bind textColor "_color")
+			(textAlign = "right")
+			(marginTop = 5px)
+			(marginBottom = 5px)
+		)
+		(bind text "_text")
+	)
+)
+
+(def macro RA_GET_IS_LESTA ()
+	(var realmConstants:gfx = "$datahub.getSingleComponent(CC.realmConstants)")
+	(var isLesta:bool = "realmConstants.currentRegion == 'RU'")
+)

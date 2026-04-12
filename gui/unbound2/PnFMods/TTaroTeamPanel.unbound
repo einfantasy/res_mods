@@ -1,0 +1,3055 @@
+(def constant TT_TEAMPANEL_INSTALLED "true")
+
+(def constant TP_PLAYER_ROW_SIZE {
+	WIDTH: 200px,
+	HEIGHT: 27px
+})
+(def constant TP_SHIPCONFIG_ELEMENT_WIDTH {
+	WITH_UNIT: 48px,
+	NO_UNIT: 32px
+})
+(def constant TP_HEADER_SIZE {
+	PLAYER_INFO: 16px,
+	SHIP_CONFIG: 24px
+})
+
+(def constant TP_DEFAULT_HEIGHT "160px")
+(def constant TP_DIVISION_ELEMENT_WIDTH "20px")
+(def constant TP_CONFIG_ELEMENTS_VGAP "3px")
+(def constant TP_FLAGSHIP_COLOR_TRANSFORM {
+	'ally'	: {redOffset: -256,	greenOffset: -127,	blueOffset: -0},	# Blue-ish
+	'enemy'	:{redOffset: -51,	greenOffset: -51,	blueOffset: -256},	# Yellow-ish
+})
+
+(def constant TP_BANNED_SHIP_COLOR_TRANSFORM {
+	redOffset: -256,	greenOffset: -256,	blueOffset: -256,	# Black
+})
+
+(def constant TP_SHIP_ICON_COLOR_PRESET [
+	# Use -(234-0x??)
+	# one
+	{
+		Auxiliary:	{},
+		AirCarrier:	{},
+		Battleship:	{},
+		Cruiser:	{},
+		Destroyer: 	{},
+		Submarine:	{},
+	},
+	# Aslain v1
+	{
+		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset:    0},
+		AirCarrier:	{redOffset: -106, greenOffset:  -64, blueOffset:   21, alphaOffset:    0},
+		Battleship:	{redOffset:   21, greenOffset: -106, blueOffset: -106, alphaOffset:    0},
+		Cruiser:	{redOffset:	  21, greenOffset: 	  0, blueOffset: -106, alphaOffset:    0},
+		Destroyer: 	{redOffset:	 -64, greenOffset: 	 21, blueOffset: -106, alphaOffset:    0},
+		Submarine:	{redOffset: -207, greenOffset:    4, blueOffset:   11, alphaOffset:    0},
+	},
+	# Aslain v2
+	{
+		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset:    0},
+		AirCarrier:	{redOffset:  -43, greenOffset: -106, blueOffset:   21, alphaOffset:    0},
+		Battleship:	{redOffset:   21, greenOffset: -106, blueOffset: -106, alphaOffset:    0},
+		Cruiser:	{redOffset:	  21, greenOffset: 	  0, blueOffset: -106, alphaOffset:    0},
+		Destroyer: 	{redOffset:	 -64, greenOffset: 	 21, blueOffset: -106, alphaOffset:    0},
+		Submarine:	{redOffset: -106, greenOffset:  -64, blueOffset:   21, alphaOffset:    0},
+	},
+	# AutoSpy
+	{
+		Auxiliary:	{redOffset:  -92, greenOffset:  -67, blueOffset: -117, alphaOffset: 0},
+		AirCarrier:	{redOffset:  -67, greenOffset:  -67, blueOffset:  -67, alphaOffset: 0},
+		Battleship:	{redOffset: -117, greenOffset:  -92, blueOffset:  -77, alphaOffset: 0},
+		Cruiser:	{redOffset:  -45, greenOffset:  -80, blueOffset: -117, alphaOffset: 0},
+		Destroyer: 	{redOffset:  -92, greenOffset:  -67, blueOffset:  -92, alphaOffset: 0},
+		Submarine:	{redOffset: -112, greenOffset: -112, blueOffset: -112, alphaOffset: 0},
+	},
+	# Roslich
+	{
+		Auxiliary:	{redOffset:   21, greenOffset: -234, blueOffset:   21, alphaOffset:    0},
+		AirCarrier:	{redOffset:   21, greenOffset:   21, blueOffset: -234, alphaOffset:    0},
+		Battleship:	{redOffset:   21, greenOffset: -234, blueOffset: -234, alphaOffset:    0},
+		Cruiser:	{redOffset: -234, greenOffset: -234, blueOffset:   21, alphaOffset:    0},
+		Destroyer: 	{redOffset: -234, greenOffset:    0, blueOffset: -234, alphaOffset:    0},
+		Submarine:	{redOffset: -234, greenOffset:   21, blueOffset:   21, alphaOffset:    0},
+	},
+	# DeCease
+	{
+		Auxiliary:	{redOffset:   11, greenOffset: -235, blueOffset:   40, alphaOffset:    0},
+		AirCarrier:	{redOffset:   -9, greenOffset:  -60, blueOffset: -119, alphaOffset:    0},
+		Battleship:	{redOffset:  -65, greenOffset:  -74, blueOffset:   40, alphaOffset:    0},
+		Cruiser:	{redOffset:   20, greenOffset:  -76, blueOffset: -128, alphaOffset:    0},
+		Destroyer: 	{redOffset: -137, greenOffset:   11, blueOffset: -124, alphaOffset:    0},
+		Submarine:	{redOffset: -255, greenOffset: -255, blueOffset: -255, alphaOffset:    0},
+	},
+	# Hakabase
+	{
+		Auxiliary:	{redOffset: -134, greenOffset:  -98, blueOffset: -171, alphaOffset: 0},
+		AirCarrier:	{redOffset: -165, greenOffset:   -5, blueOffset:   15, alphaOffset: 0},
+		Battleship:	{redOffset:   15, greenOffset: -171, blueOffset: -171, alphaOffset: 0},
+		Cruiser:	{redOffset:	  15, greenOffset: 	 15, blueOffset: -171, alphaOffset: 0},
+		Destroyer: 	{redOffset:	-171, greenOffset: 	 15, blueOffset: -171, alphaOffset: 0},
+		Submarine:	{redOffset:   15, greenOffset: -171, blueOffset:  -59, alphaOffset: 0},
+	},
+])
+(def constant TP_CONCEALMENT_SKILL_ID {
+	'AirCarrier': 45,
+	#'Auxiliary': null,
+	'Battleship': 12,
+	'Cruiser': 12,
+	'Destroyer': 12,
+	#'Submarine': null
+})
+(def constant TP_CONCEALMENT_CREW_ID "-1") # Works until WG introduces the EPIC CONCEALMENT SKILL (hope that never happens)
+(def constant TP_ATBA_SKILL_ID {
+	'AirCarrier': 41,
+	#'Auxiliary': null,
+	'Battleship': 40,
+	'Cruiser': 30,
+	#'Destroyer': null,
+	#'Submarine': null
+})
+(def constant TP_ATBA_CREW_ID "-1") # Works until WG introduces the EPIC ATBA SKILL (hope that never happens)
+
+(def constant TP_COMPONENT_KEY_BANNED_SHIPS "'modTTaroTeamPanelBannedShips'")
+(def constant TP_COMPONENT_KEY_CONSUMABLE_RANGES "'modTTaroTeamPanelConsumableRanges'")
+
+(def constant TP_DISPLAY_MODES {
+	DISABLE : 0,
+	ENABLE  : 1,
+	ADAPTIVE: 2,
+})
+
+(def constant TP_CONSUMABLE_TYPES {
+	HYDRO		: 10,
+	RADAR		: 12,
+	SUB_RADAR	: 41,
+})
+
+(def constant TP_DETECTION_CIRCLE_SETTINGS {
+	DETECTED: {
+		COLORS	: "[SC.Ui_styles.SERVICE_COLORS.ORANGE, 0x0]",
+		ALPHAS	: [1, 0.3],
+		RATIOS	: [203, 255],
+	},
+	INVISIBLE: {
+		COLORS	: [0xff999999, 0x0],
+		ALPHAS	: [1, 0.6],
+		RATIOS	: [203, 255],
+	}
+})
+
+(def constant TP_PLAYERINFO_RENDERER_SETTINGS [
+	# Width is defined here so that the header items can be aligned too.
+	{renderer: 'TP_ShipHealthBarAndInfoItem',			enablePrefKey: '',				baseWidth: "TP_PLAYER_ROW_SIZE.WIDTH",	widthPrefKey: 'HEALTHBAR_WIDTH'},
+	{renderer: 'TP_PlayerClanIconItem',					enablePrefKey: 'CLAN_ICON',		baseWidth: "MS"},
+	{renderer: 'TP_ShipNationItem',						enablePrefKey: 'SHIP_NATION',	baseWidth: "TP_PLAYER_ROW_SIZE.HEIGHT"},
+	{renderer: 'TP_ShipTierItem',						enablePrefKey: 'SHIP_TIER',		baseWidth: "MS"},
+	{renderer: 'TP_ShipIconItem',						enablePrefKey: 'SHIP_ICON',		baseWidth: 20px}, # Actual width of the icon is 20px. Without this, there would be unnecessary visual margins on both sides.
+	# {renderer: 'TP_ShipWeightItem',						enablePrefKey: '',				baseWidth: "MS"}, # TODO: Do something about this. The visibility of this element is controlled inside of it, not its renderer parent.
+	{renderer: 'TP_ShipDetectionItem',					enablePrefKey: 'SHIP_DETECTION',headerTitle: 'IDS_HELP_DETECTION_INDICATORS',			headerDescriptions: ['IDS_HELP_ENEMY_DETECT'],				baseWidth: "M",	headerImage: 'url:../ttaro_team_panel/detection.png'},
+	{renderer: 'TP_PlayerKillCountItem',				enablePrefKey: 'KILL_COUNT',	headerTitle: 'IDS_DESTROYED_ENEMY_SHIPS_RESULT_SCREEN',	headerDescriptions: ['IDS_DESTROYED_ENEMY_SHIPS_TOOLTIP'],	baseWidth: "M", headerImage: 'bitmap:icon_stat_frag_tiny'},
+])
+
+(def constant TP_SHIPCONFIG_RENDERER_SETTINGS [
+	{renderer: 'TP_ShipConfigVisibilityItem',			enablePrefKey: 'VISIBILITY',			subPrefKeys: ['SURFACE', 'AIR'],					headerImage: 'url:../ttaro_team_panel/concealment.png',				headerTitle: 'IDS_SHIP_PARAM_DETECTION',	headerDescriptions: ['IDS_SHIP_PARAM_VISIBILITY_DIST_BY_SHIP','IDS_SHIP_PARAM_VISIBILITY_DIST_BY_PLANE']},
+	{renderer: 'TP_ShipConfigMobilityItem',				enablePrefKey: 'SPEED',					subPrefKeys: ['SURFACE', 'UNDERWATER'],				headerImage: 'url:../ttaro_team_panel/speed.png',					headerTitle: 'IDS_SHIP_PARAM_MAXSPEED',		headerDescriptions: ['IDS_SHIP_PARAM_MOBILITY','IDS_SHIP_PARAM_UNDERWATER_MOBILITY']},
+	{renderer: 'TP_ShipConfigAirSupportItem',			enablePrefKey: 'AIRSUPPORT',			subPrefKeys: ['RANGE', 'RELOAD'],					headerImage: 'url:../ttaro_team_panel/air_support.png',				headerTitle: 'IDS_SHIP_PARAM_AIR_SUPPORT',	headerDescriptions: ['IDS_SHIP_PARAM_MAX_DIST','IDS_SHIP_PARAM_SHOT_DELAY']},
+	{renderer: 'TP_ShipConfigAirDefenseItem',			enablePrefKey: 'ANTIAIR',				subPrefKeys: ['RANGE', 'RATE'],						headerImage: 'url:../ttaro_team_panel/anti_air.png',				headerTitle: 'IDS_SHIP_PARAM_AIR_DEFENSE',	headerDescriptions: ['IDS_SHIP_PARAM_MAX_DIST','IDS_SHIP_PARAM_AIR_DEFENSE']},
+	{renderer: 'TP_ShipConfigAtbaItem',					enablePrefKey: 'ATBA',					subPrefKeys: ['RANGE'],								headerImage: 'url:../ttaro_team_panel/secondary_gun.png',			headerTitle: 'IDS_SHIP_PARAM_ATBA',			headerDescriptions: ['IDS_SHIP_PARAM_MAX_DIST']},
+	{renderer: 'TP_ShipConfigArtilleryItem',			enablePrefKey: 'ARTILLERY',				subPrefKeys: ['RANGE', 'RELOAD'],					headerImage: 'url:../ttaro_team_panel/main_gun.png',				headerTitle: 'IDS_SHIP_PARAM_MAIN_GUN',		headerDescriptions: ['IDS_SHIP_PARAM_MAX_DIST','IDS_SHIP_PARAM_SHOT_DELAY']},
+	{renderer: 'TP_ShipConfigTorpedoItem',				enablePrefKey: 'TORPEDO',				subPrefKeys: ['RANGE'],								headerImage: 'url:../ttaro_team_panel/torpedo.png',					headerTitle: 'IDS_SHIP_PARAM_TORPEDOES',	headerDescriptions: ['IDS_SHIP_PARAM_MAX_DIST']},
+	{renderer: 'TP_ShipConfigSurfaceConsumableItem',	enablePrefKey: 'SURFACE_CONSUMABLE',	subPrefKeys: ['HYDRO_RANGE', 'RADAR_RANGE'],		headerImage: 'url:../ttaro_team_panel/surface_consumables.png',		headerTitle: 'IDS_TITLE_CONSUMABLES',		headerDescriptions: ['IDS_DOCK_CONSUME_TITLE_PCY008_SONARSEARCH','IDS_DOCK_CONSUME_TITLE_PCY019_RLSSEARCH']},
+	{renderer: 'TP_ShipConfigSubmarineConsumableItem',	enablePrefKey: 'SUB_CONSUMABLE',		subPrefKeys: ['SUB_HYDRO_RANGE', 'SUB_RADAR_RANGE'],headerImage: 'url:../ttaro_team_panel/submarine_consumables.png',	headerTitle: 'IDS_TITLE_CONSUMABLES',		headerDescriptions: ['IDS_DOCK_CONSUME_TITLE_PCY045_HYDROPHONE','IDS_DOCK_CONSUME_TITLE_PCY048_SUBMARINELOCATOR']},
+])
+
+(def css $TP_ShipConfigText()
+	(extends $TextDefault13NM)
+	(extends $FontEnableReadability)
+)
+(def css $TP_ShipConfigTextBold()
+	(extends $TextDefaultBold13NM)
+	(extends $FontEnableReadability)
+)
+
+#--------------------------------------------------------------------------------
+# Main Elements
+#--------------------------------------------------------------------------------
+(def element TTaroTeamPanels () layout=true
+	(scope
+		(macro STAGE_SIZE)
+		(macro TT_GET_USERPREF)
+		(macro TT_GET_PREF_NUMBER _varName="'posYModifier'" _pref="TP_PREFS.POS_OFFSET_MODIFIER")
+		(macro TT_GET_PREF_BOOL _varName="'isBlurMode'" _pref="TP_PREFS.BACKGROUND.MODE")
+
+		(macro TT_GET_PREF_BOOL _varName="'isVisibleOnlyOnAlt'" _pref="TP_PREFS.ALL_ALT_VISIBLE")
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera ? camera.altVision : false" (event "camera.evAltVisionChanged"))
+		(var isiVisible:bool = "isVisibleOnlyOnAlt ? altVision : true")
+
+		(var posY:number = "TP_DEFAULT_HEIGHT + (posYModifier * 10)")
+	)
+	(bindcall externalCall 'inputMapping.onAction' "['createParamsForAllShipsInBattle', {}]" on='addedToStage')
+	# Hide the default Ub1 ears
+	(bindcall externalCall 'direct.action' "['option.set', ['battle.ears.enabled', false]]" init=false watch=false on='addedToStage')
+
+	(style
+		(bind width "stageWidth")
+		(bind height "stageHeight")
+	)
+
+	(controller $Instance renderer='DeclareBlurLayer'
+		(bind enabled "isBlurMode")
+		(exprs
+			(style
+				(zindex = "ZIndex.BACKGROUND")
+			)
+		)
+	)
+
+	(block
+		(bind visible "isiVisible")
+		(style
+			(position = "absolute")
+			(bind top "posY")
+			(width = 100%)
+		)
+		(element TP_TeamPanelLeft _userPrefsNum="_userPrefsNum")
+		(element TP_TeamPanelRight _userPrefsNum="_userPrefsNum")
+	)
+)
+
+# Ally
+(def element TP_TeamPanelLeft (_userPrefsNum:gfx=null)
+	(scope
+		(var avatarCollection:gfx = "$datahub.getCollection(CC.avatar)")
+		(var allyCollection:gfx = "avatarCollection ? avatarCollection.getChildByPath('team.ally.sortedAlive') : null" (event "avatarCollection.evChildAdded") (event "avatarCollection.evChildRemoved"))
+		(var allyItems:array = "allyCollection ? allyCollection.items : null" (event "allyCollection.evAdded") (event "allyCollection.evRemoved")  (event "allyCollection.evUpdated"))
+		(var isEnabled:bool = "allyItems && allyItems.length > 0")
+		(macro TT_GET_PREF_NUMBER _varName="'sizeScale'" _pref="TP_PREFS.SCALE_OFFSET")
+	)
+
+	(style
+		(position = "absolute")
+		(left = 0)
+	)
+	(macro BIND_FAIR_SCALE "sizeScale")
+
+	(bind visible "isEnabled")
+
+	(element TP_HeaderItem _isAlly="true" _userPrefsNum="_userPrefsNum")
+
+	(controller $Repeat renderer='TP_PlayerItem'
+		(count = "allyItems ? allyItems.length : 0")
+		(args
+			_items	= "allyItems"
+			_isAlly	= "true"
+			_userPrefsNum = "_userPrefsNum"
+		)
+
+		(bindcall removeChildAt "$event[1]" (event "allyCollection.evRemoved"))
+		(bindcall addChildAt "$event[1]" (event "allyCollection.evAdded"))
+	)
+)
+
+# Enemy
+(def element TP_TeamPanelRight (_userPrefsNum:gfx=null)
+	(scope
+		(var avatarCollection:gfx = "$datahub.getCollection(CC.avatar)")
+		(var enemyCollection:gfx = "avatarCollection ? avatarCollection.getChildByPath('team.enemy.sortedAlive') : null" (event "avatarCollection.evChildAdded") (event "avatarCollection.evChildRemoved"))
+		(var enemyItems:array = "enemyCollection ? enemyCollection.items : null" (event "enemyCollection.evAdded") (event "enemyCollection.evRemoved") (event "enemyCollection.evUpdated"))
+		(var isEnabled:bool = "enemyItems && enemyItems.length > 0")
+		(macro TT_GET_PREF_NUMBER _varName="'sizeScale'" _pref="TP_PREFS.SCALE_OFFSET")
+	)
+
+	(style
+		(position = "absolute")
+		(right = 0)
+		(pivotX = 100%)
+		(align = "right")
+	)
+	(macro BIND_FAIR_SCALE "sizeScale")
+
+	(bind visible "isEnabled")
+
+	(element TP_HeaderItem _isAlly="false" _userPrefsNum="_userPrefsNum")
+
+	(controller $Repeat renderer='TP_PlayerItem'
+		(count = "enemyItems ? enemyItems.length : 0")
+		(args 
+			_items	= "enemyItems"
+			_isAlly	= "false"
+			_userPrefsNum = "_userPrefsNum"
+		)
+
+		(bindcall removeChildAt "$event[1]" (event "enemyCollection.evRemoved"))
+		(bindcall addChildAt "$event[1]" (event "enemyCollection.evAdded"))
+	)
+)
+
+# Header for ship configs
+(def element TP_HeaderItem (_isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro TT_GET_PREF_BOOL _varName="'isUnitVisible'" _pref="TP_PREFS.UNITS_VISIBLE")
+		(var shipConfigHeaderWidth:number = "isUnitVisible ? TP_SHIPCONFIG_ELEMENT_WIDTH.WITH_UNIT : TP_SHIPCONFIG_ELEMENT_WIDTH.NO_UNIT")
+
+		(var battleDataEntity:gfx = "$datahub.getSingleEntity(CC.battleData)")
+		(var gameModeId:number = "battleDataEntity.battleInfo.gameModeId")
+		(var isScenarioMode:bool = "SC.Battle.GAME_MODE.PVE == gameModeId")
+		(var isScenarioEnemy:bool = "isScenarioMode && !_isAlly")
+
+		(event evAddedToStage)
+	)
+
+	(dispatch evAddedToStage args="{}" on=addedToStage)
+
+	(style
+		(bind flow "_isAlly ? Flow.HORIZONTAL : Flow.REVERSE_HORIZONTAL")
+		(align = "center|middle")
+		(marginTop = "-TP_PLAYER_ROW_SIZE.HEIGHT - 4px")
+		(alpha = 0)
+	)
+	(controller $Animation
+		(bindcall play
+			duration = 0.3
+			from     = "{alpha:0}"
+			to       = "{alpha:1}"
+			watch	 = false
+			init	 = false
+			(event "evAddedToStage")
+		)
+	)
+	
+	(controller $Repeat renderer='TP_PlayerInfoHeaderRendererItem' count="TP_PLAYERINFO_RENDERER_SETTINGS.length"
+		(args
+			_isAlly 		= "_isAlly"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	(controller $Repeat renderer='TP_ShipConfigHeaderRendererItem' count="TP_SHIPCONFIG_RENDERER_SETTINGS.length"
+		(bind enabled "!isScenarioEnemy")
+		(args
+			_width			= "shipConfigHeaderWidth"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	# Mod Config
+	(element TT_ConfigButtonElement _modIndex = "5" _tooltipPosition="borderNoTrack"
+		(style
+			(position = "flow")
+		)
+	)
+)
+
+(def element TP_PlayerInfoHeaderRendererItem(_isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var setting:dict = "TP_PLAYERINFO_RENDERER_SETTINGS[$index]")
+		(var enablePrefKey:str = "'enablePrefKey' in setting ? setting.enablePrefKey : ''")
+		(var enablePref:dict = "enablePrefKey in TP_PREFS ? TP_PREFS[enablePrefKey] : null")
+		(macro TT_GET_NULLABLE_PREF_BOOL	_varName="'isEnabled'"	_nullablePref="enablePref"	_default="true")
+
+		(var isFirstElement:bool = "$index == 0")
+		(var mLeft:number = "isFirstElement && _isAlly ? 0px : XXS")
+		(var mRight:number = "isFirstElement && !_isAlly ? 0px : XXS")
+
+		(var baseWidth:number = "'baseWidth' in setting ? setting.baseWidth : 0px")
+		(var widthPrefKey:str = "'widthPrefKey' in setting ? setting.widthPrefKey : ''")
+		(var widthPref:dict = "widthPrefKey in TP_PREFS ? TP_PREFS[widthPrefKey] : null")
+		(macro TT_GET_NULLABLE_PREF_NUMBER	_varName="'widthScale'"	_nullablePref="widthPref"	_default="1")
+		(var width:number = "baseWidth * widthScale")
+
+		(var tooltipTitle:str = "'headerTitle' in setting ? setting.headerTitle : ''")
+		(var tooltipDescs:array = "'headerDescriptions' in setting ? setting.headerDescriptions : []")
+
+		(var headerImage:str = "'headerImage' in setting ? setting.headerImage : ''")
+	)
+	(style
+		(align = "middle|center")
+	)
+	(controller $Instance layout=true
+		(bind enabled "isEnabled")
+		(exprs
+			(style
+				(bind marginLeft "mLeft")
+				(bind width "width")
+				(bind marginRight "mRight")
+				(align = "middle|center")
+			)
+			(block
+				(style
+					(bind backgroundImage "headerImage")
+					(width = "TP_HEADER_SIZE.PLAYER_INFO")
+					(height = "TP_HEADER_SIZE.PLAYER_INFO")
+					(backgroundSize = "fill")
+				)
+			)
+			(controller $Tooltip
+				(renderer = TP_HeaderHintTooltip)
+				(bind enabled "tooltipTitle")
+				(args
+					_tooltipTitle = "tooltipTitle"
+					_tooltipTexts = "tooltipDescs"
+				)
+				(align = "top|center")
+				(position = "border")
+				(offset	= [0, 10])
+				(screenBoundsOffset = {left:10, top:10, right:10, bottom:10})
+				(macro SIMPLE_TOOLTIP_ANIMATION)
+			)
+		)
+	)
+)
+
+(def element TP_ShipConfigHeaderRendererItem(_width:number, _userPrefsNum:gfx=null)
+	(scope
+		(var setting:dict = "TP_SHIPCONFIG_RENDERER_SETTINGS[$index]")
+		(var pref:dict = "TP_PREFS[setting.enablePrefKey]")
+
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera ? camera.altVision : false" (event "camera.evAltVisionChanged"))
+
+		(macro TT_GET_PREF_NUMBER	_varName="'displayMode'"	_pref="pref.DISPLAY_MODE")
+		(macro TP_GET_DISPLAY_MODE	_varName="'isVisible'"		_prefValue="displayMode")
+
+		# Max TTX values for a section must be capped at 2.
+		(var prefKey1:str = "setting.subPrefKeys			? setting.subPrefKeys[0] : ''")
+		(var prefKey2:str = "setting.subPrefKeys.length > 1 ? setting.subPrefKeys[1] : ''")
+		(macro TT_GET_PREF_BOOL				_varName="'isPref1Enabled'" _pref="pref[prefKey1]")
+		(macro TT_GET_NULLABLE_PREF_BOOL	_varName="'isPref2Enabled'" _nullablePref="pref[prefKey2]" _default="false")
+
+		(var isEnabled:bool = "(displayMode != TP_DISPLAY_MODES.DISABLE) && (isPref1Enabled || isPref2Enabled)")
+	)
+	(bind visible "isVisible")
+
+	(controller $Instance renderer='TP_ShipConfigHeaderImageItem'
+		(bind enabled "isEnabled")
+		(args
+			_setting		= "setting"
+			_width			= "_width"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_ShipConfigHeaderImageItem (_setting:dict, _width:number="TP_SHIPCONFIG_ELEMENT_WIDTH.WITH_UNIT", _userPrefsNum:gfx=null)
+	(scope
+		(var tooltipTitle:str = "'headerTitle' in _setting ? _setting.headerTitle : ''")
+		(var tooltipDescs:array = "'headerDescriptions' in _setting ? _setting.headerDescriptions : []")
+		(var iconPath:str = "'headerImage' in _setting ? _setting.headerImage : ''")
+	)
+	(style
+		(bind width "_width")
+		(align = "middle|center")
+	)
+	(block
+		(style
+			(height = "TP_HEADER_SIZE.SHIP_CONFIG")
+			(width = "TP_HEADER_SIZE.SHIP_CONFIG")
+			(bind backgroundImage "iconPath")
+			(backgroundSize = "fill")
+		)
+	)
+
+	(controller $Tooltip
+		(renderer = TP_HeaderHintTooltip)
+		(bind enabled "tooltipTitle")
+		(args
+			_tooltipTitle = "tooltipTitle"
+			_tooltipTexts = "tooltipDescs"
+		)
+		(align = "top|center")
+		(position = "border")
+		(offset	= [0, 10])
+		(screenBoundsOffset = {left:10, top:10, right:10, bottom:10})
+		(macro SIMPLE_TOOLTIP_ANIMATION)
+	)
+)
+
+(def element TP_HeaderHintTooltip(_tooltipTitle:str, _tooltipTexts:array=[]) layout=true
+	(style (width = "200px") (hitTest = false))
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(element TooltipSystemHeaderSubheaderText
+			_headerText="_tooltipTitle"
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+		(controller $Repeat
+			(renderer='TooltipSystemStatusLine')
+			(bind count "_tooltipTexts.length")
+			(args
+				_text="_tooltipTexts[$index]"
+			)
+			(exprs
+				(style
+					(bind marginTop "$index == 0 ? 0 : 5px")
+				)
+			)
+		)
+	)
+)
+
+# Player
+(def element TP_PlayerItem (_items:array, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(event evPlayerItemMouseOver)
+		(event evPlayerItemMouseOut)
+		(event evAddedToStage)
+
+		(var _markerEntity:gfx = "_items[$index]" watch=false)
+		(var avatarIndex:number = "indexOf(_markerEntity, _items)")
+
+		# Health
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		# For tooltip
+		(event evHideInfotip)
+		(event evMenuItemClicked) # maybe unnecessary?
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var isSelf:bool = "selfPlayer.id == _markerEntity.id")
+		(var isBot:bool = "_markerEntity && _markerEntity.avatar.isBot")
+		(var isContextMenuAvailable:bool = "!(isSelf || isBot)")
+		(var mouse:gfx = "$datahub.getSingleComponent(CC.mouse)")
+		(var isMouseActive:bool = "mouse.active" (event "mouse.evActiveChanged"))
+		(var hoverBackground:str = "_isAlly ? 'ally_bg_panel' : 'enemy_bg_panel'")
+		(var hoverBackgroundUrl:str = "'url:../service_kit/panel_backgrounds/' + hoverBackground + '.png'")
+		(var elemWidth:number = "floor($globalLayoutBounds[2]) + 15" (event "$evLayoutBoundsChanged"))
+		# For some really weird reason, tooltip controller and (position="border") have an issue with tracking the border
+		# It tracks the border size only when making the elements larger
+		# But it does not reflect the size down e.g. (visible = false)
+		# Thus once the elements get expanded the border tooltip does not come back to the original position
+		# I have to manually do the calculation here :(
+
+		# Item Visibility
+		(macro TT_GET_PREF_BOOL _varName="'isDeadPlayerVisible'" _pref="TP_PREFS.DEAD_PLAYER_VISIBLE")
+		(var battleDataEntity:gfx = "$datahub.getSingleEntity(CC.battleData)")
+		(var gameModeId:number = "battleDataEntity.battleInfo.gameModeId")
+		(var isScenarioMode:bool = "SC.Battle.GAME_MODE.PVE == gameModeId")
+		(var isScenarioEnemy:bool = "!_isAlly && isScenarioMode")
+		(var isVisible:bool = "(isDeadPlayerVisible && !(isScenarioEnemy)) ? true : isAlive")
+
+		# Background
+		(macro TT_GET_PREF_NUMBER _varName="'blurDisplayMode'" _pref="TP_PREFS.BACKGROUND.DISPLAY_MODE")
+		(macro TT_GET_PREF_NUMBER _varName="'blurAlpha'" _pref="TP_PREFS.BACKGROUND.ALPHA")
+		(macro TT_GET_PREF_BOOL _varName="'isBlurMode'" _pref="TP_PREFS.BACKGROUND.MODE")
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera ? camera.altVision : false" (event "camera.evAltVisionChanged"))
+		(macro TP_GET_DISPLAY_MODE _varName="'isBlurVisible'" _prefValue="blurDisplayMode")
+
+		# Damage Monitor for TR Spectators
+		(macro IS_SPECTATOR_MODE)
+
+		# Animation
+		(var appearDelay:number = "1.5 + $index * 0.15")
+		(var deathAnimDuration:number = "isScenarioEnemy ? 1 : DEATH_ANIMATION_DURATION")
+		(var baseTopPos:number = "avatarIndex == 0 ? 0 : (avatarIndex * (TP_PLAYER_ROW_SIZE.HEIGHT + 2)) + 2")
+		(var animatedTopPos:number = "baseTopPos" watch=false)
+		(controller $Animation
+			(bindcall play
+				duration = 0.15
+				delay	 = "deathAnimDuration"
+				to       = "{animatedTopPos: baseTopPos}"
+				action	 = "killAll"
+				init	 = false
+				watch	 = false
+				(bind trigger "baseTopPos")
+			)
+		)
+	)
+	# For tooltip
+	(dispatch evHideInfotip args="{}" (bind trigger "isMouseActive") (event "evMenuItemClicked"))
+	(dispatch evAddedToStage args="{}" on=addedToStage)
+
+	(style
+		(backgroundColor = 0x00FFFFFF) # For seamless hittest. Do not use 0x01000000 because it will have a visible dark color!
+
+		# (position = "absolute") is required to separate the argument entity and the position of this element within parent layout.
+		# With auto positioning, the layout of elements remains the same - but the argument entities change.
+		# In that case, the spotted indicator or any element that uses (watch=false) variable within their scope can break.
+		(position = "absolute")
+		(bind left "_isAlly ? 0 : auto")
+		(bind right "_isAlly ? auto : 0")
+		(bind top "animatedTopPos")
+
+		(alpha = 0)
+	)
+	(visible = "isVisible")
+	
+	(controller $Animation
+		(bindcall play
+			delay	 = "appearDelay"
+			duration = 0.3
+			from	 = "{ alpha: 0}"
+			to		 = "{ alpha: 1}"
+			watch	 = false
+			(event "evAddedToStage")
+		)
+		(bindcall play
+			duration = "deathAnimDuration"
+			from	 = "{ alpha: 0, visible: false}"
+			to		 = "{ alpha: 1, visible: true }"
+			watch	 = false
+			action	 = "killAll"
+			reverse	 = "!(isVisible)"
+			(bind trigger "isVisible")
+		)
+	)
+
+	(element TP_ContrastPanel _isBlur="isBlurMode" _intensity="blurAlpha"
+		(bind visible "isBlurVisible")
+	)
+
+	(element TP_HorizontalDividerTwoPx
+		(bind visible "animatedTopPos == 0")
+	)
+	
+	(block
+		(style
+			(height = "TP_PLAYER_ROW_SIZE.HEIGHT")
+			(hitTest = true)
+		)
+
+		(dispatch evPlayerItemMouseOver args={} on='rollOver')
+		(dispatch evPlayerItemMouseOut  args={} on='rollOut')
+
+		# Hover BG
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(bind backgroundImage "hoverBackgroundUrl")
+				(scale9grid = 3)
+				(alpha = 0)
+			)
+			(controller $Animation
+				(bindcall play  duration=0.15
+								to="{ alpha: 1 }"
+								(event "evPlayerItemMouseOver")
+				)
+				(bindcall play  duration=0.15
+								to="{ alpha: 0 }"
+								(event "evPlayerItemMouseOut")
+				)
+			)
+		)
+		
+
+		# Main Element
+		# Ally: hblock, Enemy: reverse hblock
+		(hblock
+			(style
+				(align = "center|middle")
+				(bind alpha "isAlive ? 1.0 : 0.4")
+				(bind flow "_isAlly ? Flow.HORIZONTAL : Flow.REVERSE_HORIZONTAL")
+				(hitTest = false)
+				(height = 100%)
+			)
+
+			(controller $Repeat renderer='TP_PlayerInfoRendererItem' count="TP_PLAYERINFO_RENDERER_SETTINGS.length"
+				(args
+					_markerEntity	= "_markerEntity"
+					_isAlly			= "_isAlly"
+					_userPrefsNum	= "_userPrefsNum"
+				)
+			)
+
+			(controller $Instance renderer='TP_ShipConfigurationsItem'
+				(bind enabled "!isScenarioEnemy")
+				(args
+					_markerEntity	= "_markerEntity"
+					_isAlly			= "_isAlly"
+					_userPrefsNum	= "_userPrefsNum"
+				)
+			)
+
+			(block
+				(controller $Instance renderer='TP_ShipDamageItem'
+					(bind enabled "isSpectatorTrainingMode")
+					(args
+						_markerEntity	= "_markerEntity"
+						_isAlly			= "_isAlly"
+						_userPrefsNum	= "_userPrefsNum"
+					)
+				)
+			)
+
+			(element TP_ShipConsumablesItem		_markerEntity="_markerEntity" _isAlly="_isAlly" _userPrefsNum="_userPrefsNum")
+		)
+
+		# Tooltip for Detailed Ship Stats
+		(controller $Tooltip
+			(renderer = 'TP_TooltipShipConfigurationsItem')
+			(args
+				_markerEntity = "_markerEntity"
+				_userPrefsNum = "_userPrefsNum"
+			)
+			(macro TP_TOOLTIP_BEHAVIOUR "_isAlly")
+		)
+
+		# Context Menu for Report/Compliment/Division
+		(controller $Tooltip
+			(renderer = 'ContextMenuPlayer')
+			(bind enabled "isContextMenuAvailable")
+			(args
+				_playerEntity	= "_markerEntity"
+				_selfPlayer		= "selfPlayer"
+			)
+			(macro DEFAULT_MENU_BEHAVIOUR "evHideInfotip" "1")
+			(cache = false)
+		)
+	)
+
+	(element TP_HorizontalDividerTwoPx)
+)
+
+(def element TP_PlayerInfoRendererItem(_markerEntity:gfx, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var setting:dict = "TP_PLAYERINFO_RENDERER_SETTINGS[$index]")
+		(var enablePrefKey:str = "'enablePrefKey' in setting ? setting.enablePrefKey : ''")
+		(var enablePref:dict = "enablePrefKey in TP_PREFS ? TP_PREFS[enablePrefKey] : null")
+		(macro TT_GET_NULLABLE_PREF_BOOL	_varName="'isEnabled'"	_nullablePref="enablePref"	_default="true")
+
+		(var isFirstElement:bool = "$index == 0")
+		(var mLeft:number = "isFirstElement && _isAlly ? 0px : XXS")
+		(var mRight:number = "isFirstElement && !_isAlly ? 0px : XXS")
+
+		(var baseWidth:number = "'baseWidth' in setting ? setting.baseWidth : 0px")
+		(var widthPrefKey:str = "'widthPrefKey' in setting ? setting.widthPrefKey : ''")
+		(var widthPref:dict = "widthPrefKey in TP_PREFS ? TP_PREFS[widthPrefKey] : null")
+		(macro TT_GET_NULLABLE_PREF_NUMBER	_varName="'widthScale'"	_nullablePref="widthPref"	_default="1")
+		(var width:number = "baseWidth * widthScale")
+	)
+	(style
+		(height = 100%)
+		(align = "middle|center")
+	)
+	(controller $Instance
+		(bind enabled "isEnabled")
+		(bind renderer "setting.renderer")
+		(args
+			_markerEntity	= "_markerEntity"
+			_isAlly			= "_isAlly"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+		(exprs
+			(style
+				(bind marginLeft "mLeft")
+				(bind width "width")
+				(bind marginRight "mRight")
+			)
+		)
+	)
+)
+
+# Player Info
+(def element TP_PlayerInfoForHealthBarItem (_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro TT_GET_PREF_BOOL _varName="'isPlayerNameVisible'"	_pref="TP_PREFS.PLAYER_NAME")
+		(macro TT_GET_PREF_BOOL _varName="'isShipNameVisible'"		_pref="TP_PREFS.SHIP_NAME")
+
+		(var mTop:number = "
+			isPlayerNameVisible && !isShipNameVisible ?  0px
+													  : -1px
+		")
+		# Player | Ship | Margin
+		#    T   |  T   | -1px
+		#    T   |  F   |  0px
+		#    F   |  T   | -1px
+		#    F   |  F   | -1px (whatever)
+		#
+		# idk how but the mutlibyte chars seem to have more height than the latins...
+	)
+
+	(class $Fullsize)
+	
+	(style
+		(align = "center|middle")
+		(bind flow "_isAlly ? Flow.HORIZONTAL : Flow.REVERSE_HORIZONTAL")
+	)
+
+	(element TP_PlayerDivisionItem 	_markerEntity="_markerEntity" _isAlly="_isAlly" _userPrefsNum="_userPrefsNum")
+	(block
+		(class $Fullsize)
+		(style
+			(vgap = 2px)
+			(align = "center|middle")
+			(bind marginTop "mTop") # To align texts to the baseline
+		)
+		(element TP_PlayerNameWithTagItem 	_markerEntity="_markerEntity" _isAlly="_isAlly" _userPrefsNum="_userPrefsNum"
+			(bind visible "isPlayerNameVisible")
+		)
+		(element TP_ShipNameItem 			_markerEntity="_markerEntity" _isAlly="_isAlly" _userPrefsNum="_userPrefsNum"
+			(bind visible "isShipNameVisible")
+		)
+	)
+)
+
+(def element TP_PlayerDivisionItem (_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro GET_MARKER_ENTITY_COMPONENT 'divisionMember')
+
+		(var divisionSign:number = "divisionMemberComponent ? divisionMemberComponent.divisionSign : 0" (event "divisionMemberComponent.evDivisionChanged"))
+		(var isInSameDivision:bool = "divisionMemberComponent ? divisionMemberComponent.isInSameDivision : false" (event "divisionMemberComponent.evDivisionChanged"))
+		(var division:number = "divisionMemberComponent ? divisionMemberComponent.division : 0" (event "divisionMemberComponent.evDivisionChanged"))
+		(var isInDivision:bool = "division > 0")
+		(var isDivisionHidden:bool = "divisionMemberComponent ? divisionMemberComponent.divisionHidden : false" (event "divisionMemberComponent.evDivisionHiddenChanged"))
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'contact')
+		(var isIgnored:bool = "contactComponent ? contactComponent.isIgnored : false" (event "contactComponent.evIsIgnoredChanged"))
+
+		(var avatarComponent:gfx = "_markerEntity ? _markerEntity.avatar : null")
+		(var isMuted:bool = "avatarComponent ? avatarComponent.mute : false" (event "avatarComponent.evMuteChanged"))
+
+		(var isTextChatMuted:bool = "isMuted || isIgnored")
+	)
+
+	(style
+		(width = "TP_DIVISION_ELEMENT_WIDTH")
+		(height = 100%)
+		(align = "middle|center")
+	)
+	
+	(block
+		(style
+			(width = 13px)
+			(height = 18px)
+			(bind backgroundImage "'url:../service_kit/divisions/division_' + (isInSameDivision ? 'own_' : '') + max(divisionSign, 0) + '.png'")
+		)
+		(bind visible "division > 0 && !isDivisionHidden")
+	)
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(bind align "_isAlly ? left : right")
+		)
+		(bind visible "isTextChatMuted")
+		(mc icon_text_chat_small
+			(bindcall gotoAndStop "'muted'" init=true)
+			(style
+				(bind scaleX "_isAlly ? 1 : -1")
+				(pivotX = 50%)
+			)	
+		)
+	)
+)
+
+(def element TP_PlayerClanIconItem (_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var clanComponent:gfx = "_markerEntity && _markerEntity.hasComponent(CC.clanman) ? _markerEntity.clanman : null")
+		(var clanId:number = "clanComponent ? clanComponent.clanId : null" (event "clanComponent.evClanIdChanged"))
+		(var clanEntity:gfx = "$datahub.getPrimaryEntity(CC.clan, clanId)")
+		(var clanName:str = "clanEntity ? clanEntity.clan.tag : null" (event "clanEntity.clan.evTagChanged"))
+		(var clanIcon:str = "clanName ? 'url:../clan_icons/' + clanName + '.png' : ''")
+	)
+	(style
+		(align = "middle|center")
+	)
+	(block
+		(style
+			(bind backgroundImage "clanIcon")
+			(width = "MS")
+			(height = "MS")
+			(backgroundSize = "fill")
+		)
+	)
+)
+
+(def element TP_PlayerNameWithTagItem (_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro TT_GET_PREF_BOOL _varName="'isClanNameVisible'" _pref="TP_PREFS.CLAN_NAME")
+
+		(macro TP_GET_MARKER_DATA)
+		(var playerName:str = "(avatarComponent && avatarComponent.isBot) || isClanNameVisible	? avatarComponent.name
+																								: avatarComponent.pureName
+		")
+
+		(var colorClass:str = "isGolden ? '$FontColorGolden' : '$FontColorWhite' ")
+		(var fontColor:number = "FONT_CLASS_TO_COLOR[colorClass]")
+	)
+	
+	(style
+		(width = 100%)
+		(bind align "_isAlly ? left|middle : right|middle")
+	)
+
+	(bind visible "_markerEntity")
+
+	(tf
+		(class $TextDefault13NM)
+		(class $FontEnableReadability)
+		(alpha = 0.95)
+		(style
+			(width = "100%")
+			(elideMode = true)
+			(bind textColor "fontColor")
+			(bind textAlign "_isAlly ? left : right")
+		)
+		(bind text "playerName")
+	)
+)
+
+(def element TP_PlayerKillCountItem (_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(event evRestartAnimation)
+		(event evStartAnimation)
+		(event onAnimationEnded)
+		(event onAnimationStarted)
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'avatar')
+		(var newkillCount:str = "avatarComponent && avatarComponent.frags ? toString(avatarComponent.frags) : ''" (event "avatarComponent.evFragsChanged"))
+		(var currentKillCount:str = "newkillCount" watch=false (event "onAnimationStarted"))
+
+		(var hasUnifinishedAnim:bool = false watch=false)
+		(bind hasUnifinishedAnim  "true" watch=false init=false (event "avatarComponent.evFragsChanged"))
+		(bind hasUnifinishedAnim "false" watch=false init=false (event "onAnimationStarted"))
+
+		(var isPlayingFx:bool = false watch=false)
+		(bind isPlayingFx  "true" watch=false init=false (event "onAnimationStarted"))
+		(bind isPlayingFx "false" watch=false init=false (event "onAnimationEnded"))
+
+		# Default
+		(var fxOffset:number	= -100%	watch=false (event "onAnimationEnded"))
+		(var fxAlpha:number		=	  0 watch=false (event "onAnimationEnded"))
+		(var mainOffset:number	=	 0% watch=false (event "onAnimationEnded"))
+		(var mainAlpha:number	=	  1 watch=false (event "onAnimationEnded"))
+
+		# Reset
+		(bind fxOffset	 -100% init=false watch=false (event "onAnimationEnded"))
+		(bind fxAlpha		 0 init=false watch=false (event "onAnimationEnded"))
+		(bind mainOffset	0% init=false watch=false (event "onAnimationEnded"))
+		(bind mainAlpha		 1 init=false watch=false (event "onAnimationEnded"))
+
+		(controller $Animation
+			(bindcall play
+				duration = 0.3
+				from     = "{fxOffset: -100%, fxAlpha: 0, mainOffset:   0%, mainAlpha: 1}"
+				to       = "{fxOffset:    0%, fxAlpha: 1, mainOffset: 100%, mainAlpha: 0}"
+				easing   = "Easing.line"
+				init	 = false
+				watch	 = false
+				(event "evRestartAnimation")
+				(event "evStartAnimation")
+			)
+			(dispatch onAnimationStarted args="{}" init=false on=evAnimStarted)
+			(dispatch onAnimationEnded args="{}" init=false on=evAnimEnded)
+		)
+	)
+
+	(dispatch evStartAnimation	 args="{}" (bind enabled "!isPlayingFx")(event "avatarComponent.evFragsChanged"))
+	(dispatch evRestartAnimation args="{}" (bind enabled "hasUnifinishedAnim") (event "onAnimationEnded"))
+
+	(style
+		(align = "middle|center")
+	)
+	# Fx
+	(block
+		(bind visible "isPlayingFx")
+		(class $MiddleVHAbsolutely)
+		(style
+			(bind visualOffsetY "fxOffset")
+			(bind alpha "fxAlpha")
+		)
+		(tf
+			(class $TextDefaultBoldNM)
+			(class $FontEnableReadability)
+			(bind text "newkillCount" watch=false (event "evRestartAnimation")(event "evStartAnimation"))
+		)
+	)
+	# Main
+	(block
+		(class $MiddleVHAbsolutely)
+		(style
+			(bind visualOffsetY "mainOffset")
+			(bind alpha "mainAlpha")
+		)
+		(tf
+			(class $TextDefaultBoldNM)
+			(class $FontEnableReadability)
+			(bind text "currentKillCount" watch=false (event "onAnimationEnded"))
+		)
+	)
+)
+
+# Ship Info
+(def element TP_ShipIconItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro TP_GET_MARKER_DATA)
+		(macro TT_GET_PREF_BOOL _varName="'isShipIconStatusColor'" _pref="TP_PREFS.SHIP_ICON_STATUS")
+		(var isIconGolden:bool = "isGolden && isShipIconStatusColor")
+		(var isIconTkStatus:bool = "tkStatus && isShipIconStatusColor")
+		(var markerColorName:str =
+			"	!isAlive			? 'sunk' :
+				isIconGolden		? 'division' :
+				isIconTkStatus		? 'teamkiller' :
+				'white'
+			"
+		)
+
+		(macro TT_GET_PREF_NUMBER _varName="'shipIconColorIndex'" _pref="TP_PREFS.SHIP_ICON_COLOR")
+		(var isColorAvailable:bool = "!(isIconGolden || isIconTkStatus)")
+		(var colorPreset:dict = "(TP_SHIP_ICON_COLOR_PRESET.length > shipIconColorIndex) ? TP_SHIP_ICON_COLOR_PRESET[shipIconColorIndex] : null")
+		(var colorDict:dict = "(isColorAvailable && colorPreset) ? colorPreset[subType] : {}")
+
+		(macro TT_GET_PREF_BOOL _varName="'isPremiumHighlighted'" _pref="TP_PREFS.PREMIUM_TIER")
+
+		(var shipEntity:gfx = "_markerEntity ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
+		(var isPremium:bool = "shipEntity ? shipEntity.isPremium : false")
+
+		(var iconUrl:str = "'url:../battle_hud/markers/ship/icon_' + markerColorName + '_' + shipType + '.png'")
+		(var isPremiumIconVisible:bool = "isPremium && isPremiumHighlighted")
+	)
+
+	(style
+		(align = "middle|center")
+	)
+
+	(block
+		(style
+			(height = "SHIP_ICON_SIZE.HEIGHT")
+			(width = "SHIP_ICON_SIZE.WIDTH")
+			(bind scaleX "_isAlly ? 1.0 : -1.0")
+			(pivotX = "50%")
+		)
+		# Premium Icon
+		(block
+			(bind visible "isPremiumIconVisible")
+			(class $FullsizeAbsolute)
+			(style
+				(backgroundImage = 'url:../ttaro_team_panel/premium_indicator.png')
+			)
+		)
+		# For Clear Contour
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(bind backgroundImage "iconUrl")
+			)
+		)
+		# CT
+		(block
+			(class $FullsizeAbsolute)
+			(bind colorTransform "colorDict")
+			(style
+				(bind backgroundImage "iconUrl")
+			)
+		)
+	)
+)
+
+(def element TP_ShipNameItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var shipEntity:gfx = "_markerEntity ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
+		(var shipName:str = "shipEntity ? tr(shipEntity.nameIDS) : ''") # IDS_PASB518
+		(macro TP_GET_ISAFK _markerEntity="_markerEntity")
+		
+		(var colorClass:str = "	isAFK		? '$FontColorOrange' :
+								isGolden	? '$FontColorGolden' :
+								tkStatus	? '$FontColorTeamkiller'
+											: '$FontColorWhite' "
+		)
+		(var fontColor:number = "FONT_CLASS_TO_COLOR[colorClass]")
+	)
+
+	(style
+		(bind align "_isAlly ? left|middle : right|middle")
+		(width = 100%)
+	)
+
+	(tf
+		(class $TextDefaultBoldNM)
+		(style
+			(width = 100%)
+			(elideMode = true)
+			(bind textColor "fontColor")
+			(bind textAlign "_isAlly ? left : right")
+		)
+		(bind text "shipName")
+	)
+)
+
+(def element TP_ShipNationItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var shipEntity:gfx = "_markerEntity ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
+		(var flagName:str = "shipEntity ? shipEntity.flagName : ''")
+	)
+
+	(style
+		(height = "TP_PLAYER_ROW_SIZE.HEIGHT")
+		(backgroundSize = "fill")
+		(bind backgroundImage "flagName ? 'url:../nation_flags/tiny/flag_' + flagName + '.png' : ''")
+	)
+)
+
+# For Tournament
+(def element TP_ShipWeightItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var shipEntity:gfx = "_markerEntity ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
+		(var shipId:str = "shipEntity ? toString(shipEntity.id) : ''") # uint long
+
+		(var swEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modTournamentShipWeight_' + shipId)")
+		(var swEntity:gfx = "swEntityWatcher.entity" (event "swEntityWatcher.event"))
+		(var shipWeightData:dict = "swEntity ? swEntity.mods_DataComponent.data : {}" (event "swEntity.mods_DataComponent.evDataChanged"))
+		
+		(var weight:number = "'weight' in shipWeightData ? shipWeightData.weight : 0")
+		(var weightText:str = "weight > 0	? weight
+											: _markerEntity	? '--'
+															: ''
+		")
+
+		(var tournamentEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modTournamentMode')")
+		(var tournamentModeEntity:gfx = "tournamentEntityWatcher.entity" (event "tournamentEntityWatcher.event"))
+	)
+	(bind visible "null != tournamentModeEntity")
+	(style
+		(align = "center")
+	)
+	(tf
+		(class $TextDefaultBoldNM)
+		(class $FontEnableReadability)
+		(bind text "weightText")
+	)
+)
+
+(def element TP_ShipDamageItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(event evShow)
+
+		(var avatarId:str = "_markerEntity ? _markerEntity.avatar.id : 0")
+
+		# Inflicted Damage Data Entity
+        (var iDamageEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, DMonitor_INFLICTED_DAMAGE_COMPONENT_KEY)")
+		(var iDamageEntity:gfx = "iDamageEntityWatcher.entity" (event "iDamageEntityWatcher.event"))
+
+		(var animatedDamage:number = "0" watch=false)
+
+		(var iDamageDataComponent:gfx = "iDamageEntity ? iDamageEntity.mods_DataComponent : null")
+		(var inflictedDamageData:dict = "iDamageDataComponent ? iDamageDataComponent.data : {}" (event "iDamageDataComponent.evDataChanged"))
+		(var inflictedDamage:dict = "avatarId in inflictedDamageData ? inflictedDamageData[avatarId] : {}")
+        (var totalDamage:number = "'totalDamage' in inflictedDamage ? inflictedDamage.totalDamage : 0")
+
+		(controller $Animation
+            # Increasing damage
+			(bindcall play	duration = 0.6
+							to = "{ animatedDamage: totalDamage}"
+							easing="Easing.cubic_out"
+							(bind trigger "totalDamage")
+							(event "evShow")
+			)
+		)
+	)
+
+	(bind visible "iDamageEntity")
+
+	(dispatch evShow on='addedToStage')
+
+	(style
+		(width = 65px)
+		(align = "center")
+	)
+	(tf
+		(class $TextDefaultBold18NM)
+		(style
+			(width = 100%)
+			(textAlign = "right")
+			(bind textColor "_isAlly ? 0xFFCCFF99 : 0xFFFF9933")
+		)
+		(bind text "formatSeparator(ceil(animatedDamage))")
+	)
+)
+
+(def element TP_ShipTierItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var shipEntity:gfx = "_markerEntity ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
+		(var levelRome:str = "shipEntity ? shipEntity.levelRome : ''") # IDS_PASB518
+		(macro TT_GET_PREF_BOOL _varName="'isPremiumHighlighted'" _pref="TP_PREFS.PREMIUM_TIER")
+
+		(var isPremium:bool = "shipEntity ? shipEntity.isPremium : false")
+		(var fontColor:number = "isPremium && isPremiumHighlighted ? FONT_CLASS_TO_COLOR['$FontColorGolden'] : FONT_CLASS_TO_COLOR['$FontColorWhite']")
+	)
+	(style
+		(align = "center")
+	)
+	(tf
+		(class $TextDefaultBoldNM)
+		(class $FontEnableReadability)
+		(style
+			(bind textColor "fontColor")
+		)
+		(bind text "levelRome")
+	)
+)
+
+(def element TP_ShipDetectionItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		# Visibility on Map
+		(macro GET_MARKER_ENTITY_COMPONENT 'visibility')
+		(var mapVisible:bool = "visibilityComponent ? visibilityComponent.mapVisible : false" (event "visibilityComponent.evChanged"))
+
+		# Relation
+		(var playerAvatar:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var isObserver:bool = "!playerAvatar")
+		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+		(var isAlly:bool = "relationComponent && isIn(relationComponent.value, [SC.Battle.PLAYER_RELATION.ALLY, SC.Battle.PLAYER_RELATION.SELF])" (event "relationComponent.evChanged"))
+
+		# Visibility
+		(macro GET_MARKER_ENTITY_COMPONENT 'vehicle')
+		(var visibilityFlag:bool = "vehicleComponent ? vehicleComponent.visibilityFlags : false" (event "vehicleComponent.evVisibilityFlagsChanged"))
+
+		# Fix for hydrophone detection with no visual contact
+		(var isMapVisibleEnabled:bool = "!(isAlly || isObserver)")
+		(var hasMapPosition:bool = "_markerEntity ? _markerEntity.hasComponent(CC.mapPosition) : false" watch=false)
+		(bind hasMapPosition "!hasMapPosition && $event.classID == CC.mapPosition ? true : false" watch=false init=false (event "_markerEntity.evAdded"))
+		(event evMapPositionAdded)
+		(dispatch evMapPositionAdded watch=false init=false (bind enabled "!hasMapPosition && isMapVisibleEnabled") (bind trigger "hasMapPosition"))
+
+		(var isDetected:bool = "visibilityFlag || (isMapVisibleEnabled && mapVisible)")
+		(var wasDetected:bool = "false" watch=false)
+
+		(event evVisibilityChanged)
+		(dispatch evVisibilityChanged args="{}" watch=false init=false (bind enabled "!(wasDetected) && isDetected") (bind trigger "isDetected"))
+		(bind wasDetected "true" watch=false init=false (event "evMapPositionAdded")(event "evVisibilityChanged"))
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		(var isValid:bool = "_markerEntity && isAlive && (isDetected || wasDetected)")
+
+		(var settingKey:str = "isDetected ? 'DETECTED' : 'INVISIBLE'")
+		(var setting:dict = "TP_DETECTION_CIRCLE_SETTINGS[settingKey]")
+	)
+	(style
+		(align = "center|middle")
+	)
+	(block
+		(bind visible "isValid")
+		(controller $Sector
+			(bind colors "setting.COLORS")
+			(bind alphas "setting.ALPHAS")
+			(bind ratios "setting.RATIOS")
+			(arc = 360)
+			(radius = 5)
+		)
+	)
+)
+
+(def element TP_ShipHealthBarAndInfoItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		# Multi Teams
+		(var customElementsVisibilityComponent:gfx = "$datahub.getSingleEntity(CC.customElementsVisibility)")
+		(var enabledElements:number = "customElementsVisibilityComponent ? customElementsVisibilityComponent.customElementsVisibility.enabledElements : null" (event "customElementsVisibilityComponent.customElementsVisibility.evChanged"))
+		(var isMultyTeamEnabled:bool = "(enabledElements & SC.Battle.CUSTOM_BATTLE_ELEMENTS.MULTYTEAMS) > 0")
+
+		# Health
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+		(var healthValue:number = "healthComponent ? healthComponent.value : 0" (event "healthComponent.evValueChanged"))
+		(var healthMax:number = "healthComponent ? healthComponent.max : 0" (event "healthComponent.evMaxChanged"))
+		(var healthRatio:number = "healthMax ? min(healthValue / healthMax, 1)
+											 : 1
+		")
+		# After respawn
+		# This could not work if heath is updated (e.g. changed to zero) after respawn
+		(bind healthRatio "isAlive ? 1 : 0" watch=false init="!isAlive" (event "healthComponent.evIsAliveChanged"))
+
+		# Regeneration
+		(macro GET_MARKER_ENTITY_COMPONENT 'dataComponent')
+		(var regenMaxValue:number = "dataComponentComponent && null != dataComponentComponent.data.maxValue ? dataComponentComponent.data.maxValue : 0" (event "dataComponentComponent.evDataChanged"))
+		(var regenRatio:number = "healthMax ? regenMaxValue / healthMax : 0")
+
+		# Relation
+		(macro GET_MARKER_ENTITY_COMPONENT 'avatar')
+		(var teamId:number = "avatarComponent ? avatarComponent.teamId : 0" (event "avatarComponent.evTeamIdChanged"))
+		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+		(var relationValue:number = "relationComponent ? relationComponent.value : 0" (event "relationComponent.evChanged"))
+		(var relationStr:str = "toLower(SC.Battle.PLAYER_RELATION.VALUE_TO_NAME[relationValue])")
+		(var isAlly:bool = "relationComponent && isIn(relationValue, [SC.Battle.PLAYER_RELATION.ALLY, SC.Battle.PLAYER_RELATION.SELF])")
+		(var isSelf:bool = "relationComponent && relationValue == SC.Battle.PLAYER_RELATION.SELF")
+
+		# Diplomacy
+		(macro GET_MARKER_ENTITY_COMPONENT 'diplomacyRelation')
+		(var diplomacyRelationValue:number = "diplomacyRelationComponent ? diplomacyRelationComponent.value : 0" (event "diplomacyRelationComponent.evChanged"))
+		(var relationStrByDiplomacy:str = "DIPLOMACY_RELATION_TO_RELATION_STR[diplomacyRelationValue]")
+
+		# Flagship for Tournament
+		(var shipEntity:gfx = "avatarComponent ? avatarComponent.ship.ref.ship : null" (event "avatarComponent.evShipRefChanged"))
+		(var shipId:str = "shipEntity ? toString(shipEntity.id) : ''")
+
+		(var swEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modTournamentShipWeight_' + shipId)")
+		(var swEntity:gfx = "swEntityWatcher.entity" (event "swEntityWatcher.event"))
+		(var shipWeightData:dict = "swEntity ? swEntity.mods_DataComponent.data : {}" (event "swEntity.mods_DataComponent.evDataChanged"))
+		(var isFlagShip:bool = "'isFlagship' in shipWeightData ? shipWeightData.isFlagship : false")
+		(var flagShipColorKey:str = "isAlly ? 'ally' : 'enemy'")
+
+		# Ship Restrictions
+		(var shipFullName:str = "shipEntity ? shipEntity.fullName : ''")
+		(var bannedShipsEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, TP_COMPONENT_KEY_BANNED_SHIPS)")
+		(var bannedShipsEntity:gfx = "bannedShipsEntityWatcher.entity" (event "bannedShipsEntityWatcher.event"))
+		(var bannedShipsDataComponent:gfx = "bannedShipsEntity ? bannedShipsEntity.mods_DataComponent : null" (event "bannedShipsEntity.evAdded"))
+		(var bannedShipsByTeam:dict = "bannedShipsDataComponent ? bannedShipsDataComponent.data.bannedShipsByTeam : {}" (event "bannedShipsDataComponent.evDataChanged"))
+		(var teamIdStr:str = "toString(teamId)")
+		(var bannedShips:array = "teamIdStr in bannedShipsByTeam ? bannedShipsByTeam[teamIdStr] : []")
+		(var isBannedShip:bool = "shipFullName in bannedShips")
+
+		# Bar Color
+		(macro TT_GET_PREF_NUMBER _varName="'alphaScale'" _pref="TP_PREFS.HEALTHBAR_OPACITY")
+		(var markerColorTransform:dict = 
+			"	isBannedShip				? TP_BANNED_SHIP_COLOR_TRANSFORM :
+				isFlagShip					? TP_FLAGSHIP_COLOR_TRANSFORM[flagShipColorKey] :
+				diplomacyRelationComponent	? TWO_TEAMS_COLOR_TRANSFORMS[relationStrByDiplomacy] :
+				isSelf						? {redOffset: -213,	greenOffset: -90,	blueOffset: -178} :
+				isAlly						? TWO_TEAMS_COLOR_TRANSFORMS['ally'] :
+				isMultyTeamEnabled			? MULTI_TEAMS_COLOR_TRANSFORMS[teamId]
+											: TWO_TEAMS_COLOR_TRANSFORMS[relationStr]"
+		)
+		(var bgAlpha:number = "alphaScale <= 0 ? 0 : 0.8")
+
+		(var barDirection:number = "_isAlly ? 1 : -1")
+
+		# FX
+		(event evStartHealthBarAnim)
+		(event onHealthBarAnimStarted)
+		(event onHealthBarAnimFinished)
+		(event onDamageFxAnimFinished)
+
+		(var hasUnifinishedAnim:bool = false) 
+		(bind hasUnifinishedAnim "true"		watch=false init=false (event "healthComponent.evValueChanged") (event "healthComponent.evMaxChanged") (event "healthComponent.evIsAliveChanged"))
+		(bind hasUnifinishedAnim "false"	watch=false init=false (event "onHealthBarAnimStarted"))
+		
+		(var isPlayingFx:bool = false) 
+		(bind isPlayingFx "true"	watch=false init=false (event "onHealthBarAnimStarted"))
+		(bind isPlayingFx "false"	watch=false init=false (event "onDamageFxAnimFinished"))
+
+		(var targetBarScale:number = 0) 
+		(bind targetBarScale "healthRatio" watch=false (event "onHealthBarAnimStarted"))
+	)
+
+	(style
+		(height = 100%)
+		(align = "center|middle")
+		(hitTest = false)
+	)
+
+	(dispatch evStartHealthBarAnim args="{}" (bind enabled "hasUnifinishedAnim")(event "onDamageFxAnimFinished"))
+
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(bind scaleX "barDirection")
+			(pivotX = 50%)
+			(left = 0%)
+		)
+		
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(backgroundImage = "'url:../battle_hud/markers/bar/bar_bg.png'")
+				(backgroundSize = "fill")
+				(scale9grid = [1, 1, 44, 2])
+				(bind alpha "bgAlpha")
+			)
+		)
+
+		(block
+			(class $FullsizeAbsolute)
+			(bind alpha "alphaScale")
+			# (bind visible "isAlive")
+			(blendMode = layer)
+			(tf)
+
+			# Regen
+			(block
+				(class $FullsizeAbsolute)
+				(style
+					(backgroundColor = 0xFFE6E6E6)
+					(backgroundSize = "fill")
+					(scaleX = "regenRatio")
+				)
+				(controller $Animation
+					(bindcall play
+						duration	= "HEALTH_BAR_TWEEN_DURATION"
+						action		= "killAll"
+						watch		= false
+						init		= false
+						easing		= "Easing.quad_in"
+						to			= "{ scaleX: regenRatio }"
+						(bind trigger "regenRatio")
+					)
+				)
+			)
+
+			# Damage FX
+			(block
+				(class $FullsizeAbsolute)
+				
+				(alpha = 1.17)
+				(style
+					(backgroundColor = 0xFFFFFFFF)
+					(backgroundSize = "fill")
+					(scaleX = "healthRatio")
+				)
+
+				(controller $Animation
+					(bindcall play
+						duration	= "DAMAGE_BAR_TWEEN_DURATION"
+						delay		= "DAMAGE_BAR_TWEEN_DELAY"
+						action		= "killAll"
+						watch		= false
+						easing		= "Easing.quad_in"
+						to			= "{ scaleX: targetBarScale }"
+						(event "onHealthBarAnimFinished")
+					)
+					(dispatch onDamageFxAnimFinished args="{}" on=evAnimEnded)
+				)
+			)
+
+			# Health
+			(block
+				(class $FullsizeAbsolute)
+				(style
+					(bind backgroundColor "0xFFFFFFFF")
+					(backgroundSize = "fill")
+					(scaleX = "healthRatio")
+				)
+				(bind colorTransform "markerColorTransform")
+
+				(controller $Animation
+					(bind enabled "!(isPlayingFx)")
+					(bindcall play
+						duration	= "HEALTH_BAR_TWEEN_DURATION"
+						action		= "killAll"
+						watch		= false
+						easing		= "Easing.quad_in"
+						to			= "{ scaleX: healthRatio }"
+						(event "healthComponent.evValueChanged")
+						(event "healthComponent.evMaxChanged")
+						(event "healthComponent.evIsAliveChanged")
+						(event "evStartHealthBarAnim")
+					)
+					(dispatch onHealthBarAnimStarted	args="{}" on=evAnimStarted)
+					(dispatch onHealthBarAnimFinished	args="{}" on=evAnimEnded)
+				)
+			)
+		)
+	)
+
+	(element TP_PlayerInfoForHealthBarItem		_markerEntity="_markerEntity" _isAlly="_isAlly" _userPrefsNum="_userPrefsNum")
+)
+
+(def element TP_ContrastPanel(_isBlur:bool=false, _intensity:number="1.0")
+	(scope
+		(var panelElement:str = "_isBlur ? 'TP_ContrastPanelBlur' : 'TP_ContrastPanelNormal'")
+	)
+	(class $FullsizeAbsolute)
+	(style
+		(hitTest = false)
+	)
+	(controller $Instance
+		(bind renderer "panelElement")
+		(args "_intensity")
+	)
+)
+
+(def element TP_ContrastPanelNormal(_alpha:number=1.0)
+	(class $FullsizeAbsolute)
+	(style
+		(padding = -1px)
+		(bind alpha "_alpha")
+	)
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(backgroundImage = "'url:../service_kit/panel_backgrounds/hint_panel_high_contrast.png'")
+			(scale9grid = 3)
+		)
+	)
+)
+
+(def element TP_ContrastPanelBlur(_blurIntensity:number=0.3)
+	(class $FullsizeAbsolute)
+	(mc mc_blurmap_medium
+		(class $FullsizeAbsolute)
+		(rendererString = blurMeBaby)
+		(macro TP_BIND_BLURINTENSITY "_blurIntensity")
+	)
+)
+
+(def element TP_ShipConsumablesItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(macro TT_GET_PREF_NUMBER	_varName="'displayMode'" _pref="TP_PREFS.CONSUMABLES_MONITOR.DISPLAY_MODE")
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'data')
+		(var consData:gfx = "dataComponent ? dataComponent.data : null" (event "dataComponent.evChanged"))
+		(var consumables:array = "consData && null != consData.consMonitor ? consData.consMonitor : []")
+
+		(var rendererType:str = "displayMode == 1 ? 'TP_ActiveConsumableIconItem' : 'CM2_ConsumableItem'") # Simple | Full
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'vehicle')
+		(var isShipVisible:bool = "vehicleComponent ? vehicleComponent : false")
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		(var iconAlpha:number = "isShipVisible ? 1 : 0.3")
+
+		(var isEnabled:bool = "isAlive && displayMode != 0 && consumables.length")
+	)
+	(style
+		(flow = "Flow.HORIZONTAL")
+		(bind alpha "iconAlpha")
+		(align = "middle|center")
+	)
+	(bind visible "isEnabled")
+
+	(controller $Repeat renderer='TP_ConsumableMonitorRendererItem'
+		(bind enabled "isEnabled")
+		(bind count "consumables.length")
+		(args
+			_renderer = "rendererType"
+			_consData = "consumables[$index]"
+			_userPrefsNum = "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_ConsumableMonitorRendererItem(_renderer:str, _consData:dict, _userPrefsNum:gfx=null)
+	(scope
+		(var isSpecial:bool = "'isSpecial' in _consData && _consData.isSpecial")
+		(var consumableType:number = "'consumableType' in _consData ? _consData.consumableType : -1")
+		(var prefKey:str = "
+			isSpecial										? 'TEAM_CONSUMABLES' :
+			consumableType == TP_CONSUMABLE_TYPES.HYDRO 	? 'HYDRO' :
+			consumableType == TP_CONSUMABLE_TYPES.RADAR		? 'RADAR' :
+			consumableType == TP_CONSUMABLE_TYPES.SUB_RADAR ? 'SUB_RADAR'
+															: 'OTHERS'
+		")
+		(macro TT_GET_PREF_BOOL 	_varName="'isEnabled'"	_pref="TP_PREFS.CONSUMABLES_MONITOR[prefKey]")
+	)
+	(bind visible "isEnabled")
+	(style
+		(align = "middle|center")
+	)
+
+	(controller $Instance
+		(bind renderer "_renderer")
+		(bind enabled "isEnabled")
+		(args _consData="_consData")
+	)
+)
+
+# Uses constants from CM2
+(def element TP_ActiveConsumableIconItem (_consData:dict) layout=true
+	(scope
+		(event evConsumableActivated)
+		(event evConsumableEnding)
+		(event evConsumableDeactivated)
+
+		(var iconPath:str = "'url:../consumables/consumable_' + _consData.icon + '.png'")
+		(var capacity:str = "_consData.capacity")
+		(var state:number = "_consData.state")
+		(var stateEndTime:number = "_consData.endTime")
+		(bind stateEndTime "_consData.endTime" watch=false init=false (bind trigger "state"))
+		#(trace "toString(_entity.avatar.name) + ': isActive: ' + toString(isActive) + ', isUnderThreshold: ' + (stateTime <= CM2_BLINK_SETTINGS.THRESHOLD) + ', ' + _consData.consumableType + ', ' + timer.currentTime" watch=false (bind trigger "isConsumableEnding"))
+		# The ub scope updates dict values one by one
+		# which triggers `isConsumableEnding` change event because it satisfies (isActive == true && previousStateTime <= animationThreshold)
+		# It will immediately becomes false as the previousStateTime gets updated to the current value.
+		# However the fired event still starts the animation, of course.
+		(var canUse:bool = "_consData.canUse")
+		(var lifeCycleType:number = "_consData.lifeCycleType")
+		(var isTimeBased:bool = "lifeCycleType == SC.Battle.CONSUMABLE_LIFECYCLE_TYPE.TIME_BASED")
+		
+		(var isReady:bool = "state == SC.Battle.CONSUMABLE_STATES.READY")
+		(var isActive:bool = "state == SC.Battle.CONSUMABLE_STATES.AT_WORK")
+		(var isReload:bool = "state == SC.Battle.CONSUMABLE_STATES.RELOAD")
+		(var isEmpty:bool = "state == SC.Battle.CONSUMABLE_STATES.NO_AMMO")
+		(var isPreparation:bool = "state == SC.Battle.CONSUMABLE_STATES.PREPARATION")
+		(var isRegenerating:bool = "state == SC.Battle.CONSUMABLE_STATES.REGENERATION")
+		(var isDisabled:bool = "!canUse && isReady")
+		(var isTimedState:bool = "state in SC.Battle.CONSUMABLE_STATES.WITH_TIME_STATES")
+		
+		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+		(var stateTime:number = "stateEndTime - timer.currentTime" (event "timer.evFrequent"))
+
+		(var isConsumableEnding:bool = "isActive && (stateTime <= CM2_BLINK_SETTINGS.THRESHOLD)")
+
+		(var animatedAlpha:number = "CM2_DEFAULT_SETTINGS.ALPHA" watch=false)
+		(var animatedOffset:number = "CM2_DEFAULT_SETTINGS.OFFSET_Y" watch=false)
+		(var isAnimationPlaying:bool = "false" watch=false)
+
+		(controller $Animation
+			(bindcall play
+				id			= 'consumableEndingBlink'
+				duration	= "CM2_BLINK_SETTINGS.DURATION"
+				repeatCount	= -1
+				easing		= "Easing.sine_in"
+				from		= "{ animatedAlpha: CM2_BLINK_SETTINGS.ALPHA_MAX }"
+				to			= "{ animatedAlpha: CM2_BLINK_SETTINGS.ALPHA_MIN }"
+				action		= "append"
+				(event "evConsumableEnding")
+			)
+			(bindcall stop id='consumableEndingBlink' init=false (event "evConsumableDeactivated"))
+
+			(bindcall play
+				id			= 'consumableActivating'
+				duration	= "CM2_APPEAR_SETTINGS.DURATION"
+				easing		= "Easing.cubic_out"
+				from		= "{ animatedAlpha: CM2_APPEAR_SETTINGS.ALPHA_MIN, animatedOffset: CM2_APPEAR_SETTINGS.OFFSET_Y_MAX }"
+				to			= "{ animatedAlpha: CM2_APPEAR_SETTINGS.ALPHA_MAX, animatedOffset: CM2_APPEAR_SETTINGS.OFFSET_Y_MIN }"
+				action		= "kill"
+				(event "evConsumableActivated")
+			)
+			(bindcall play
+				id			= 'consumableDeactivating'
+				duration	= "CM2_APPEAR_SETTINGS.DURATION"
+				to			= "{ animatedAlpha: CM2_APPEAR_SETTINGS.ALPHA_MIN,	 animatedOffset: CM2_APPEAR_SETTINGS.OFFSET_Y_MAX }"
+				easing		= "Easing.cubic_out"
+				action		= "killAll"
+				(event "evConsumableDeactivated")
+			)
+			(bind animatedAlpha		"CM2_DEFAULT_SETTINGS.ALPHA"	init=false on=evAnimEnded)
+			(bind animatedOffset	"CM2_DEFAULT_SETTINGS.OFFSET_Y" init=false on=evAnimEnded)
+
+			(bind isAnimationPlaying "true"				watch=false init=false on=evAnimStarted)
+			(bind isAnimationPlaying "false"			watch=false init=false on=evAnimEnded)
+		)
+
+		(var colorValue:number = "	isDisabled	? 0.8 :
+									isEmpty		? 0.5
+										  		: 1.0")
+		(var iconColorTransform:dict = "{ redMultiplier: colorValue, greenMultiplier: colorValue, blueMultiplier: colorValue, alphaMultiplier: animatedAlpha}")
+	)
+
+	(dispatch evConsumableActivated		watch=false init=false (bind enabled "isActive") (bind trigger "isActive"))
+	(dispatch evConsumableDeactivated	watch=false init=false (bind enabled "!isActive") (bind trigger "isActive"))
+	(dispatch evConsumableEnding		watch=false init=false (bind enabled "isConsumableEnding") (bind trigger "isConsumableEnding"))
+
+
+	(bind visible "isAnimationPlaying || isActive")
+	(style
+		(bind backgroundImage "iconPath")
+		(backgroundSize = "fill")
+		(width = 24px)
+		(height = 24px)
+		(bind visualOffsetY "animatedOffset")
+	)
+	(bind colorTransform "iconColorTransform")
+)
+
+(def element TP_HorizontalDividerTwoPx()
+	(style
+		(alpha = 2.0)
+		(hitTest = false)
+		(width = 100%)
+	)
+	(element HorizontalDividerTwoPx)
+)
+
+#--------------------------------------------------------------------------------
+# TTXs
+#--------------------------------------------------------------------------------
+(def element TP_ShipConfigurationsItem(_markerEntity:gfx=null, _isAlly:bool=false, _userPrefsNum:gfx=null)
+	(scope
+		(var avatarId:number = "_markerEntity ? _markerEntity.avatar.id : 0")
+
+		# Classic TTX
+		(var ttxEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_ShipParamsInBattle, avatarId)")
+		(var ttxEntity:gfx = "ttxEntityWatcher.entity" (event "ttxEntityWatcher.event"))
+		(var classicTTX:gfx = "ttxEntity ? ttxEntity.mods_ShipParamsInBattle.shipTTX : null")
+
+		# New TTX
+		(var sbiEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.shipBattleInfo, avatarId)")
+		(var shipBattleInfoEntity:gfx = "sbiEntityWatcher.entity" (event "sbiEntityWatcher.event"))
+		(var shipBattleInfo:gfx = "shipBattleInfoEntity ? shipBattleInfoEntity.shipBattleInfo : null")
+		(var newTTX:gfx = "shipBattleInfo ? shipBattleInfo.shipTTX : null" (event "shipBattleInfo.evChanged"))
+
+		(var isRealParams:bool = "shipBattleInfo ? shipBattleInfo.isRealParams : false" (event "shipBattleInfo.evChanged"))
+		(var shipTTX:gfx = "isRealParams ? newTTX : classicTTX")
+
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera ? camera.altVision : false" (event "camera.evAltVisionChanged"))
+	)
+
+	(style
+		(align = "middle|center")
+		(bind flow "_isAlly ? Flow.HORIZONTAL : Flow.REVERSE_HORIZONTAL")
+		(height = 100%)
+	)
+
+	(controller $Repeat renderer='TP_ShipConfigRendererItem' count="TP_SHIPCONFIG_RENDERER_SETTINGS.length"
+		(args
+			_shipTTX	  = "shipTTX"
+			_markerEntity = "_markerEntity"
+			_isRealParams = "isRealParams"
+			_userPrefsNum = "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_ShipConfigRendererItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		(var setting:dict = "TP_SHIPCONFIG_RENDERER_SETTINGS[$index]")
+		(var pref:dict = "TP_PREFS[setting.enablePrefKey]")
+
+		(macro TT_GET_PREF_NUMBER 			_varName="'displayMode'"	_pref="pref.DISPLAY_MODE")
+		(var prefKey1:str = "setting.subPrefKeys			? setting.subPrefKeys[0] : ''")
+		(var prefKey2:str = "setting.subPrefKeys.length > 1 ? setting.subPrefKeys[1] : ''")
+		(macro TT_GET_PREF_BOOL				_varName="'isPref1Enabled'" _pref="pref[prefKey1]")
+		(macro TT_GET_NULLABLE_PREF_BOOL	_varName="'isPref2Enabled'" _nullablePref="pref[prefKey2]" _default="false")
+
+		(var isEnabled:bool = "(displayMode != TP_DISPLAY_MODES.DISABLE) && (isPref1Enabled || isPref2Enabled)")
+
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera ? camera.altVision : false" (event "camera.evAltVisionChanged"))
+		(macro TP_GET_DISPLAY_MODE _varName="'isVisible'" _prefValue="displayMode")
+
+		(macro TT_GET_PREF_BOOL _varName="'isUnitVisible'" _pref="TP_PREFS.UNITS_VISIBLE")
+	)
+
+	(bind visible "isVisible")
+
+	(controller $Instance
+		(bind renderer "setting.renderer")
+		(bind enabled "isEnabled")
+		(args
+			_shipTTX	  = "_shipTTX"
+			_markerEntity = "_markerEntity"
+			_isRealParams = "_isRealParams"
+			_userPrefsNum = "_userPrefsNum"
+		)
+		(exprs
+			(style
+				(bind width "isUnitVisible ? TP_SHIPCONFIG_ELEMENT_WIDTH.WITH_UNIT : TP_SHIPCONFIG_ELEMENT_WIDTH.NO_UNIT")
+			)
+		)
+	)
+)
+
+# This will reduce unnecessary textfields
+(def macro TP_SHIPCONFIG_TEXT_ITEM(_value:expression, _unit:expression, _isEnabled:expression, _roundDigit:expression="1")
+	(block
+		(style
+			(width = 100%)
+		)
+		(controller $Instance renderer='TP_ShipConfigTextItem'
+			(bind enabled "_isEnabled")
+			(args
+				_value			= "null == _value ? 0 : _value" # Without null check, the log will start crying about Invalid cast type
+				_unit			= "_unit"
+				_userPrefsNum	= "_userPrefsNum"
+				_roundDigit		= "_roundDigit"
+			)
+		)
+	)
+)
+
+(def element TP_ShipConfigArtilleryItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var artilleryTTX:gfx = "_shipTTX ? _shipTTX.artillery : null")
+		(var range:number = "artilleryTTX ? artilleryTTX.mgMaxDist.value : null")
+		(var reload:number = "artilleryTTX ? artilleryTTX.mgReloadTime.value : null")
+		(macro TT_GET_PREF_BOOL _varName="'isArtilleryRangeVisible'" _pref="TP_PREFS.ARTILLERY.RANGE")
+		(macro TT_GET_PREF_BOOL _varName="'isArtilleryReloadVisible'" _pref="TP_PREFS.ARTILLERY.RELOAD")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="range"	_unit="'km'"	_isEnabled="isArtilleryRangeVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="reload"	_unit="'s'"		_isEnabled="isArtilleryReloadVisible")
+)
+
+(def element TP_ShipConfigTorpedoItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Surface Torps
+		(var torpedoesTTX:gfx = "_shipTTX ? _shipTTX.torpedoes : null")
+		# Normal torps
+		(var torpedoTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedo : null")
+		(var torpedoRange:number = "torpedoTTX ? torpedoTTX.maxDist.value : null")
+		# Deepwater torps
+		(var torpedoDeepwaterTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedoDeepwater : null")
+		(var torpedoDeepwaterRange:number = "torpedoDeepwaterTTX ? torpedoDeepwaterTTX.maxDist.value : null")
+		# Alt torps
+		(var torpedoAltTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedoAlt : null")
+		(var torpedoAltRange:number = "torpedoAltTTX ? torpedoAltTTX.maxDist.value : null")
+
+		# Submarine torps
+		(var torpedoGroupsTTX:gfx = "_shipTTX ? _shipTTX.torpedoGroups : null")
+		# Normal torps
+		(var subTorpedoTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedo : null")
+		(var subTorpedoRange:number = "subTorpedoTTX ? subTorpedoTTX.maxDist.value : null")
+		# Deepwater torps
+		(var subTorpedoDeepwaterTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedoDeepwater : null")
+		(var subTorpedoDeepwaterRange:number = "subTorpedoDeepwaterTTX ? subTorpedoDeepwaterTTX.maxDist.value : null")
+		# Alt torps
+		(var subTorpedoAltTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedoAlt : null")
+		(var subTorpedoAltRange:number = "subTorpedoAltTTX ? subTorpedoAltTTX.maxDist.value : null")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="torpedoRange"			_unit="'km'"	_isEnabled="torpedoRange")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="torpedoDeepwaterRange"	_unit="'km'"	_isEnabled="torpedoDeepwaterRange")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="torpedoAltRange"			_unit="'km'"	_isEnabled="torpedoAltRange")
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="subTorpedoRange"			_unit="'km'"	_isEnabled="subTorpedoRange")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="subTorpedoDeepwaterRange"_unit="'km'"	_isEnabled="subTorpedoDeepwaterRange")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="subTorpedoAltRange"		_unit="'km'"	_isEnabled="subTorpedoAltRange")
+)
+
+(def element TP_ShipConfigAtbaItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		(var artilleryTTX:gfx = "_shipTTX ? _shipTTX.artillery : null")
+		(var range:number = "artilleryTTX ? artilleryTTX.atbaMaxDist.value : null")
+		
+		# Fix for Skill ---------------------
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var avatarComponent:gfx = "_markerEntity.avatar")
+
+		# shipId -> ownShip (ship in port) -> crewId (crew on board) -> crewSkill (check crew has skill)
+		(var isSelf:bool = "selfPlayer ? selfPlayer.avatar.id == avatarComponent.id : false")
+		(var shipId:number = "avatarComponent ? avatarComponent.ship.ref.ship.id : null" (event "avatarComponent.evShipRefChanged"))
+		(var shipType:str = "avatarComponent ? avatarComponent.shipType : null" (event "avatarComponent.evShipTypeChanged"))
+		(var ownShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ownShip, shipId)")
+
+		(var skillId:number = "shipType in TP_ATBA_SKILL_ID ? TP_ATBA_SKILL_ID[shipType] : null")
+		(var skillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.skill, skillId, shipType, TP_ATBA_CREW_ID)")
+		
+		(var crewId:number = "ownShipEntity ? ownShipEntity.ownShip.crewId : null" (event "ownShipEntity.ownShip.evCrewChanged"))
+		(var crewSkillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.crewSkill, crewId, skillEntity.id)")
+		# (crewId, skill) -> rutrns crewSkill if the crew is onboard and has skill
+
+		(var isCorrectionNeeded:bool = "!(crewSkillEntity || isSelf || _isRealParams)")
+
+		(var modifiers:dict = "skillEntity ? skillEntity.attributes.modifiers : null")
+		(var rangeModifier:number = "isCorrectionNeeded && modifiers ? (1 + modifiers.GSMaxDist * 0.01) : 1.0") # value is negative and %
+		# ---------------------
+
+		# Fix------------------
+		(var modifiedAtbaRange:number = "range * rangeModifier") # CAPTAIN SKILL FIX
+		# ---------------------
+
+		(macro TT_GET_PREF_BOOL _varName="'isRangeVisible'" _pref="TP_PREFS.ATBA.RANGE")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="modifiedAtbaRange"		_unit="'km'"	_isEnabled="modifiedAtbaRange && isRangeVisible")
+)
+
+(def element TP_ShipConfigAirDefenseItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var airDefenseTTX:gfx = "_shipTTX ? _shipTTX.airDefense : null")
+		(var range:number = "airDefenseTTX ? airDefenseTTX.averageAura.maxDist.value : null")
+		(var integralValue:number = "airDefenseTTX ? airDefenseTTX.integralValue.value : 0")
+		(macro TT_GET_PREF_BOOL _varName="'isAntiAirRangeVisible'" _pref="TP_PREFS.ANTIAIR.RANGE")
+		(macro TT_GET_PREF_BOOL _varName="'isAntiAirRatingVisible'" _pref="TP_PREFS.ANTIAIR.RATE")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="range"			_unit="'km'"	_isEnabled="isAntiAirRangeVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="integralValue"	_unit="'AA'"	_isEnabled="isAntiAirRatingVisible" _roundDigit="0")
+)
+
+(def element TP_ShipConfigAirSupportItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var airSupportTTX:gfx = "_shipTTX ? _shipTTX.airSupport : null")
+		(var range:number = "airSupportTTX ? airSupportTTX.maxDist.value : null")
+		(var reload:number = "airSupportTTX ? airSupportTTX.reloadTime.value : null")
+		(macro TT_GET_PREF_BOOL _varName="'isAirSupportRangeVisible'" _pref="TP_PREFS.AIRSUPPORT.RANGE")
+		(macro TT_GET_PREF_BOOL _varName="'isAirSupportReloadVisible'" _pref="TP_PREFS.AIRSUPPORT.RELOAD")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="range"	_unit="'km'"	_isEnabled="isAirSupportRangeVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="reload"	_unit="'s'"		_isEnabled="isAirSupportReloadVisible")
+)
+
+(def element TP_ShipConfigBatteryItem(_shipTTX:gfx)
+	(scope
+		(var batteryTTX:gfx = "_shipTTX ? _shipTTX.battery : null")
+		(var capacity:number = "batteryTTX ? batteryTTX.capacity.value : null")
+		(var regeneration:number = "batteryTTX ? batteryTTX.regeneration.value : null")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="capacity"		_unit="'s'"		_isEnabled="false")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="regeneration"	_unit="''"		_isEnabled="false")
+)
+
+(def element TP_ShipConfigMobilityItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Surface Speed
+		(var mobilityTTX:gfx = "_shipTTX ? _shipTTX.mobility : null")
+		(var surfaceSpeed:number = "mobilityTTX ? mobilityTTX.speed.value : null")
+
+		# Underwater Speed
+		(var underwaterMobilityTTX:gfx = "_shipTTX ? _shipTTX.underwaterMobility : null")
+		(var underwaterSpeed:number = "underwaterMobilityTTX ? underwaterMobilityTTX.speed.value : null")
+
+		(macro TT_GET_PREF_BOOL _varName="'isSurfaceMobilityVisible'" _pref="TP_PREFS.SPEED.SURFACE")
+		(macro TT_GET_PREF_BOOL _varName="'isUnderwaterMobilityVisible'" _pref="TP_PREFS.SPEED.UNDERWATER")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="surfaceSpeed"	_unit="'kts'"	_isEnabled="isSurfaceMobilityVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="underwaterSpeed"	_unit="'kts'"	_isEnabled="isUnderwaterMobilityVisible && underwaterSpeed")
+)
+
+(def element TP_ShipConfigVisibilityItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		# Fix for Skill ---------------------
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var avatarComponent:gfx = "_markerEntity.avatar")
+
+		# shipId -> ownShip (ship in port) -> crewId (crew on board) -> crewSkill (check crew has skill)
+		(var isSelf:bool = "selfPlayer ? selfPlayer.avatar.id == avatarComponent.id : false")
+		(var shipId:number = "avatarComponent ? avatarComponent.ship.ref.ship.id : null" (event "avatarComponent.evShipRefChanged"))
+		(var shipType:str = "avatarComponent ? avatarComponent.shipType : null" (event "avatarComponent.evShipTypeChanged"))
+		(var ownShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ownShip, shipId)")
+
+		(var skillId:number = "shipType in TP_CONCEALMENT_SKILL_ID ? TP_CONCEALMENT_SKILL_ID[shipType] : null")
+		(var skillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.skill, skillId, shipType, TP_CONCEALMENT_CREW_ID)")
+		
+		(var crewId:number = "ownShipEntity ? ownShipEntity.ownShip.crewId : null" (event "ownShipEntity.ownShip.evCrewChanged"))
+		(var crewSkillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.crewSkill, crewId, skillEntity.id)")
+		# (crewId, skill) -> rutrns crewSkill if the crew is onboard and has skill
+
+		(var isCorrectionNeeded:bool = "!(crewSkillEntity || isSelf || _isRealParams)")
+
+		(var modifiers:dict = "skillEntity ? skillEntity.attributes.modifiers : null")
+		(var visibilityModifier:number = "isCorrectionNeeded && modifiers ? (1 + modifiers.visibilityDistCoeff * 0.01) : 1.0") # Value is negative and %
+		# ---------------------
+
+		# TTX
+		(var visibilityTTX:gfx = "_shipTTX ? _shipTTX.visibility : null")
+		(var visibilityByShip:number = "visibilityTTX ? visibilityTTX.visibilityByShip.normal.value : null") # CAPTAIN SKILL FIX
+		(var visibilityByPlane:number = "visibilityTTX ? visibilityTTX.visibilityByPlane.normal.value : null") # CAPTAIN SKILL FIX
+
+		# Fix ------------------
+		(var modifiedVisibilityByShip:number = "visibilityByShip * visibilityModifier") # CAPTAIN SKILL FIX
+		(var modifiedVisibilityByPlane:number = "visibilityByPlane * visibilityModifier") # CAPTAIN SKILL FIX
+		# ---------------------
+
+		(macro TT_GET_PREF_BOOL _varName="'isVisibilityByShipVisible'" _pref="TP_PREFS.VISIBILITY.SURFACE")
+		(macro TT_GET_PREF_BOOL _varName="'isVisibilityByPlaneVisible'" _pref="TP_PREFS.VISIBILITY.AIR")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="modifiedVisibilityByShip"	_unit="'km'"	_isEnabled="isVisibilityByShipVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="modifiedVisibilityByPlane"	_unit="'km'"	_isEnabled="isVisibilityByPlaneVisible")
+)
+
+(def element TP_ShipConfigSurfaceConsumableItem(_shipTTX:gfx, _markerEntity:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var avatarId:str = "_markerEntity ? toString(_markerEntity.avatar.id) : ''")
+		(var consumableEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, TP_COMPONENT_KEY_CONSUMABLE_RANGES)")
+		(var consumableEntity:gfx = "consumableEntityWatcher.entity" (event "consumableEntityWatcher.event"))
+		(var consumableDataComponent:gfx = "consumableEntity ? consumableEntity.mods_DataComponent : null" (event "consumableEntity.evAdded"))
+		(var consumableData:dict = "consumableDataComponent ? consumableDataComponent.data : {}" (event "consumableDataComponent.evDataChanged"))
+		(var consumableRanges:dict = "avatarId in consumableData ? consumableData[avatarId] : {}")
+		(var radarRange:number = "'rls' in consumableRanges ? consumableRanges.rls : null")
+		(var hydroRange:number = "'sonar' in consumableRanges ? consumableRanges.sonar : null")
+
+		(macro TT_GET_PREF_BOOL _varName="'isHydroRangeVisible'" _pref="TP_PREFS.SURFACE_CONSUMABLE.HYDRO_RANGE")
+		(macro TT_GET_PREF_BOOL _varName="'isRadarRangeVisible'" _pref="TP_PREFS.SURFACE_CONSUMABLE.RADAR_RANGE")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="hydroRange"	_unit="'km'"	_isEnabled="isHydroRangeVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="radarRange"	_unit="'km'"	_isEnabled="isRadarRangeVisible")
+)
+
+(def element TP_ShipConfigSubmarineConsumableItem(_shipTTX:gfx, _markerEntity:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var avatarId:str = "_markerEntity ? toString(_markerEntity.avatar.id) : ''")
+		(var consumableEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, TP_COMPONENT_KEY_CONSUMABLE_RANGES)")
+		(var consumableEntity:gfx = "consumableEntityWatcher.entity" (event "consumableEntityWatcher.event"))
+		(var consumableDataComponent:gfx = "consumableEntity ? consumableEntity.mods_DataComponent : null" (event "consumableEntity.evAdded"))
+		(var consumableData:dict = "consumableDataComponent ? consumableDataComponent.data : {}" (event "consumableDataComponent.evDataChanged"))
+		(var consumableRanges:dict = "avatarId in consumableData ? consumableData[avatarId] : {}")
+		(var radarRange:number = "'submarineLocator' in consumableRanges ? consumableRanges.submarineLocator : null")
+		(var hydroRange:number = "'hydrophone' in consumableRanges ? consumableRanges.hydrophone : null")
+
+		(macro TT_GET_PREF_BOOL _varName="'isSubHydroRangeVisible'" _pref="TP_PREFS.SUB_CONSUMABLE.SUB_HYDRO_RANGE")
+		(macro TT_GET_PREF_BOOL _varName="'isSubRadarRangeVisible'" _pref="TP_PREFS.SUB_CONSUMABLE.SUB_RADAR_RANGE")
+	)
+
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="hydroRange"	_unit="'km'"	_isEnabled="isSubHydroRangeVisible")
+	(macro TP_SHIPCONFIG_TEXT_ITEM _value="radarRange"	_unit="'km'"	_isEnabled="isSubRadarRangeVisible")
+)
+
+# Text Item
+(def element TP_ShipConfigTextItem (_value:number, _unit:str='', _roundDigit:number="1.0", _userPrefsNum:gfx=null)
+	(scope
+		(var isValueVisible:bool = "_value")
+		(macro TT_GET_PREF_BOOL _varName="'isUnitVisible'" _pref="TP_PREFS.UNITS_VISIBLE")
+		(macro TT_GET_PREF_BOOL _varName="'isBoldFont'"    _pref="TP_PREFS.STATS_BOLD_FONT")
+
+		(var roundDigit:number = "_value >= 100 ? 0 : _roundDigit")
+		(var valueText:str = "formatFloatingPoint(_value, roundDigit)")
+	)
+
+	(style
+		(width = 100%)
+		(align = "center")
+		(bind alpha "isValueVisible ? 1 : 0")
+		(flow = "Flow.HORIZONTAL")
+		(marginTop = 1px)
+		(marginBottom = 2px)
+	)
+	(tf
+		(bind class "isBoldFont ? '$TP_ShipConfigTextBold' : '$TP_ShipConfigText'")
+		(style
+			(textAlign = "right")
+			(width = 26px)
+			# max width of the text (e.g. '99.9') is 26px.
+			# Without width and textAlign there is one fucking pixel misalignment on some texts
+			# This is cursed
+		)
+		(bind text "valueText")
+	)
+	(tf
+		(bind visible "isUnitVisible")
+		(class $TP_ShipConfigText)
+		(bind text "_unit")
+		(alpha = "TC")
+		(style
+			(width = "20px")
+			(marginLeft = "XS")
+			(marginRight = "-S") # Not center but this makes it *visually look* centered.
+		)
+	)
+)
+
+#--------------------------------------------------------------------------------
+# Tooltip Items
+#--------------------------------------------------------------------------------
+(def constant TP_TOOLTIP_SHIPCONFIG_RENDERER_SETTINGS [
+	{renderer: 'TP_TooltipHealthItem',				ttxName: 'durability',			title: 'IDS_SHIP_PARAM_DURABILITY'},
+	{renderer: 'TP_TooltipBatteryItem',				ttxName: 'battery',				title: 'IDS_SHIP_PARAM_BATTERY'},
+	{renderer: 'TP_TooltipMainGunItem',				ttxName: 'artillery',			title: 'IDS_SHIP_PARAM_ARTILLERY', 		ttxSubAttr: 'mainGun'},
+	{renderer: 'TP_TooltipAtbaItem',				ttxName: 'artillery',			title: 'IDS_SHIP_PARAM_ARTILLERY_ATBA',	ttxSubAttr: 'atba'},
+	{renderer: 'TP_TooltipTorpedoesItem',			ttxName: 'torpedoes',			title: 'IDS_SHIP_PARAM_TORPEDOES'},
+	{renderer: 'TP_TooltipTorpedoesGroupItem',		ttxName: 'torpedoGroups',		title: 'IDS_SHIP_PARAM_TORPEDOES'},
+	{renderer: 'TP_TooltipAirDefenseItem',			ttxName: 'airDefense',			title: 'IDS_SHIP_PARAM_AIR_DEFENSE'},
+	{renderer: 'TP_TooltipAirSupportItem',			ttxName: 'airSupport',			title: 'IDS_SHIP_PARAM_AIR_SUPPORT'},
+	{renderer: 'TP_TooltipDepthChargeItem',			ttxName: 'depthCharges',		title: 'IDS_SHIP_PARAM_DEPTH_CHARGE'},
+	{renderer: 'TP_TooltipSurfaceMobilityItem',		ttxName: 'mobility',			title: 'IDS_SHIP_PARAM_MOBILITY'},
+	{renderer: 'TP_TooltipUnderwaterMobilityItem',	ttxName: 'underwaterMobility',	title: 'IDS_SHIP_PARAM_UNDERWATER_MOBILITY'},
+	{renderer: 'TP_TooltipVisibilityItem',			ttxName: 'visibility',			title: 'IDS_SHIP_PARAM_DETECTION'},
+])
+
+(def constant TP_TOOLTIP_INDENTS {
+	HEADER: 0px,
+	SUB_HEADER: 10px,
+	TEXT: 5px,
+	SUB_TEXT: 15px,
+})
+
+(def css $TP_FullWidth()
+	(width = 100%)
+)
+
+(def css $TP_TooltipSectionMargin()
+	(marginBottom = 5px)
+)
+
+(def css $TP_TooltipShipParameterText()
+	(extends $FontEnableReadability)
+	(extends $TextDefaultNM)
+)
+
+(def element TP_TooltipShipConfigurationsItem(_markerEntity:gfx=null, _userPrefsNum:gfx=null)
+	(scope
+		(var avatarId:number = "_markerEntity ? _markerEntity.avatar.id : 0")
+		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+		(var isSelf:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.SELF" (event "relationComponent.evChanged"))
+
+		(macro IS_SPECTATOR_MODE)
+
+		# Classic TTX
+		(var ttxModWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_ShipParamsInBattle, avatarId)")
+		(var ttxModEntity:gfx = "ttxModWatcher.entity" (event "ttxModWatcher.event"))
+		(var classicTTX:gfx = "ttxModEntity ? ttxModEntity.mods_ShipParamsInBattle.shipTTX : null")
+
+		# New TTX
+		(var shipBattleInfoWatcher:gfx = "$datahub.getPrimWatcher(CC.shipBattleInfo, avatarId)")
+		(var shipBattleInfoEntity:gfx = "shipBattleInfoWatcher.entity" (event "shipBattleInfoWatcher.event"))
+		(var shipBattleInfo:gfx = "shipBattleInfoEntity ? shipBattleInfoEntity.shipBattleInfo : null" (event "shipBattleInfoEntity.shipBattleInfo.evChanged"))
+		(var newTTX:gfx = "shipBattleInfo ? shipBattleInfo.shipTTX : null" (event "shipBattleInfoEntity.shipBattleInfo.evChanged"))
+
+		(var isRealParams:bool = "shipBattleInfo ? shipBattleInfo.isRealParams : false" (event "shipBattleInfoEntity.shipBattleInfo.evChanged"))
+		(var shipTTX:gfx = "isRealParams ? newTTX : classicTTX")
+
+		(macro TT_GET_PREF_BOOL _varName="'isOwnBuildOnly'"		_pref="TP_PREFS.HIDE_BUILD")
+		(var isBuildVisible:bool = "TT_BUILDVIEWER_INSTALLED && (isSpectatorTrainingMode || (!isOwnBuildOnly || isSelf))")
+
+		(macro TT_GET_PREF_BOOL _varName="'isOwnDamageOnly'"	_pref="TP_PREFS.HIDE_DAMAGE")
+		(var isDamageVisible:bool = "TT_DAMAGEMONITOR_INSTALLED && (isSpectatorTrainingMode || (!isOwnDamageOnly || isSelf))")
+	)
+
+	(style
+		(align = "middle|center")
+		(hitTest = false)
+		(flow = "Flow.HORIZONTAL")
+	)
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER $enabled="!isSpectatorTrainingMode"
+		(style
+			(width = 350px)
+		)
+		(bind visible "shipTTX || shipBattleInfo")
+		
+		(controller $Repeat renderer='TP_TooltipShipConfigRendererItem'
+			(bind enabled "shipTTX")
+			(bind count "TP_TOOLTIP_SHIPCONFIG_RENDERER_SETTINGS.length")
+			(args
+				_shipTTX		= "shipTTX"
+				_markerEntity	= "_markerEntity"
+				_isRealParams	= "isRealParams"
+				_userPrefsNum	= "_userPrefsNum"
+			)
+		)
+		(controller $Instance renderer='TP_TooltipConsumableItem'
+			(bind enabled "shipBattleInfo")
+			(args 
+				_shipBattleInfo = "shipBattleInfo"
+			)
+		)
+	)
+	(block
+		(style
+			(align = "middle|center")
+		)
+		(controller $Instance renderer='TP_BuildViewerItem'
+			(bind enabled "isBuildVisible")
+			(args
+				_markerEntity			= "_markerEntity"
+				_userPrefsNum	= "_userPrefsNum"
+			)
+		)
+		(controller $Instance renderer='TP_DamageMonitorItem'
+			(bind enabled "isDamageVisible")
+			(args _markerEntity = "_markerEntity")
+		)
+	)
+)
+
+(def element TP_BuildViewerItem(_markerEntity:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var vehicleId:str = "_markerEntity && _markerEntity.hasComponent(CC.vehicleInfo) ? toString(_markerEntity.vehicleInfo.id) : ''" (event "_markerEntity.evAdded"))
+	)
+	(style
+		(align = "middle|center")
+	)
+	(element BV_BuildPanelElement _vehicleId="vehicleId")
+)
+
+(def element TP_DamageMonitorItem(_markerEntity:gfx)
+	(scope
+		(var avatarId:str = "_markerEntity ? _markerEntity.avatar.id : ''")
+	)
+	(style
+		(align = "middle|center")
+	)
+	(element DMonitor_DamagePanelElement _targetAvatarId="avatarId")
+)
+
+(def element TP_TooltipShipConfigRendererItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		(var settings:dict = "TP_TOOLTIP_SHIPCONFIG_RENDERER_SETTINGS[$index]")
+		(var subAttr:str = "'ttxSubAttr' in settings ? settings.ttxSubAttr : null")
+		(var isTTXAvailable:bool = "null != _shipTTX[settings.ttxName] && (subAttr ? _shipTTX[settings.ttxName][subAttr].length : true)")
+	)
+	(class $TP_FullWidth)
+
+	(bind visible "isTTXAvailable")
+	(style
+		(marginBottom = 5px)
+	)
+
+	(controller $Instance
+		(renderer = 'TP_TooltipShipConfigTitleItem')
+		(bind enabled "isTTXAvailable")
+		(args
+			_title			= "settings.title"
+			_userPrefsNum 	= "_userPrefsNum"
+		)
+	)
+	(controller $Instance
+		(bind renderer "settings.renderer")
+		(bind enabled "isTTXAvailable")
+		(args
+			_shipTTX	  	= "_shipTTX"
+			_markerEntity 	= "_markerEntity"
+			_isRealParams 	= "_isRealParams"
+			_userPrefsNum 	= "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_TooltipHealthItem(_shipTTX:gfx, _markerEntity:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var durabilityTTX:gfx = "_shipTTX.durability")
+		(var ttxMaxHealth:number = "durabilityTTX ? durabilityTTX.health.value : 1")
+		(var torpProtection:number = "durabilityTTX ? durabilityTTX.ptz.value : 0")
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'health')
+		(var maxValue:number = "healthComponent ? healthComponent.max : 0" (event "healthComponent.evMaxChanged"))
+		(var maxHealth:number = "maxValue ? maxValue : ttxMaxHealth")
+		(var isAlive:number = "healthComponent ? healthComponent.isAlive : 0" (event "healthComponent.evIsAliveChanged"))
+		(var healthValue:number = "healthComponent ? healthComponent.value : 0" (event "healthComponent.evValueChanged"))
+		(var currentHealth:number = "healthValue == 0 && isAlive ? maxHealth : healthValue * isAlive")
+
+		(var healthPercent:number = "maxHealth ? currentHealth / maxHealth : 1")
+	)
+
+	(class $TP_FullWidth)
+	
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		# HP
+		(hblock
+			(class $TP_FullWidth)
+			(style
+				(align = "middle")
+				(marginBottom = 3px)
+				(paddingLeft = "TP_TOOLTIP_INDENTS.TEXT")
+			)
+			(hblock
+				(style
+					(width = 85%)
+				)
+				(tf
+					(class $TP_TooltipShipParameterText)
+					(text = '•')
+					(style
+						(marginRight = 5px)
+					)
+				)
+				(tf
+					(text = "tr('IDS_SHIP_PARAM_HEALTH')")
+					(class $TP_TooltipShipParameterText)
+				)
+			)
+			(hblock
+				(style
+					(width = 15%)
+					(align = "right")
+				)
+				(tf
+					(class $TP_TooltipShipParameterText)
+					(bind class "healthPercent > 0.8 ? '$FontColorHealth' : healthPercent > 0.3 ? '$FontColorWarning' : '$FontColorCritical'")
+					(bind text "formatSeparator(currentHealth)")
+				)
+				(tf
+					(class $TP_TooltipShipParameterText)
+					(text = '/')
+					(style
+						(alpha = "TC")
+						(marginLeft = 7px)
+						(marginRight = 7px)
+					)
+				)
+				(tf
+					(class $TP_TooltipShipParameterText)
+					(bind text "formatSeparator(maxHealth)")
+				)
+			)
+		)
+		#
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_PTZDAMAGEPROB'" _value="torpProtection" _unit='%' _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipBatteryItem(_shipTTX:gfx, _markerEntity:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Battery
+		(var batteryTTX:gfx = "_shipTTX.battery")
+		(var capacity:number = "batteryTTX ? batteryTTX.capacity.value : null")
+		(var regeneration:number = "batteryTTX ? batteryTTX.regeneration.value : null")
+
+		# Battery Component gets unloaded once the submarines go dark.
+		# And I can't control when this tooltip is activated. It can be generated
+		#	- While submarine is spotted	: in this case the real value can be retrieved.
+		#	- Or while they are not visible	: in which case, only the TTX value is available despite the submarine was spotted and visible.
+		# so it's impossible to consistently reflecting the last spotted status.
+		# so just display the TTX value
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_BATTERY_MAX_CAPACITY'" _value="capacity" _unit="'s'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_BATTERY_REGEN_RATE'" _value="regeneration" _unit="'s/s'" _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipMainGunItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var artilleryTTX:gfx = "_shipTTX.artillery")
+		(var mainGunTTX:array = "artilleryTTX ? artilleryTTX.mainGun : null")
+		(var hasMainGun:bool = "mainGunTTX.length > 0")
+		(var range:number = "artilleryTTX ? artilleryTTX.mgMaxDist.value : null")
+		(var reload:number = "artilleryTTX ? artilleryTTX.mgReloadTime.value : null")
+
+		# ~~Awful code~~ Maybe not so bad after all.
+		# Repeat didn't work out well but its good enough until a ship with 5 different guns appears.
+		(var numBarrels1:number = "hasMainGun ? mainGunTTX[0].numBarrels.value * mainGunTTX[0].numGuns.value : 0")
+		(var numBarrels2:number = "mainGunTTX.length > 1 ? mainGunTTX[1].numBarrels.value * mainGunTTX[1].numGuns.value : 0")
+		(var numBarrels3:number = "mainGunTTX.length > 2 ? mainGunTTX[2].numBarrels.value * mainGunTTX[2].numGuns.value : 0")
+		(var numBarrels4:number = "mainGunTTX.length > 3 ? mainGunTTX[3].numBarrels.value * mainGunTTX[3].numGuns.value : 0")
+		(var totalBarrelsCount:number = "numBarrels1 + numBarrels2 + numBarrels3 + numBarrels4")
+		(var shellsPerMin:number = "totalBarrelsCount * (60 / reload) * 0.33")
+
+		(var altFire:gfx = "artilleryTTX ? artilleryTTX.altFireMode : null")
+		(var altFireShots:number = "altFire ? altFire.numShots.value : null")
+		(var altFireReload:number = "altFire ? altFire.reloadTime.value : null")
+
+		(var ammoHE:gfx = "artilleryTTX ? artilleryTTX.ammoHE : null")
+		(var ammoCS:gfx = "artilleryTTX ? artilleryTTX.ammoCS : null")
+		(var ammoAP:gfx = "artilleryTTX ? artilleryTTX.ammoAP : null")
+
+		(var pircingHE:number = "ammoHE ? ammoHE.piercing.value : null")
+		(var pircingCS:number = "ammoCS ? ammoCS.piercing.value : null")
+		(var pircingAP:number = "ammoAP ? ammoAP.piercing.value * 0.001 : null")
+
+		(var damageHE:number = "ammoHE ? ammoHE.damage.value : 0")
+		(var damageCS:number = "ammoCS ? ammoCS.damage.value : 0")
+		(var damageAP:number = "ammoAP ? ammoAP.damage.value : 0")
+
+		(var damagePerMinHE:number = "damageHE * shellsPerMin")
+		(var damagePerMinCS:number = "damageCS * shellsPerMin")
+		(var damagePerMinAP:number = "damageAP * shellsPerMin")
+
+		(var caliber:number = "hasMainGun ? mainGunTTX[0].caliber.value : 0")
+		(var overmatch:number = "hasMainGun ? floor(caliber / 14.3) : 0")
+
+		(macro TT_GET_LANGUAGE_INDEX)
+		(macro TT_GET_TRANSLATION _varName="'overmatchTranslation'" _key="'IDS_TT_OVERMATCH'")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_DIST'" _value="range" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_SHOT_DELAY'" _value="reload" _unit="'s'" _userPrefsNum="_userPrefsNum")
+	)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_ARTILLERY_CALIBER'" _value="caliber" _roundDigit=0 _unit="'mm'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="overmatchTranslation" _value="overmatch" _roundDigit=0 _unit="'mm'" _userPrefsNum="_userPrefsNum")
+	)
+
+	(block $enabled="altFire"
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_BURST_FIRE_NAME'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(block
+			(class $TP_FullWidth)
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_BURST_FIRE_SALVO_COUNT'" _value="altFireShots" _roundDigit=0 _unit=null  _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_BURST_FIRE_RELOAD_TIME'" _value="altFireReload" _unit="'s'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+
+	(block $enabled="ammoHE"
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AMMO_HE'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(block
+			(class $TP_FullWidth)
+			(element TP_TooltipShipConfigTextItem _title="'DPM'" _value="damagePerMinHE" _roundDigit=0 _unit=null  _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_ARTILLERY_ALPHA_PIERCING'" _value="pircingHE" _roundDigit=0 _unit="'mm'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+
+	(block $enabled="ammoCS"
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AMMO_CS'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(block
+			(class $TP_FullWidth)
+			(element TP_TooltipShipConfigTextItem _title="'DPM'" _value="damagePerMinCS" _roundDigit=0 _unit=null  _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_ARTILLERY_ALPHA_PIERCING'" _value="pircingCS" _roundDigit=0 _unit="'mm'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+
+	(block $enabled="ammoAP"
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AMMO_AP'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(block
+			(class $TP_FullWidth)
+			(element TP_TooltipShipConfigTextItem _title="'DPM'" _value="damagePerMinAP" _roundDigit=0 _unit=null  _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_ARTILLERY_ALPHA_PIERCING'" _value="pircingAP" _roundDigit=0 _unit="'mm'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+)
+
+(def element TP_TooltipAtbaItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		(var artilleryTTX:gfx = "_shipTTX.artillery")
+		(var atbaTTX:array = "artilleryTTX ? artilleryTTX.atba : []")
+		(var numOfAtbaGuns:number = "atbaTTX.length")
+		(var range:number = "numOfAtbaGuns > 0 ? artilleryTTX.atbaMaxDist.value : null")
+
+		# Fix for skill---------------------
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var avatarComponent:gfx = "_markerEntity.avatar")
+
+		# shipId -> ownShip (ship in port) -> crewId (crew on board) -> crewSkill (check crew has skill)
+		(var isSelf:bool = "selfPlayer ? selfPlayer.avatar.id == avatarComponent.id : false")
+		(var shipId:number = "avatarComponent ? avatarComponent.ship.ref.ship.id : null" (event "avatarComponent.evShipRefChanged"))
+		(var shipType:str = "avatarComponent ? avatarComponent.shipType : null" (event "avatarComponent.evShipTypeChanged"))
+		(var ownShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ownShip, shipId)")
+
+		(var skillId:number = "shipType in TP_ATBA_SKILL_ID ? TP_ATBA_SKILL_ID[shipType] : null")
+		(var skillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.skill, skillId, shipType, TP_ATBA_CREW_ID)")
+		
+		(var crewId:number = "ownShipEntity ? ownShipEntity.ownShip.crewId : null" (event "ownShipEntity.ownShip.evCrewChanged"))
+		(var crewSkillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.crewSkill, crewId, skillEntity.id)")
+		# (crewId, skill) -> rutrns crewSkill if the crew is onboard and has skill
+
+		(var isCorrectionNeeded:bool = "!(crewSkillEntity || isSelf || _isRealParams)")
+
+		(var modifiers:dict = "skillEntity ? skillEntity.attributes.modifiers : null")
+		(var rangeModifier:number = "isCorrectionNeeded && modifiers ? (1 + modifiers.GSMaxDist * 0.01) : 1.0") #value is negative and %
+		#---------------------
+
+		# Fix-----------------
+		(var modifiedAtbaRange:number = "range * rangeModifier") # CAPTAIN SKILL FIX
+		#---------------------
+
+		(var atba1:gfx = "numOfAtbaGuns > 0 ? atbaTTX[0] : null")
+		(var dpm1:number = "atba1 ? atba1.numBarrels.value * atba1.numGuns.value * atba1.ammoList[0].damage.value * (60 / atba1.reloadTime.value) : 0")
+		(var atba2:gfx = "numOfAtbaGuns > 1 ? atbaTTX[1] : null")
+		(var dpm2:number = "atba2 ? atba2.numBarrels.value * atba2.numGuns.value * atba2.ammoList[0].damage.value * (60 / atba2.reloadTime.value) : 0")
+		(var atba3:gfx = "numOfAtbaGuns > 2 ? atbaTTX[2] : null")
+		(var dpm3:number = "atba3 ? atba3.numBarrels.value * atba3.numGuns.value * atba3.ammoList[0].damage.value * (60 / atba3.reloadTime.value) : 0")
+		(var atba4:gfx = "numOfAtbaGuns > 3 ? atbaTTX[3] : null")
+		(var dpm4:number = "atba4 ? atba4.numBarrels.value * atba4.numGuns.value * atba4.ammoList[0].damage.value * (60 / atba4.reloadTime.value) : 0")
+		(var atba5:gfx = "numOfAtbaGuns > 4 ? atbaTTX[4] : null")
+		(var dpm5:number = "atba5 ? atba5.numBarrels.value * atba5.numGuns.value * atba5.ammoList[0].damage.value * (60 / atba5.reloadTime.value) : 0")
+
+		(var atbaDPM:number = "(dpm1 + dpm2 + dpm3 + dpm4 + dpm5) * 0.33")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_DIST'" _value="modifiedAtbaRange" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'DPM'" _value="atbaDPM" _roundDigit=0 _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipTorpedoesItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Surface Torps
+		(var torpedoesTTX:gfx = "_shipTTX.torpedoes")
+		# Normal Torps
+		(var torpedoTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedo : null")
+		# Deepwater Torps
+		(var torpedoDeepwaterTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedoDeepwater : null")
+		# Alt Torps
+		(var torpedoAltTTX:gfx = "torpedoesTTX ? torpedoesTTX.torpedoAlt : null")
+		# Reload
+		(var reload:number = "torpedoesTTX ? torpedoesTTX.reloadTime.value : null")
+
+		(var launchers:array = "torpedoesTTX ? torpedoesTTX.launchers : []")
+		(var numOfLaunchers:number = "launchers.length")
+
+		(var launcher1:gfx = "numOfLaunchers > 0 ? launchers[0] : null")
+		(var num1:str = "launcher1 ? subst('%dx%d', [launcher1.numGuns.value, launcher1.numBarrels.value]) : ''")
+		(var launcher2:gfx = "numOfLaunchers > 1 ? launchers[1] : null")
+		(var num2:str = "launcher2 ? subst(', %dx%d', [launcher2.numGuns.value, launcher2.numBarrels.value]) : ''")
+		(var launcher3:gfx = "numOfLaunchers > 2 ? launchers[2] : null")
+		(var num3:str = "launcher3 ? subst(', %dx%d', [launcher3.numGuns.value, launcher3.numBarrels.value]) : ''")
+		(var launcherNumText:str = "num1 + num2 + num3")
+	)
+
+	(class $TP_FullWidth)
+	
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_SHOT_DELAY'" _value="reload" _unit="'s'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_TORPEDO_GUN'" _text="launcherNumText" _userPrefsNum="_userPrefsNum")
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "torpedoTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_AMMO'
+			_torpedoAmmoTTX = "torpedoTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "torpedoDeepwaterTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_DEEPWATER_AMMO'
+			_torpedoAmmoTTX = "torpedoDeepwaterTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "torpedoAltTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_ALTERNATIVE_AMMO'
+			_torpedoAmmoTTX = "torpedoAltTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_TooltipTorpedoAmmoItem(_title:str, _torpedoAmmoTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var torpedoTTX:gfx = "_torpedoAmmoTTX ? _torpedoAmmoTTX.torpedo : null")
+		(var range:number = "_torpedoAmmoTTX ? _torpedoAmmoTTX.maxDist.value : 0")
+		(var damage:number = "_torpedoAmmoTTX ? _torpedoAmmoTTX.damage.value : 0")
+		(var visibility:number = "_torpedoAmmoTTX ? _torpedoAmmoTTX.visibility.value : 0")
+		(var speed:number = "_torpedoAmmoTTX ? _torpedoAmmoTTX.speed.value : 0")
+		(var canHitClasses:array = "_torpedoAmmoTTX && _torpedoAmmoTTX.canHitClasses ? _torpedoAmmoTTX.canHitClasses : null")
+	)
+
+	(class $TP_FullWidth)
+	(class $TP_TooltipSectionMargin)
+
+	(element TP_TooltipShipConfigTitleItem _title="_title" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+
+	(block
+		(class $TP_FullWidth)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_DIST'" _value="range" _unit="'km'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DAMAGE'" _value="damage" _roundDigit=0 _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_TORPEDO_VISIBILITY_DIST'" _value="visibility" _unit='km' _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_TORPEDO_SPEED'" _value="speed" _unit='km' _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		(controller $Instance renderer='TP_TooltipShipConfigClassIconsItem'
+			(bind enabled "canHitClasses && canHitClasses.length > 0")
+			(args _title="'IDS_SHIP_PARAM_TORPEDOES_AFFECTED_SHIPS'" _canHitClasses="canHitClasses" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+)
+
+(def element TP_TooltipTorpedoesGroupItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Submarine Torps
+		(var torpedoGroupsTTX:gfx = "_shipTTX.torpedoGroups")
+		# Normal Torps
+		(var subTorpedoTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedo : null")
+		# Deepwater Torps
+		(var subTorpedoDeepwaterTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedoDeepwater : null")
+		# Alt Torps
+		(var subTorpedoAltTTX:gfx = "torpedoGroupsTTX ? torpedoGroupsTTX.torpedoAlt : null")
+		# Forward Reload
+		(var torpdoBowReload:number = "(torpedoGroupsTTX && torpedoGroupsTTX.bowGroup) ? torpedoGroupsTTX.bowGroup.reloadTime.value : null")
+		(var torpdoBowLoaders:number = "(torpedoGroupsTTX && torpedoGroupsTTX.bowGroup) ? torpedoGroupsTTX.bowGroup.numLoaders.value : null")
+		# Stern Reload
+		(var torpdoSternReload:number = "(torpedoGroupsTTX && torpedoGroupsTTX.sternGroup) ? torpedoGroupsTTX.sternGroup.reloadTime.value : null")
+		(var torpdoSternLoaders:number = "(torpedoGroupsTTX && torpedoGroupsTTX.sternGroup) ? torpedoGroupsTTX.sternGroup.numLoaders.value : null")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_SHOT_DELAY'" _value="torpdoBowReload" _unit="'s'" _userPrefsNum="_userPrefsNum")
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "subTorpedoTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_AMMO'
+			_torpedoAmmoTTX = "subTorpedoTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "subTorpedoDeepwaterTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_DEEPWATER_AMMO'
+			_torpedoAmmoTTX = "subTorpedoDeepwaterTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+
+	(controller $Instance renderer='TP_TooltipTorpedoAmmoItem'
+		(bind enabled "subTorpedoAltTTX")
+		(args
+			_title			= 'IDS_SHIP_PARAM_TORPEDO_ALTERNATIVE_AMMO'
+			_torpedoAmmoTTX = "subTorpedoAltTTX"
+			_userPrefsNum	= "_userPrefsNum"
+		)
+	)
+)
+
+(def element TP_TooltipAirDefenseItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var airDefenseTTX:gfx = "_shipTTX.airDefense")
+
+		(var integralValue:number = "airDefenseTTX ? airDefenseTTX.integralValue.value : 0")
+		(var maxRange:number = "airDefenseTTX ? airDefenseTTX.averageAura.maxDist.value : null")
+		(var bubble:number = "(airDefenseTTX && airDefenseTTX.bubble)  ? airDefenseTTX.bubble.numBubbles.value : null")
+
+		(var auras:array = "airDefenseTTX ? airDefenseTTX.auras : []")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AIR_DEFENSE'" _value="integralValue" _roundDigit=0 _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_DIST'" _value="maxRange" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AA_EXPL_COUNT'" _value="bubble" _roundDigit=0 _userPrefsNum="_userPrefsNum")
+	)
+
+	(reverse
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(controller $Repeat renderer='TP_TooltipShipConfigTextItem'
+			(bind enabled "auras.length > 0")
+			(bind count "auras.length")
+			(args _title="'IDS_SHIP_PARAM_AA_AVERAGE_DAMAGE_' + toUpper(auras[$index].type)" _value="auras[$index].damage.value" _roundDigit=0 _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AA'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+	)
+)
+
+(def element TP_TooltipAirSupportItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# AirSupport
+		(var airSupportTTX:gfx = "_shipTTX.airSupport")
+		(var range:number = "airSupportTTX ? airSupportTTX.maxDist.value : null")
+		(var reload:number = "airSupportTTX ? airSupportTTX.reloadTime.value : null")
+		
+		(var bomberHE:gfx = "airSupportTTX ? airSupportTTX.bomberHE : null")
+		(var bomberAP:gfx = "airSupportTTX ? airSupportTTX.bomberAP : null")
+		(var bomberDC:gfx = "airSupportTTX ? airSupportTTX.bomberDC : null")
+
+		(var planesHE:number = "bomberHE ? bomberHE.chargesNum.value : 0")
+		(var planesAP:number = "bomberAP ? bomberAP.chargesNum.value : 0")
+		(var planesDC:number = "bomberDC ? bomberDC.chargesNum.value : 0")
+		(var numSquadrons:number = "max(planesHE, planesAP, planesDC)")
+
+		(var bombHE:gfx = "bomberHE ? bomberHE.bombHE : null")
+		(var bombAP:gfx = "bomberAP ? bomberAP.bombAP : null")
+		(var bombDC:gfx = "bomberDC ? bomberDC.bombDC : null")
+
+		(var damageHE:number = "bombHE ? bombHE.damage.value : null")
+		(var damageAP:number = "bombAP ? bombAP.damage.value : null")
+		(var damageDC:number = "bombDC ? bombDC.damage.value : null")
+
+		(var numBombsHE:number = "bombHE ? bombHE.numBombs.value : null")
+		(var numBombsAP:number = "bombAP ? bombAP.numBombs.value : null")
+		(var numBombsDC:number = "bombDC ? bombDC.numBombs.value : null")
+
+		(var piercingHE:number = "bombHE ? bombHE.piercing.value : null")
+		(var burnHE:number = "bombHE ? bombHE.burnChance.value * 100 : null")
+		(var burnDC:number = "bombDC ? bombDC.burnChance.value * 100 : null")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_DIST'" _value="range" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_SHOT_DELAY'" _value="reload" _unit="'s'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_NUM_SQUADRONS'" _value="numSquadrons" _roundDigit=0 _unit=null _userPrefsNum="_userPrefsNum")
+	)
+
+	(block $enabled="bomberHE"
+		(class $TP_FullWidth)
+
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_SQUADRONS_HE'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(block
+			(class $TP_FullWidth)
+			(class $TP_TooltipSectionMargin)
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DAMAGE'" _value="damageHE" _unit=null _roundDigit=0 _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_BOMB_PIERCING_HE'" _value="piercingHE" _roundDigit=0 _unit="'mm'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_BOMB_BURN_PROB_HE'" _value="burnHE" _roundDigit=1 _unit="'%'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+
+	(block $enabled="bomberDC"
+		(class $TP_FullWidth)
+
+		(element TP_TooltipShipConfigTitleItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_SQUADRONS_DEPTHCHARGE'" _indent="TP_TOOLTIP_INDENTS.SUB_HEADER")
+		(block
+			(class $TP_FullWidth)
+			(class $TP_TooltipSectionMargin)
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DAMAGE'" _value="damageDC" _unit=null _roundDigit=0 _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+			(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_AIR_SUPPORT_BOMB_BURN_PROB_HE'" _value="burnDC" _roundDigit=1 _unit="'%'" _indent="TP_TOOLTIP_INDENTS.SUB_TEXT" _userPrefsNum="_userPrefsNum")
+		)
+	)
+)
+
+(def element TP_TooltipDepthChargeItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# AirSupport
+		(var depthChargesTTX:gfx = "_shipTTX.depthCharges")
+		(var numCharges:number = "depthChargesTTX ? depthChargesTTX.numCharges.value : null")
+		(var numBombs:number = "depthChargesTTX ? depthChargesTTX.numBombs.value : null")
+		(var reload:number = "depthChargesTTX ? depthChargesTTX.reloadTime.value : null")
+		(var damage:number = "depthChargesTTX ? depthChargesTTX.damage.value : null")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_SHOT_DELAY'" _value="reload" _unit="'s'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DAMAGE'" _value="damage" _unit=null _roundDigit=0 _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DEPTH_CHARGE_MAX_PACKS'" _value="numCharges" _roundDigit=0 _unit=null _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_DEPTH_CHARGE_NUM_BOMBS_IN_PACK'" _value="numBombs" _roundDigit=0 _unit=null _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipSurfaceMobilityItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Surface Speed
+		(var mobilityTTX:gfx = "_shipTTX.mobility")
+		(var surfaceSpeed:number = "mobilityTTX ? mobilityTTX.speed.value : null")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAXSPEED'" _value="surfaceSpeed" _unit="'kts'" _userPrefsNum="_userPrefsNum")			
+	)
+)
+
+(def element TP_TooltipUnderwaterMobilityItem(_shipTTX:gfx, _userPrefsNum:gfx=null)
+	(scope
+		# Underwater Speed
+		(var underwaterMobilityTTX:gfx = "_shipTTX.underwaterMobility")
+		(var underwaterSpeed:number = "underwaterMobilityTTX ? underwaterMobilityTTX.speed.value : null")
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_MAX_SPEED_UNDER_WATER'" _value="underwaterSpeed" _unit="'kts'" _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipVisibilityItem(_shipTTX:gfx, _markerEntity:gfx, _isRealParams:bool, _userPrefsNum:gfx=null)
+	(scope
+		# Fix for Skill---------------------
+		(var avatarComponent:gfx = "_markerEntity ? _markerEntity.avatar : null")
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+
+		# shipId -> ownShip (ship in port) -> crewId (crew on board) -> crewSkill (check crew has skill)
+		(var isSelf:bool = "selfPlayer ? selfPlayer.avatar.id == avatarComponent.id : false")
+		(var shipId:number = "avatarComponent ? avatarComponent.ship.ref.ship.id : null" (event "avatarComponent.evShipRefChanged"))
+		(var shipType:str = "avatarComponent ? avatarComponent.shipType : null" (event "avatarComponent.evShipTypeChanged"))
+		(var ownShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ownShip, shipId)")
+
+		(var skillId:number = "shipType in TP_CONCEALMENT_SKILL_ID ? TP_CONCEALMENT_SKILL_ID[shipType] : null")
+		(var skillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.skill, skillId, shipType, TP_CONCEALMENT_CREW_ID)")
+		
+		(var crewId:number = "ownShipEntity ? ownShipEntity.ownShip.crewId : null" (event "ownShipEntity.ownShip.evCrewChanged"))
+		(var crewSkillEntity:gfx = "$datahub.getPrimaryCompositeEntity(CC.crewSkill, crewId, skillEntity.id)")
+		# (crewId, skill) -> rutrns crewSkill if the crew is onboard and has skill
+
+		(var isCorrectionNeeded:bool = "!(crewSkillEntity || isSelf || _isRealParams)")
+
+		(var modifiers:dict = "skillEntity ? skillEntity.attributes.modifiers : null")
+		(var visibilityModifier:number = "isCorrectionNeeded && modifiers ? (1 + modifiers.visibilityDistCoeff * 0.01) : 1.0") # Value is negative and %
+		# ---------------------
+
+		(var visibilityTTX:gfx = "_shipTTX.visibility")
+		(var visibilityByShip:number = "visibilityTTX ? visibilityTTX.visibilityByShip.normal.value : null") # CAPTAIN SKILL FIX
+		(var visibilityByPlane:number = "visibilityTTX ? visibilityTTX.visibilityByPlane.normal.value : null") # CAPTAIN SKILL FIX
+		(var visibilityByShipSmoke:number = "visibilityTTX ? visibilityTTX.visibilityByShip.smoke.value : null")
+
+		# Fix ------------------
+		(var modifiedVisibilityByShip:number = "visibilityByShip * visibilityModifier") # CAPTAIN SKILL FIX
+		(var modifiedVisibilityByPlane:number = "visibilityByPlane * visibilityModifier") # CAPTAIN SKILL FIX
+		# ---------------------
+	)
+
+	(class $TP_FullWidth)
+
+	(block
+		(class $TP_FullWidth)
+		(class $TP_TooltipSectionMargin)
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_VISIBILITY_DIST_BY_SHIP'" _value="modifiedVisibilityByShip" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_VISIBILITY_DIST_BY_GK_IN_SMOKE_BATTLE'" _value="visibilityByShipSmoke" _unit="'km'" _userPrefsNum="_userPrefsNum")
+		(element TP_TooltipShipConfigTextItem _title="'IDS_SHIP_PARAM_VISIBILITY_DIST_BY_PLANE'" _value="modifiedVisibilityByPlane" _unit="'km'" _userPrefsNum="_userPrefsNum")
+	)
+)
+
+(def element TP_TooltipConsumableItem(_shipBattleInfo:gfx, _userPrefsNum:gfx=null)
+	(scope
+		(var mainConsumables:array = "_shipBattleInfo.mainConsumables")
+		(var altConsumables:array = "_shipBattleInfo.altConsumables")
+	)
+	(style
+		(width = 100%)
+	)
+	(element ShipInfoConsumables
+		_title = "altConsumables.length > 0 ? 'IDS_SHIP_INFO_MAIN_CONSUMABLES_OPTIONAL' : 'IDS_SHIP_INFO_MAIN_CONSUMABLES'"
+		_items = "mainConsumables"
+		_extraItems = "altConsumables"
+		_iconSize = "45"
+		_isSimple = true
+		(bind visible "mainConsumables.length != 0 || altConsumables.length != 0")
+	)
+)
+
+(def element TP_TooltipShipConfigTitleItem (_title:str, _indent:number="TP_TOOLTIP_INDENTS.HEADER", _userPrefsNum:gfx=null)
+	(scope
+		(var isTopLevel:bool = "_indent == TP_TOOLTIP_INDENTS.HEADER")
+		(var className:str = "isTopLevel ? '$TextDefaultBold17NM' : '$TextDefaultBoldNM'")
+		(var divider:str = "isTopLevel ? 'HorizontalDividerTwoPx' : 'HorizontalDivider'")
+	)
+
+	(bind visible "_title")
+
+	(style
+		(width = 100%)
+		(marginBottom = 5px)
+		(bind paddingLeft "_indent")
+		(flow = "Flow.HORIZONTAL")
+		(align = "middle|center")
+	)
+
+	(tf
+		(bind class "className")
+		(bind text "_title")
+		(style
+			(marginRight = 8px)
+		)
+	)
+
+	(controller $Instance
+		(bind renderer "divider")
+	)
+)
+
+(def element TP_TooltipShipConfigTextItem (_title:str, _value:number=null, _text:str=null, _unit:str=null, _roundDigit:number="1", _indent:number="TP_TOOLTIP_INDENTS.TEXT", _userPrefsNum:gfx=null)
+	(scope
+		(var isValueVisible:bool = "_value || _text")
+	)
+
+	(bind visible "isValueVisible")
+
+	(style
+		(width = 100%)
+		(flow = "Flow.HORIZONTAL")
+		(marginBottom = 2px)
+		(marginTop = 2px)
+		(align = "middle")
+	)
+
+	(hblock
+		(style
+			(align = "middle")
+			(width = 85%)
+			(bind paddingLeft "_indent")
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(text = '•')
+			(style
+				(marginRight = 5px)
+			)
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(bind text "tr(_title) + ':'")
+			(style
+				(width = 100%)
+				(leading = -5)
+			)
+		)
+	)
+	(hblock
+		(style
+			(width = 15%)
+			(align = "middle|right")
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(bind text "_value ? formatFloatingPoint(_value, _roundDigit) : _text")
+		)
+		(tf
+			(bind visible "_unit")
+			(class $TP_TooltipShipParameterText)
+			(bind text "_unit")
+			(alpha = "TC")
+			(style
+				(marginLeft = "XS")
+			)
+		)
+	)
+)
+
+(def element TP_TooltipShipConfigClassIconsItem (_title:str, _canHitClasses:array, _indent:number="TP_TOOLTIP_INDENTS.TEXT", _userPrefsNum:gfx=null)
+	(scope
+		(var length:number = "_canHitClasses ? _canHitClasses.length : 0")
+		(var isValueVisible:bool = "length")
+		(var substMap:dict = "{
+			'AirCarrier'	: 'url:../battle_hud/markers/ship/icon_white_aircarrier.png',
+			'Battleship'	: 'url:../battle_hud/markers/ship/icon_white_battleship.png',
+			'Cruiser'		: 'url:../battle_hud/markers/ship/icon_white_cruiser.png',
+			'Destroyer'	: 'url:../battle_hud/markers/ship/icon_white_destroyer.png',
+			'Submarine'	: 'url:../battle_hud/markers/ship/icon_white_submarine.png',
+			'Auxiliary'	: 'url:../battle_hud/markers/ship/icon_white_auxiliary.png'
+		}")
+		(var baseText:str = "'[%s]'")
+		(var sourceText:str = "
+			(length >= 1 ? _canHitClasses[0] : '') + 
+			(length >= 2 ? _canHitClasses[1] : '') + 
+			(length >= 3 ? _canHitClasses[2] : '') + 
+			(length >= 4 ? _canHitClasses[3] : '') +
+			(length >= 5 ? _canHitClasses[4] : '') + 
+			(length >= 6 ? _canHitClasses[5] : '')
+		")
+		# It can be repeat+tf instead, but I guess concatanating str is better than creating 6 tfs
+		# Not that it affects anything tho
+	)
+
+	(bind visible "isValueVisible")
+
+	(style
+		(width = 100%)
+		(flow = "Flow.HORIZONTAL")
+		(marginBottom = 2px)
+		(marginTop = 2px)
+		(align = "middle")
+	)
+
+	(hblock
+		(style
+			(align = "middle")
+			(width = 85%)
+			(bind paddingLeft "_indent")
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(text = '•')
+			(style
+				(marginRight = 5px)
+			)
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(bind text "tr(_title) + ':'")
+			(style
+				(width = 100%)
+				(leading = -5)
+			)
+		)
+	)
+	(hblock
+		(style
+			(width = 15%)
+			(align = "middle|right")
+			(height = 100%)
+		)
+		(tf
+			(class $TP_TooltipShipParameterText)
+			(style
+				(letterSpacing = -4px)
+			)
+			(bindcall substitute
+				imageOffset=5
+				substitutionMap="substMap"
+				sourceText="sourceText"
+				init=true
+			)
+		)
+	)
+)
+
+#--------------------------------------------------------------------------------
+# Macros
+#--------------------------------------------------------------------------------
+
+(def macro TP_GET_DISPLAY_MODE (_varName:expression, _prefValue:expression)
+	(var name="_varName" type=bool value="_prefValue == TP_DISPLAY_MODES.ADAPTIVE ? altVision : _prefValue")
+)
+
+(def macro TP_GET_ISAFK (_markerEntity:expression)
+	# Returns isAFK:bool
+	(macro IS_SPECTATOR_MODE)
+	(macro TP_GET_MARKER_DATA)
+	(var isBot:bool = "avatarComponent ? avatarComponent.isBot : true")
+	(var isLoadedInBattle:bool = "avatarComponent ? avatarComponent.isLoadedInBattle : true" (event "avatarComponent.evIsLoadedInBattleChanged"))
+	(var isAFK:bool = "isAlive && !isSpectatorTrainingMode && !isSelf && !isBot && !isLoadedInBattle")
+)
+
+(def macro TP_TOOLTIP_BEHAVIOUR (_isAlly:expression = false)
+	(bindcall show animation = {
+			duration: 0.3,
+			delay	: 0.1,
+			easing	: "Easing.cubic_out",
+			from	: { alpha: 0, top: 5 },
+			to		: { alpha: 1, top: 0 }
+		}
+		(event "evPlayerItemMouseOver")
+	)
+
+	(bindcall hide animation = {
+			duration: 0.05,
+			delay	: 0,
+			easing	: "Easing.cubic_out",
+			from	: { alpha: 1, top: 0 },
+			to		: { alpha: 0, top: -5}
+		}
+		(event "evPlayerItemMouseOut")
+	)
+
+	(offset = {	x: 35, y: 15})
+
+	(bind screenBoundsOffset "{	left:	_isAlly ? elemWidth : 10,
+								top:	10,
+								right:	_isAlly ? 10 : elemWidth,
+								bottom:	10 }")
+	
+	(priority = 0)
+
+	(bind align "_isAlly ? right|middle : left|middle")
+	(position = "absolute")
+)
+
+(def macro TP_BIND_BLURINTENSITY(_blurIntensity:expression="0.3")
+	(controller $Animation
+		(bindcall play  duration="0.0001"
+						to	 = "{ blurIntensity: _blurIntensity }"
+						watch=false
+						init=true
+						(bind trigger "_blurIntensity")
+		)
+	)
+)
+
+(def macro TP_GET_MARKER_DATA ()
+	# Require `_markerEntity:gfx` in the scope
+	(macro GET_MARKER_ENTITY_COMPONENT 'avatar')
+	(macro GET_MARKER_ENTITY_COMPONENT 'divisionMember')
+	(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+	(macro GET_MARKER_ENTITY_COMPONENT 'health')
+	(var subType:str = "avatarComponent ? avatarComponent.shipType : ''" (event "avatarComponent.evShipTypeChanged"))
+	(var shipType:str = "toLower(subType)")
+	(var isSelf:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.SELF" (event "relationComponent.evChanged"))
+	(var isAlly:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.ALLY" (event "relationComponent.evChanged"))
+	(var isEnemy:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.ENEMY" (event "relationComponent.evChanged"))
+	(var isAlive:bool = "healthComponent && healthComponent.isAlive" (event "healthComponent.evIsAliveChanged"))
+	(var tkStatus:bool = "avatarComponent && avatarComponent.tkStatus" (event "avatarComponent.evTeamkillStatusChanged"))
+	(var isInSameDivision:bool = "divisionMemberComponent && divisionMemberComponent.isInSameDivision" (event "divisionMemberComponent.evDivisionChanged"))
+	(var isGolden:bool = "isInSameDivision || isSelf")
+)

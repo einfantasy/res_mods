@@ -1,0 +1,229 @@
+(def constant MSV_MODULE_STATE {
+	NORMAL		: 0,
+	DAMAGED		: 1,
+	CRITICAL	: 2,
+	DESTROYED	: 3,
+	DETONATED	: 4,
+	IDLE		: 10,
+
+	CRITICAL_STATES	: [2, 3, 10],
+	TIMED_STATES	: [2, 3, 10]
+})
+
+(def constant MSV_MODULE_MARKER_SETTINGS {
+	'1': {size: 24px, icon: 'main_caliber'},
+	'2': {size: 16px, icon: 'atba_gun'},
+	'9': {size: 24px, icon: 'torpedo_tube'}
+})
+
+(def element ModuleStateViewer () layout=true
+	(scope
+		# Camera and data component
+		(var entityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modModuleStateViewer')")
+		(var entity:gfx = "entityWatcher.entity" (event "entityWatcher.event"))
+		(var dataComponent:gfx = "entity ? entity.mods_DataComponent : null")
+		(var entityIds:array = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
+
+		(var counts:number = "entityIds ? entityIds.length : 0")
+	)
+
+	(block
+		(controller $Repeat renderer='MSV_ModuleViewer'
+			(bind enabled "counts")
+			(bind count "counts")
+			(args
+				_entityId="entityIds[$index]"
+			)
+		)
+	)
+)
+
+(def element MSV_ModuleViewer(_entityId:number) layout=true
+	(scope
+		(event evPositionUpdate)
+		(var _markerEntity:gfx = "$datahub.getEntity(_entityId)")
+
+		# Data
+		(var dataComponent:gfx = "_markerEntity && _markerEntity.hasComponent(CC.mods_DataComponent) ? _markerEntity.mods_DataComponent : null" (event "_markerEntity.evAdded")(event "_markerEntity.evRemoved"))
+		(var moduleData:dict = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
+		(var state:number = "'state' in moduleData ? moduleData.state : -1")
+		(var isTimerActive:bool = "isIn(state, MSV_MODULE_STATE.TIMED_STATES)")
+
+		# zIndex
+		(macro GET_MARKER_ENTITY_COMPONENT 'dataComponent')
+		(var zIndex:number = "dataComponentComponent && null != dataComponentComponent.data ? dataComponentComponent.data.zIndex : 0" (event "dataComponentComponent.evDataChanged"))
+
+		# Distance
+		(macro GET_MARKER_ENTITY_COMPONENT 'distance')
+		(var distanceIndex:number = "distanceComponent ? distanceComponent.distanceIndex : -1" (event "distanceComponent.evDistanceIndexChanged"))
+		(var isCloseToCamera:bool = "distanceIndex == DistanceType.NEAR")
+
+		# Screen Pos
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera.altVision" (event "camera.evAltVisionChanged"))
+
+		(var isValidMarker:bool = "_markerEntity && (altVision || isTimerActive)")
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'screenPosition')
+		(var posX:number = "screenPositionComponent ? screenPositionComponent.position.x : 0" (event "evPositionUpdate"))
+		(var posY:number = "screenPositionComponent ? screenPositionComponent.position.y : 0" (event "evPositionUpdate"))
+		(var isBehindCamera:bool = "screenPositionComponent && screenPositionComponent.behindCamera" (event "evEnterFrame"))
+
+		(var isUpdateEnabled:bool = "isValidMarker && !isBehindCamera")
+
+		(macro GET_MARKER_ENTITY_COMPONENT 'submarineScreenPosition')
+		(var realPosY:number = "submarineScreenPositionComponent	? submarineScreenPositionComponent.position.y
+																	: 0"
+			(event "evPositionUpdate")
+		)
+		(var posDiffY:number = "submarineScreenPositionComponent ? (realPosY - posY) : 0")
+	)
+
+	(dispatch evPositionUpdate args={} (bind enabled "isUpdateEnabled") (event "evEnterFrame"))
+
+	(bind visible "isUpdateEnabled")
+
+	(style
+		(bind left "posX")
+		(bind top "posY")
+		(position = "absolute")
+		(align = "center|bottom")
+		(bind zindex "zIndex")
+	)
+
+	(element MSV_ModuleItem
+		_moduleData		 = "moduleData"
+		_isCloseToCamera = "isCloseToCamera"
+		_heightOffset	 = "posDiffY"
+	)
+)
+
+(def element MSV_ModuleItem(_moduleData:dict, _isCloseToCamera:bool, _heightOffset:number=0) layout=true
+	(scope
+		# Timer
+		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+
+		# vars
+		(var type:number = "'type' in _moduleData ? _moduleData.type : -1")
+		(var state:number = "'state' in _moduleData ? _moduleData.state : -1")
+		(var critTimer:number = "'critTimer' in _moduleData ? _moduleData.critTimer : 0")
+		(var currentHP:number = "'currentHP' in _moduleData ? _moduleData.currentHP : -1")
+		(var maxHP:number = "'maxHP' in _moduleData ? _moduleData.maxHP : -1")
+
+		(var isNormal:bool = "state == MSV_MODULE_STATE.NORMAL")
+		(var isDamaged:bool = "state == MSV_MODULE_STATE.DAMAGED") # ???
+		(var isDestroyed:bool = "state == MSV_MODULE_STATE.DESTROYED")
+		(var isCrit:bool = "isIn(state, MSV_MODULE_STATE.CRITICAL_STATES)")
+		(var isTimerActive:bool = "isIn(state, MSV_MODULE_STATE.TIMED_STATES)")
+
+		(var isATBA:bool = "type == 2")
+
+		# Crit
+		(var critTimeLeft:number = "isTimerActive ? critTimer - timer.currentTime : 0" (event "timer.evFrequent"))
+		(var critTimeLeftStr:str = "isTimerActive ? countdownFormat(critTimeLeft) : ' '")
+
+		# 0: Normal, 1: Damaged, 2: Critical, 3: Destroyed, 4: Detonated, 10: Idle
+		(var stateColor:number = "	isNormal	? SC.Ui_styles.SERVICE_COLORS.WHITE :
+									isDamaged	? SC.Ui_styles.SERVICE_COLORS.GREEN :
+									isDestroyed ? 0xFF646464 :
+									isCrit		? SC.Ui_styles.SERVICE_COLORS.DARK_RED
+												: SC.Ui_styles.SERVICE_COLORS.ORANGE
+		")
+		(var hpPercent:number = "currentHP / maxHP")
+		(var healthColor:number = "	hpPercent > 0.8 ? 0xffffff :
+									hpPercent > 0.3 ? 0xffb600
+													: 0xff4b1d
+		")
+		(var isTextVisible:bool = "_isCloseToCamera")
+
+		# HP
+		(var currentHPText:str = "formatFloatingPoint(currentHP, 0)")
+
+		(var typeStr:str = "toString(type)")
+		(var markerSettings:dict = "typeStr in MSV_MODULE_MARKER_SETTINGS ? MSV_MODULE_MARKER_SETTINGS[typeStr] : null")
+		(var iconType:str = "markerSettings ? markerSettings.icon : ''")
+		(var iconSize:number = "_isCloseToCamera ? markerSettings ? markerSettings.size
+												 				  : 24px
+												 : 5px
+		")
+		(var iconState:str = "	isDestroyed ? 'dead' :
+								isCrit		? 'crit'
+											: 'normal'
+		")
+		(var iconPath:str = "_isCloseToCamera	? 'url:../ttaro_module_state_viewer/' + iconType +'_' + iconState + '.png'
+												: 'url:../battle_hud/markers/torpedoes/icon_torpedo_not_dangerous_enemy.png'
+		")
+		(var isVisible:bool = "(_isCloseToCamera || !isNormal) && !(isATBA && isNormal && hpPercent == 1)")
+	)
+
+	(bind visible "isVisible")
+
+	(style
+		(align = "center|middle")
+		(marginLeft = -50%)
+		(marginTop = -50%)
+	)
+
+	# Crit Timer
+	(block
+		(controller $Instance
+			(renderer = 'MSV_ModuleViewerTextItem')
+			(bind enabled "isTextVisible")
+			(args
+				_value	= "critTimeLeftStr"
+				_color	= "stateColor"
+				_isBold	= "!isATBA"
+			)
+		)
+	)
+	# Icon
+	(block
+		(style
+			(bind width "iconSize")
+			(bind height "iconSize")
+			(bind backgroundImage "iconPath")
+			(backgroundSize = "fill")
+			(pivotX = 50%)
+			(pivotY = 50%)
+		)
+	)
+	# HP
+	(block
+		(controller $Instance
+			(renderer = 'MSV_ModuleViewerTextItem')
+			(bind enabled "isTextVisible")
+			(args
+				_value	= "currentHPText"
+				_color	= "healthColor"
+				_isBold	= "!isATBA"
+			)
+		)
+	)
+	# Line
+	(block
+		(bind visible "_heightOffset")
+		(style
+			(width = 1px)
+			(scaleY = -1.0)
+			(pivotY = 50%)
+			(bind height "_heightOffset")
+			(backgroundImage = "'url:../battle_hud/markers/submarine/fill_submarine_depth_info.png'")
+			(backgroundSize = "fill")
+			(scale9grid = [0, 0, 32, 64])
+		)
+	)
+)
+
+(def element MSV_ModuleViewerTextItem (_value:str, _color:number, _isBold:bool) layout=true
+	(class $WorldMarkerItemMargins)
+	(tf
+		(class $WorldMarkerTextItem)
+		(style
+			(noTranslate = "false")
+			(bind textColor "_color")
+			(bind fontSize "_isBold ? 13 : 9")
+			(bind fontFamily "_isBold ? '$WWSDefaultFontBold' : '$WWSDefaultFont'")
+		)
+		(bind text "_value")
+	)
+)

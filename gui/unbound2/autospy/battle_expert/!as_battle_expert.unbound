@@ -1,0 +1,711 @@
+#
+# Battle Expert by AutoSpy
+#
+
+# Settings
+# Настройки
+(def constant MOD_BE_SETTINGS {
+	# position offset X/Y
+	# сдвиг позиции по Х и Y
+	positionXOffset: 0,
+	positionYOffset: 146,
+	# position offset Y of capture indicator
+	# сдвиг позиции прогресса захвата точки по Y
+	captureIndicatorYOffset: 105,
+	# cross lines length from center, 0 - disable
+	# размер перекрестия в центре основного круга, 0 - отключить
+	crossSize: 0,
+	# font size for relative angle text
+	# размер шрифта значений углов
+	fontSize: 13,
+	# show mod always (w/o target)
+	# всегда отображать мод (без захваченной цели)
+	alwaysShowMod: true,
+
+	# own ship doll settings:
+	# настройки куклы своего корабля:
+	# masked by main range
+	# обрезать куклу
+	ownShipDollMasked: false,
+	# colored own ship doll with armor penetration colors
+	# закрашивать куклу цветами шанса бронепробития (см. корабельную вики)
+	ownShipDollColored: true,
+	# show relative angle on own ship doll
+	# отображать угол расположения своего корабля относительно цели
+	ownShipDollAngleEnabled: true,
+	# show guns markers on own ship doll
+	# отображать маркеры орудий
+	ownShipDollGunsEnabled: true,
+	# show guns rotator markers
+	# отображать маркеры наведения орудий
+	ownShipDollGunsRotatorEnabled: true,
+	# camera direction clip
+	# отображать сектор направления камеры
+	ownShipDollCameraEnabled: true,
+
+	# target ship doll settings:
+	# настройки куклы цели:
+	# colored ship doll with armor penetration colors
+	# закрашивать куклу цветами шанса бронепробития (см. корабельную вики)
+	targetShipDollColored: true,
+	# show relative angle on ship doll
+	# отображать угол расположения цели относительно своего корабля
+	targetShipDollAngleEnabled: true,
+	# enable motion indicator
+	# включить (true)/отключить (false) индикатор направления движения цели ("светофор"):
+	motionIndicatorEnabled: true,
+	# colors for motion type [stop, forward, backward]
+	# цвета "светофора" [стоп, вперед, назад]
+	motionColors: [0xFFFF00, 0x50FF50, 0xFF5050],
+	# motion indicator alpha
+	# прозрачность светофора
+	motionIndicatorAlpha: 0.6,
+
+
+	# Внимание. Не рекомендуется менять параметры после этой строки
+	# ATTENTION. It is not recommended to change the parameters below
+	mainRadius: 60,
+	scale: 0.85
+})
+
+##################################
+# !!! Остальной код не изменяйте #
+# !!! Do not edit code below     #
+##################################
+
+(def constant MOD_BE_TRANSFORM_COLORS {
+	GREEN:          { redMultiplier:0,greenMultiplier:0,blueMultiplier:0,alphaMultiplier:1,redOffset:0,greenOffset:255,blueOffset:0,alphaOffset:0 },
+	YELLOW:         { redMultiplier:1,greenMultiplier:1,blueMultiplier:1,alphaMultiplier:1,redOffset:255,greenOffset:-10,blueOffset:-255,alphaOffset:0 },
+	RED:            { redMultiplier:0,greenMultiplier:0,blueMultiplier:0,alphaMultiplier:1,redOffset:255,greenOffset:0,blueOffset:0,alphaOffset:0 }
+})
+
+(def macro MOD_BE_MASK_RANGE (enabled:expression=true)
+	(block
+		(controller $Sector
+			(arc=360)
+			(bind radius "MOD_BE_SETTINGS.mainRadius + 1")
+		)
+
+		(bind isMask "enabled")
+	)
+)
+
+(def macro MOD_BE_SCALE_STYLE ()
+	(style (scaleX = "MOD_BE_SETTINGS.scale") (scaleY = "MOD_BE_SETTINGS.scale"))
+)
+
+
+(def css $AS_BETextBold ()
+	(fontFamily='$WWSDefaultFontBold')
+	(extends $FontSizeDefault)
+	(extends $FontColorWhite)
+	(filters
+		(dropShadow
+			(distance=1)
+			(angle=90)
+			(color=0x000000)
+			(alpha=0.8)
+			(blurX=3.0)
+			(blurY=3.0)
+			(strength=1.5)
+			(quality=1)
+		)
+	)
+)
+
+# orig gui\unbound2\pc\battle\battle_stats_indicators\battle_stats_own_progress.unbound
+(def element ZonesCapturingIndicatorContainer () layout=true
+	(scope
+		(var selfInvadingCapturePoints:gfx = "$datahub.getCollection(CC.capturePoint).getChildByPath('selfInvading')")
+		(var capturePointsList:gfx = "selfInvadingCapturePoints.items" (event "selfInvadingCapturePoints.evAdded") (event "selfInvadingCapturePoints.evRemoved") (event "selfInvadingCapturePoints.evUpdated"))
+
+		(var dropZonesCollection:gfx = "$datahub.getCollection(CC.interactiveZone).getChildByPath('playerInside.dropZones')")
+		(var dropZonesList:gfx = "dropZonesCollection.items" (event "dropZonesCollection.evAdded") (event "dropZonesCollection.evRemoved"))
+
+		(var airshipZonesCollection:gfx = "$datahub.getCollection(CC.payload).getChildByPath('byRelation.hasSelfPlayerInZone')")
+		(var airshipZonesList:gfx = "airshipZonesCollection ? airshipZonesCollection.items : null" (event "airshipZonesCollection.evAdded") (event "airshipZonesCollection.evRemoved"))	
+		(var hasAirshipZones:bool = "airshipZonesList ? airshipZonesList.length : false")
+
+		(var interactiveZonesCollection:gfx = "$datahub.getCollection(CC.interactiveZone).getChildByPath('playerInside.rescueZones')")
+		(var interactiveZonesList:gfx = "interactiveZonesCollection.items" (event "interactiveZonesCollection.evAdded") (event "interactiveZonesCollection.evRemoved"))
+
+		(var consumableZonesCollection:gfx = "$datahub.getCollection(CC.interactiveZone).getChildByPath('playerInside.consumablePrep')")
+		(var consumableZonesList:gfx = "consumableZonesCollection.items" (event "consumableZonesCollection.evAdded") (event "consumableZonesCollection.evRemoved"))
+
+		(var isAnimated:bool = "capturePointsList.length || dropZonesList.length || airshipZonesList.length || interactiveZonesList.length || consumableZonesList.length")
+	)
+
+	(style
+        (position = "absolute")
+        (width=100%)
+        (align = "center")
+        (flow = "horizontal")
+        (bind top "MOD_BE_SETTINGS.captureIndicatorYOffset")
+	)
+
+	(hblock
+		(controller $Repeat renderer='CapturePointCapturingIndicator'
+			(bind count "capturePointsList.length")
+			(args
+				_pointCapturedByMe = "capturePointsList[$index]"
+			)
+		)
+	)
+
+	(hblock
+		(controller $Repeat renderer='DropZoneCapturingIndicator'
+			(bind count "dropZonesList.length")
+			(args
+				_dropZoneCapturedByMe = "dropZonesList[$index]"
+			)
+		)
+	)
+
+	(hblock
+		(controller $Repeat renderer='RescueZoneCapturingIndicator'
+			(bind count "interactiveZonesList.length")
+			(args 
+				_zoneCapturedByMe = "interactiveZonesList[$index]"
+			)
+		)
+	)
+
+	(hblock
+		(bind visible "hasAirshipZones")
+		(controller $Repeat renderer='AirshipZoneCapturingIndicator'
+			(bind count "airshipZonesCollection ? airshipZonesCollection.items.length : 0")
+			(bindcall removeChildAt "$event[1]" (event "airshipZonesCollection.evRemoved"))
+			(bindcall addChildAt "$event[1]" (event "airshipZonesCollection.evAdded"))
+			(args "airshipZonesCollection")
+		)
+	)
+
+	(hblock
+		(controller $Repeat renderer='ConsumablePreparationIndicator'
+			(bind count "consumableZonesList.length")
+			(args 
+				_consumablePrepEntity = "consumableZonesList[$index]"
+			)
+		)
+	)
+
+	(element IndividualProgressContainer)
+
+	(controller $Animation
+		(bindcall play to={alpha:1} from={alpha:0} duration=0.3 easing="Easing.quint_in" (bind enabled "isAnimated"))
+	)
+)
+
+# orig gui\unbound2\pc\battle\central_dangers.unbound
+(def element DangerItemContainer (_collectionPath:str) layout=true
+	(scope
+		(var dangersCollection:gfx = "_collectionPath ? $datahub.getCollection(CC.visibleDanger).getChildByPath(_collectionPath) : null")
+
+		(var avatarEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var healthComponent:gfx = "avatarEntity.health")
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+		(var shipType:str = "avatarEntity.avatar.ship.ref.ship.subtype")
+		(var isAircarrier:bool = "shipType == ShipTypes.AIRCARRIER")
+		(var camera:gfx = "$datahub.getSingleEntity(CC.camera).camera")
+		(var isTacticalCam:bool = "camera.isTactical" (event "camera.evTacticalStateChanged"))
+	)
+
+	(class $FullsizeAbsolute)
+
+	(controller $Instance renderer='AS_BattleExpert'
+		(bind enabled "isAlive && !isAircarrier && !isTacticalCam")
+	)
+	(block
+		(class $FullsizeAbsolute)
+		(controller $FxInstance lifetime="DANGER_HIDE_DURATION"
+			(renderer = 'DangerItem')
+			(args _entityId="$event[0].id" _hideAnim=true)
+			(bindcall create (event "dangersCollection.evRemoved"))
+		)
+	)
+
+	(controller $Repeat renderer='DangerItem' layout=false
+		(bind count "dangersCollection.items.length" watch=false (event "dangersCollection.evAdded") (bind trigger "dangersCollection"))
+		(bindcall removeChildAt "$event[1]" (event "dangersCollection.evRemoved"))
+		(args "dangersCollection.items[$index].id")
+	)
+)
+
+(def element AS_BattleExpert () layout=true
+	(macro XNG_SCOPE)
+	(macro XNG_TARGET_TRACKER enemies = "enemies" targetId = "currentTarget ? currentTarget.id : 0")
+	(bindcall externalCall 'inputMapping.onAction' "['createParamsForAllShipsInBattle', {}]" on='addedToStage')
+
+	(scope
+		(event evTargetChanged)
+		(var targetEntityId:number = "currentTarget.id" watch=false init=false (event "evTargetChanged"))
+
+		(var targetEntity:gfx = "$datahub.getEntity(targetEntityId)")
+		(var targetEntityComponent:gfx = "targetEntity.target" (event "targetEntity.evAdded") (event "targetEntity.evRemoved"))
+		(var targetFlags:number = "targetEntityComponent ? targetEntityComponent.flags : 0" (event "targetEntityComponent.evChanged") (event "targetEntityComponent.evFlagsChanged"))
+		(var isTargetLocked:bool = "(targetFlags & LOCKABLE_WEAPONS) > 0")
+		(var targetIsAlive:bool = "targetEntity && targetEntity.hasComponent(CC.health) && targetEntity.health.isAlive" (event "targetEntity.health.evIsAliveChanged"))
+
+		(var enabled:bool = "isTargetLocked && targetIsAlive" watch=false init=false (event "evTargetChanged"))
+
+		(var targetMapPosition:gfx = "targetEntity.mapPosition")
+		(var targetYaw:number = "radToGrad(targetMapPosition.yaw) ? radToGrad(targetMapPosition.yaw) : 0" (event "evEnterFrame"))
+
+		(var targetWorldVisible:bool = "targetEntity && targetEntity.hasComponent(CC.visibility) && targetEntity.visibility.visible" (event "targetEntity.visibility.evChanged"))
+		(var targetMapVisible:bool = "targetEntity && targetEntity.hasComponent(CC.visibility) && targetEntity.visibility.mapVisible" (event "targetEntity.visibility.evChanged"))
+		(var targetVisible:bool = "targetWorldVisible && targetMapVisible" (event "targetEntity.visibility.evChanged"))
+
+		(var targetPosition:gfx = "targetMapPosition.position")
+		(var targetPosX:number = "targetPosition.x" (event "evEnterFrame"))
+		(var targetPosY:number = "targetPosition.y" (event "evEnterFrame"))
+
+		(var avatarEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+
+		(var mapPosition:gfx = "avatarEntity.mapPosition")
+		(var yaw:number = "radToGrad(mapPosition.yaw)" (event "evEnterFrame"))
+
+		(var position:gfx = "mapPosition.position")
+		(var posX:number = "position.x" (event "evEnterFrame"))
+		(var posY:number = "position.y" (event "evEnterFrame"))
+
+		(var __deltaX:number = "targetPosX - posX")
+		(var deltaX:number = "__deltaX ? __deltaX : 0")
+		(var __deltaY:number = "targetPosY - posY")
+		(var deltaY:number = "__deltaY ? __deltaY : 0")
+
+		(var __angle:number = "round(180 + yaw + radToGrad(atan2(deltaX, deltaY)))")
+		(var angle:number = "__angle + ((__angle > 540) ? -720 : (__angle > 180) ? -360 :  (__angle < -180) ? 360 : 0)")
+		(bind angle "0" (bind enabled "!(enabled && targetVisible)") (bind trigger "(enabled && targetVisible)"))
+
+		(var compassEntity:gfx = "$datahub.getSingleEntity(CC.compass)")
+		(var shipDollRotation:number = "compassEntity.compass.shipDollRotation" (event "compassEntity.compass.evShipDollRotationChanged"))
+
+		(var __targetAngle:number = "round(radToGrad(atan2(deltaY, deltaX)) - targetYaw - 90)")
+		(var targetAngle:number = "__targetAngle + ((__targetAngle > 180) ? -360 : (__targetAngle < -180) ? 360 : (__angle < -540) ? 720 : 0)")
+
+		# Course calculation 0-stop, 1-forward, 2-backward
+		(event evCourseUpdate)
+		(var posXCur:number = "round(targetPosX * 100000)" watch=false)
+		(bind posXCur "$event.posXCur" init=false watch=false (event "evCourseUpdate"))
+		(var posYCur:number = "round(targetPosY * 100000)" watch=false)
+		(bind posYCur "$event.posYCur" init=false watch=false (event "evCourseUpdate"))
+
+		(var battleTimer:gfx = "$datahub.getSingleComponent(CC.battleTimer)")
+		(dispatch evCourseUpdate args = "{posXCur: round(targetPosX * 100000), posYCur: round(targetPosY * 100000)}" (event "battleTimer.evBattleTimeChanged"))
+
+		(event evCourseChanged)
+		(var posXPrev:number = "posXCur" watch=false)
+		(bind posXPrev "$event.posXPrev" init=false watch=false (event "evCourseChanged"))
+		(var posXDiff:number = "posXCur - posXPrev")
+
+		(var posYPrev:number = "posYCur" watch=false)
+		(bind posYPrev "$event.posYPrev" init=false watch=false (event "evCourseChanged"))
+		(var posYDiff:number = "posYCur - posYPrev")
+
+		(var sqrDistDiff:number = "pow(posXDiff, 2) + pow(posYDiff, 2)")
+
+		(var currentYawAngle:number = "abs(radToGrad(atan2(posXDiff, -posYDiff)) - round(targetYaw))")
+
+		(var course:number=-1)
+		(bind course "$event.course" init=false watch=false (event "evCourseChanged"))
+
+		(var targetVisiblePrev:bool=false watch=false)
+		(bind targetVisiblePrev "$event.targetVisiblePrev" init=false watch=false (event "evCourseChanged"))
+
+        (dispatch evCourseChanged args = "{course: !(targetVisiblePrev && targetVisible)
+                                                    ?	-1
+                                                    :	(sqrDistDiff <= 100)
+                                                            ?	0
+                                                            :	(sqrDistDiff >= 1000000)
+                                                                ?	-1
+                                                                :	((currentYawAngle <= 50) || (currentYawAngle >= 310))
+                                                                    ?	1
+                                                                    :	((currentYawAngle >= 130) && (currentYawAngle <= 230))
+                                                                        ?	2
+                                                                        :	-1,
+										targetVisiblePrev: targetVisible, posXPrev: posXCur, posYPrev: posYCur}"
+										dir=0 (event "evCourseUpdate")
+		)
+		# # End of Course calculation
+
+		(var dollMarginTop:number = "MOD_BE_SETTINGS.mainRadius - 15")
+
+		(macro STAGE_SIZE)
+	)
+
+	(bind visible "(enabled && targetVisible) || MOD_BE_SETTINGS.alwaysShowMod")
+
+	(style
+		(hitTest=false)
+		(position = "absolute")
+		(bind top "(stageHeight / 2) + MOD_BE_SETTINGS.mainRadius + MOD_BE_SETTINGS.positionYOffset")
+		(bind left "(stageWidth / 2) + MOD_BE_SETTINGS.positionXOffset")
+	)
+
+	# Enemy ship doll
+	(block
+		(bind visible "enabled && targetVisible")
+
+		(element AS_BattleExpertShipDoll _rotation = "180 - targetAngle" _angle = "abs(targetAngle)" _course = "course"
+			(style (top = "-51") (scaleX = "0.75") (scaleY = "0.75"))
+		)
+
+		#(macro MOD_BE_MASK_RANGE)
+	)
+
+	# Own ship doll
+	(block
+		(element AS_BattleExpertShipDoll _isTarget=false _rotation = "shipDollRotation" _angle = "abs(angle)" _targetVisible = "targetVisible" _enabled = "enabled" #OlliN+ _enabled
+			(style (top = "dollMarginTop"))
+		)
+
+		(macro MOD_BE_MASK_RANGE "MOD_BE_SETTINGS.ownShipDollMasked")
+	)
+
+#	# Main range
+#	(block
+#		(controller $Sector
+#			(bind arc "MOD_BE_SETTINGS.ownShipDollMasked ? 360 : 220")
+#			(offset=-200)
+#			(bind radius "MOD_BE_SETTINGS.mainRadius")
+#			(lineThickness=1)
+#			(lineColor=0x999999)
+#			(lineAlpha=0.7)
+#		)
+#	)
+
+	# cross
+	(controller $Instance renderer='AS_BattleExpertCross'
+		(bind enabled "MOD_BE_SETTINGS.crossSize > 0")
+	)
+
+	(block
+		(bind visible "enabled && targetVisible")
+		(style
+			(backgroundImage = "'url:../unbound2/autospy/battle_expert/images/compassBackground.png'")
+			(position = "absolute")
+			(top = "-120px") (left = "-71px")
+		)
+	)
+)
+
+(def element AS_BattleExpertShipDoll (_isTarget:bool=true, _rotation:number=0, _angle:number=0, _course:number=-1, _targetVisible:bool=true, _enabled:bool=true) layout=true #OlliN+ _enabled
+	(scope
+		(var weapons:gfx = "$datahub.getCollection(CC.weapon).child('withShipDollIcons')")
+		(var motionColor:number = "(!_isTarget || (_course < 0)) ? 0x808080 : MOD_BE_SETTINGS.motionColors[_course]")
+		(var showAngleText:bool = "_isTarget ? MOD_BE_SETTINGS.targetShipDollAngleEnabled : MOD_BE_SETTINGS.ownShipDollAngleEnabled && _targetVisible && _enabled") #OlliN+ _enabled
+		(var showRanges:bool = "(_isTarget && MOD_BE_SETTINGS.motionIndicatorEnabled) || showAngleText")
+		(var compassComponent:gfx = "$datahub.getSingleComponent(CC.compass)")
+		(var shipDollRotation:number = "compassComponent.shipDollRotation" (event "compassComponent.evShipDollRotationChanged"))
+		(var airDefensiveFireAura:gfx = "$datahub.getSingleComponent(CC.airDefensiveFireAura)")
+		(var hasAA:bool = "airDefensiveFireAura.near || airDefensiveFireAura.middle || airDefensiveFireAura.far")
+	)
+
+	(class $FullsizeAbsolute)
+
+	# ship doll
+	(block
+		(style (bind rotation "_rotation"))
+		(macro MOD_BE_SCALE_STYLE)
+
+		(block
+			(bind visible "_isTarget ? MOD_BE_SETTINGS.targetShipDollColored : MOD_BE_SETTINGS.ownShipDollColored && _targetVisible && _enabled") #OlliN+ _enabled
+
+			(style
+				(backgroundImage='symbol:compass_default_doll')
+			)
+
+			(bind colorTransform "((_angle > 45) && (_angle < 135)) ? _isTarget ? MOD_BE_TRANSFORM_COLORS.GREEN : MOD_BE_TRANSFORM_COLORS.RED
+																	: ((_angle > 30)  && (_angle < 150)) ? MOD_BE_TRANSFORM_COLORS.YELLOW
+																										 : _isTarget ? MOD_BE_TRANSFORM_COLORS.RED : MOD_BE_TRANSFORM_COLORS.GREEN")
+		)
+
+		(block
+			(style
+				(backgroundImage='symbol:compass_default_doll')
+			)
+		)
+	)
+
+	# AA aura
+	(controller $Instance renderer='ShipDollAirDefenseSectors'
+		(bind enabled "hasAA && !_isTarget")
+		(exprs
+		#	(macro MOD_BE_SCALE_STYLE) #OlliN-
+			(macro BIND_FAIR_SCALE "MOD_BE_SETTINGS.scale + 0.22") #OlliN+
+		)
+	)
+
+	# ship guns
+	(block
+		(bind visible "!_isTarget")
+
+		(macro MOD_BE_SCALE_STYLE)
+
+		(block
+			(bind visible "MOD_BE_SETTINGS.ownShipDollCameraEnabled")
+
+			(element AS_BattleExpertCamera _angle = "_rotation")
+		)
+
+		(block
+			(bind visible "MOD_BE_SETTINGS.ownShipDollGunsEnabled")
+
+			(style (position = "absolute") (bind rotation "_rotation"))
+
+			(controller $Repeat renderer='ShipDollGunsList'
+				(bind count "weapons.items.length")
+				(args collection = "weapons")
+			)
+		)
+
+		(block
+			(bind visible "MOD_BE_SETTINGS.ownShipDollGunsRotatorEnabled")
+
+			(style (bind rotation "_rotation - shipDollRotation"))
+
+			(controller $Repeat renderer='GunsRotatorList' count = "weapons.items.length")
+		)
+	)
+
+	# motion indicator fill
+	(block
+		(bind visible "showRanges")
+
+		(controller $Sector
+			(arc=360)
+			(radius=11)
+			(bind colors "[motionColor]")
+			(bind alphas "[MOD_BE_SETTINGS.motionIndicatorAlpha]")
+			(ratios=[255])
+		)
+	)
+
+	# inner range (motion + angle)
+	(block
+		(bind visible "showRanges")
+		(controller $Sector
+			(arc=360)
+			(radius=11)
+			(lineThickness=1)
+			(lineAlpha=0.7)
+			(lineColor=0xFFFFFF)
+		)
+	)
+
+	# angle text
+	(block
+		(bind visible "showAngleText")
+
+		(class $FullsizeAbsolute)
+		(style
+			(top=-11px)
+			(align = "center")
+		)
+
+		(tf
+			(class $AS_BETextBold)
+			(style
+				(fontSize = "MOD_BE_SETTINGS.fontSize")
+				(textAlign = "center")
+			)
+
+			(bind text "_angle")
+		)
+	)
+)
+
+(def element AS_BattleExpertCamera (_angle:number=0) layout=true
+	(scope
+		(var camera:gfx = "$datahub.getSingleEntity(CC.camera).camera")
+		(var isTacticalCam:bool = "camera.isTactical" (event "camera.evTacticalStateChanged"))
+
+		(var visibilityRangeRadius:number = "camera.visibilityRangePerc" (event "camera.evVisibilityRangeChanged"))
+		(var visibilityVectorRadius:number = "max(visibilityRangeRadius, 0.5)" (event "camera.evVisibilityRangeChanged"))
+		(var cameraFrustumAngle:number = "radToGrad(camera.frustumAngle)" (event "camera.evFrustumAngleChanged"))
+
+		(var compassComponent:gfx = "$datahub.getSingleComponent(CC.compass)")
+		(var shipDollRotation:number = "compassComponent.shipDollRotation" (event "compassComponent.evShipDollRotationChanged"))
+	)
+
+	(controller $Animation
+		(bindcall play  duration=0.15
+						delay=0
+						to={alpha: 0}
+						easing="Easing.cubic_in"
+						(bind enabled "isTacticalCam")
+		)
+		(bindcall play  duration=0.15
+						delay=0
+						to={alpha: 1}
+						easing="Easing.cubic_out"
+						(bind enabled "!isTacticalCam")
+		)
+	)
+
+	(block
+		(block
+			(isMask=true)
+			(macro BIND_FAIR_SCALE "MOD_BE_SETTINGS.scale - 0.11") #OlliN visibilityVectorRadius
+			(style
+				(position = "absolute")
+				(backgroundImage='symbol:minimap_observe_mask')
+			)
+		)
+		(style
+			(position = "absolute")
+			(width=1px)
+			(height=1px)
+			(backgroundImage='symbol:minimap_frustum_edge_vector')
+			(bind rotation "_angle - shipDollRotation")
+		)
+		(alpha=0.7)
+	)
+
+
+	(block
+		(block
+			(isMask = true)
+			(macro BIND_FAIR_SCALE "MOD_BE_SETTINGS.scale - 0.11") #OlliN- MOD_BE_SETTINGS.scale
+			(style
+				(position = "absolute")
+				(backgroundImage='symbol:minimap_observe_mask')
+			)
+		)
+		(bind alpha "0.2")
+		(style
+			(bind rotation "_angle - shipDollRotation - cameraFrustumAngle / 2")
+		)
+		(controller $Sector
+			(color=0x7DFFFF)
+			(bind arc "cameraFrustumAngle")
+			(offset=-90)
+			(bind radius "MOD_BE_SETTINGS.mainRadius * 1.7")
+		)
+	)
+)
+
+(def element AS_BattleExpertCross () layout=true
+	(controller $Repeat count=2 layout=true
+		(bind enabled "MOD_BE_SETTINGS.crossSize > 0")
+		(exprs
+			# bg horizontal line
+			(block (style (position = "absolute") (height=3px) (top=-1px) (bind width "MOD_BE_SETTINGS.crossSize") (bind scaleX "-1" (bind enabled "$index == 0")) (bind left "1" (bind enabled "$index == 0")) (backgroundColor=0x50333333)))
+			# bg vertical line
+			(block (style (position = "absolute") (width=3px) (left=-1px) (bind height "MOD_BE_SETTINGS.crossSize") (bind scaleY "-1" (bind enabled "$index == 0")) (bind top "1" (bind enabled "$index == 0")) (backgroundColor=0x50333333)))
+			# horizontal line
+			(block (style (position = "absolute") (height=1px) (bind width "MOD_BE_SETTINGS.crossSize") (bind scaleX "-1" (bind enabled "$index == 0")) (bind left "1" (bind enabled "$index == 0")) (backgroundColor=0xF0999999)))
+			# vertical line
+			(block (style (position = "absolute") (width=1px) (bind height "MOD_BE_SETTINGS.crossSize") (bind scaleY "-1" (bind enabled "$index == 0")) (bind top "1" (bind enabled "$index == 0")) (backgroundColor=0xF0999999)))
+		)
+	)
+)
+
+
+# disable vanilla compass
+(def element CompassContainer () layout=true dispatch_size_change=true
+	(scope
+		(macro IS_ALIVE)
+		(macro IS_SPECTATOR_MODE)
+
+		(var cameraComponent:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var observedAvatarId:number = "cameraComponent ? cameraComponent.observedPlayerId : INVALID_OBSERVED_AVATAR_ID" (event "cameraComponent.evObservedPlayerIdChanged"))
+
+		(var playerAvatarComponent:gfx = "selfAvatarEntity.avatar")
+		(var playerAvatarId:number = "playerAvatarComponent ? playerAvatarComponent.id : INVALID_PLAYER_AVATAR_ID")
+		(var isSelfObserved:bool = "playerAvatarId == observedAvatarId")
+
+		(var timeToRespawn:number = "selfAvatarEntity ? selfAvatarEntity.playerAvatar.timeToRespawn : 0" (event "selfAvatarEntity.playerAvatar.evTimeToRespawnChanged"))
+		(var isRespawning:bool = "timeToRespawn != 0 && cameraComponent.mode == SC.Battle.CAMERA_MODE.RESPAWN_MAP" (event "cameraComponent.evModeChanged"))
+	)
+	(style
+		(position = "absolute")
+		(width = "COMPASS_SIZE")
+		(height = "COMPASS_SIZE")
+	)
+
+	(controller $Instance renderer='CompassContainerInstance'
+		(bind enabled "!isRespawning && (isAlive || isPreSpectator || isSelfObserved)")
+	)
+)
+
+
+(def macro XNG_SCOPE()
+	(scope
+		(var _crosshairId:number = 0)
+		(var crosshair:gfx = "$datahub.getPrimaryEntity(CC.crosshairBinocularView, _crosshairId)")
+		(var textureIds:array = "crosshair.crosshairBinocularView.textureIds")
+
+		(event evTargetChanged)
+
+		(var stageComponent:gfx = "$datahub.getSingleEntity(CC.stage).stage")
+		(var cameraComponent:gfx = "$datahub.getSingleEntity(CC.camera).camera")
+		(var aimAssistComponent:gfx = "$datahub.getSingleEntity(CC.crosshair).aimAssist")
+		(var enemies:gfx = "$datahub.getCollection(CC.avatar)")
+		(var stageHeight:number = "stageComponent.height"
+			(event "stageComponent.evStageSizeChanged")
+		)
+		(var stageWidth:number = "stageComponent.width"
+			(event "stageComponent.evStageSizeChanged")
+		)
+		(var fovBase:number = "tan(cameraComponent.frustumAngle * 0.5)"
+			(event "cameraComponent.evFrustumAngleChanged")
+		)
+		(var focusBase:number = 0)
+		(bind focusBase "(stageWidth * 0.5) / fovBase")
+		(var _bulletTime:number = "aimAssistComponent.collisionTime"
+			(event "evEnterFrame")
+		)
+		(var _shootDistance:number = "(aimAssistComponent.distance * 1000) | 0"
+			(event "evEnterFrame")
+		)
+		(var currentTarget:gfx = "$event.entity" watch=false init=false
+			(event "evTargetChanged")
+		)
+		(var distanceComponent:gfx = "(currentTarget && currentTarget.hasComponent(CC.distance)) ? currentTarget.distance : null"
+			(event "evTargetChanged")
+		)
+		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+		(var _targetDistance:number = "distanceComponent ? (distanceComponent.distanceToShip * 1000) | 0 : 0"
+			(event "timer.evInfrequent")
+		)
+		(var _distance:number = "distanceComponent ? _targetDistance : _shootDistance")
+	)
+)
+
+(def macro XNG_TARGET_TRACKER(enemies:expression, targetId:expression)
+	(controller $Repeat renderer='XTargetTracker'
+		(bind count "enemies.items.length"
+		  (event "enemies.evAdded")
+		  (event "enemies.evRemoved")
+		)
+		(exprs
+			(scope
+				(bind _currentTargetId "targetId")
+			)
+		)
+	)
+)
+
+(def element XTargetTracker() layout=false
+	(scope
+		(var _currentTargetId:number = 0)
+		(var avatars:gfx = "$datahub.getCollection(CC.avatar)")
+		(var trackedEntity:gfx = "avatars.items[$index]" watch=false)
+		(var targetComponent:gfx = "trackedEntity.hasComponent(CC.target) ? trackedEntity.target : null"
+			(event "trackedEntity.evAdded")
+			(event "trackedEntity.evRemoved")
+		)
+		(var targetFlags:number = "targetComponent ? targetComponent.flags : 0"
+			(event "targetComponent.evFlagsChanged")
+		)
+		(var isTargetLocked:bool = "(targetFlags & LOCKABLE_WEAPONS) > 0")
+	)
+	(dispatch evTargetChanged args="{entity: isTargetLocked ? trackedEntity : null}" dir="EventDirection.UP"
+		(bind enabled "isTargetLocked || _currentTargetId == trackedEntity.id")
+		(event "targetComponent.evFlagsChanged")
+	)
+	(dispatch evTargetChanged args="{entity: trackedEntity}" dir="EventDirection.UP" on='addedToStage'
+		(bind enabled "isTargetLocked")
+	)
+)

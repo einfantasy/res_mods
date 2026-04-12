@@ -1,0 +1,514 @@
+(def constant BV_VISIBILITY_PREF_NAME 'buildViewer_showBuildViewer')
+(def constant TT_BUILDVIEWER_INSTALLED "true")
+
+(def constant BV_ELEMENT_NAME 'buildViewer')
+(def constant BV_COMPONENT_KEY_BUILDS 'modBuildViewerBuilds')
+(def constant BV_COMPONENT_KEY_TARGET 'modBuildViewerTarget')
+
+(def constant BV_TARGET_LINE_APPEAR_DURATION 0.5)
+(def constant BV_TARGET_LINE_DISAPPEAR_DELAY 0.5)
+
+(def constant BV_DISPLAY_MODE {
+    DISABLE:    0,
+    ENABLE:     1,
+    ADAPTIVE:   2,
+})
+
+(def element BuildViewer () layout=true
+	(scope
+		# Stage
+		(macro STAGE_SIZE)
+
+		# Userpref
+		(var userPrefsComponent:gfx = "$datahub.getSingleComponent(CC.userPrefs)")
+		(var userPrefs:gfx = "userPrefsComponent.userPrefs" watch=false (event "userPrefsComponent.evUserPrefsChanged"))
+		(var userPrefsBool:gfx = "userPrefs.elementsGroupExpand" watch=false (event "userPrefsComponent.evUserPrefsChanged"))
+		(var _userPrefsNum:gfx = "userPrefs.chatBoxWidth" watch=false (event "userPrefsComponent.evUserPrefsChanged"))
+
+		# Target Entity
+		(var targetEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, BV_COMPONENT_KEY_TARGET)")
+		(var targetEntity:gfx = "targetEntityWatcher.entity" (event "targetEntityWatcher.event"))
+		(var targetDataComponent:gfx = "targetEntity ? targetEntity.mods_DataComponent : null" (event "targetEntity.evAdded"))
+		(var targetData:dict = "targetDataComponent ? targetDataComponent.data : {}" (event "targetDataComponent.evDataChanged"))
+		(var targetVehicleId:str = "'vehicleId' in targetData ? toString(targetData.vehicleId) : ''")
+
+		# Hide Ally Builds?
+		(macro TT_GET_PREF_BOOL		_varName="'isOwnBuildOnlyPref'"	_pref="BV_PREFS.DISABLE_ALLY_BUILDS")
+		(macro IS_SPECTATOR_MODE)
+		(var isOwnBuildOnly:bool = "!isSpectatorTrainingMode && isOwnBuildOnlyPref")
+		(var playerEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var ownVehicleId:str = "playerEntity && playerEntity.hasComponent(CC.vehicle) ? toString(playerEntity.vehicle.id) : ''" (event "playerEntity.evAdded")(event "playerEntity.evRemoved"))
+		(var targetId:str = "isOwnBuildOnly ? ownVehicleId : targetVehicleId")
+
+		# Expand
+		(event evExpandButtonClicked)
+        (macro TT_GET_PREF_NUMBER _varName="'displayMode'" _pref="BV_PREFS.DISPLAY_MODE")
+
+        (var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera.altVision" (event "camera.evAltVisionChanged"))
+        (var isExpanded:bool = "displayMode == BV_DISPLAY_MODE.ADAPTIVE ? altVision : displayMode")
+        (bindcall externalCall 'inputMapping.onAction' "['setUserPref', {'value': toNumber(!isExpanded) + 0.00001, 'name': 'chatBoxWidth', 'subName': BV_PREFS.DISPLAY_MODE.key}]" init=false watch=false (event "evExpandButtonClicked"))
+
+		# Numbers
+		(macro TT_GET_PREF_NUMBER	_varName="'scale'" 				_pref="BV_PREFS.SCALE")
+		(macro TT_GET_PREF_NUMBER	_varName="'backgroundAlpha'"	_pref="BV_PREFS.BACKGROUND_ALPHA")
+
+		# Drag/Drop
+		(macro TT_GET_PREF_BOOL		_varName="'isPositionLocked'"	_pref="BV_PREFS.DISABLE_DRAGDROP")
+		(var defaultPos:dict = "{'positionX': 290, 'positionY': (stageHeight - 450)}")
+		(macro DRAGGABLE_GET_DROP_POSITION _elementName="BV_ELEMENT_NAME" _defaultPosition="defaultPos")
+
+		(macro TT_GET_PREF_BOOL		_varName="'isTargetIndicatorEnabled'"	_pref="BV_PREFS.TARGET_INDICATOR")
+		(var indicatorStartY:number = "dragPosY < (stageHeight / 2 - 200) ? 100% : 0%")
+	)
+
+	(style
+		(bind width "stageWidth")
+		(bind height "stageHeight")
+	)
+
+	(hblock
+		(style
+			(position = "absolute")
+			(bind left "dragPosX")
+			(bind top "dragPosY")
+		)
+
+		(controller $Instance renderer='BV_TargetLine'
+			(bind enabled "isExpanded && isTargetIndicatorEnabled")
+			(args _vehicleId="targetVehicleId" _panelX="dragPosX" _panelY="dragPosY")
+			(bindcall recreate (bind trigger "targetVehicleId"))
+		)
+
+		# Show/Hide Button
+		(element BV_ExpandButton
+			_expanded="isExpanded"
+			(style
+				(left = -24px)
+            	(top = 5px)
+				(position = "absolute")
+			)
+		)
+
+		# Config
+		(element TT_ConfigButtonElement _modIndex="10" _tooltipAlign="outerTop|outerLeft"
+			(style
+				(left = -30px)
+				(top = 20px)
+			)
+		)
+
+		# Viewer
+		(block
+			(bind visible "isExpanded")
+
+			(style
+				(bind scaleX "scale")
+				(bind scaleY "scale")
+			)
+
+			(controller $Instance renderer='ModDraggableElement'
+				(bind enabled "!isPositionLocked")
+				(args
+					_elementName="BV_ELEMENT_NAME"
+					_defaultPosition="defaultPos"
+				)
+			)
+
+			(block
+				# BG
+				(mc contrast_panel
+					(class $FullsizeAbsolute)
+					(style
+						(bind alpha "backgroundAlpha")
+						(hitTest = false)
+					)
+				)
+				# Main
+				(element BV_BuildPanelElement _vehicleId="targetId" _userPrefsNum="_userPrefsNum")
+			)
+		)
+	)
+)
+
+(def element BV_BuildPanelElement(_vehicleId:str, _userPrefsNum:gfx=null)
+	(scope
+		# Builds Entity
+		(var buildsEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, BV_COMPONENT_KEY_BUILDS)")
+		(var buildsEntity:gfx = "buildsEntityWatcher.entity" (event "buildsEntityWatcher.event"))
+		(var buildsDataComponent:gfx = "buildsEntity ? buildsEntity.mods_DataComponent : null" (event "buildsEntity.evAdded"))
+		(var buildsData:dict = "buildsDataComponent ? buildsDataComponent.data : {}" (event "buildsDataComponent.evDataChanged"))
+
+		(var isBuildAvailable:bool = "_vehicleId in buildsData")
+		(var targetBuildData:dict = "isBuildAvailable ? buildsData[_vehicleId] : {}")
+
+		(macro TT_GET_LANGUAGE_INDEX)
+		(macro TT_GET_TRANSLATION _varName="'errorText'" _key="'IDS_TT_BUILD_NOT_AVAILABLE'")
+
+		(var vehicleId:number = "'vehicleId' in targetBuildData ? targetBuildData.vehicleId : -1")
+		(var skills:array = "'skills' in targetBuildData ? targetBuildData.skills : []")
+		(var usedSkillPoints:number = "'usedSkillPoints' in targetBuildData ? targetBuildData.usedSkillPoints : 0")
+		(var modernizations:array = "'modernizations' in targetBuildData ? targetBuildData.modernizations : []")
+		(var signals:array = "'signals' in targetBuildData ? targetBuildData.signals : []")
+	)
+
+	(style
+		(width = 400px)
+		(align = "center|middle")
+	)
+
+	(block
+		(bind visible "isBuildAvailable")
+		(style
+			(width = 100%)
+			(align = "center|middle")
+		)
+
+		(element BV_NameElement
+			_vehicleId		 = "vehicleId"
+			_usedSkillPoints = "usedSkillPoints"
+		)
+		(macro BV_HorizontalDevider)
+		(element BV_SkillsElement
+			_skills = "skills"
+		)
+		(macro BV_HorizontalDevider)
+		(element BV_ModernizationsElement
+			_modernizations = "modernizations"
+		)
+		(macro BV_HorizontalDevider)
+		(element BV_SignalsElement
+			_signals = "signals"
+		)
+	)
+
+	(block
+		(bind visible "!isBuildAvailable")
+		(style
+			(width = 100%)
+			(height = 50px)
+			(align = "center|middle")
+			(hitTest = false)
+		)
+		(tf
+			(bind text "errorText")
+			(class $TextDefaultBold17NM)
+		)
+	)
+)
+
+(def element BV_NameElement(_vehicleId:str, _usedSkillPoints:number) layout=true
+	(scope
+		# Player Name
+		(var avatarEntity:gfx = "$datahub.getPrimaryEntity(CC.vehicleInfo, _vehicleId)")
+		(var avatarComponent:gfx = "avatarEntity ? avatarEntity.avatar : null")
+		(var shipName:str = "avatarComponent ? avatarComponent.ship.ref.ship.nameUpper : ''")
+		(var shipType:str = "avatarComponent ? avatarComponent.ship.ref.ship.subtype : ''")
+		(var avatarName:str = "avatarComponent ? avatarComponent.name : ''")
+
+		(var usedPoints:str = "subst('(%d/21)', [_usedSkillPoints])")
+	)
+	(hblock
+		(element BV_NameTextItem _value="avatarName")
+		(element ShipIcon "shipType")
+		(element BV_NameTextItem _value="shipName")
+		(element BV_NameTextItem _value="usedPoints")
+	)
+	(style
+		(padding = [6, 5, 6, 0])
+		(hitTest = false)
+		(align = "middle|center")
+	)
+)
+
+(def element BV_NameTextItem(_value:str) layout=true
+	(style
+		(margin = [6, 6, 6, 6])
+	)
+	(tf
+		(class $TextDefaultBold17NM)
+		(bind text "_value")
+	)
+)
+
+(def element BV_ModernizationsElement(_modernizations:array) layout=true
+	(controller $Repeat renderer='BV_ModernizationIconItem'
+		(bind count "_modernizations.length")
+		(args
+			_modernizationIconData = "_modernizations[$index]"
+		)
+	)
+	(style
+		(padding = [6, 6, 6, 6])
+		(flow = "Flow.HORIZONTAL")
+		(hitTest = false)
+	)
+)
+
+(def element BV_ModernizationIconItem(_modernizationIconData:dict) layout=true
+	(scope
+		(var isInstalled:bool = "_modernizationIconData ? true : false")
+		(var iconPath:str = "isInstalled ? _modernizationIconData.iconPath : 'url:../service_kit/frames/64px_not_empty_field.png'")
+	)
+
+	(style
+		(width = 60px)
+		(height = 60px)
+		(bind backgroundImage "iconPath")
+		(backgroundSize = "fill")
+		(margin = [2, 2, 2, 2])
+	)
+)
+
+(def element BV_SkillsElement(_skills:array) layout = true
+	#crew skills
+	(controller $Repeat renderer='BV_SkillsRowItem'
+		(bind count "_skills.length")
+		(args
+			_crewSkillRow = "_skills[$index]"
+		)
+	)
+	(style
+		(padding = [6, 6, 6, 6])
+		(hitTest = false)
+	)
+)
+
+(def element BV_SkillsRowItem(_crewSkillRow:array) layout=true
+	# Skill row
+	(controller $Repeat renderer='BV_SkillIconItem'
+		(bind count "_crewSkillRow.length")
+		(args
+			_skillIconData = "_crewSkillRow[$index]"
+		)
+	)
+	(style
+		(flow = "Flow.HORIZONTAL")
+	)
+)
+
+(def element BV_SkillIconItem(_skillIconData:dict) layout=true
+	(scope
+		(var isEpic:bool = "_skillIconData.isEpic")
+		(var isLearned:bool = "_skillIconData.isLearned")
+		(var iconPath:str = "_skillIconData.iconPath")
+		(var transform:dict = "isLearned ? {redOffset:0,greenOffset:-41,blueOffset:-153} : {redOffset: -100, greenOffset: -100, blueOffset: -100}")
+	)
+
+	(style
+		(width = 60px)
+		(height = 60px)
+		(margin = [2, 2, 2, 2])
+	)
+
+	(block
+		# Skill Icon
+		(block
+			(style
+				(bind backgroundImage "iconPath")
+			)
+			(bind colorTransform "transform")
+		)
+		# Epic Icon
+		(block
+			(style
+				(backgroundImage = "'url:../service_kit/item_types/icon_modernization_special.png'")
+			)
+			(bind visible "isEpic")
+		)
+	)
+)
+
+(def element BV_SignalsElement(_signals:array)
+	(controller $Repeat renderer='BV_SignalIconItem'
+		(bind count "_signals.length")
+		(args
+			_signalIconData = "_signals[$index]"
+		)
+	)
+	(style
+		(padding = [6, 6, 6, 6])
+		(flow = "Flow.HORIZONTAL")
+	)
+)
+
+(def element BV_SignalIconItem(_signalIconData:dict)
+	(scope
+		(var isInstalled:bool = "_signalIconData ? true : false")
+		(var iconPath:str = "isInstalled ? _signalIconData.iconPath : 'url:../service_kit/frames/64px_not_empty_field.png'")
+		(var signalId:number = "isInstalled ? _signalIconData.id : 0")
+	)
+
+	(style
+		(width = 45px)
+		(height = 45px)
+		(margin = [1, 1, 1, 1])
+		(bind backgroundImage "iconPath")
+		(backgroundSize = "fill")
+		(bind hitTest "signalId")
+	)
+
+	(controller $Tooltip
+		(renderer = 'SignalTooltip')
+		(bind enabled "signalId")
+		(args
+			_signalId = "signalId"
+			_amount = "0"
+			_noMouseInstructions = "true"
+			_isReward = "true"
+		)
+		(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+	)
+)
+
+(def macro BV_HorizontalDevider()
+	(element HorizontalDivider
+		(style
+			(paddingLeft = 10)
+			(paddingRight = 10)
+			(alpha = 2)
+			(hitTest = false)
+		)
+	)
+)
+
+(def element BV_ExpandButton (_isInOverState:bool=false, _isInDownState:bool=false, _expanded:bool=false, _enabled:bool=true) layout=true
+	(scope
+		(event evExpandButtonClicked)
+		(event btnExpand_evMouseUp)
+
+		(macro MOUSE_HANDLER_SCOPE "'btnExpand_'")
+
+		(var isInOverState:bool = "_isInOverState || btnExpand_rollOver && !btnExpand_mouseDown")
+		(var isInDownState:bool = "_isInDownState || btnExpand_rollOver && btnExpand_mouseDown")
+
+		(var targetAlpha:number = "	isInDownState	? 0.6 :
+									isInOverState	? 1
+													: 0.75")
+		(var targetRotation:number = "_expanded ? 90 : 0")
+	)
+
+	(macro MOUSE_HANDLER
+		_enabled = "_enabled"
+		_prefix = "'btnExpand_'"
+		_soundSet = "'dropdown'"
+	)
+	(dispatch btnExpand_evMouseUp on='mouseUp' args="{isDown: false}" (bind enabled "_enabled"))
+	(dispatch evExpandButtonClicked args={} watch=false init=false dir="EventDirection.UP" (event "btnExpand_evMouseUp"))
+
+	(style
+		(width = 13px)
+		(height = 13px)
+		(align = "center|middle")
+	)
+
+	(alpha = "targetAlpha")
+
+	(controller $Animation
+		(bindcall play	duration=0.07	to="{alpha: targetAlpha}"	(bind trigger "targetAlpha"))
+	)
+
+	(block
+		(style
+			(hitTest = "false")
+			(backgroundSize = "autosize")
+			(backgroundImage = "'url:../service_kit/buttons/expand_over.png'")
+
+			(pivotX = 50%)
+			(pivotY = 50%)
+			(left = 0%)
+			(right = 0%)
+			(rotation = "targetRotation")
+		)
+
+		(controller $Animation
+			(bindcall play	duration=0.15	to="{rotation: targetRotation}"	(bind trigger "targetRotation"))
+		)
+	)
+)
+
+(def element BV_TargetLine(_vehicleId:str, _panelX:number, _panelY:number)
+	(controller $FxInstance renderer='BV_TargetLineFX' lifetime="BV_TARGET_LINE_APPEAR_DURATION + BV_TARGET_LINE_DISAPPEAR_DELAY + BV_TARGET_LINE_APPEAR_DURATION"
+		(args _vehicleId="_vehicleId" _panelX="_panelX" _panelY="_panelY")
+		(bindcall create init=true)
+	)
+	(style
+		(top = 50%)
+		(left = 50%)
+		(position = "absolute")
+		(hitTest = false)
+	)
+)
+
+(def element BV_TargetLineFX (_vehicleId:str, _panelX:number, _panelY:number)
+	(scope
+		(event evAddedToStage)
+		(event evUpdatePosition)
+
+		(var targetAvatarEntity:gfx = "$datahub.getPrimaryEntity(CC.vehicle, _vehicleId)")
+		(var screenPos:gfx = "targetAvatarEntity && targetAvatarEntity.hasComponent(CC.screenPosition) ? targetAvatarEntity.screenPosition : null" (event "targetAvatarEntity.evAdded")(event "targetAvatarEntity.evRemoved"))
+		(var targetPosX:number = "screenPos ? screenPos.position.x : 0" watch=false (event "evUpdatePosition"))
+		(var targetPosY:number = "screenPos ? screenPos.position.y : 0" watch=false (event "evUpdatePosition"))
+
+		(var centerX:number = "$globalLayoutBounds[0]" watch=false (event "evUpdatePosition"))
+		(var centerY:number = "$globalLayoutBounds[1]" watch=false (event "evUpdatePosition"))
+
+		(var halfPanelW:number = "centerX - _panelX")
+		(var halfPanelH:number = "centerY - _panelY")
+
+		(var endX:number = "targetPosX - centerX" watch=false (event "evUpdatePosition"))
+		(var endY:number = "targetPosY - centerY" watch=false (event "evUpdatePosition"))
+
+		(var distToXBorder:number ="endX ? abs(halfPanelW / endX) : 0xffffffff" watch=false (event "evUpdatePosition"))
+		(var distToYBorder:number ="endY ? abs(halfPanelH / endY) : 0xffffffff" watch=false (event "evUpdatePosition"))
+
+		(var angle:number = "radToGrad( atan2(endY, endX) )" watch=false (event "evUpdatePosition"))
+		(var totalLength:number = "sqrt( pow(endX, 2) + pow(endY, 2))" watch=false (event "evUpdatePosition"))
+		(var marginRatio:number ="min( distToXBorder, distToYBorder )" watch=false (event "evUpdatePosition"))
+		(var lineMargin:number = "totalLength * marginRatio" watch=false (event "evUpdatePosition"))
+		(var lineSize:number = "totalLength - lineMargin" watch=false (event "evUpdatePosition"))
+	)
+
+	(dispatch evUpdatePosition args="{}" watch=false (bind enabled "screenPos") (event "evEnterFrame"))
+
+	(bind visible "screenPos")
+
+	(style
+		(bind rotation "angle")
+		(position = "absolute")
+		(alpha = 0)
+	)
+
+	(dispatch evAddedToStage args="{}" on='addedToStage')
+
+	(controller $Animation
+		(bindcall play
+			duration	= "BV_TARGET_LINE_APPEAR_DURATION"
+			from		= "{ alpha: 0 }"
+			to			= "{ alpha: 1 }"
+			(event "evAddedToStage")
+		)
+		(bindcall play
+			duration	= "BV_TARGET_LINE_APPEAR_DURATION"
+			delay		= "BV_TARGET_LINE_DISAPPEAR_DELAY"
+			from		= "{ alpha: 1 }"
+			to			= "{ alpha: 0 }"
+			(event "evAddedToStage")
+		)
+	)
+
+	(block
+		(style
+			(width = 1px)
+			(scaleY = -1)
+			(pivotY = 100%)
+			(position = "absolute")
+			(rotation = 90) # Make it horizontal because the original image is created as a vertical indicator.
+			(bind marginLeft "lineMargin")
+			(bind height "lineSize")
+			(backgroundImage = "'url:../battle_hud/markers/submarine/fill_submarine_depth_info.png'")
+			(backgroundSize = "fill")
+			(scale9grid = [0, 0, 32, 64])
+		)	
+	)
+)

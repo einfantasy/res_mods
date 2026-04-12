@@ -1,0 +1,1359 @@
+<ui author="OlliN">
+	<block className="DefaultDock">
+		<bind name="primaryEntityDH" value="'repeatFinalShipNewTip';		CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FINAL_REPEAT"/>
+		<bind name="primaryEntityDH" value="'crewBlockedDivisionTip';	CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.CREW_BLOCKED_DIV_READY"/>
+		<bind name="primaryEntityDH" value="'crewBlockedLockedTip';		CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.CREW_BLOCKED_BATTLE"/>
+		<bind name="primaryEntityDH" value="'ehBlockedByDivisionTip';	CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_DIV_READY"/>
+		<bind name="primaryEntityDH" value="'ehBlockedByShipTip';		CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_WRONG_SHIP"/>
+		<bind name="primaryEntityDH" value="'ehBlockedByRepairTip';		CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_MAINTENANCE"/>
+		<bind name="primaryEntityDH" value="'blockedEventShipTip';		CC.newGuidingTip;	SC.Context_guiding_tip.TIP_TYPE.BLOCKED_EVENT_SHIP"/>
+		<bind name="watchDH" value="'isRepeatFinalShipNewTipActive';		['repeatFinalShipNewTip.newGuidingTip.evChanged'];	repeatFinalShipNewTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isCrewBlockedDivisionTipActive';	['crewBlockedDivisionTip.newGuidingTip.evChanged'];	crewBlockedDivisionTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isCrewBlockedLockedTipActive';		['crewBlockedLockedTip.newGuidingTip.evChanged'];	crewBlockedLockedTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isEhBlockedByDivisionTipActive';	['ehBlockedByDivisionTip.newGuidingTip.evChanged'];	ehBlockedByDivisionTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isEhBlockedByShipTipActive';		['ehBlockedByShipTip.newGuidingTip.evChanged'];		ehBlockedByShipTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isEhBlockedByRepairTipActive';		['ehBlockedByRepairTip.newGuidingTip.evChanged'];	ehBlockedByRepairTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isBlockedEventShipTipActive';		['blockedEventShipTip.newGuidingTip.evChanged'];	blockedEventShipTip.newGuidingTip.isActive"/>
+		<bind name="primaryEntityDH" value="'ehCardFinalTip';		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_FINAL"/>
+		<bind name="primaryEntityDH" value="'ehProgressRewardsTip';	CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_PROGRESS_REWARDS"/>
+		<bind name="primaryEntityDH" value="'ehBriefingDescrTip';	CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BRIEFING_DESCRIPTION"/>
+		<bind name="watchDH" value="'isEhCardFinalTipActive';		['ehCardFinalTip.newGuidingTip.evChanged'];			ehCardFinalTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isEhProgressRewardsTipActive';	['ehProgressRewardsTip.newGuidingTip.evChanged'];	ehProgressRewardsTip.newGuidingTip.isActive"/>
+		<bind name="watchDH" value="'isEhBriefingDescrTipActive';	['ehBriefingDescrTip.newGuidingTip.evChanged'];		ehBriefingDescrTip.newGuidingTip.isActive"/>
+		<bind name="watch" value="'newTipIdTop'; isRepeatFinalShipNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FINAL_REPEAT :
+								isCrewBlockedDivisionTipActive		? SC.Context_guiding_tip.TIP_TYPE.CREW_BLOCKED_DIV_READY :
+								isCrewBlockedLockedTipActive		? SC.Context_guiding_tip.TIP_TYPE.CREW_BLOCKED_BATTLE :
+								isBlockedEventShipTipActive			? SC.Context_guiding_tip.TIP_TYPE.BLOCKED_EVENT_SHIP :
+								isEhBlockedByDivisionTipActive		? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_DIV_READY :
+								isEhCardFinalTipActive				? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_FINAL :
+								isEhBriefingDescrTipActive			? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BRIEFING_DESCRIPTION :
+								isEhBlockedByShipTipActive			? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_WRONG_SHIP :
+								isEhBlockedByRepairTipActive		? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_BLOCKED_MAINTENANCE
+																	: SC.Context_guiding_tip.TIP_TYPE.NONE "/>
+		<bind name="watch" value="'newTipIdBottom'; isEhProgressRewardsTipActive		? SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_PROGRESS_REWARDS
+																	: SC.Context_guiding_tip.TIP_TYPE.NONE "/>
+		<bind name="watch" value="'hasFinishButtonTop'; isIn(newTipIdTop, [SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FINAL_REPEAT,
+														SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BATTLE_CARD_FINAL])"/>
+		<bind name="watch" value="'hasNextButtonTop'; isIn(newTipIdTop, [SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_BRIEFING_DESCRIPTION])"/>
+		<bind name="watch" value="'tipShownEvent';	isEhCardFinalTipActive			? SC.Common.EVENT_HUB_STATISTICS.CARD_FINAL_TIP_SHOWN :
+									isEhProgressRewardsTipActive	? SC.Common.EVENT_HUB_STATISTICS.PROGRESS_REWARDS_TIP_SHOWN :
+									isEhBriefingDescrTipActive		? SC.Common.EVENT_HUB_STATISTICS.BRIEFING_DESCRIPTION_TIP_SHOWN
+																	: null"/>
+		<bind name="watch" value="'buttonLogEvent';	isEhCardFinalTipActive			? SC.Common.EVENT_HUB_STATISTICS.CARD_FINAL_BUTTON_FINISH :
+									isEhProgressRewardsTipActive	? SC.Common.EVENT_HUB_STATISTICS.PROGRESS_REWARDS_BUTTON_NEXT :
+									isEhBriefingDescrTipActive		? SC.Common.EVENT_HUB_STATISTICS.BRIEFING_DESCRIPTION_BUTTON_NEXT
+																	: null"/>
+		<bind name="primaryEntityDH" value="'routeEntityisInPort'; CC.route; SC.Ui_windows.ROUTE.PORT"/>
+		<bind name="watchDH" value="'isInPort'; ['routeEntityisInPort.route.evIsActiveChanged']; routeEntityisInPort.route.isActive"/>
+		<bind name="dispatch" value="'isInPort' + varChanged; 'dockStateChanged'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN; 0"/>
+		<bind name="dispatch" value="'dockStateChanged';isInPort ? 'startShow' : null; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN; 0"/>
+		<bind name="dispatch" value="'dockStateChanged'; !isInPort ? 'startHide' : null; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN; 0"/>
+		<bind name="firstEntityDH" value="'dockEntity'; CC.dockDataMarker"/>
+		<bind name="watchDH" value="'shipId'; ['dockEntity.shipSelection.evShipUpdate']; dockEntity.shipSelection.currentShipId"/>
+		<bind name="watchDH" value="'shipIdForModuleInset'; ['dockEntity.shipSelection.evShipViewUpdate']; dockEntity.shipSelection.currentShipIdForModuleInset"/>
+		<bind name="watchDH" value="'shipIdForResearch'; ['dockEntity.shipSelection.evShipUpdate'] ; dockEntity.shipSelection.currentShipIdForResearch"/>
+		<bind name="controller" value="'lesta.dialogs.dock.controllers.ControllerLobby'"/>
+		<bind name="firstEntityDH" value="'divisionDataEntity'; CC.division"/>
+		<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/>
+		<bind name="watch" value="'selectedBattleTypeGPID'; selectedBattleTypes[0].battleType.battleTypeGameParamId"/>
+		<bind name="collectionDH" value="CC.eventHubPhase; 'eventHubPhaseCollection'"/>
+		<bind name="watch" value="'currentPhaseEventID'; eventHubPhaseCollection[0].eventHubPhase.battleTypeGameParamId"/>
+		<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/>
+		<bind name="watchDH" value="'hasOwnSpace'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.hasOwnSpace"/>
+		<bind name="watch" value="'isInEventHub'; hasOwnSpace &amp;&amp; isIn(selectedBattleTypes[0].eventBattleState.name, SC.Ui_common.EVENTS.EVENT_HUB_OPERATIONS)"/>
+		<bind name="primaryEntityDH" value="'eventHubFeatureEntity'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[31]"/>
+		<bind name="watchDH" value="'eventHubFeatureState'; ['eventHubFeatureEntity.accountFeature.evStateChanged']; eventHubFeatureEntity.accountFeature.state"/>
+		<bind name="watch" value="'isEventHubUnlocked'; eventHubFeatureState != 'locked'"/>
+		<bind name="watch" value="'isEventModeEnabled'; hasOwnSpace &amp;&amp; (selectedBattleTypeGPID == currentPhaseEventID || (isInEventHub &amp;&amp; !isEventHubUnlocked))"/>
+		<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/>
+		<bind name="watchDH" value="'isOnboardingNeeded'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.isOnboardingNeeded"/>
+		<bind name="request" value="'isEventModeEnabled' + varChanged; isEventModeEnabled &amp;&amp; isOnboardingNeeded ? 'showWindowEventHubOnboardingAnimation' : ''; {}"/>
+		<bind name="file" value="'portInterfaceResourcesInstalled'; '../unbound/mods/PortInterface/Resources.xml'"/>
+		<bind name="file" value="'portInterfaceServerPopulationInstalled'; '../unbound/mods/PortInterface/ServerPopulation.xml'"/>
+		<styleClass value="$Fullsize"/>
+		<bind name="stageSize"/>
+		<block>
+			<bind name="var" value="{inPort: true}"/>
+			<bind name="firstEntityDH" value="'dockDataEntity'; CC.dockData"/>
+			<bind name="watchDH" value="'isShipOverviewEnabled';  ['dockDataEntity.dockData.evIsShipOverviewEnabledChanged']; dockDataEntity.dockData.isShipOverviewEnabled"/>
+			<bind name="transition" value="isShipOverviewEnabled; isShipOverviewEnabled ? 0.4 : 0.25; {alpha: 1}; {alpha: 0}; {alpha: 1}; SC.Common.EASING_FUNCTIONS.IN_QUAD; !isShipOverviewEnabled &amp;&amp; !(inPort) ? 0.15 : 0.5"/>
+			<bind name="style" value="'hitTest'; !isShipOverviewEnabled"/>
+			<styleClass value="$Fullsize"/>
+			<bind name="primaryEntityDH" value="'isInPortfullRouteEntity'; CC.route; SC.Ui_windows.ROUTE.PORT"/>
+			<bind name="watchDH" value="'isInPort'; ['isInPortfullRouteEntity.route.evIsActiveChanged']; isInPortfullRouteEntity.route.isActive"/>
+			<bind name="watchDH" value="'currentPortSubroute'; ['isInPortfullRouteEntity.route.evActiveChildChanged']; isInPortfullRouteEntity.route.activeChild"/>
+			<bind name="watchDH" value="'prevPortSubroute'; ['isInPortfullRouteEntity.route.evActiveChildChanged']; isInPortfullRouteEntity.route.prevActiveChild"/>
+			<bind name="watchDH" value="'availablePortSubroutes'; ['isInPortfullRouteEntity.route.evChildrenChanged']; isInPortfullRouteEntity.route.children"/>
+			<bind name="primaryEntityDH" value="'isInEventHubfullRouteEntity'; CC.route; SC.Ui_windows.ROUTE.EVENT_HUB"/>
+			<bind name="watchDH" value="'isInEventHub'; ['isInEventHubfullRouteEntity.route.evIsActiveChanged']; isInEventHubfullRouteEntity.route.isActive"/>
+			<bind name="watchDH" value="'currentEventHubSubroute'; ['isInEventHubfullRouteEntity.route.evActiveChildChanged']; isInEventHubfullRouteEntity.route.activeChild"/>
+			<bind name="watchDH" value="'prevEventHubSubroute'; ['isInEventHubfullRouteEntity.route.evActiveChildChanged']; isInEventHubfullRouteEntity.route.prevActiveChild"/>
+			<bind name="watchDH" value="'availableEventHubSubroutes'; ['isInEventHubfullRouteEntity.route.evChildrenChanged']; isInEventHubfullRouteEntity.route.children"/>
+			<bind name="watch" value="'notNullPortSubroute'; currentEventHubSubroute	? currentEventHubSubroute :
+												currentPortSubroute	? currentPortSubroute
+																	: notNullPortSubroute"/>
+			<block>
+				<styleClass value="$FullsizeAbsolute"/>
+				<style>
+					<marginTop value="60px"/>
+				</style>
+				<bind name="child" value="notNullPortSubroute || 'main'; {shipId: shipId, shipIdForModuleInset: shipIdForModuleInset};	{main: 'PortMainInset',
+																															profile: 'ProfileMainInset',
+																															research: 'ShipResearchMainInset',
+																															management: 'ShipManagementMainInset',
+																															exterior: 'ExteriorsMainInset',
+																															clans: 'ClanMainInset',
+																															event_hub_progress: 'EventHubProgressInset' }"/>
+				<bind name="firstEntityDH" value="'routeFadingEntity'; CC.routeFading"/>
+				<bind name="watchDH" value="'isSpaceFading'; ['routeFadingEntity.routeFading.evIsFadingChanged']; routeFadingEntity.routeFading.isFading"/>
+				<bind name="changeDispatch" value="isSpaceFading; 'spaceFadingStarted'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.NONE; true"/>
+				<bind name="dispatch" value="'spaceFadingStarted'; 'spaceFadingFinished'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.NONE; 0.1"/>
+				<bind name="action" value="'spaceFadingFinished'; 'stopRouteFading'"/>
+				<block>
+					<styleClass value="$FullsizeAbsolute"/>
+					<style>
+						<backgroundColor value="0xff000000"/>
+						<hitTest value="false"/>
+					</style>
+					<bind name="transition" value="isSpaceFading; 0.1; {alpha: 0}; {alpha: 1}; {alpha: 0}"/>
+				</block>
+			</block>
+			<block>
+				<styleClass value="$MiddleAlignedAbsolutely"/>
+				<style>
+					<top value="59px"/>
+				</style>
+				<block className="DockNaviButtons">
+					<bind name="watch" value="'isAnyShipAvailable'; shipId != 0"/>
+					<bind name="primaryEntityDH" value="'shipEntity'; CC.ownShip; shipId"/>
+					<bind name="watchDH" value="'shipInfo'; ['shipEntity.ship.evUpdate', 'shipEntity.ship.evCurrentSkinChanged']; shipEntity.ship"/>
+					<bind name="collectionDH" value="CC.ownShip; 'playerShips'"/>
+					<bind name="watchDH" value="'canEquipCamouflage'; ['shipEntity.ownShip.evUpdateConfig']; shipEntity.ownShip.canEquipCamouflage"/>
+					<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/>
+					<bind name="watch" value="'selectedBattleTypeGPID'; selectedBattleTypes[0].battleType.battleTypeGameParamId"/>
+					<bind name="collectionDH" value="CC.eventHubPhase; 'eventHubPhaseCollection'"/>
+					<bind name="watch" value="'currentPhaseEventID'; eventHubPhaseCollection[0].eventHubPhase.battleTypeGameParamId"/>
+					<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/>
+					<bind name="watchDH" value="'hasOwnSpace'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.hasOwnSpace"/>
+					<bind name="watch" value="'isInEventHub'; hasOwnSpace &amp;&amp; isIn(selectedBattleTypes[0].eventBattleState.name, SC.Ui_common.EVENTS.EVENT_HUB_OPERATIONS)"/>
+					<bind name="primaryEntityDH" value="'eventHubFeatureEntity'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[31]"/>
+					<bind name="watchDH" value="'eventHubFeatureState'; ['eventHubFeatureEntity.accountFeature.evStateChanged']; eventHubFeatureEntity.accountFeature.state"/>
+					<bind name="watch" value="'isEventHubUnlocked'; eventHubFeatureState != 'locked'"/>
+					<bind name="watch" value="'isEventModeEnabled'; hasOwnSpace &amp;&amp; (selectedBattleTypeGPID == currentPhaseEventID || (isInEventHub &amp;&amp; !isEventHubUnlocked))"/>
+					<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/>
+					<bind name="watch" value="'selectedBattleType'; selectedBattleTypes[0].battleType.type"/>
+					<bind name="primaryEntityDH" value="'routeEntity_profile'; CC.route; SC.Ui_windows.ROUTE.PROFILE"/>
+					<bind name="watchDH" value="'_profile'; ['routeEntity_profile.route.evIsActiveChanged']; routeEntity_profile.route.isActive"/>
+					<bind name="watchDH" value="'isProfileAvailable'; ['routeEntity_profile.route.evIsAvailableChanged']; routeEntity_profile.route.isAvailable"/>
+					<bind name="primaryEntityDH" value="'routeEntity_clans'; CC.route; SC.Ui_windows.ROUTE.CLANS"/>
+					<bind name="watchDH" value="'_clans'; ['routeEntity_clans.route.evIsActiveChanged']; routeEntity_clans.route.isActive"/>
+					<bind name="watchDH" value="'isClansAvailable'; ['routeEntity_clans.route.evIsAvailableChanged']; routeEntity_clans.route.isAvailable"/>
+					<bind name="primaryEntityDH" value="'routeEntity_event_progress'; CC.route; SC.Ui_windows.ROUTE.EVENT_HUB_PROGRESS"/>
+					<bind name="watchDH" value="'_event_progress'; ['routeEntity_event_progress.route.evIsActiveChanged']; routeEntity_event_progress.route.isActive"/>
+					<bind name="watchDH" value="'isProgressAvailable'; ['routeEntity_event_progress.route.evIsAvailableChanged']; routeEntity_event_progress.route.isAvailable"/>
+					<block>
+						<styleClass value="$FullsizeAbsolute"/>
+						<style>
+							<backgroundImage value="url:../service_kit/buttons/tab_bar/bg.png"/>
+							<background9Slice value="[4,4]"/>
+						</style>
+					</block>
+					<block>
+						<style>
+							<margin value="2px"/>
+						</style>
+						<block>
+							<block>
+								<bind name="instance" value="'MainTabButton'; { 	_label: isEventModeEnabled ? 'IDS_EVENT_HUB_MAIN' : 'IDS_DOCK',
+													_name: 'DockSubMenuPort',
+													_selected: currentPortSubroute == SC.Ui_windows.ROUTE.MAIN,
+													_action: 'navigateTo',
+													_actionParams: {route: SC.Ui_windows.ROUTE.MAIN},
+													_dispatch: 'hideCrew' }"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {_newTipId: SC.Context_guiding_tip.TIP_TYPE.CHECK_PROSPECTIVE_EVENT,
+													_tipPositioning: 'bottom',
+													_offset: 5}"/>
+							</block>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<block>
+							<bind name="visible" value="isResearchUnlocked &amp;&amp; !isEventModeEnabled"/>
+							<bind name="primaryEntityDH" value="'featureEntity_17'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[17]"/>
+							<bind name="watchDH" value="'feature_17'; ['featureEntity_17.accountFeature.evStateChanged']; featureEntity_17.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_17"/>
+							<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 17}"/>
+							<bind name="watch" value="'isResearchUnlocked'; feature_17 != 'locked'"/>
+							<bind name="primaryEntityDH" value="'featureEntity_12'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[12]"/>
+							<bind name="watchDH" value="'feature_12'; ['featureEntity_12.accountFeature.evStateChanged']; featureEntity_12.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_12"/>
+							<bind name="action" value="''; 'featureSeen'; {featureIndex: 12}"/>
+							<bind name="primaryEntityDH" value="'featureEntity_14'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[14]"/>
+							<bind name="watchDH" value="'feature_14'; ['featureEntity_14.accountFeature.evStateChanged']; featureEntity_14.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_14"/>
+							<bind name="action" value="''; 'featureSeen'; {featureIndex: 14}"/>
+							<bind name="primaryEntityDH" value="'dockShipEntity'; CC.ship; shipId; 'evUpdate'"/>
+							<bind name="watchDH" value="'dockShipInfo'; ['dockShipEntity.ship.evUpdate', 'dockShipEntity.ship.evCurrentSkinChanged', 'dockShipEntity.ship.evFlagNameWithCrewChanged']; dockShipEntity.ship"/>
+							<bind name="collectionDH" value="CC.equipmentSlot; 'modernizationCollection'; 'bySlotType.' + SC.Ships.SHIP_SLOT_TYPES.MODERNIZATION"/>
+							<bind name="collectionDH" value="CC.signal; 'ExpiredSignalsCol'; 'isInstalled.expired'"/>
+							<bind name="watch" value="'doesShipHaveExpiredSignals'; ExpiredSignalsCol.length"/>
+							<bind name="firstEntityDH" value="'dockCardSelector'; CC.dockCardSelector"/>
+							<bind name="watchDH" value="'isLevelUpAvailable'; ['dockCardSelector.dockCardSelector.evIsLevelUpAvailableChanged']; dockCardSelector.dockCardSelector.isLevelUpAvailable"/>
+							<bind name="watch" value="'isLevelUpMarker'; isLevelUpAvailable &amp;&amp; currentPortSubroute != SC.Ui_windows.ROUTE.MANAGEMENT"/>
+							<bind name="primaryEntityDH" value="'unseenDockCardSelector'; CC.newContent; SC.Common.CONTENT_CATEGORY.BATTLE_CARD"/>
+							<bind name="watchDH" value="'unseenDockCardSelectorCount'; ['unseenDockCardSelector.newContent.evCountChanged']; unseenDockCardSelector.newContent.count"/>
+							<bind name="watch" value="'isNewDockCardSelector'; 	unseenDockCardSelectorCount &gt; 0 &amp;&amp; currentPortSubroute != SC.Ui_windows.ROUTE.MANAGEMENT"/>
+							<bind name="collectionDH" value="CC.ability; 'unseenSpecialAbilities'; 'unseen'"/>
+							<bind name="watch" value="'unseenItemCount'; unseenSpecialAbilities.length"/>
+							<bind name="primaryEntityDH" value="'unseenGameplayFeatures'; CC.newContent; SC.Common.CONTENT_CATEGORY.GAMEPLAY_FEATURES"/>
+							<bind name="watchDH" value="'unseenGameplayFeaturesCount'; ['unseenGameplayFeatures.newContent.evCountChanged']; unseenGameplayFeatures.newContent.count"/>
+							<bind name="watch" value="'isNewGameplayFeatures'; 	unseenGameplayFeaturesCount"/>
+							<bind name="primaryEntityDH" value="'unseenLimitedAmmo'; CC.newContent; SC.Common.CONTENT_CATEGORY.LIMITED_AMMO"/>
+							<bind name="watchDH" value="'unseenLimitedAmmoCount'; ['unseenLimitedAmmo.newContent.evCountChanged']; unseenLimitedAmmo.newContent.count"/>
+							<bind name="watch" value="'isNewLimitedAmmo'; 	unseenLimitedAmmoCount"/>
+							<bind name="primaryEntityDH" value="'unseenEventModernizations'; CC.newContent; SC.Common.CONTENT_CATEGORY.EVENT_MODERNIZATIONS"/>
+							<bind name="watchDH" value="'unseenEventModernizationsCount'; ['unseenEventModernizations.newContent.evCountChanged']; unseenEventModernizations.newContent.count"/>
+							<bind name="watchDH" value="'dockShipNation'; ['dockShipEntity.ship.evUpdate']; dockShipEntity == null ? '' : dockShipEntity.ship.nation"/>
+							<bind name="watch" value="'isNewEventModernization';	unseenEventModernizationsCount &gt; 0 &amp;&amp; dockShipNation == SC.Common.NATION.EVENTS"/>
+							<bind name="watch" value="'isNewModulesMarker';	(feature_17 == 'new') ||
+												(feature_14 == 'new') ||
+												(feature_12 == 'new' &amp;&amp; (modernizationCollection.length &gt; 0) ||
+												unseenItemCount != 0 ||
+												isNewGameplayFeatures ||
+												isNewDockCardSelector ||
+												isNewLimitedAmmo ||
+												isNewEventModernization)"/>
+							<bind name="watch" value="'isSignalsExpired'; doesShipHaveExpiredSignals &amp;&amp; currentPortSubroute != SC.Ui_windows.ROUTE.MANAGEMENT"/>
+							<bind name="name" value="'moduleTabBlock'"/>
+							<block>
+								<bind name="tooltip" value="'SimpleStatusTooltip';	!isAnyShipAvailable	?	{	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,
+																					_text: 'IDS_WARNING_NO_SHIPS_IN_PORT' } :
+														isSignalsExpired	?	{	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,
+																					_text: 'IDS_WARNING_SIGNALS_EXPIRED' }
+																			:	null"/>
+								<bind name="instance" value="'MainTabButton'; isResearchUnlocked	?	{	_label: 'IDS_MODULES',
+																			_name: 'DockSubMenuModules',
+																			_selected: currentPortSubroute == SC.Ui_windows.ROUTE.MANAGEMENT,
+																			_action: 'navigateTo',
+																			_actionParams: {route: SC.Ui_windows.ROUTE.MANAGEMENT},
+																			_dispatch: 'hideCrew',
+																			_disabled: !isAnyShipAvailable,
+																			_isNewMarker: isNewModulesMarker,
+																			_isAttentionMarker: isSignalsExpired,
+																			_isLevelUpMarker: isLevelUpMarker}
+																		: null"/>
+								<bind name="primaryEntityDH" value="'modIntroNewTip';				CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.MODERNIZATION_INTRO"/>
+								<bind name="primaryEntityDH" value="'modIntroRepeatNewTip';			CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.MODERNIZATION_INTRO_REPEAT"/>
+								<bind name="primaryEntityDH" value="'freeXPIntroNewTip';				CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_MODULE_TAB"/>
+								<bind name="primaryEntityDH" value="'freeXPIntroRepeatNewTip';		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_MODULE_TAB_REPEAT"/>
+								<bind name="primaryEntityDH" value="'battleBonusIntroNewTip';		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.BATTLE_BONUS_INTRO"/>
+								<bind name="primaryEntityDH" value="'battleBonusIntroRepeatNewTip';	CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.BATTLE_BONUS_INTRO_REPEAT"/>
+								<bind name="primaryEntityDH" value="'tacticalConsumablesNewTip';		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.TACTICAL_CONSUMABLES"/>
+								<bind name="primaryEntityDH" value="'modernEraEquipmentNewTip';		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.MODERN_ERA_OPERATION_EQUIPMENT"/>
+								<bind name="primaryEntityDH" value="'unbreakableFrontConsumables';	CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.UNBREAKABLE_FRONT_EVENT_INFO"/>
+								<bind name="watchDH" value="'modIntroNewTipActive';				['modIntroNewTip.newGuidingTip.evChanged']; 				modIntroNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'modIntroRepeatNewTipActive';		['modIntroRepeatNewTip.newGuidingTip.evChanged']; 			modIntroRepeatNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'freeXPIntroNewTipActive';			['freeXPIntroNewTip.newGuidingTip.evChanged']; 				freeXPIntroNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'freeXPIntroRepeatNewTipActive';		['freeXPIntroRepeatNewTip.newGuidingTip.evChanged']; 		freeXPIntroRepeatNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'battleBonusIntroNewTipActive';		['battleBonusIntroNewTip.newGuidingTip.evChanged']; 		battleBonusIntroNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'battleBonusIntroRepeatNewTipActive';['battleBonusIntroRepeatNewTip.newGuidingTip.evChanged']; 	battleBonusIntroRepeatNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'tacticalConsumablesNewTipActive';	['tacticalConsumablesNewTip.newGuidingTip.evChanged'];		tacticalConsumablesNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'modernEraEquipmentNewTipActive';	['modernEraEquipmentNewTip.newGuidingTip.evChanged'];		modernEraEquipmentNewTip.newGuidingTip.isActive"/>
+								<bind name="watchDH" value="'unbreakableFrontNewTipActive';		['unbreakableFrontConsumables.newGuidingTip.evChanged'];	unbreakableFrontConsumables.newGuidingTip.isActive"/>
+								<bind name="watch" value="'managementTipID'; 	modIntroNewTipActive				? SC.Context_guiding_tip.TIP_TYPE.MODERNIZATION_INTRO :
+													modIntroRepeatNewTipActive			? SC.Context_guiding_tip.TIP_TYPE.MODERNIZATION_INTRO_REPEAT :
+													freeXPIntroNewTipActive				? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_MODULE_TAB :
+													freeXPIntroRepeatNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_MODULE_TAB_REPEAT :
+													battleBonusIntroNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.BATTLE_BONUS_INTRO :
+													battleBonusIntroRepeatNewTipActive	? SC.Context_guiding_tip.TIP_TYPE.BATTLE_BONUS_INTRO_REPEAT :
+													tacticalConsumablesNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.TACTICAL_CONSUMABLES :
+													modernEraEquipmentNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.MODERN_ERA_OPERATION_EQUIPMENT :
+													unbreakableFrontNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.UNBREAKABLE_FRONT_EVENT_INFO
+																						: SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+								<bind name="watch" value="'managementTipVisible'; managementTipID != SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+								<bind name="instance" value="'NewGuidingTipHub'; managementTipVisible ? {_newTipId: managementTipID,
+																			_tipPositioning: 'bottom',
+																			_offset: 5}
+																		: null"/>
+							</block>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<block>
+							<bind name="visible" value="isCamouflagesUnlocked &amp;&amp; !isEventModeEnabled"/>
+							<bind name="name" value="'camouflagesTabBlock'"/>
+							<bind name="firstEntityDH" value="'installedCamouflageEntity'; CC.installedCamouflage"/>
+							<bind name="watchDH" value="'exteriorsInStorage'; ['installedCamouflageEntity.countComponent.evUpdate']; installedCamouflageEntity.countComponent.value"/>
+							<bind name="watch" value="'isCamouflageExpired'; !!installedCamouflageEntity ? exteriorsInStorage == 0
+																			: false"/>
+							<bind name="watch" value="'isCamouflageAttentionMarkerVisible'; isCamouflageExpired &amp;&amp; !(currentPortSubroute == SC.Ui_windows.ROUTE.EXTERIOR)"/>
+							<bind name="primaryEntityDH" value="'featureEntity_15'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[15]"/>
+							<bind name="watchDH" value="'feature_15'; ['featureEntity_15.accountFeature.evStateChanged']; featureEntity_15.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_15"/>
+							<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 15}"/>
+							<bind name="watch" value="'isCamouflagesUnlocked'; feature_15 != 'locked'"/>
+							<bind name="watch" value="'isNewExteriorMarker'; canEquipCamouflage == true &amp;&amp; feature_15 == 'new'"/>
+							<block>
+								<bind name="tooltip" value="'SimpleStatusTooltip';	!isAnyShipAvailable					?	{	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,
+																									_text: 'IDS_WARNING_NO_SHIPS_IN_PORT' } :
+														isCamouflageAttentionMarkerVisible	?	{	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,
+																									_text: 'IDS_WARNING_CAMOUFLAGE_EXPIRED' }
+																							:	null"/>
+								<bind name="instance" value="'MainTabButton'; isCamouflagesUnlocked	?	{	_label: 'IDS_EXTERIOR',
+																				_name: 'DockSubMenuExterior',
+																				_selected: currentPortSubroute == SC.Ui_windows.ROUTE.EXTERIOR,
+																				_action: 'navigateTo',
+																				_actionParams: { route: SC.Ui_windows.ROUTE.EXTERIOR },
+																				_dispatch: 'hideCrew',
+																				_disabled: !isAnyShipAvailable,
+																				_isNewMarker: isNewExteriorMarker,
+																				_isAttentionMarker: isCamouflageAttentionMarkerVisible }
+																		:	null"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.EXTERIOR_PORT,
+														_tipPositioning: 'bottom',
+														_offset: 5,
+														_hasNextButton: false}"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.EXTERIOR_PORT_REPEAT,
+														_tipPositioning: 'bottom',
+														_offset: 5,
+														_hasNextButton: false}"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.EXTERIOR_PORT_SHIP_DESTRUCTION,
+														_tipPositioning: 'bottom',
+														_offset: 12,
+														_pointerOffset: -6,
+														_hasNextButton: false}"/>
+							</block>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<block>
+							<bind name="primaryEntityDH" value="'featureEntity_17'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[17]"/>
+							<bind name="watchDH" value="'feature_17'; ['featureEntity_17.accountFeature.evStateChanged']; featureEntity_17.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_17"/>
+							<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 17}"/>
+							<bind name="primaryEntityDH" value="'featureEntity_24'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[24]"/>
+							<bind name="watchDH" value="'feature_24'; ['featureEntity_24.accountFeature.evStateChanged']; featureEntity_24.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_24"/>
+							<bind name="action" value="''; 'featureSeen'; {featureIndex: 24}"/>
+							<bind name="visible" value="isResearchUnlocked &amp;&amp; !isEventModeEnabled"/>
+							<bind name="firstEntityDH" value="'paragonSeasonEntity'; CC.paragonSeason"/>
+							<bind name="watchDH" value="'isParagonEnabled'; ['paragonSeasonEntity.paragonSeason.evUpdate']; paragonSeasonEntity.paragonSeason.enabled"/>
+							<bind name="watch" value="'isNotSeenParagonInShipTree'; currentUserTaskFlags[SC.Common.USER_TASKS_FLAGS.KNOWS_ABOUT_PARAGONS_IN_SHIP_TREE] == 0"/>
+							<bind name="watch" value="'isNotSeenShipTreeBranches'; (currentUserTaskFlags[SC.Common.USER_TASKS_FLAGS.SEEN_ANIMATION_CRUISERS] == 0) &amp;&amp; currentPortSubroute != SC.Ui_windows.ROUTE.RESEARCH"/>
+							<bind name="firstEntityDH" value="'miniDockyardSeasonEntity'; CC.miniDockyardSeason"/>
+							<bind name="watch" value="'isNewMiniDockyardSeason'; !!miniDockyardSeasonEntity.newItem &amp;&amp; feature_24 != 'locked'"/>
+							<bind name="watch" value="'isNewShipTreeMarker'; isParagonEnabled &amp;&amp; isNotSeenParagonInShipTree ||
+												isNotSeenShipTreeBranches ||
+												isNewMiniDockyardSeason"/>
+							<block>
+								<bind name="instance" value="'MainTabButton'; isResearchUnlocked ?	{	_label: 'IDS_RESEARCH',
+																			_name: 'DockSubMenuResearch',
+																			_selected: currentPortSubroute == SC.Ui_windows.ROUTE.RESEARCH,
+																			_action: 'navigateTo',
+																			_actionParams: {route: SC.Ui_windows.ROUTE.RESEARCH},
+																			_dispatch: 'hideCrew',
+																			_isNewMarker: isNewShipTreeMarker}
+																	: null"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.RESEARCH_INTRO,
+														_tipPositioning: 'bottom',
+														_offset: 5}"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.RESEARCH_INTRO_REPEAT,
+														_tipPositioning: 'bottom',
+														_offset: 5}"/>
+								<bind name="instance" value="'NewGuidingTipHub'; {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.SUPERSHIPS,
+														_tipPositioning: 'bottom',
+														_offset: 5}"/>
+							</block>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<block>
+							<bind name="visible" value="isProfileAvailable &amp;&amp; !isEventModeEnabled"/>
+							<bind name="primaryEntityDH" value="'featureEntity_16'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[16]"/>
+							<bind name="watchDH" value="'feature_16'; ['featureEntity_16.accountFeature.evStateChanged']; featureEntity_16.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_16"/>
+							<bind name="action" value="''; 'featureSeen'; {featureIndex: 16}"/>
+							<bind name="firstEntityDH" value="'rankSeasonEntity'; CC.rankSeason"/>
+							<bind name="primaryEntityDH" value="'newCardsEntity'; CC.newContent; SC.Common.CONTENT_CATEGORY.CARDS"/>
+							<bind name="watchDH" value="'newCardsCounter'; ['newCardsEntity.newContent.evCountChanged']; newCardsEntity.newContent.count"/>
+							<block>
+								<bind name="instance" value="'MainTabButton'; {	_label: 'IDS_PROFILE',
+														_name: 'DockSubMenuProfile',
+														_selected: currentPortSubroute == SC.Ui_windows.ROUTE.PROFILE,
+														_action: 'navigateTo',
+														_actionParams: { route: SC.Ui_windows.ROUTE.PROFILE },
+														_dispatch: 'hideCrew',
+														_newContentCounter: newCardsCounter,
+														_isNewMarker: feature_16 == 'new' &amp;&amp; rankSeasonEntity }"/>
+							</block>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<bind name="firstEntityDH" value="'selfPlayerEntity'; CC.accountSelf"/>
+						<bind name="watchDH" value="'selfPlayerDbId'; 		[]; selfPlayerEntity.accountSimple.dbId"/>
+						<bind name="watchDH" value="'selfPlayerName'; 		['selfPlayerEntity.accountName.evChanged']; selfPlayerEntity.accountName.name"/>
+						<bind name="watchDH" value="'selfPlayerNickName'; 	['selfPlayerEntity.accountName.evChanged']; selfPlayerEntity.accountName.nickName"/>
+						<bind name="primaryEntityDH" value="'clanEntity'; CC.clan; selfPlayerEntity.clanman.clanId"/>
+						<bind name="watchDH" value="'clanTag'; ['clanEntity.clan.evTagChanged']; clanEntity.clan.tag"/>
+						<bind name="watchDH" value="'clanName'; ['clanEntity.clanExtended.evNameChanged']; clanEntity.clanExtended.name"/>
+						<bind name="primaryEntityDH" value="'clansIntroNewTip'; CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.CLANS_INTRO"/>
+						<bind name="primaryEntityDH" value="'clansIntroRepeatNewTip'; CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.CLANS_INTRO_REPEAT"/>
+						<bind name="watchDH" value="'isClansIntroNewTipActive'; 			['clansIntroNewTip.newGuidingTip.evChanged']; 		clansIntroNewTip.newGuidingTip.isActive"/>
+						<bind name="watchDH" value="'isClansIntroRepeatNewTipActive'; 	['clansIntroRepeatNewTip.newGuidingTip.evChanged']; clansIntroRepeatNewTip.newGuidingTip.isActive"/>
+						<bind name="watch" value="'chainId'; isClansIntroNewTipActive		? SC.Context_guiding_tip.TIP_CHAIN_ID.CLANS :
+								isClansIntroRepeatNewTipActive	? SC.Context_guiding_tip.TIP_CHAIN_ID.CLANS_REPEAT
+																: SC.Context_guiding_tip.TIP_CHAIN_ID.NONE"/>
+						<bind name="watch" value="'tipId'; 	isClansIntroNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.CLANS_INTRO :
+								isClansIntroRepeatNewTipActive	? SC.Context_guiding_tip.TIP_TYPE.CLANS_INTRO_REPEAT
+																: SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+						<bind name="watch" value="'isNewTipVisible'; tipId != SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+						<block>
+							<bind name="visible" value="isClansAvailable &amp;&amp; !isEventModeEnabled"/>
+							<bind name="primaryEntityDH" value="'featureEntity_27'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[27]"/>
+							<bind name="watchDH" value="'feature_27'; ['featureEntity_27.accountFeature.evStateChanged']; featureEntity_27.accountFeature.state"/>
+							<bind name="watch" value="'featureState'; feature_27"/>
+							<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 27}"/>
+							<bind name="watch" value="'clanLabel'; (selfPlayerEntity.clanman) ? '['+clanTag+']' : toUpperCase(tr('IDS_CLANS'))"/>
+							<bind name="instance" value="'MainTabButton'; {	_label: clanLabel,
+												_name: 'DockSubMenuClan',
+												_selected: currentPortSubroute == SC.Ui_windows.ROUTE.CLANS,
+												_action: 'navigateTo',
+												_actionParams: {route: SC.Ui_windows.ROUTE.CLANS, data: {url: SC.Ui_windows.GUI_URL.CLANS_IN_GAME}},
+												_dispatch: 'hideCrew',
+												_isNewMarker: feature_27 == 'new' &amp;&amp; !selfPlayerEntity.clanman }"/>
+							<bind name="action" value="'click'; 'deactivateTipChain'; chainId != SC.Context_guiding_tip.TIP_CHAIN_ID.NONE 	? {tip_chain_id: chainId}
+																												: null"/>
+							<bind name="instance" value="'NewGuidingTipHub'; isNewTipVisible	? {	_newTipId: tipId,
+																	_tipPositioning: 'bottom',
+																	_offset: 5,
+																	_hasNextButton: false}
+																: null"/>
+						</block>
+						<block>
+							<bind name="visible" value="isEventModeEnabled"/>
+							<bind name="primaryEntityDH" value="'newPhaseProgressEntity'; CC.newContent; SC.Common.CONTENT_CATEGORY.EVENT_HUB_PROGRESS"/>
+							<bind name="watchDH" value="'newPhaseProgressCounter'; ['newPhaseProgressEntity.newContent.evCountChanged']; newPhaseProgressEntity.newContent.count"/>
+							<block>
+								<bind name="instance" value="'MainTabButton'; {	_label: 'IDS_EVENT_HUB_PROGRESS',
+													_name: 'DockSubMenuEventHubProgress',
+													_width: '163px',
+													_selected: currentEventHubSubroute == SC.Ui_windows.ROUTE.EVENT_HUB_PROGRESS,
+													_action: 'navigateTo',
+													_actionParams: { route: SC.Ui_windows.ROUTE.EVENT_HUB_PROGRESS },
+													_dispatch: 'hideCrew',
+													_isNewMarker: newPhaseProgressCounter &gt; 0 }"/>
+							</block>
+							<bind name="instance" value="'NewGuidingTipHub';	isProgressAvailable ? {	_newTipId: SC.Context_guiding_tip.TIP_TYPE.EVENT_HUB_PROGRESS_TAB,
+																		_tipPositioning: 'bottom',
+																		_offset: 5}
+																	: null"/>
+							<block>
+								<style>
+									<height value="25px"/>
+								</style>
+								<block className="VerticalDivider">
+									<style>
+										<height value="100%"/>
+										<width value="3px"/>
+										<backgroundSize value="fill"/>
+										<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+									</style>
+								</block>
+							</block>
+							<style>
+								<flow value="horizontal"/>
+							</style>
+						</block>
+						<block>
+							<bind name="visible" value="isEventModeEnabled"/>
+							<bind name="primaryEntityDH" value="'newCollectionCardEntity'; CC.newContent; SC.Common.CONTENT_CATEGORY.EVENT_HUB_COLLECTION"/>
+							<bind name="watchDH" value="'newCollectionCounter'; ['newCollectionCardEntity.newContent.evCountChanged']; newCollectionCardEntity.newContent.count"/>
+							<bind name="instance" value="'MainTabButton'; {	_label: 'IDS_EVENT_HUB_COLLECTION',
+												_name: 'DockSubMenuEventHubCollection',
+												_width: '163px',
+												_selected: currentEventHubSubroute == SC.Ui_windows.ROUTE.EVENT_HUB_COLLECTION,
+												_action: 'navigateTo',
+												_actionParams: { route: SC.Ui_windows.ROUTE.EVENT_HUB_COLLECTION },
+												_dispatch: 'hideCrew',
+												_isNewMarker: newCollectionCounter &gt; 0}"/>
+						</block>
+						<style>
+							<flow value="horizontal"/>
+						</style>
+					</block>
+				</block>
+			</block>
+			<block className="DeclareBlurLayer">
+				<bind name="primaryEntityDH" value="'isBlurEnabledEntity'; CC.preference; 'graphics.GUI.blur'"/>
+				<bind name="watchDH" value="'isBlurEnabled'; ['isBlurEnabledEntity.preference.evValueChanged']; isBlurEnabledEntity.preference.value"/>
+				<bind name="visible" value="isBlurEnabled"/>
+				<block className="transparentPixel" type="native">
+					<bind name="blurLayer" value="0"/>
+				</block>
+				<style>
+					<position value="absolute"/>
+				</style>
+			</block>
+			<block>
+				<styleClass value="$MiddleAlignedAbsolutely"/>
+				<block>
+					<style>
+						<marginBottom value="12px"/>
+					</style>
+					<block className="BlurMap">
+						<bind name="primaryEntityDH" value="'isBlurEnabledEntity'; CC.preference; 'graphics.GUI.blur'"/>
+						<bind name="watchDH" value="'isBlurEnabled'; ['isBlurEnabledEntity.preference.evValueChanged']; isBlurEnabledEntity.preference.value"/>
+						<bind name="visible" value="isBlurEnabled"/>
+						<style>
+							<hitTest value="false"/>
+						</style>
+						<styleClass value="$FullsizeAbsolute"/>
+						<block className="mc_blurmap_medium" type="native">
+							<bind name="appear" value="'startShow'; 0.3; 0; {alpha: 0}; {alpha: 1}"/>
+							<bind name="appear" value="'startHide'; 0.15; 0; {alpha: 1}; {alpha: 0}"/>
+							<styleClass value="$FullsizeAbsolute"/>
+							<bind name="blurMap" value="0"/>
+						</block>
+						<block className="inner_panel" type="native">
+							<style>
+								<alpha value="0.2"/>
+							</style>
+							<styleClass value="$FullsizeAbsolute"/>
+						</block>
+					</block>
+					<styleClass value="$FullsizeAbsolute"/>
+				</block>
+				<block>
+					<style>
+						<backgroundImage value="url:../panel_background/dock_menu_bg.png"/>
+						<width value="5120px"/>
+						<height value="72px"/>
+						<hitTest value="false"/>
+						<alpha value="0.8"/>
+					</style>
+				</block>
+			</block>
+			<block>
+				<style>
+					<position value="absolute"/>
+					<width value="100%"/>
+					<height value="60px"/>
+					<mouseEnabled value="false"/>
+				</style>
+				<block>
+					<bind name="firstEntityDH" value="'userTaskEntity'; CC.userTask"/>
+					<bind name="watchDH" value="'currentUserTaskFlags'; ['userTaskEntity.userTask.evFlagChanged']; userTaskEntity.userTask.flags"/>
+					<style>
+						<width value="50%"/>
+					</style>
+					<block>
+						<style>
+							<width value="100%"/>
+						</style>
+						<block>
+							<bind name="instance" value="'SettingsButtonPort'; {}"/>
+						</block>
+						<block>
+							<block>
+								<bind name="instance" value="'PlayerDogTagButtonPort'; {}"/>
+							</block>
+						</block>
+						<block>
+							<style>
+								<width value="1280:8,1920:12aw"/>
+							</style>
+						</block>
+						<block>
+							<style>
+								<width value="100%f"/>
+							</style>
+							<block>
+								<style>
+									<width value="100%f"/>
+								</style>
+								<bind name="instance" value="'ButtonAccount'; {}"/>
+							</block>
+						</block>
+						<block>
+							<bind name="visible" value="!isEventModeEnabled"/>
+							<style>
+								<width value="1280:16,1920:32aw"/>
+							</style>
+						</block>
+						<block>
+							<bind name="instance" value="'PortSwitcher'; !isEventModeEnabled ? {} : null"/>
+						</block>
+						<block>
+							<bind name="visible" value="portInterfaceServerPopulationInstalled"/>
+							<style>
+								<width value="1280:16,1920:32aw"/>
+							</style>
+						</block>
+						<block>
+							<bind name="firstEntityDH" value="'dockDataEntity'; CC.dockData"/>
+							<bind name="watchDH" value="'playersOnCurrentRealm'; ['dockDataEntity.dockData.evPlayersOnCurrentRealmChanged']; dockDataEntity.dockData.playersOnCurrentRealm"/>
+							<bind name="instance" value="'ON_PlayersNumber'; portInterfaceServerPopulationInstalled ? {_playersOnline: playersOnCurrentRealm} : null"/>
+						</block>
+						<block>
+							<style>
+								<width value="1280:16,1920:32aw"/>
+							</style>
+						</block>
+						<style>
+							<flow value="horizontal"/>
+						</style>
+					</block>
+					<block>
+						<bind name="action" value="'click'; 'ServerUIDataUSS.setUserTaskExecuted'; {taskId: SC.Common.USER_TASKS_FLAGS.KNOWS_ABOUT_DIVISION_IN_RANKES}"/>
+						<bind name="watch" value="'userDoNotWatchRankDivision'; (currentUserTaskFlags[SC.Common.USER_TASKS_FLAGS.KNOWS_ABOUT_DIVISION_IN_RANKES] == 0)"/>
+						<bind name="instance" value="'DivisionButtonPort'; {}"/>
+					</block>
+					<block>
+						<style>
+							<width value="1280:90,1920:102aw"/>
+						</style>
+					</block>
+					<style>
+						<flow value="horizontal"/>
+					</style>
+				</block>
+				<block>
+					<styleClass value="$MiddleAlignedAbsolutely"/>
+					<block>
+						<bind name="watchDH" value="'isSelfPlayerCommander'; ['selfPlayerEntity.preBattlePlayerSimple.evIsCommanderChanged']; selfPlayerEntity.preBattlePlayerSimple.isCommander"/>
+						<style>
+							<marginTop value="4px"/>
+						</style>
+						<bind name="instance" value="'StartBattleButtonBig'; !divisionDataEntity || isSelfPlayerCommander ? {} : null"/>
+						<bind name="instance" value="'BigReadyForFormationBattleButton'; divisionDataEntity &amp;&amp; !isSelfPlayerCommander ? {} : null"/>
+						<bind name="action" value="'click'; 'deactivateTipChain'; {tip_chain_id: SC.Context_guiding_tip.TIP_CHAIN_ID.CONTINUOUS_BATTLE_ENTER}"/>
+						<bind name="instance" value="'NewGuidingTipHub'; {_newTipId: SC.Context_guiding_tip.TIP_TYPE.CONTINUOUS_BATTLE_ENTER,
+															_tipPositioning: 'bottom',
+															_offset: 5}"/>
+						<bind name="instance" value="'NewGuidingTipHub'; {_newTipId: SC.Context_guiding_tip.TIP_TYPE.DEAD_MODULES_REMOVAL_TIP,
+															_tipPositioning: 'bottom',
+															_offset: 5,
+															_noArrow: true,
+															_noPointer: true,
+															}"/>
+					</block>
+				</block>
+				<block>
+					<style>
+						<position value="absolute"/>
+						<top value="192px"/>
+						<width value="100%"/>
+						<align value="middle"/>
+					</style>
+					<block>
+						<style>
+							<width value="100%"/>
+							<marginTop value="720:0,1080:5ah"/>
+						</style>
+						<bind name="instance" value="'NewGuidingTipHub'; newTipIdTop != SC.Context_guiding_tip.TIP_TYPE.NONE	? {	_newTipId: newTipIdTop,
+																											_tipPositioning: 'bottom',
+																											_offset: 5,
+																											_hasFinishButton: hasFinishButtonTop,
+																											_hasNextButton: hasNextButtonTop,
+																											_noPointer: true,
+																											_tipShownEvent: tipShownEvent,
+																											_buttonLogEvent: buttonLogEvent
+																											}
+																										: null"/>
+					</block>
+					<block>
+						<style>
+							<width value="100%"/>
+							<marginTop value="720:169,1080:287ah"/>
+						</style>
+						<bind name="instance" value="'NewGuidingTipHub'; newTipIdBottom != SC.Context_guiding_tip.TIP_TYPE.NONE	? {	_newTipId: newTipIdBottom,
+																												_tipPositioning: 'bottom',
+																												_offset: 0,
+																												_hasNextButton: true,
+																												_noPointer: true,
+																												_tipShownEvent: tipShownEvent,
+																												_buttonLogEvent: buttonLogEvent
+																											}
+																										: null"/>
+					</block>
+				</block>
+				<block>
+					<style>
+						<width value="50%"/>
+					</style>
+					<block>
+						<style>
+							<width value="1280:86,1920:98aw"/>
+						</style>
+					</block>
+					<block>
+						<style>
+							<width value="100%"/>
+						</style>
+						<bind name="instance" value="'BattleTypeChooser'; {_isFromPort: true, _canShowTip: true}"/>
+					</block>
+					<block>
+						<bind name="instance" value="portInterfaceResourcesInstalled ? 'ON_AccountResourcesWidget' : 'AccountResourcesWidget'; {}"/>
+					</block>
+					<block>
+						<style>
+							<width value="1280:9,1920:13aw"/>
+						</style>
+					</block>
+					<style>
+						<flow value="horizontal"/>
+					</style>
+				</block>
+				<style>
+					<flow value="horizontal"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="currentPortSubroute == SC.Ui_windows.ROUTE.MAIN &amp;&amp; isEventModeEnabled"/>
+				<style>
+					<width value="100px"/>
+					<height value="100px"/>
+					<top value="96px"/>
+					<right value="40px"/>
+				</style>
+				<block className="EventHubAboutEventButton" type="ublock">
+					<bind name="build!" value="$ubPlayerProxy; { _width: 100}"/>
+					<bind name="externalArgs" value="{ _width: 100}"/>
+				</block>
+			</block>
+		</block>
+		<block className="DeclareBlurLayer">
+			<bind name="primaryEntityDH" value="'isBlurEnabledEntity'; CC.preference; 'graphics.GUI.blur'"/>
+			<bind name="watchDH" value="'isBlurEnabled'; ['isBlurEnabledEntity.preference.evValueChanged']; isBlurEnabledEntity.preference.value"/>
+			<bind name="visible" value="isBlurEnabled"/>
+			<block className="transparentPixel" type="native">
+				<bind name="blurLayer" value="0"/>
+			</block>
+			<style>
+				<position value="absolute"/>
+			</style>
+		</block>
+	</block>
+	<block className="ON_AccountResourcesWidget">
+		<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/>
+		<bind name="watch" value="'selectedBattleTypeGPID'; selectedBattleTypes[0].battleType.battleTypeGameParamId"/>
+		<bind name="collectionDH" value="CC.eventHubPhase; 'eventHubPhaseCollection'"/>
+		<bind name="watch" value="'currentPhaseEventID'; eventHubPhaseCollection[0].eventHubPhase.battleTypeGameParamId"/>
+		<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/>
+		<bind name="watchDH" value="'hasOwnSpace'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.hasOwnSpace"/>
+		<bind name="watch" value="'isInEventHub'; hasOwnSpace &amp;&amp; isIn(selectedBattleTypes[0].eventBattleState.name, SC.Ui_common.EVENTS.EVENT_HUB_OPERATIONS)"/>
+		<bind name="primaryEntityDH" value="'eventHubFeatureEntity'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[31]"/>
+		<bind name="watchDH" value="'eventHubFeatureState'; ['eventHubFeatureEntity.accountFeature.evStateChanged']; eventHubFeatureEntity.accountFeature.state"/>
+		<bind name="watch" value="'isEventHubUnlocked'; eventHubFeatureState != 'locked'"/>
+		<bind name="watch" value="'isEventModeEnabled'; hasOwnSpace &amp;&amp; (selectedBattleTypeGPID == currentPhaseEventID || (isInEventHub &amp;&amp; !isEventHubUnlocked))"/>
+		<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource"/>
+		<bind name="watchDH" value="'isSyncedWithWallet'; ['resourceEntity.accountResource.evChangedIsSyncedWithWallet']; resourceEntity.accountResource.isSyncedWithWallet"/>
+		<bind name="watchDH" value="'walletAvailable'; ['resourceEntity.accountResource.evChangedWalletStatus']; resourceEntity.accountResource.walletStatus"/>
+		<bind name="watch" value="'showWGWalletWarning'; isSyncedWithWallet == false || walletAvailable == false"/>
+		<bind name="file" value="'portInterfaceUrlsInstalled'; '../../gui_urls.xml'"/>
+		<bind name="stageSize"/>
+		<block>
+			<style>
+				<marginTop value="-4px"/>
+				<flow value="horizontal"/>
+			</style>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCommunity'} : {}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'recruitmentPoints',
+																							_currency: SC.Common.CURRENCIES.RECRUITMENT_POINTS,
+																							_label: 'IDS_REWARD_RECRUITMENT_POINTS_TITLE'}"/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="showWGWalletWarning"/>
+				<style>
+					<marginTop value="6px"/>
+					<height value="30px"/>
+					<width value="30px"/>
+				</style>
+				<bind name="instance" value="'WGWalletServiceStatus'; showWGWalletWarning ? {} : null"/>
+			</block>
+			<block>
+				<bind name="name" value="'buttonBuyGold'"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'goldBalance',
+																						_currency: SC.Common.CURRENCIES.GOLD,
+																						_label: 'IDS_GOLD'}"/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="name" value="'buttonExchangeGold'"/>
+				<bind name="style" value="'alpha'; showWGWalletWarning ? 0.5 : 1"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'creditBalance',
+																						_currency: SC.Common.CURRENCIES.CREDITS,
+																						_label: 'IDS_CONVERT_CREDITS'} "/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="name" value="'buttonConvertExp'"/>
+				<bind name="primaryEntityDH" value="'featureEntity_5'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[5]"/>
+				<bind name="watchDH" value="'feature_5'; ['featureEntity_5.accountFeature.evStateChanged']; featureEntity_5.accountFeature.state"/>
+				<bind name="watch" value="'featureState'; feature_5"/>
+				<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 5}"/>
+				<bind name="visible" value="feature_5 != 'locked'"/>
+				<block>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'freeExpBalance',
+																							_currency: SC.Common.CURRENCIES.FREE_XP,
+																							_label: 'IDS_CONVERT_FREE_EXPERIENCE'}"/>
+				</block>
+				<block>
+					<bind name="fade" value="(feature_5 == 'new'); 0.15; {alpha: 0, top: 10}; {alpha: 1, top: 0}; {alpha: 0, top: -10}; 2"/>
+					<style>
+						<position value="absolute"/>
+						<right value="-7px"/>
+						<top value="7px"/>
+					</style>
+					<bind name="instance" value="'MarkerNewAttention'; {}"/>
+				</block>
+				<bind name="primaryEntityDH" value="'researchFreeXpNewTip'; 			CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP"/>
+				<bind name="primaryEntityDH" value="'researchFreeXpRepeatNewTip'; 	CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT"/>
+				<bind name="primaryEntityDH" value="'freeXpIntroNewTip'; 			CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO"/>
+				<bind name="primaryEntityDH" value="'freeXpIntroRepeatNewTip'; 		CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT"/>
+				<bind name="watchDH" value="'researchFreeXpNewTipActive'; 		['researchFreeXpNewTip.newGuidingTip.evChanged']; 		researchFreeXpNewTip.newGuidingTip.isActive"/>
+				<bind name="watchDH" value="'researchFreeXpRepeatNewTipActive';	['researchFreeXpRepeatNewTip.newGuidingTip.evChanged']; researchFreeXpRepeatNewTip.newGuidingTip.isActive"/>
+				<bind name="watchDH" value="'freeXpIntroNewTipActive';			['freeXpIntroNewTip.newGuidingTip.evChanged']; 			freeXpIntroNewTip.newGuidingTip.isActive"/>
+				<bind name="watchDH" value="'freeXpIntroRepeatNewTipActive';		['freeXpIntroRepeatNewTip.newGuidingTip.evChanged']; 	freeXpIntroRepeatNewTip.newGuidingTip.isActive"/>
+				<bind name="watch" value="'freeXpTipId'; 	researchFreeXpNewTipActive			? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP :
+											researchFreeXpRepeatNewTipActive	? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT :
+											freeXpIntroNewTipActive				? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO :
+											freeXpIntroRepeatNewTipActive		? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT
+																				: SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+				<bind name="watch" value="'freeXpTipVisible'; freeXpTipId != SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+				<bind name="instance" value="'NewGuidingTipHub'; freeXpTipVisible ? {_newTipId: freeXpTipId,
+																	_tipPositioning: 'bottom',
+																	_offset: 5,
+																	_hasNextButton: true,
+																	_keepOnNotFit: true,
+																	_pinOffset: 92,
+																	_screenOffsetRight: 16,
+																	_pointerOffset: -24}
+																: null"/>
+			</block>
+		</block>
+		<block>
+			<style>
+				<marginTop value="-7px"/>
+				<flow value="horizontal"/>
+			</style>
+			<!--block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="action" value="'click'; 'navigateTo'; {route: SC.Ui_windows.ROUTE.PORTAL,
+																					data: {url: SC.Ui_windows.GUI_URL.CLANS_IN_GAME, fullInput: true}}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'clanResource',
+																							_currency: SC.Common.CURRENCIES.CLAN_RESOURCE,
+																							_label: 'IDS_REWARD_CLANRESOURCE_TITLE'}"/>
+			</block-->
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopSteel'} : {}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'steel',
+																							_currency: SC.Common.CURRENCIES.STEEL,
+																							_label: 'IDS_REWARD_STEEL_TITLE'} "/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopResearchBureau'} : {}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'paragonXP',
+																							_currency: SC.Common.CURRENCIES.PARAGON_XP,
+																							_label: 'IDS_REWARD_PARAGONXP_TITLE'}"/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCoal'} : {}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'coal',
+																							_currency: SC.Common.CURRENCIES.COAL,
+																							_label: 'IDS_REWARD_COAL_TITLE'} "/>
+			</block>
+			<block>
+				<style>
+					<width value="1280:10,1920:18aw"/>
+				</style>
+			</block>
+			<block>
+				<bind name="request" value="'click'; 'showCrewManagement'; {}"/>
+				<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'eliteXPBalance',
+																							_currency: SC.Common.CURRENCIES.ELITE_XP,
+																							_label: 'IDS_REWARD_ELITEXP_TITLE'} "/>
+			</block>
+		</block>
+	</block>
+	<block className="ON_DockResourcesWidget">
+		<bind name="controller" value="'lesta.unbound.controls.UbInteractiveController'"/>
+		<bind name="firstEntityDH" value="'realmConstantsEntity'; CC.realmConstants"/>
+		<bind name="watchDH" value="'isPremshopUIAvailable'; []; realmConstantsEntity.realmConstants.isPremshopUIAvailable"/>
+		<bind name="watchDH" value="'isMergedShopsRealm'; []; realmConstantsEntity.realmConstants.isMergedShopsRealm"/>
+		<bind name="firstEntityDH" value="'loginEntity'; CC.loginData"/>
+		<bind name="watchDH" value="'isExternalPlatformClient'; ['loginEntity.loginData.evUpdate']; loginEntity.loginData.isExternalPlatformClient"/>
+		<bind name="watchDH" value="'isEGSClient'; ['loginEntity.loginData.evUpdate']; loginEntity.loginData.isEGS"/>
+		<bind name="watch" value="'isOpenPremInClientBrowser'; isExternalPlatformClient || isPremshopUIAvailable"/>
+		<bind name="watch" value="'isGold'; _currency == SC.Common.CURRENCIES.GOLD"/>
+		<bind name="watch" value="'isCredits'; _currency == SC.Common.CURRENCIES.CREDITS"/>
+		<bind name="watch" value="'isFreeXP'; _currency == SC.Common.CURRENCIES.FREE_XP"/>
+		<bind name="watch" value="'clickAction'; isGold ? isOpenPremInClientBrowser ? null : 'gotoUrlByIdent'
+																		: isCredits ? 'creditsGoldWindow'
+																						: isFreeXP ? 'xpFreeExpWindow'
+																										: null"/>
+		<bind name="watch" value="'clickRequest'; isGold ? isOpenPremInClientBrowser ? isEGSClient || isMergedShopsRealm ? 'openMetashop'
+																																								: 'openPremShop'
+																												: null
+																			: null"/>
+		<bind name="action" value="'click'; clickAction; isGold ? { ident: SC.Ui_windows.GUI_URL.BUY_GOLD }
+																					: {}"/>
+		<bind name="request" value="'click'; clickRequest; isGold ? isOpenPremInClientBrowser ? isEGSClient ? {url: SC.Ui_windows.GUI_URL.BUY_GOLD_IN_METASHOP_IN_GAME}
+																																				: {url: SC.Ui_windows.GUI_URL.BUY_GOLD_IN_GAME}
+																															: null
+																						: null"/>
+		<bind name="soundSet" value="!(clickAction || clickRequest) ? 'default_button' : 'button_' + _currency"/>
+		<style>
+			<height value="30px"/>
+			<backgroundColor value="0x01000000"/>
+		</style>
+		<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource"/>
+		<bind name="watchDH" value="'accountResources'; ['resourceEntity.accountResource.evChangedGold',
+										 'resourceEntity.accountResource.evChangedCredit',
+										 'resourceEntity.accountResource.evChangedFreeXP',
+										 'resourceEntity.accountResource.evChangedEliteXP',
+										 'resourceEntity.accountResource.evChangedSteel',
+										 'resourceEntity.accountResource.evChangedCoal',
+										 'resourceEntity.accountResource.evChangedRecruitmentPoints',
+										 'resourceEntity.accountResource.evChangedParagonXP']; resourceEntity.accountResource"/>
+		<bind name="name" value="_name"/>
+		<block>
+			<style>
+				<marginTop value="8"/>
+				<right value="0"/>
+			</style>
+			<bind name="transition" value="rollOver &amp;&amp; !(mouseDown); 0.07; {alpha: 1}; {alpha: 1.15}"/>
+			<bind name="instance" value="'PriceTag'; {priceInfo: {finalPrice: accountResources[_currency], currency: _currency}, _medium: true}"/>
+			<bind name="tooltip" value="'ON_CurrencyWidgetTooltip'; {_currency: _currency}"/>
+		</block>
+	</block>
+	<block className="ON_CurrencyWidgetTooltip">
+		<bind name="action" value="'Tooltip.selfOpened'; isSplitCurrency &amp;&amp; lootedMoney[_currency].finalPrice &lt; 0 ? 'DockProxy.getSplitCurrencies' : null"/>
+		<bind name="firstEntityDH" value="'realmConstantsEntity'; CC.realmConstants"/>
+		<bind name="watchDH" value="'isMergedShopsRealm'; []; realmConstantsEntity.realmConstants.isMergedShopsRealm"/>
+		<bind name="watch" value="'mergedShopsPostfix'; isMergedShopsRealm &amp;&amp; _currency == SC.Common.CURRENCIES.GOLD ? '_SHOPMERGE' : ''"/>
+		<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource"/>
+		<bind name="watchDH" value="'accountResources'; ['resourceEntity.accountResource.evChangedGold',
+										 'resourceEntity.accountResource.evChangedCredit',
+										 'resourceEntity.accountResource.evChangedFreeXP',
+										 'resourceEntity.accountResource.evChangedEliteXP',
+										 'resourceEntity.accountResource.evChangedSteel',
+										 'resourceEntity.accountResource.evChangedCoal',
+										 'resourceEntity.accountResource.evChangedRecruitmentPoints',
+										 'resourceEntity.accountResource.evChangedParagonXP']; resourceEntity.accountResource"/>
+		<bind name="watch" value="'amount'; _amount != undefined ? _amount : accountResources[_currency]"/>
+		<bind name="watch" value="'accountResourcePriceInfo'; {finalPrice: amount, currency: _currency}"/>
+		<bind name="watchDH" value="'splitGold';				['resourceEntity.accountResource.evUpdateSplitCurrency']; resourceEntity.accountResource.splitGold"/>
+		<bind name="watchDH" value="'accountGoldLooted';		['resourceEntity.accountResource.evChangedSplitGold']; resourceEntity.accountResource.goldLooted"/>
+		<bind name="watchDH" value="'accountGoldPurchased';	['resourceEntity.accountResource.evChangedSplitGold']; resourceEntity.accountResource.goldPurchased"/>
+		<bind name="watchDH" value="'splitCredits';				['resourceEntity.accountResource.evUpdateSplitCurrency']; resourceEntity.accountResource.splitCredits"/>
+		<bind name="watchDH" value="'accountCreditsLooted';		['resourceEntity.accountResource.evChangedSplitCredit']; resourceEntity.accountResource.creditsLooted"/>
+		<bind name="watchDH" value="'accountCreditsPurchased';	['resourceEntity.accountResource.evChangedSplitCredit']; resourceEntity.accountResource.creditsPurchased"/>
+		<bind name="watch" value="'isSplitCurrency'; _currency == SC.Common.CURRENCIES.GOLD ? splitGold :
+																	_currency == SC.Common.CURRENCIES.CREDITS ? splitCredits
+																															: false"/>
+		<bind name="watch" value="'lootedMoney'; {gold: {finalPrice: accountGoldLooted, currency: 'gold'},
+									credits: { finalPrice: accountCreditsLooted, currency: 'credits'}}"/>
+		<bind name="watch" value="'purchasedMoney'; {gold: {finalPrice: accountGoldPurchased, currency: 'gold'},
+																credits: { finalPrice: accountCreditsPurchased, currency: 'credits'}}"/>
+		<bind name="watch" value="'isLootedMoneySynced'; lootedMoney[_currency].finalPrice &gt;= 0"/>
+		<bind name="watch" value="'isPurchasedMoneySynced'; purchasedMoney[_currency].finalPrice &gt;= 0"/>
+		<bind name="watch" value="'isLootedMoneyVisible'; isSplitCurrency &amp;&amp; isLootedMoneySynced"/>
+		<bind name="watch" value="'isPurchasedMoneyVisible'; isSplitCurrency &amp;&amp; isPurchasedMoneySynced"/>
+		<bind name="watch" value="'isUnavailableStatusVisible'; isSplitCurrency &amp;&amp; (!isLootedMoneySynced || !isPurchasedMoneySynced)"/>
+		<bind name="watch" value="'headerText'; 'IDS_CURRENCY_' + toUpperCase(_currency)"/>
+		<bind name="watch" value="'descriptionTextSpend'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_SPEND_DESCRIPTION'"/>
+		<bind name="watch" value="'descriptionTextGet'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_GET_DESCRIPTION' + mergedShopsPostfix"/>
+		<bind name="watch" value="'priceTagLineTitle'; _isEventumReward ? 'IDS_COUNT' : 'IDS_CURRENCY_IN_STOCK_COLON'"/>
+		<bind name="watch" value="'eventCurrencyText'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_STATUS'"/>
+		<bind name="watch" value="'mouseInstruction'; {_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.MOUSE_LEFT,
+																		_text: _currency == SC.Common.CURRENCIES.ELITE_XP ? 'IDS_MOUSE_INSTRUCTION_CREW_TOOLTIP_GO_TO_SKILLS' :
+																					_currency == SC.Common.CURRENCIES.STEEL ||
+																					_currency == SC.Common.CURRENCIES.COAL ||
+																					_currency == SC.Common.CURRENCIES.PARAGON_XP ||
+																					_currency == SC.Common.CURRENCIES.RECRUITMENT_POINTS ? 'IDS_GO_TO_METASHOP_MOUSE_INSTRUCTION'
+																				 																		: 'IDS_CURRENCY_' + toUpperCase(_currency) + '_MOUSE_INSTRUCTION'}"/>
+		<styleClass value="$DefaultTooltipBehaviour"/>
+		<style>
+			<width value="340px"/>
+			<hitTest value="false"/>
+		</style>
+		<bind name="primaryEntityDH" value="'_blurEntity'; CC.preference; 'graphics.GUI.blur'"/>
+		<bind name="watchDH" value="'isBlurOptionEnabled'; ['_blurEntity.preference.evValueChanged']; _blurEntity.preference.value"/>
+		<bind name="primaryEntityDH" value="'_contrastEntity'; CC.preference; 'graphics.GUI.contrast'"/>
+		<bind name="watchDH" value="'isUIContrastOptionEnabled'; ['_contrastEntity.preference.evValueChanged']; _contrastEntity.preference.value"/>
+		<bind name="firstEntityDH" value="'windowManagerEntity'; CC.windowManager"/>
+		<bind name="watchDH" value="'windowQueue'; 	['windowManagerEntity.windowManager.evChanged']; windowManagerEntity.windowManager.windowQueue"/>
+		<bind name="watch" value="'isInBattle'; isIn('Battle', windowQueue)"/>
+		<bind name="watch" value="'isHighContrast'; isInBattle || isUIContrastOptionEnabled || !(isBlurOptionEnabled)"/>
+		<bind name="dispatch" value="'Tooltip.selfOpened'; 'startShow'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN"/>
+		<bind name="dispatch" value="'Tooltip.selfClosed'; 'startHide'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN"/>
+		<block>
+			<styleClass value="$FullsizeAbsolute"/>
+			<style>
+				<margin value="-1px"/>
+			</style>
+			<block>
+				<styleClass value="$FullsizeAbsolute"/>
+				<bind name="instance" value="'TooltipSystemBlur'; !(isHighContrast) ? {} : null"/>
+			</block>
+			<block>
+				<bind name="visible" value="!(isHighContrast)"/>
+				<styleClass value="$FullsizeAbsolute"/>
+				<style>
+					<backgroundImage value="url:../service_kit/panel_backgrounds/hint_panel.png"/>
+					<background9Slice value="[3]"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="isHighContrast"/>
+				<styleClass value="$FullsizeAbsolute"/>
+				<style>
+					<backgroundImage value="url:../service_kit/panel_backgrounds/hint_panel_high_contrast.png"/>
+					<background9Slice value="[3]"/>
+				</style>
+			</block>
+		</block>
+		<block>
+			<style>
+				<width value="100%"/>
+				<paddingRight value="16px"/>
+				<paddingLeft value="16px"/>
+				<paddingBottom value="12px"/>
+				<paddingTop value="12px"/>
+			</style>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemHeaderWithIconAndText'; { _imageWidth: '80px',
+																_imageHeight: '80px',
+																_imageUrl: 'url:../reward_icons/' + _currency + '.png',
+																_headerText: headerText}"/>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="_isReceived"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemStatusLine'; _isReceived	? {	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.CHECK,
+																	_text: 'IDS_TOOLTIP_REWARD_TAKEN' }
+																: null"/>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="_isEventumReward"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemStatusLine'; _isEventumReward	? {	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.CALENDAR,
+																		_text: eventCurrencyText }
+																	: null"/>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="_isUnavailableStatusVisible"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemStatusLine'; _isUnavailableStatusVisible	? {	_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,
+																					_text: 'IDS_SERVICE_IS_UNAVAILABLE_WEB' }
+																				: null"/>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="!isSplitCurrency"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemPriceTagLine'; isSplitCurrency	? null
+																		: {	_title: priceTagLineTitle,
+																			_priceInfo: accountResourcePriceInfo}"/>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="isLootedMoneyVisible || isPurchasedMoneyVisible"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="isLootedMoneyVisible || isPurchasedMoneyVisible"/>
+				<style>
+					<width value="100%"/>
+					<marginBottom value="-12px"/>
+				</style>
+				<block>
+					<bind name="visible" value="isLootedMoneyVisible"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemPriceTagLine'; isLootedMoneyVisible ? {	_title: 'IDS_CURRENCY_LOOTED',
+																				_priceInfo: lootedMoney[_currency]}
+																			: null"/>
+				</block>
+				<block>
+					<bind name="visible" value="isPurchasedMoneyVisible"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemPriceTagLine'; isPurchasedMoneyVisible	? {	_title: 'IDS_CURRENCY_PURCHASED',
+																					_priceInfo: purchasedMoney[_currency]}
+																				: null"/>
+				</block>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="true"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="true"/>
+				<style>
+					<width value="100%"/>
+					<marginBottom value="-12px"/>
+				</style>
+				<block>
+					<bind name="visible" value="true"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemSecondaryHeaderText'; { _headerText: 'IDS_CURRENCY_EXPLANATION_TITLE'}"/>
+				</block>
+				<block>
+					<bind name="visible" value="true"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemDescriptionText'; { _descriptionText: descriptionTextSpend }"/>
+				</block>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="true"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<bind name="visible" value="true"/>
+				<style>
+					<width value="100%"/>
+					<marginBottom value="-12px"/>
+				</style>
+				<block>
+					<bind name="visible" value="true"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemSecondaryHeaderText'; { _headerText: 'IDS_CURRENCY_HOW_TO_GET_TITLE'}"/>
+				</block>
+				<block>
+					<bind name="visible" value="true"/>
+					<style>
+						<width value="100%"/>
+						<marginBottom value="12px"/>
+					</style>
+					<bind name="instance" value="'TooltipSystemDescriptionText'; { _descriptionText: descriptionTextGet }"/>
+				</block>
+			</block>
+			<block className="TooltipSystemHorizontalDivider">
+				<bind name="visible" value="mouseInstruction"/>
+				<style>
+					<width value="100%"/>
+					<height value="2px"/>
+					<marginTop value="12px"/>
+					<marginBottom value="12px"/>
+					<marginRight value="-16px"/>
+					<marginLeft value="-16px"/>
+					<backgroundSize value="fill"/>
+					<backgroundImage value="url:../service_kit/dividers/divider_h.png"/>
+				</style>
+			</block>
+			<block>
+				<style>
+					<width value="100%"/>
+				</style>
+				<bind name="instance" value="'TooltipSystemStatusLine';	mouseInstruction"/>
+			</block>
+		</block>
+	</block>
+</ui>

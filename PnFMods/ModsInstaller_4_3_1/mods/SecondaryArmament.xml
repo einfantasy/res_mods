@@ -1,0 +1,45 @@
+<code>
+	<target_File file="gui/uss_settings.xml">
+		<!-- Insert code from <insert> in block <mods> w/o attrs-->
+		<root_Node>
+			<mods>
+				<insert>
+					<swffile>../unbound/mods/SecondaryArmament.swf</swffile>
+					<attrs>
+						<do_if_not_exist tag="swffile" text="SecondaryArmament.swf"/>
+					</attrs>
+				</insert>
+				<insert>
+					<xmlfile>../unbound/mods/SecondaryArmament.xml</xmlfile>
+					<attrs>
+						<do_if_not_exist tag="xmlfile" text="SecondaryArmament.xml"/>
+					</attrs>
+				</insert>
+			</mods>
+		</root_Node>
+	</target_File>
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+			<find_Node tag="elementList">
+				<insert>
+					<element name="unboundSecondaryArmament" class="lesta.libs.unbound.UnboundElement" url="battle_stats.swf">
+						<properties rootElementId='SecondaryArmament' hitTest = "true"/>
+					</element>
+					<attrs>
+						<position insert="after_node" tag="element" attr_1="name" value_1="ubMainHudPC"/>
+						<do_if_not_exist tag="element" type="name" name="SecondaryArmament"/>
+					</attrs>
+				</insert>
+			</find_Node>
+			<find_Node tag="controllers">
+				<insert>
+					<controller class="lesta.dialogs.battle_window_controllers.UnboundElementController" clips="unboundSecondaryArmament"/>
+					<attrs>
+						<do_if_not_exist tag="controller" type="clips" name="unboundSecondaryArmament"/>
+					</attrs>
+				</insert>
+			</find_Node>	
+		</root_Node>
+	</target_File>
+	<check name="SecondaryArmament" version="1.0.0"/>
+</code>

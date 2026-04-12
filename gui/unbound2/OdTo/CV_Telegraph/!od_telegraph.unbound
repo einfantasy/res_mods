@@ -1,0 +1,29 @@
+(def layout SpeedControl () dispatch_size_change=true
+	(scope
+		(var avatarEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var healthComponent:gfx = "avatarEntity.health")
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		(var isEnabled:bool = "isAlive")
+	)
+
+	(element SpeedControlContent
+		(bind alpha "isEnabled")
+	)
+)
+
+(def layout AngleControl () dispatch_size_change=true
+	(scope
+		(var avatarEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var healthComponent:gfx = "avatarEntity.health")
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		(var isEnabled:bool = "isAlive")
+	)
+
+	(bind alpha "isEnabled ? 1 : 0")
+
+	(element AngleControlContent
+		
+	)
+)

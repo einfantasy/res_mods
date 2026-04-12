@@ -1,0 +1,45 @@
+<code>
+	<target_File file="gui/uss_settings.xml">
+		<!-- Insert code from <insert> in block <mods> w/o attrs-->
+		<root_Node>
+			<mods>
+				<insert>
+					<swffile>../unbound/mods/InfoPanelSelf.swf</swffile>
+					<attrs>
+						<do_if_not_exist tag="swffile" text="InfoPanelSelf.swf"/>
+					</attrs>
+				</insert>
+				<insert>
+					<xmlfile>../unbound/mods/InfoPanelSelf.xml</xmlfile>
+					<attrs>
+						<do_if_not_exist tag="xmlfile" text="InfoPanelSelf.xml"/>
+					</attrs>
+				</insert>
+			</mods>
+		</root_Node>
+	</target_File>
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+			<find_Node tag="elementList">
+				<insert>
+					<element name="unboundInfoPanelSelf" class="lesta.libs.unbound.UnboundElement" url="battle_stats.swf">
+						<properties rootElementId='InfoPanelSelf' hitTest = "true"/>
+					</element>
+					<attrs>
+						<position insert="after_node" tag="element" attr_1="name" value_1="ubMainHudPC"/>
+						<do_if_not_exist tag="element" type="name" name="unboundInfoPanelSelf"/>
+					</attrs>
+				</insert>
+			</find_Node>
+			<find_Node tag="controllers">
+				<insert>
+					<controller class="lesta.dialogs.battle_window_controllers.UnboundElementController" clips="unboundInfoPanelSelf"/>
+					<attrs>
+						<do_if_not_exist tag="controller" type="clips" name="unboundInfoPanelSelf"/>
+					</attrs>
+				</insert>
+			</find_Node>	
+		</root_Node>
+	</target_File>
+	<check name="InfoPanelSelf" version="12.0.0v1"/>
+</code>

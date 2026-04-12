@@ -1,0 +1,18 @@
+<code>
+	<check name="RadarTimer" version="1.0.0"/>
+	
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+			<find_Node tag="elementList">
+				<insert>
+					<element name="unbound2RadarTimer" class="lesta.unbound2.UbElement" elementName="RadarTimer" url="battle_stats.swf">
+						<properties hitTest = "false"/>
+					</element>
+					<attrs>
+						<do_if_not_exist tag="element" type="name" name="RadarTimer"/>
+					</attrs>
+				</insert>
+			</find_Node>
+		</root_Node>
+	</target_File>
+</code>

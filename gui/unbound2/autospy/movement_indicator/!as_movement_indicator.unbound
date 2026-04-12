@@ -1,0 +1,123 @@
+#
+# Movement indicator by AutoSpy
+#
+
+# Settings
+# Настройки
+(def constant MOD_MI_SETTINGS {
+	# radius
+	# радиус
+	radius: 5,
+	# colors for movement type [stop, forward, backward]
+	# цвета индикатора [стоп, вперед, назад]
+	movementColors: [0x999999, 0x50FF50, 0xFF5050],
+	# movement indicator alpha
+	# прозрачность индикатора
+	movementIndicatorAlpha: 0.9
+})
+
+
+# orig gui\unbound2\pc\battle\markers\markers_elements.unbound
+(def element PriorityItem (_markerEntity:gfx) layout=true
+	(scope
+		(macro GET_MARKER_ENTITY_COMPONENT 'target')
+		(var isATBA:bool = "targetComponent ? targetComponent.atbaPriorityTarget : false" (event "targetComponent.evChanged") (event "targetComponent.evAtbaPriorityTargetChanged"))
+
+        (var targetFlags:number = "targetComponent ? targetComponent.flags : 0" (event "targetComponent.evChanged") (event "targetComponent.evFlagsChanged"))
+		(var isTargetLocked:bool = "(targetFlags & LOCKABLE_WEAPONS) > 0")
+		(var targetIsAlive:bool = "_markerEntity && _markerEntity.hasComponent(CC.health) && _markerEntity.health.isAlive" (event "_markerEntity.health.evIsAliveChanged"))
+		(var enabled:bool = "isTargetLocked && targetIsAlive")
+
+		(var targetMapPosition:gfx = "_markerEntity.mapPosition")
+		(var targetYaw:number = "radToGrad(targetMapPosition.yaw)" (event "evEnterFrame"))
+
+		(var targetWorldVisible:bool = "_markerEntity && _markerEntity.hasComponent(CC.visibility) && _markerEntity.visibility.visible" (event "_markerEntity.visibility.evChanged"))
+		(var targetMapVisible:bool = "_markerEntity && _markerEntity.hasComponent(CC.visibility) && _markerEntity.visibility.mapVisible" (event "_markerEntity.visibility.evChanged"))
+		(var targetVisible:bool = "targetWorldVisible && targetMapVisible" (event "_markerEntity.visibility.evChanged"))
+
+		(var targetPosition:gfx = "targetMapPosition.position")
+		(var targetPosX:number = "targetPosition.x" (event "evEnterFrame"))
+		(var targetPosY:number = "targetPosition.y" (event "evEnterFrame"))
+
+		# Course calculation 0-stop, 1-forward, 2-backward
+		(event evCourseUpdate)
+		(var posXCur:number = "round(targetPosX * 100000)" watch=false)
+		(bind posXCur "$event.posXCur" init=false watch=false (event "evCourseUpdate"))
+        (var posYCur:number = "round(targetPosY * 100000)" watch=false)
+		(bind posYCur "$event.posYCur" init=false watch=false (event "evCourseUpdate"))
+
+		(var battleTimer:gfx = "$datahub.getSingleComponent(CC.battleTimer)")
+		(dispatch evCourseUpdate args = "{posXCur: round(targetPosX * 100000), posYCur: round(targetPosY * 100000)}" (event "battleTimer.evBattleTimeChanged"))
+
+		(event evCourseChanged)
+		(var posXPrev:number = "posXCur" watch=false)
+		(bind posXPrev "$event.posXPrev" init=false watch=false (event "evCourseChanged"))
+		(var posXDiff:number = "posXCur - posXPrev")
+
+		(var posYPrev:number = "posYCur" watch=false)
+		(bind posYPrev "$event.posYPrev" init=false watch=false (event "evCourseChanged"))
+		(var posYDiff:number = "posYCur - posYPrev")
+
+		(var sqrDistDiff:number = "pow(posXDiff, 2) + pow(posYDiff, 2)")
+
+		(var currentYawAngle:number = "abs(radToGrad(atan2(posXDiff, -posYDiff)) - round(targetYaw))")
+
+		(var course:number=-1)
+		(bind course "$event.course" init=false watch=false (event "evCourseChanged"))
+
+		(var targetVisiblePrev:bool=false watch=false)
+		(bind targetVisiblePrev "$event.targetVisiblePrev" init=false watch=false (event "evCourseChanged"))
+
+        (dispatch evCourseChanged args = "{course: !(targetVisiblePrev && targetVisible)
+                                                    ?	-1
+                                                    :	(sqrDistDiff <= 100)
+                                                            ?	0
+                                                            :	(sqrDistDiff >= 1000000)
+                                                                ?	-1
+                                                                :	((currentYawAngle <= 50) || (currentYawAngle >= 310))
+                                                                    ?	1
+                                                                    :	((currentYawAngle >= 130) && (currentYawAngle <= 230))
+                                                                        ?	2
+                                                                        :	-1,
+										targetVisiblePrev: targetVisible, posXPrev: posXCur, posYPrev: posYCur}"
+										dir=0 (event "evCourseUpdate")
+		)
+		# # End of Course calculation
+
+		(var size:number = "MOD_MI_SETTINGS.radius * 2")
+	)
+
+	(style (align = "center") (width=28px))
+
+	(block
+		(bind visible "isATBA")
+
+		(style
+			(width=28px) (height=28px)
+			(bind backgroundImage "'url:../battle_hud/markers/priority/atba_priority_attack.png'")
+		)
+	)
+
+	(block
+		(bind visible "enabled && (course > -1)")
+
+		(style
+			(align = "center|middle")
+			(width = "size") (height = "size")
+			(marginTop=2px) (marginBottom=100%)
+		)
+
+		(block
+			(controller $Sector
+				(arc=360)
+				(radius = "MOD_MI_SETTINGS.radius")
+				(bind colors "[MOD_MI_SETTINGS.movementColors[course]]")
+				(lineColor=0x33333333)
+				(lineThickness=1)
+				(lineAlpha = "MOD_MI_SETTINGS.movementIndicatorAlpha")
+				(alphas = "[MOD_MI_SETTINGS.movementIndicatorAlpha]")
+				(ratios=[255])
+			)
+		)
+	)
+)

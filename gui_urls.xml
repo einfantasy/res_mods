@@ -1,0 +1,654 @@
+<gui_urls.xml>
+  <asia>
+    <auth>
+      <domain name="auth_wows" url="https://auth.worldofwarships.asia/auth-token/?spa_id=%(spa_id)s&amp;token=%(wgni_token)s"/>
+      <domain name="auth_wgni" url="%(wgn_url)s/id/signin/token/?account_id=%(spa_id)s&amp;token=%(wgni_token)s%(optional_requested_for)s"/>
+    </auth>
+    <cookie>
+      <domain name="wows" url="https://*.worldofwarships.asia/" domain="worldofwarships.asia"/>
+    </cookie>
+    <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
+    <forum>http://forum.worldofwarships.%(realm)s/</forum>
+    <register>http://cpm.wargaming.net/suq0obpj/?pub_id=loginscreen</register>
+    <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
+    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wowsWebsite>https://worldofwarships.%(realm)s/</wowsWebsite>
+    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
+    <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
+    <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
+    <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
+    <accountConflict>https://wargaming.net/id/credentials/update/</accountConflict>
+    <!-- Personal -->
+    <personal auth="auth_wgni">%(wgn_url)s/personal/?language=%(localeRfcName)s</personal>
+    <!-- Web services -->
+    <webSocketService>https://ws.worldofwarships.asia/ws</webSocketService>
+    <wstsServiceURL/>
+    <!-- Special URL that should be opened in-game (must end with 'InGame'):-->
+    <guidesInGame>https://worldofwarships.%(realm)s/content/in-game/education/?consumer=game-browser</guidesInGame>
+    <portalInGame auth="auth_wows">https://worldofwarships.%(realm)s</portalInGame>
+    <forbiddenInGame>https://worldofwarships.%(realm)s/403/</forbiddenInGame>
+    <newsInGame auth="auth_wows">https://worldofwarships.asia/news_ingame/?consumer=%(consumer)s</newsInGame>
+    <newsAllInGame auth="auth_wows">https://worldofwarships.asia/news_ingame/all/?consumer=%(consumer)s</newsAllInGame>
+    <newsVersionInGame auth="auth_wows">https://worldofwarships.asia/news_ingame/version/?consumer=%(consumer)s</newsVersionInGame>
+    <rulesAboutClanSeasonInGame auth="auth_wows">https://clans.worldofwarships.asia/static?page=clan-battles</rulesAboutClanSeasonInGame>
+    <!-- lootboxContents-->
+    <lootboxContents>https://worldofwarships.asia/content/contents-and-drop-rates-of-containers/</lootboxContents>
+    <!-- 2D HUB -->
+    <playerReport auth="auth_wows">https://rewind.worldofwarships.asia/wows10/</playerReport>
+    <grandVoyage auth="auth_wows">https://anniversary.worldofwarships.asia/</grandVoyage>
+    <anniversaryReward>https://red.wargaming.net/cxml41d4/</anniversaryReward>
+    <germanShips auth="auth_wows">https://worldofwarships.asia/news/game-updates/update-14-8-a-decade-at-sea/#new-german-cruisers-early-access/</germanShips>
+    <kots>https://worldofwarships.asia/news_ingame/news/general-news/kots-xviii?consumer=game-browser/</kots>
+    <salvageForVictory auth="auth_wows">https://armory.worldofwarships.asia/category/salvage_blyskawica/</salvageForVictory>
+    <blackFriday auth="auth_wows">https://armory.worldofwarships.asia/category/event_11/</blackFriday>
+    <nyContainers auth="auth_wows">https://armory.worldofwarships.asia/%(localeRfcName)s/category/new_year_containers</nyContainers>
+    <shipToken auth="auth_wows">https://armory.worldofwarships.asia/%(localeRfcName)s/category/gift2026</shipToken>
+    <lnyGift auth="auth_wows">https://armory.worldofwarships.asia/category/lny_gift2026</lnyGift>
+    <lnyContainers auth="auth_wows">https://armory.worldofwarships.asia/category/lny_2026_containers</lnyContainers>
+    <lnySalvage auth="auth_wows">https://armory.worldofwarships.asia/category/salvage_surcouf</lnySalvage>
+    <!-- Lunar New Year 2026 lootboxes -->
+    <lunarNewYearSetsLootboxesInGame>https://armory.worldofwarships.asia/category/lny_2026_containers</lunarNewYearSetsLootboxesInGame>
+    <!-- Referrals -->
+    <playTogetherInGame auth="auth_wows">https://friends.worldofwarships.asia/</playTogetherInGame>
+    <!-- Player profile -->
+    <playerStats auth="auth_wows">https://profile.worldofwarships.asia/statistics/%(accountId)s/</playerStats>
+    <!-- Clans -->
+    <clansInGame auth="auth_wows">https://clans.worldofwarships.asia/</clansInGame>
+    <clanInvites auth="auth_wows">https://clans.worldofwarships.asia/</clanInvites>
+    <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.asia/clan-wars?source=port</clanWarsInGame>
+    <!-- Warehouse -->
+    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.asia</warehouseInGame>
+    <pageAboutGameMechanics>https://worldofwarships.asia/content/additional-information-and-conditions/</pageAboutGameMechanics>
+    <markerHost auth="auth_wows">https://marker.worldofwarships.asia/</markerHost>
+    <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.asia/</dwhExporterHost>
+    <!-- Advent -->
+    <mercatorHost auth="auth_wows">https://mercator.worldofwarships.asia/</mercatorHost>
+    <vortexHost auth="auth_wows">https://vortex.worldofwarships.asia/</vortexHost>
+    <!-- shopInGame -->
+    <shopInGameHost cookie="true">https://shop.worldofwarships.asia/</shopInGameHost>
+    <shopInGameConfirmation>https://shop.worldofwarships.asia/api/steam/confirm/</shopInGameConfirmation>
+    <shopInGameCancellation>https://shop.worldofwarships.asia/api/steam/cancel/</shopInGameCancellation>
+    <shopInGame auth="auth_wows">https://shop.worldofwarships.asia/</shopInGame>
+    <buyGoldInGame auth="auth_wows">https://armory.worldofwarships.asia/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInGame>
+    <buyTotalPremiumInGame auth="auth_wows">https://shop.worldofwarships.asia/view/buy_premium/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumInGame>
+    <metaShop auth="auth_wows">https://armory.worldofwarships.asia/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShop>
+    <metaShopRvr auth="auth_wows">https://armory.worldofwarships.asia/category/event_10/</metaShopRvr>
+
+    <metaShopResearchBureau auth="auth_wows">https://armory.worldofwarships.asia/category/paragons/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopResearchBureau>
+    <metaShopCommunity auth="auth_wows">https://armory.worldofwarships.asia/category/community/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopCommunity>
+    <metaShopCoal auth="auth_wows">https://armory.worldofwarships.asia/category/ships/?filter_category=ships&amp;preset=ships_filter_coal</metaShopCoal>
+    <metaShopSteel auth="auth_wows">https://armory.worldofwarships.asia/category/ships/?filter_category=ships&amp;preset=ships_filter_steel</metaShopSteel>
+
+    <dockServicesURL>https://armory.worldofwarships.asia/</dockServicesURL>
+    <battlePassShopInGame auth="auth_wows">https://shop.worldofwarships.asia/view/battlepass/?battlepass_type=%(battlepass_type)s&amp;
+			battlepass_expiration_date=%(battlepass_expiration_date)s&amp;remaining_level=%(remaining_level)s&amp;total_levels=%(total_levels)s&amp;
+			level_price=%(level_price)s&amp;battlepass_price=%(battlepass_price)s&amp;battlepass_big_price=%(battlepass_big_price)s&amp;
+			utm_source=ingame&amp;utm_medium=bp_purchase_screen&amp;background_url=%(background_url)s</battlePassShopInGame>
+    <!-- urlsForEGS -->
+    <premshopInMetashopInGame auth="auth_wows">https://shop.worldofwarships.asia/view/egs/</premshopInMetashopInGame>
+    <buyGoldInMetashopInGame auth="auth_wows">https://armory.worldofwarships.asia/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInMetashopInGame>
+    <buyGoldAndPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.asia/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumEgsInGame>
+    <buyTotalPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.asia/view/egs/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumEgsInGame>
+    <!-- Buy WoWs premium account on Battle result screen -->
+    <buyGoldAndPremiumInGame auth="auth_wows">https://shop.worldofwarships.asia/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumInGame>
+    <!-- Shipyard -->
+    <shipyardInGame auth="auth_wows">https://dockyard.worldofwarships.asia/</shipyardInGame>
+    <shipyardServiceURL>https://dockyard.worldofwarships.asia/</shipyardServiceURL>
+    <!-- Catalogue -->
+    <catalogueInGame auth="auth_wows">https://logbook.worldofwarships.asia/</catalogueInGame>
+    <!-- UI Statistic -->
+    <clientStatisticsServiceURL>https://uistats.worldofwarships.asia</clientStatisticsServiceURL>
+    <!-- WinStore -->
+    <microStoreUrl>https://shop.worldofwarships.asia/api/winstore</microStoreUrl>
+    <!-- API URL -->
+    <aresServiceURL auth="auth_wows">https://ares.worldofwarships.asia</aresServiceURL>
+    <portalServiceURL>https://wowsp-api.worldofwarships.asia</portalServiceURL>
+    <phobosServiceURL>https://phobos-api.worldofwarships.asia</phobosServiceURL>
+    <prospectiveEventURL>https://phobos-api.worldofwarships.asia</prospectiveEventURL>
+    <!-- Licenses page -->
+    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
+    <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
+    <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
+    <!-- Account leveling -->
+    <guide_feature_1_InGame>https://www.youtube.com/embed/Q_Y7juQl01Y?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1_InGame>
+    <!-- coop battles -->
+    <guide_feature_17_InGame>https://www.youtube.com/embed/RaQgmxEbpm8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_17_InGame>
+    <!-- modules & research -->
+    <guide_feature_3_InGame>https://www.youtube.com/embed/WLhqK8QNImY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3_InGame>
+    <!-- random battles -->
+    <guide_feature_1514_InGame>https://www.youtube.com/embed/OLNFzYSKq9U?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1514_InGame>
+    <!-- signal flags camouflage -->
+    <guide_feature_21_InGame>https://www.youtube.com/embed/Y-8zK33tyI0?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_21_InGame>
+    <!-- containers -->
+    <guide_feature_5_InGame>https://www.youtube.com/embed/yzp_0AXq0ps?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_5_InGame>
+    <!-- free exp -->
+    <guide_feature_13_InGame>https://www.youtube.com/embed/q-Jpzhgk6wQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_13_InGame>
+    <!-- commander -->
+    <guide_feature_9_InGame>https://www.youtube.com/embed/9F4uhpR0hno?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_9_InGame>
+    <!-- battle missions, challenges etc -->
+    <guide_feature_12_InGame>https://www.youtube.com/embed/CokPLs-1Uy8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_12_InGame>
+    <!-- modernization -->
+    <guide_feature_22_InGame>https://www.youtube.com/embed/RnTWiHFrk2g?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_22_InGame>
+    <!-- campaigns -->
+    <guide_feature_3029_InGame>https://www.youtube.com/embed/sDUEmb1BvaU?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3029_InGame>
+    <!-- metashop -->
+    <guide_feature_3124_InGame>https://www.youtube.com/embed/bmum6gq2_lc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3124_InGame>
+    <!-- pve scenario -->
+    <guide_feature_23_InGame>https://www.youtube.com/embed/d1a3MeM_rR4?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_23_InGame>
+    <!-- inventory -->
+    <guide_feature_1600_InGame>https://www.youtube.com/embed/PVZjcwWN9eQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1600_InGame>
+    <!-- rank battle -->
+    <guide_feature_2827_InGame>https://www.youtube.com/embed/vZMacJR8kXw?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_2827_InGame>
+    <!-- clans -->
+    <!-- Modules -->
+    <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
+    <!-- PCZA021_CAPT Collection Videos -->
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+  </asia>
+  <eu>
+    <auth>
+      <domain name="auth_wows" url="https://auth.worldofwarships.eu/auth-token/?spa_id=%(spa_id)s&amp;token=%(wgni_token)s"/>
+      <domain name="auth_wgni" url="%(wgn_url)s/id/signin/token/?account_id=%(spa_id)s&amp;token=%(wgni_token)s%(optional_requested_for)s"/>
+    </auth>
+    <cookie>
+      <domain name="wows" url="https://*.worldofwarships.eu/" domain="worldofwarships.eu"/>
+    </cookie>
+    <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
+    <forum>http://forum.worldofwarships.%(realm)s/</forum>
+    <register>http://cpm.wargaming.net/jhv2ojf6/?pub_id=loginscreen</register>
+    <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
+    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wowsWebsite>https://worldofwarships.%(realm)s/</wowsWebsite>
+    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/eula/</eula>
+    <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
+    <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
+    <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
+    <accountConflict>https://wargaming.net/id/credentials/update/</accountConflict>
+    <!-- Personal -->
+    <personal auth="auth_wgni">%(wgn_url)s/personal/?language=%(localeRfcName)s</personal>
+    <!-- Web services -->
+    <webSocketService>https://ws.worldofwarships.eu/ws</webSocketService>
+    <wstsServiceURL/>
+    <!-- Special URL that should be opened in-game (must end with 'InGame'):-->
+    <guidesInGame>https://worldofwarships.%(realm)s/content/in-game/education/?consumer=game-browser</guidesInGame>
+    <portalInGame auth="auth_wows">https://worldofwarships.%(realm)s</portalInGame>
+    <forbiddenInGame>https://worldofwarships.%(realm)s/403/</forbiddenInGame>
+    <newsInGame auth="auth_wows">https://worldofwarships.eu/news_ingame/?consumer=%(consumer)s</newsInGame>
+    <newsAllInGame auth="auth_wows">https://worldofwarships.eu/news_ingame/all/?consumer=%(consumer)s</newsAllInGame>
+    <newsVersionInGame auth="auth_wows">https://worldofwarships.eu/news_ingame/version/?consumer=%(consumer)s</newsVersionInGame>
+    <rulesAboutClanSeasonInGame auth="auth_wows">https://clans.worldofwarships.eu/static?page=clan-battles</rulesAboutClanSeasonInGame>
+    <!-- lootboxContents-->
+    <lootboxContents>https://worldofwarships.eu/content/contents-and-drop-rates-of-containers/</lootboxContents>
+    <!-- 2D HUB -->
+    <playerReport auth="auth_wows">https://rewind.worldofwarships.eu/wows10/</playerReport>
+    <grandVoyage auth="auth_wows">https://anniversary.worldofwarships.eu/</grandVoyage>
+    <anniversaryReward>https://red.wargaming.net/cxml41d4/</anniversaryReward>
+    <germanShips auth="auth_wows">https://worldofwarships.eu/news/game-updates/update-14-8-a-decade-at-sea/#new-german-cruisers-early-access/</germanShips>
+    <kots>https://worldofwarships.eu/news_ingame/news/general-news/kots-xviii?consumer=game-browser/</kots>
+    <salvageForVictory auth="auth_wows">https://armory.worldofwarships.eu/category/salvage_blyskawica/</salvageForVictory>
+    <blackFriday auth="auth_wows">https://armory.worldofwarships.eu/category/event_11/</blackFriday>
+    <nyContainers auth="auth_wows">https://armory.worldofwarships.eu/%(localeRfcName)s/category/new_year_containers</nyContainers>
+    <shipToken auth="auth_wows">https://armory.worldofwarships.eu/%(localeRfcName)s/category/gift2026</shipToken>
+    <lnyGift auth="auth_wows">https://armory.worldofwarships.eu/category/lny_gift2026</lnyGift>
+    <lnyContainers auth="auth_wows">https://armory.worldofwarships.eu/category/lny_2026_containers</lnyContainers>
+    <lnySalvage auth="auth_wows">https://armory.worldofwarships.eu/category/salvage_surcouf</lnySalvage>
+    <!-- Lunar New Year 2026 lootboxes -->
+    <lunarNewYearSetsLootboxesInGame>https://armory.worldofwarships.eu/category/lny_2026_containers</lunarNewYearSetsLootboxesInGame>
+    <!-- Referrals -->
+    <playTogetherInGame auth="auth_wows">https://friends.worldofwarships.eu/</playTogetherInGame>
+    <!-- Player profile -->
+    <playerStats auth="auth_wows">https://profile.worldofwarships.eu/statistics/%(accountId)s/</playerStats>
+    <!-- Clans -->
+    <clansInGame auth="auth_wows">https://clans.worldofwarships.eu/</clansInGame>
+    <clanInvites auth="auth_wows">https://clans.worldofwarships.eu/</clanInvites>
+    <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.eu/clan-wars?source=port</clanWarsInGame>
+    <!-- Warehouse -->
+    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.eu</warehouseInGame>
+    <pageAboutGameMechanics>https://worldofwarships.eu/content/additional-information-and-conditions/</pageAboutGameMechanics>
+    <markerHost auth="auth_wows">https://marker.worldofwarships.eu/</markerHost>
+    <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.eu/</dwhExporterHost>
+    <!-- Advent -->
+    <mercatorHost auth="auth_wows">https://mercator.worldofwarships.eu/</mercatorHost>
+    <vortexHost auth="auth_wows">https://vortex.worldofwarships.eu/</vortexHost>
+    <!-- shopInGame -->
+    <shopInGameHost cookie="true">https://shop.worldofwarships.eu/</shopInGameHost>
+    <shopInGameConfirmation>https://shop.worldofwarships.eu/api/steam/confirm/</shopInGameConfirmation>
+    <shopInGameCancellation>https://shop.worldofwarships.eu/api/steam/cancel/</shopInGameCancellation>
+    <shopInGame auth="auth_wows">https://shop.worldofwarships.eu/</shopInGame>
+    <buyGoldInGame auth="auth_wows">https://armory.worldofwarships.eu/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInGame>
+    <buyTotalPremiumInGame auth="auth_wows">https://shop.worldofwarships.eu/view/buy_premium/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumInGame>
+    <metaShop auth="auth_wows">https://armory.worldofwarships.eu/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShop>
+    <metaShopRvr auth="auth_wows">https://armory.worldofwarships.eu/category/event_10/</metaShopRvr>
+
+    <metaShopResearchBureau auth="auth_wows">https://armory.worldofwarships.eu/category/paragons/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopResearchBureau>
+    <metaShopCommunity auth="auth_wows">https://armory.worldofwarships.eu/category/community/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopCommunity>
+    <metaShopCoal auth="auth_wows">https://armory.worldofwarships.eu/category/ships/?filter_category=ships&amp;preset=ships_filter_coal</metaShopCoal>
+    <metaShopSteel auth="auth_wows">https://armory.worldofwarships.eu/category/ships/?filter_category=ships&amp;preset=ships_filter_steel</metaShopSteel>
+
+    <dockServicesURL>https://armory.worldofwarships.eu/</dockServicesURL>
+    <battlePassShopInGame auth="auth_wows">https://shop.worldofwarships.eu/view/battlepass/?battlepass_type=%(battlepass_type)s&amp;
+			battlepass_expiration_date=%(battlepass_expiration_date)s&amp;remaining_level=%(remaining_level)s&amp;total_levels=%(total_levels)s&amp;
+			level_price=%(level_price)s&amp;battlepass_price=%(battlepass_price)s&amp;battlepass_big_price=%(battlepass_big_price)s&amp;
+			utm_source=ingame&amp;utm_medium=bp_purchase_screen&amp;background_url=%(background_url)s</battlePassShopInGame>
+    <!-- urlsForEGS -->
+    <premshopInMetashopInGame auth="auth_wows">https://shop.worldofwarships.eu/view/egs/</premshopInMetashopInGame>
+    <buyGoldInMetashopInGame auth="auth_wows">https://armory.worldofwarships.eu/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInMetashopInGame>
+    <buyGoldAndPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.eu/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumEgsInGame>
+    <buyTotalPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.eu/view/egs/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumEgsInGame>
+    <!-- Buy WoWs premium account on Battle result screen -->
+    <buyGoldAndPremiumInGame auth="auth_wows">https://shop.worldofwarships.eu/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumInGame>
+    <!-- Shipyard -->
+    <shipyardInGame auth="auth_wows">https://dockyard.worldofwarships.eu/</shipyardInGame>
+    <shipyardServiceURL>https://dockyard.worldofwarships.eu/</shipyardServiceURL>
+    <!-- Catalogue -->
+    <catalogueInGame auth="auth_wows">https://logbook.worldofwarships.eu/</catalogueInGame>
+    <!-- UI Statistic -->
+    <clientStatisticsServiceURL>https://uistats.worldofwarships.eu</clientStatisticsServiceURL>
+    <!-- WinStore -->
+    <microStoreUrl>https://shop.worldofwarships.eu/api/winstore</microStoreUrl>
+    <!-- API URL -->
+    <aresServiceURL auth="auth_wows">https://ares.worldofwarships.eu</aresServiceURL>
+    <portalServiceURL>https://wowsp-api.worldofwarships.eu</portalServiceURL>
+    <phobosServiceURL>https://phobos-api.worldofwarships.eu</phobosServiceURL>
+    <prospectiveEventURL>https://phobos-api.worldofwarships.eu</prospectiveEventURL>
+    <!-- Licenses page -->
+    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
+    <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
+    <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
+    <!-- Account leveling -->
+    <guide_feature_1_InGame>https://www.youtube.com/embed/Q_Y7juQl01Y?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1_InGame>
+    <!-- coop battles -->
+    <guide_feature_17_InGame>https://www.youtube.com/embed/RaQgmxEbpm8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_17_InGame>
+    <!-- modules & research -->
+    <guide_feature_3_InGame>https://www.youtube.com/embed/WLhqK8QNImY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3_InGame>
+    <!-- random battles -->
+    <guide_feature_1514_InGame>https://www.youtube.com/embed/OLNFzYSKq9U?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1514_InGame>
+    <!-- signal flags camouflage -->
+    <guide_feature_21_InGame>https://www.youtube.com/embed/Y-8zK33tyI0?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_21_InGame>
+    <!-- containers -->
+    <guide_feature_5_InGame>https://www.youtube.com/embed/yzp_0AXq0ps?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_5_InGame>
+    <!-- free exp -->
+    <guide_feature_13_InGame>https://www.youtube.com/embed/q-Jpzhgk6wQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_13_InGame>
+    <!-- commander -->
+    <guide_feature_9_InGame>https://www.youtube.com/embed/9F4uhpR0hno?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_9_InGame>
+    <!-- battle missions, challenges etc -->
+    <guide_feature_12_InGame>https://www.youtube.com/embed/CokPLs-1Uy8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_12_InGame>
+    <!-- modernization -->
+    <guide_feature_22_InGame>https://www.youtube.com/embed/RnTWiHFrk2g?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_22_InGame>
+    <!-- campaigns -->
+    <guide_feature_3029_InGame>https://www.youtube.com/embed/sDUEmb1BvaU?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3029_InGame>
+    <!-- metashop -->
+    <guide_feature_3124_InGame>https://www.youtube.com/embed/bmum6gq2_lc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3124_InGame>
+    <!-- pve scenario -->
+    <guide_feature_23_InGame>https://www.youtube.com/embed/d1a3MeM_rR4?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_23_InGame>
+    <!-- inventory -->
+    <guide_feature_1600_InGame>https://www.youtube.com/embed/PVZjcwWN9eQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1600_InGame>
+    <!-- rank battle -->
+    <guide_feature_2827_InGame>https://www.youtube.com/embed/vZMacJR8kXw?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_2827_InGame>
+    <!-- clans -->
+    <!-- Modules -->
+    <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
+    <!-- PCZA021_CAPT Collection Videos -->
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+  </eu>
+  <na>
+    <auth>
+      <domain name="auth_wows" url="https://auth.worldofwarships.com/auth-token/?spa_id=%(spa_id)s&amp;token=%(wgni_token)s"/>
+      <domain name="auth_wgni" url="%(wgn_url)s/id/signin/token/?account_id=%(spa_id)s&amp;token=%(wgni_token)s%(optional_requested_for)s"/>
+    </auth>
+    <cookie>
+      <domain name="wows" url="https://*.worldofwarships.com/" domain="worldofwarships.com"/>
+    </cookie>
+    <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
+    <forum>http://forum.worldofwarships.com/</forum>
+    <register>http://cpm.wargaming.net/uuct697w/?pub_id=loginscreen</register>
+    <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
+    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wowsWebsite>https://worldofwarships.com/</wowsWebsite>
+    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
+    <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
+    <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
+    <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
+    <accountConflict>https://wargaming.net/id/credentials/update/</accountConflict>
+    <!-- Personal -->
+    <personal auth="auth_wgni">%(wgn_url)s/personal/?language=%(localeRfcName)s</personal>
+    <!-- Web services -->
+    <webSocketService>https://ws.worldofwarships.com/ws</webSocketService>
+    <wstsServiceURL/>
+    <!-- Special URL that should be opened in-game (must end with 'InGame'):-->
+    <guidesInGame>https://worldofwarships.com/content/in-game/education/?consumer=game-browser</guidesInGame>
+    <portalInGame auth="auth_wows">https://worldofwarships.%(realm)s</portalInGame>
+    <forbiddenInGame>https://worldofwarships.com/403/</forbiddenInGame>
+    <newsInGame auth="auth_wows">https://worldofwarships.com/news_ingame/?consumer=%(consumer)s</newsInGame>
+    <newsAllInGame auth="auth_wows">https://worldofwarships.com/news_ingame/all/?consumer=%(consumer)s</newsAllInGame>
+    <newsVersionInGame auth="auth_wows">https://worldofwarships.com/news_ingame/version/?consumer=%(consumer)s</newsVersionInGame>
+    <rulesAboutClanSeasonInGame auth="auth_wows">https://clans.worldofwarships.com/static?page=clan-battles</rulesAboutClanSeasonInGame>
+    <!-- lootboxContents-->
+    <lootboxContents>https://worldofwarships.com/content/contents-and-drop-rates-of-containers/</lootboxContents>
+    <!-- 2D HUB -->
+    <playerReport auth="auth_wows">https://rewind.worldofwarships.com/wows10/</playerReport>
+    <grandVoyage auth="auth_wows">https://anniversary.worldofwarships.com/</grandVoyage>
+    <anniversaryReward>https://red.wargaming.net/cxml41d4/</anniversaryReward>
+    <germanShips auth="auth_wows">https://worldofwarships.com/news/game-updates/update-14-8-a-decade-at-sea/#new-german-cruisers-early-access/</germanShips>
+    <kots>https://worldofwarships.com/news_ingame/news/general-news/kots-xviii?consumer=game-browser/</kots>
+    <salvageForVictory auth="auth_wows">https://armory.worldofwarships.com/category/salvage_blyskawica/</salvageForVictory>
+    <blackFriday auth="auth_wows">https://armory.worldofwarships.com/category/event_11/</blackFriday>
+    <nyContainers auth="auth_wows">https://armory.worldofwarships.com/%(localeRfcName)s/category/new_year_containers</nyContainers>
+    <shipToken auth="auth_wows">https://armory.worldofwarships.com/%(localeRfcName)s/category/gift2026</shipToken>
+    <lnyGift auth="auth_wows">https://armory.worldofwarships.com/category/lny_gift2026</lnyGift>
+    <lnyContainers auth="auth_wows">https://armory.worldofwarships.com/category/lny_2026_containers</lnyContainers>
+    <lnySalvage auth="auth_wows">https://armory.worldofwarships.com/category/salvage_surcouf</lnySalvage>
+    <!-- Lunar New Year 2026 lootboxes -->
+    <lunarNewYearSetsLootboxesInGame>https://armory.worldofwarships.com/category/lny_2026_containers</lunarNewYearSetsLootboxesInGame>
+    <!-- Referrals -->
+    <playTogetherInGame auth="auth_wows">https://friends.worldofwarships.com/</playTogetherInGame>
+    <!-- Player profile -->
+    <playerStats auth="auth_wows">https://profile.worldofwarships.com/statistics/%(accountId)s/</playerStats>
+    <!-- Clans -->
+    <clansInGame auth="auth_wows">https://clans.worldofwarships.com/</clansInGame>
+    <clanInvites auth="auth_wows">https://clans.worldofwarships.com/</clanInvites>
+    <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.com/clan-wars?source=port</clanWarsInGame>
+    <!-- Warehouse -->
+    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.com</warehouseInGame>
+    <pageAboutGameMechanics>https://worldofwarships.com/content/additional-information-and-conditions/</pageAboutGameMechanics>
+    <markerHost auth="auth_wows">https://marker.worldofwarships.com/</markerHost>
+    <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.com/</dwhExporterHost>
+    <!-- Advent -->
+    <mercatorHost auth="auth_wows">https://mercator.worldofwarships.com/</mercatorHost>
+    <vortexHost auth="auth_wows">https://vortex.worldofwarships.com/</vortexHost>
+    <!-- shopInGame -->
+    <shopInGameHost cookie="true">https://shop.worldofwarships.com/</shopInGameHost>
+    <shopInGameConfirmation>https://shop.worldofwarships.com/api/steam/confirm/</shopInGameConfirmation>
+    <shopInGameCancellation>https://shop.worldofwarships.com/api/steam/cancel/</shopInGameCancellation>
+    <shopInGame auth="auth_wows">https://shop.worldofwarships.com/</shopInGame>
+    <buyGoldInGame auth="auth_wows">https://armory.worldofwarships.com/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInGame>
+    <buyTotalPremiumInGame auth="auth_wows">https://shop.worldofwarships.com/view/buy_premium/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumInGame>
+    <metaShop auth="auth_wows">https://armory.worldofwarships.com/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShop>
+    <metaShopRvr auth="auth_wows">https://armory.worldofwarships.com/category/event_10/</metaShopRvr>
+
+    <metaShopResearchBureau auth="auth_wows">https://armory.worldofwarships.com/category/paragons/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopResearchBureau>
+    <metaShopCommunity auth="auth_wows">https://armory.worldofwarships.com/category/community/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopCommunity>
+    <metaShopCoal auth="auth_wows">https://armory.worldofwarships.com/category/ships/?filter_category=ships&amp;preset=ships_filter_coal</metaShopCoal>
+    <metaShopSteel auth="auth_wows">https://armory.worldofwarships.com/category/ships/?filter_category=ships&amp;preset=ships_filter_steel</metaShopSteel>
+
+    <dockServicesURL>https://armory.worldofwarships.com/</dockServicesURL>
+    <battlePassShopInGame auth="auth_wows">https://shop.worldofwarships.com/view/battlepass/?battlepass_type=%(battlepass_type)s&amp;
+			battlepass_expiration_date=%(battlepass_expiration_date)s&amp;remaining_level=%(remaining_level)s&amp;total_levels=%(total_levels)s&amp;
+			level_price=%(level_price)s&amp;battlepass_price=%(battlepass_price)s&amp;battlepass_big_price=%(battlepass_big_price)s&amp;
+			utm_source=ingame&amp;utm_medium=bp_purchase_screen&amp;background_url=%(background_url)s</battlePassShopInGame>
+    <!-- urlsForEGS -->
+    <premshopInMetashopInGame auth="auth_wows">https://shop.worldofwarships.com/view/egs/</premshopInMetashopInGame>
+    <buyGoldInMetashopInGame auth="auth_wows">https://armory.worldofwarships.com/category/premium/?utm_source=ingame&amp;utm_medium=port_buy_gold_popup</buyGoldInMetashopInGame>
+    <buyGoldAndPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.com/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumEgsInGame>
+    <buyTotalPremiumEgsInGame auth="auth_wows">https://shop.worldofwarships.com/view/egs/?utm_source=ingame&amp;utm_medium=port_buy_prem_popup</buyTotalPremiumEgsInGame>
+    <!-- Buy WoWs premium account on Battle result screen -->
+    <buyGoldAndPremiumInGame auth="auth_wows">https://shop.worldofwarships.com/view/buy_premium/?utm_source=ingame&amp;utm_medium=post_battle</buyGoldAndPremiumInGame>
+    <!-- Shipyard -->
+    <shipyardInGame auth="auth_wows">https://dockyard.worldofwarships.com/</shipyardInGame>
+    <shipyardServiceURL>https://dockyard.worldofwarships.com/</shipyardServiceURL>
+    <!-- Catalogue -->
+    <catalogueInGame auth="auth_wows">https://logbook.worldofwarships.com/</catalogueInGame>
+    <!-- UI Statistic -->
+    <clientStatisticsServiceURL>https://uistats.worldofwarships.com</clientStatisticsServiceURL>
+    <!-- WinStore -->
+    <microStoreUrl>https://shop.worldofwarships.com/api/winstore</microStoreUrl>
+    <!-- API URL -->
+    <aresServiceURL auth="auth_wows">https://ares.worldofwarships.com</aresServiceURL>
+    <portalServiceURL>https://wowsp-api.worldofwarships.com</portalServiceURL>
+    <phobosServiceURL>https://phobos-api.worldofwarships.com</phobosServiceURL>
+    <prospectiveEventURL>https://phobos-api.worldofwarships.com</prospectiveEventURL>
+    <!-- Licenses page -->
+    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
+    <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
+    <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
+    <!-- Account leveling -->
+    <guide_feature_1_InGame>https://www.youtube.com/embed/Q_Y7juQl01Y?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1_InGame>
+    <!-- coop battles -->
+    <guide_feature_17_InGame>https://www.youtube.com/embed/RaQgmxEbpm8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_17_InGame>
+    <!-- modules & research -->
+    <guide_feature_3_InGame>https://www.youtube.com/embed/WLhqK8QNImY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3_InGame>
+    <!-- random battles -->
+    <guide_feature_1514_InGame>https://www.youtube.com/embed/OLNFzYSKq9U?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1514_InGame>
+    <!-- signal flags camouflage -->
+    <guide_feature_21_InGame>https://www.youtube.com/embed/Y-8zK33tyI0?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_21_InGame>
+    <!-- containers -->
+    <guide_feature_5_InGame>https://www.youtube.com/embed/yzp_0AXq0ps?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_5_InGame>
+    <!-- free exp -->
+    <guide_feature_13_InGame>https://www.youtube.com/embed/q-Jpzhgk6wQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_13_InGame>
+    <!-- commander -->
+    <guide_feature_9_InGame>https://www.youtube.com/embed/9F4uhpR0hno?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_9_InGame>
+    <!-- battle missions, challenges etc -->
+    <guide_feature_12_InGame>https://www.youtube.com/embed/CokPLs-1Uy8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_12_InGame>
+    <!-- modernization -->
+    <guide_feature_22_InGame>https://www.youtube.com/embed/RnTWiHFrk2g?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_22_InGame>
+    <!-- campaigns -->
+    <guide_feature_3029_InGame>https://www.youtube.com/embed/sDUEmb1BvaU?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3029_InGame>
+    <!-- metashop -->
+    <guide_feature_3124_InGame>https://www.youtube.com/embed/bmum6gq2_lc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_3124_InGame>
+    <!-- pve scenario -->
+    <guide_feature_23_InGame>https://www.youtube.com/embed/d1a3MeM_rR4?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_23_InGame>
+    <!-- inventory -->
+    <guide_feature_1600_InGame>https://www.youtube.com/embed/PVZjcwWN9eQ?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_1600_InGame>
+    <!-- rank battle -->
+    <guide_feature_2827_InGame>https://www.youtube.com/embed/vZMacJR8kXw?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_feature_2827_InGame>
+    <!-- clans -->
+    <!-- Modules -->
+    <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
+    <!-- PCZA021_CAPT Collection Videos -->
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+  </na>
+	<cn>
+		<reportError>https://kf.wg.360.cn/</reportError>
+		<forum>https://wows.360.cn</forum>
+		<register>https://i.360.cn/reg</register>
+		<passwordRecovery>https://i.360.cn/findpwd/</passwordRecovery>
+		<wargamingNet>https://wows.360.cn</wargamingNet>
+		<wowsWebsite>https://wows.360.cn</wowsWebsite>
+		<eula>https://wg.360.cn/kf/legal/EULA</eula>
+		<extraLicences>https://wg.360.cn/kf/legal/EULA</extraLicences>
+		<gameRatingDisplay>default</gameRatingDisplay>
+		<enableLanguageBar>1</enableLanguageBar>
+		<support>https://kf.wg.360.cn</support>
+		<kongzhong>https://wows.360.cn</kongzhong>
+		<buyGold>https://shop.wows.360.cn/redirect/?category=gold&amp;wg_id=%(spa_id)s</buyGold>
+		<buyPrem>https://shop.wows.360.cn/redirect/?category=premium&amp;wg_id=%(spa_id)s</buyPrem>
+		
+		<auth>
+			<domain name="auth_wows" url="https://auth.wowsgame.cn/auth-token/?spa_id=%(spa_id)s&amp;token=%(wgni_token)s"/>
+			<domain name="auth_wgni" url="%(wgn_url)s/id/signin/token/?account_id=%(spa_id)s&amp;token=%(wgni_token)s%(optional_requested_for)s" />
+		</auth>
+		
+		<!-- Web services -->
+		<webSocketService>https://ws.wowsgame.cn/ws</webSocketService>
+		
+		<!-- Special URL that should be opened in-game (must end with 'InGame'):-->
+		<guidesInGame>https://wows.360.cn</guidesInGame>
+		<forbiddenInGame>https://wowsgame.cn/403/</forbiddenInGame>
+		<newsInGame auth="auth_wows">https://wowsgame.cn/news_ingame/?consumer=%(consumer)s</newsInGame>
+		<newsAllInGame auth="auth_wows">https://wowsgame.cn/news_ingame/all/?consumer=%(consumer)s</newsAllInGame>
+		<newsVersionInGame auth="auth_wows">https://wowsgame.cn/news_ingame/version/?consumer=%(consumer)s</newsVersionInGame>
+
+		<!-- lootboxContents-->
+		<lootboxContents>https://wowsgame.cn/content/contents-and-drop-rates-of-containers/</lootboxContents>
+
+		<!-- 2D HUB -->
+		<playerReport auth="auth_wows">https://rewind.wowsgame.cn/wows10/</playerReport>
+		<grandVoyage auth="auth_wows">https://anniversary.wowsgame.cn/</grandVoyage>
+		<anniversaryReward>https://redir.wggames.cn/9hdlrxdq/</anniversaryReward>
+		<germanShips auth="auth_wows">https://wowsgame.cn/zh-cn/news/activate/d_xi_cruisers_early_access/</germanShips>
+		<salvageForVictory auth="auth_wows">https://armory.wowsgame.cn/category/salvage_blyskawica/</salvageForVictory>
+		<blackFriday auth="auth_wows">https://armory.wowsgame.cn/category/event_11/</blackFriday>
+		<nyContainers auth="auth_wows">https://armory.wowsgame.cn/%(localeRfcName)s/category/new_year_containers</nyContainers>
+		<shipToken auth="auth_wows">https://armory.wowsgame.cn/%(localeRfcName)s/category/gift2026</shipToken>
+		<lnyGift auth="auth_wows">https://armory.wowsgame.cn/category/lny_gift2026</lnyGift>
+		<lnyContainers auth="auth_wows">https://armory.wowsgame.cn/category/lny_2026_containers</lnyContainers>
+		<lnySalvage auth="auth_wows">https://armory.wowsgame.cn/category/salvage_surcouf</lnySalvage>
+
+		<!-- Lunar New Year 2026 lootboxes -->
+		<lunarNewYearSetsLootboxesInGame>https://armory.wowsgame.cn/category/lny_2026_containers</lunarNewYearSetsLootboxesInGame>
+
+		<!-- Referrals -->
+		<playTogetherInGame auth="auth_wows">https://friends.wowsgame.cn/</playTogetherInGame>
+		
+		<!-- Player profile -->
+		<playerStats auth="auth_wows">https://profile.wowsgame.cn/statistics/%(accountId)s/</playerStats>
+
+		<!-- Clans -->
+		<clansInGame auth="auth_wows">https://clans.wowsgame.cn/</clansInGame>
+		<clanInvites token="true">https://clans.wowsgame.cn/auth/?token=%(wgni_token)s&amp;spa_id=%(spa_id)s&amp;redirect_to=%(redirect_to)s</clanInvites>
+		<clanWarsInGame auth="auth_wows">https://clans.wowsgame.cn/clan-wars?source=port</clanWarsInGame>
+
+		<!-- Warehouse -->
+		<warehouseInGame auth="auth_wows">https://warehouse.wowsgame.cn</warehouseInGame>
+		<pageAboutGameMechanics>https://wowsgame.cn/content/additional_information_and_conditions/</pageAboutGameMechanics>
+
+		<markerHost auth="auth_wows">https://marker.wowsgame.cn/</markerHost>
+		<dwhExporterHost auth="auth_wows">https://stats.wowsgame.cn/</dwhExporterHost>
+
+		<!-- Advent -->
+		<mercatorHost auth="auth_wows">https://mercator.wowsgame.cn/</mercatorHost>
+		<vortexHost auth="auth_wows">https://vortex.wowsgame.cn/</vortexHost>
+
+		<!--shopInGame-->
+		<metaShop auth="auth_wows">https://armory.wowsgame.cn/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShop>
+		<metaShopRvr auth="auth_wows">https://armory.wowsgame.cn/category/event_10/</metaShopRvr>
+
+		<metaShopResearchBureau auth="auth_wows">https://armory.wowsgame.cn/category/paragons/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopResearchBureau>
+		<metaShopCommunity auth="auth_wows">https://armory.wowsgame.cn/category/community/?utm_source=ingame&amp;utm_medium=port_armory_banner</metaShopCommunity>
+		<metaShopCoal auth="auth_wows">https://armory.wowsgame.cn/category/ships/?filter_category=ships&amp;preset=ships_filter_coal</metaShopCoal>
+		<metaShopSteel auth="auth_wows">https://armory.wowsgame.cn/category/ships/?filter_category=ships&amp;preset=ships_filter_steel</metaShopSteel>
+
+		<dockServicesURL>https://armory.wowsgame.cn/</dockServicesURL>
+		<battlePassShopInGame>https://shop.wows.360.cn/</battlePassShopInGame>
+
+		<!-- Shipyard -->
+		<shipyardInGame auth="auth_wows">https://dockyard.wowsgame.cn/</shipyardInGame>
+		<shipyardServiceURL>https://dockyard.wowsgame.cn/</shipyardServiceURL>
+		
+		<!-- Catalogue -->
+		<catalogueInGame auth="auth_wows">https://logbook.wowsgame.cn/</catalogueInGame>
+		
+		<!-- UI Statistic -->
+		<clientStatisticsServiceURL>https://uistats.wowsgame.cn</clientStatisticsServiceURL>
+		
+		<!-- API URL -->
+		<aresServiceURL auth="auth_wows">https://ares.wowsgame.cn</aresServiceURL>
+		<portalServiceURL>https://wowsp-api.wowsgame.cn</portalServiceURL>
+		<phobosServiceURL>https://phobos-api.wowsgame.cn</phobosServiceURL>
+		<prospectiveEventURL>https://phobos-api.wowsgame.cn</prospectiveEventURL>
+		
+		<!-- Account leveling-->
+		<guide_feature_1_InGame>https://wg.360.cn/game/video.html?id=685&amp;autoplay=0</guide_feature_1_InGame> <!-- coop battles -->
+		<guide_feature_17_InGame>https://wg.360.cn/game/video.html?id=720&amp;autoplay=0</guide_feature_17_InGame> <!-- modules & research -->
+		<guide_feature_3_InGame>https://wg.360.cn/game/video.html?id=721&amp;autoplay=0</guide_feature_3_InGame> <!-- random battles -->
+		<guide_feature_1514_InGame>https://wg.360.cn/game/video.html?id=722&amp;autoplay=0</guide_feature_1514_InGame> <!-- signal flags camouflage -->
+		<guide_feature_21_InGame>https://wg.360.cn/game/video.html?id=723&amp;autoplay=0</guide_feature_21_InGame> <!-- containers -->
+		<guide_feature_5_InGame>https://wg.360.cn/game/video.html?id=724&amp;autoplay=0</guide_feature_5_InGame> <!-- free exp -->
+		<guide_feature_13_InGame>https://wg.360.cn/game/video.html?id=725&amp;autoplay=0</guide_feature_13_InGame> <!-- commander -->
+		<guide_feature_9_InGame>https://wg.360.cn/game/video.html?id=726&amp;autoplay=0</guide_feature_9_InGame> <!-- battle missions, challenges etc -->
+		<guide_feature_12_InGame>https://wg.360.cn/game/video.html?id=727&amp;autoplay=0</guide_feature_12_InGame> <!-- modernization -->
+		<guide_feature_22_InGame>https://wg.360.cn/game/video.html?id=728&amp;autoplay=0</guide_feature_22_InGame> <!-- campaigns -->
+		<guide_feature_3029_InGame>https://wg.360.cn/game/video.html?id=729&amp;autoplay=0</guide_feature_3029_InGame> <!-- metashop -->
+		<guide_feature_3124_InGame>https://wg.360.cn/game/video.html?id=730&amp;autoplay=0</guide_feature_3124_InGame> <!-- pve scenario -->
+		<guide_feature_23_InGame>https://wg.360.cn/game/video.html?id=687&amp;autoplay=0</guide_feature_23_InGame> <!-- inventory -->
+		<guide_feature_1600_InGame>https://wg.360.cn/game/video.html?id=731&amp;autoplay=0</guide_feature_1600_InGame> <!-- rank battle -->
+		<guide_feature_2827_InGame>https://wg.360.cn/game/video.html?id=732&amp;autoplay=0</guide_feature_2827_InGame> <!-- clans -->
+
+		<!-- Modules -->
+		<guide_Modules_InGame>https://wg.360.cn/v/video.html?id=130&amp;type=webm&amp;autoplay=0</guide_Modules_InGame>
+
+		<!-- PCZA021_CAPT Collection Videos -->
+		<collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+		<collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+		<collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+		<collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+		<collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+		<collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+		<collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+		<collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+		<collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+		<collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+		<collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+		<collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+		<collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+		<collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+		<collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+		<collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+		<collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+		<collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+		<collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+		<collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+		<collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+		<collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+		<collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+	</cn>
+</gui_urls.xml>

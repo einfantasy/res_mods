@@ -1,0 +1,338 @@
+﻿<ui>
+	<!-- InfoPanelSelf -->
+	<block className="MyShip">
+		<bind name="dataRefDH" value="'avatarEntity'; '$dataRef.ref'"/>
+		<bind name="collectionDH" value="CC.camera; 'cameraCollection'"/>
+		<bind name="entityDH" value="'cameraEntity'; cameraCollection[0].id"/>
+		<bind name="watchDH" value="'relation'; 		['avatarEntity.relation.evChanged']; avatarEntity.relation.value"/>
+		<bind name="watchDH" value="'isAlive'; 			['avatarEntity.health.evIsAliveChanged']; avatarEntity.health.isAlive"/>
+		<bind name="watchDH" value="'flags'; 			['avatarEntity.target.evChanged']; avatarEntity.target.flags"/>
+		<bind name="watchDH" value="'level'; 			[]; avatarEntity.avatar.ship.ref.ship.level"/>
+		<bind name="watchDH" value="'shipCountry'; 		[]; avatarEntity.avatar.ship.ref.ship.country"/>
+		<bind name="watchDH" value="'nameUpper'; 		[]; avatarEntity.avatar.ship.ref.ship.nameUpper"/>
+		<bind name="watchDH" value="'name'; 			[]; avatarEntity.avatar.name"/>
+		<bind name="watchDH" value="'shipType'; 		[]; avatarEntity.avatar.ship.ref.ship.subtype"/>
+		<bind name="primaryEntityDH" value="'cruiseEntity'; CC.cruise; SC.Battle.CRUISE_CONTROL_TYPE.SPEED"/>
+        <bind name="watchDH" value="'maxSpeed'; []; (cruiseEntity.cruise.max)"/>
+		<bind name="firstEntityDH" value="'selfAvatarEntity'; CC.playerAvatar" />
+		<bind name="watch" value="'selfAvatarEntityId'; selfAvatarEntity.id" />		
+		<bind name="var" value="{artillery_time_reload: avatarEntity.avatar.ship.ref.ship.params.artillery.shotDelay}" />
+		<bind name="var" value="{torpedoes_time_reload: avatarEntity.avatar.ship.ref.ship.params.torpedoes.shotDelay}" />
+		<bind name="primaryEntityDH" value="'mgVisibilityTimeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'mgVisibilityTime'" />
+		<bind name="watchDH" value="'mgVisibilityTime'; ['mgVisibilityTimeEntity.parameter.evChanged']; (format(mgVisibilityTimeEntity.parameter.currentValue, 1, true) + tr('IDS_SECOND_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityRangeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityRange'" />
+		<bind name="watchDH" value="'visibilityRange'; ['visibilityRangeEntity.parameter.evChanged']; (format(visibilityRangeEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByShipRangeGKEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByShipRangeGK'" />
+		<bind name="watchDH" value="'visibilityByShipRangeGK'; ['visibilityByShipRangeGKEntity.parameter.evChanged']; (format(visibilityByShipRangeGKEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByShipRangeFireEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByShipRangeFire'" />
+		<bind name="watchDH" value="'visibilityByShipRangeFire'; ['visibilityByShipRangeFireEntity.parameter.evChanged']; (format(visibilityByShipRangeFireEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByShipRangeATBAEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByShipRangeATBA'" />
+		<bind name="watchDH" value="'visibilityByShipRangeATBA'; ['visibilityByShipRangeATBAEntity.parameter.evChanged']; (format(visibilityByShipRangeATBAEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'visibilityByShipRangeATBA'+'_vis'; ['visibilityByShipRangeATBAEntity.parameter.evChanged']; visibilityByShipRangeATBAEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'visibilityPlaneRangeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityPlaneRange'" />
+		<bind name="watchDH" value="'visibilityPlaneRange'; ['visibilityPlaneRangeEntity.parameter.evChanged']; (format(visibilityPlaneRangeEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByPlaneRangeBaseEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByPlaneRangeBase'" />
+		<bind name="watchDH" value="'visibilityByPlaneRangeBase'; ['visibilityByPlaneRangeBaseEntity.parameter.evChanged']; (format(visibilityByPlaneRangeBaseEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByShipRangeBaseEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByShipRangeBase'" />
+		<bind name="watchDH" value="'visibilityByShipRangeBase'; ['visibilityByShipRangeBaseEntity.parameter.evChanged']; (format(visibilityByShipRangeBaseEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByPlaneRangeGKEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByPlaneRangeGK'" />
+		<bind name="watchDH" value="'visibilityByPlaneRangeGK'; ['visibilityByPlaneRangeGKEntity.parameter.evChanged']; (format(visibilityByPlaneRangeGKEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByPlaneRangeFireEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByPlaneRangeFire'" />
+		<bind name="watchDH" value="'visibilityByPlaneRangeFire'; ['visibilityByPlaneRangeFireEntity.parameter.evChanged']; (format(visibilityByPlaneRangeFireEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityByPlaneRangeATBAEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityByPlaneRangeATBA'" />
+		<bind name="watchDH" value="'visibilityByPlaneRangeATBA'; ['visibilityByPlaneRangeATBAEntity.parameter.evChanged']; (format(visibilityByPlaneRangeATBAEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityInSmokeRangeBaseEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityInSmokeRangeBase'" />
+		<bind name="watchDH" value="'visibilityInSmokeRangeBase'; ['visibilityInSmokeRangeBaseEntity.parameter.evChanged']; (format(visibilityInSmokeRangeBaseEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityInSmokeRangeGKEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityInSmokeRangeGK'" />
+		<bind name="watchDH" value="'visibilityInSmokeRangeGK'; ['visibilityInSmokeRangeGKEntity.parameter.evChanged']; (format(visibilityInSmokeRangeGKEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="primaryEntityDH" value="'visibilityRangeUnderwaterEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visibilityRangeUnderwater'" />
+		<bind name="watchDH" value="'visibilityRangeUnderwater'; ['visibilityRangeUnderwaterEntity.parameter.evChanged']; (format(visibilityRangeUnderwaterEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'visibilityRangeUnderwater'+'_vis'; ['visibilityRangeUnderwaterEntity.parameter.evChanged']; visibilityRangeUnderwaterEntity.parameter.currentValue" />
+			
+		<bind name="primaryEntityDH" value="'shootEntity'; CC.parameter; selfAvatarEntityId + '_' + 'shootRange'" />
+		<bind name="watchDH" value="'shootRange'; ['shootEntity.parameter.evChanged']; (format(shootEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'shootRange'+'_vis'; ['shootEntity.parameter.evChanged']; shootEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'artilleryReloadTimeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'artilleryReloadTime'"/>
+		<bind name="watchDH" value="'artilleryReloadTime'; ['artilleryReloadTimeEntity.parameter.evChanged']; artilleryReloadTimeEntity.parameter.currentValue" />
+		
+		<bind name="primaryEntityDH" value="'torpedoEntity'; CC.parameter; selfAvatarEntityId + '_' + 'torpedoMaxDist'" />
+		<bind name="watchDH" value="'torpedoMaxDist'; ['torpedoEntity.parameter.evChanged']; (format(torpedoEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'torpedoMaxDist'+'_vis'; ['torpedoEntity.parameter.evChanged']; torpedoEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'torpedoesReloadTimeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'torpedoReloadTime'"/>
+		<bind name="watchDH" value="'torpedoReloadTime'; ['torpedoesReloadTimeEntity.parameter.evChanged']; torpedoesReloadTimeEntity.parameter.currentValue" />
+		
+		<bind name="primaryEntityDH" value="'atbaEntity'; CC.parameter; selfAvatarEntityId + '_' + 'atbaMaxDist'" />
+		<bind name="watchDH" value="'atbaMaxDist'; ['atbaEntity.parameter.evChanged']; (format(atbaEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'atbaMaxDist'+'_vis'; ['atbaEntity.parameter.evChanged']; atbaEntity.parameter.currentValue" />
+		
+		<bind name="watchDH" value="'atbaBaseState'; ['']; (format(atbaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="primaryEntityDH" value="'atbaStateEntity'; CC.parameter; selfAvatarEntityId + '_' + 'atbaState'" />
+		<bind name="watchDH" value="'atbaState'; ['atbaStateEntity.parameter.evChanged']; (format(atbaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watch" value="'atbaEfficiency'; format(atbaState / atbaBaseState * 100, 0)+ '%'" />
+		
+		<bind name="primaryEntityDH" value="'aaEntity'; CC.parameter; selfAvatarEntityId + '_' + 'aaRangeMax'" />
+		<bind name="watchDH" value="'aaRangeMax'; ['aaEntity.parameter.evChanged']; (format(aaEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'aaRangeMax'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseNearState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseMidState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseFarState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		
+		<bind name="watchDH" value="'aaBaseState'; ['']; (format(aaStateEntity.parameter.currentValue, 1, true) + tr(''))" />		
+		<bind name="primaryEntityDH" value="'aaStateEntity'; CC.parameter; selfAvatarEntityId + '_' + 'aaState'" />
+		<bind name="watchDH" value="'aaState'; ['aaStateEntity.parameter.evChanged']; (format(aaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watch" value="'aaEfficiency'; format((aaState/aaBaseState) * 100, 0) + '%'" />
+
+		<bind name="primaryEntityDH" value="'visionRangeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visionRange'" />
+		<bind name="watchDH" value="'visionRange'; ['visionRangeEntity.parameter.evChanged']; (format(visionRangeEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="firstEntityDH" value="'localWeatherEntity'; CC.localWeather" />
+		<bind name="watchDH" value="'weatherName'; ['localWeatherEntity.localWeather.evChanged']; toUpperCase(localWeatherEntity.localWeather.gpName)" />
+		<bind name="collectionDH" value="CC.state; 'avatarStatesRoot'; 'byEntity.' + selfAvatarEntityId" />
+		<bind name="collectionDesign" value="DES_avatarStatesRoot; 'weatherStates'; {'filter': $entity.state.type == EntityState.INSIDE_WEATHER}" />
+		<bind name="primaryEntityDH" value="'shipHangarSizeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'shipHangarSize'" />
+		<bind name="watchDH" value="'shipHangarSize'; ['shipHangarSizeEntity.parameter.evChanged']; (format(shipHangarSizeEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watchDH" value="'shipHangarSize'+'_vis'; ['shipHangarSizeEntity.parameter.evChanged']; shipHangarSizeEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'hangarSizeFighterEntity'; CC.parameter; selfAvatarEntityId + '_squad_' + 'Fighter' + '_' + 'hangarSize'" />
+		<bind name="watchDH" value="'hangarSizeFighter'; ['hangarSizeFighterEntity.parameter.evChanged']; (format(hangarSizeFighterEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watchDH" value="'hangarSizeFighter'+'_vis'; ['hangarSizeFighterEntity.parameter.evChanged']; hangarSizeFighterEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'hangarSizeBomberEntity'; CC.parameter; selfAvatarEntityId + '_squad_' + 'Bomber' + '_' + 'hangarSize'" />
+		<bind name="watchDH" value="'hangarSizeBomber'; ['hangarSizeBomberEntity.parameter.evChanged']; (format(hangarSizeBomberEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watchDH" value="'hangarSizeBomber'+'_vis'; ['hangarSizeBomberEntity.parameter.evChanged']; hangarSizeBomberEntity.parameter.currentValue" />
+		<bind name="primaryEntityDH" value="'hangarSizeDiveEntity'; CC.parameter; selfAvatarEntityId + '_squad_' + 'Dive' + '_' + 'hangarSize'" />
+		<bind name="watchDH" value="'hangarSizeDive'; ['hangarSizeDiveEntity.parameter.evChanged']; (format(hangarSizeDiveEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watchDH" value="'hangarSizeDive'+'_vis'; ['hangarSizeDiveEntity.parameter.evChanged']; hangarSizeDiveEntity.parameter.currentValue" />
+		
+		<enum name="PARAMETER" type="String">
+			<const name="shootRange"/>
+			<const name="artilleryReloadTime"/>
+			<const name="artilleryMaxDist"/>
+			
+			<const name="torpedoReloadTime"/>
+			<const name="torpedoMaxDist"/>
+			
+			<const name="atbaReloadTime"/>
+			<const name="atbaMaxDist"/>
+			<const name="atbaState"/>
+			
+			<const name="airplanesReloadTime"/>
+			<const name="airplanesMaxDist"/>
+			
+			<const name="torpedoDamage"/>
+			<const name="visibilityRange"/>
+			<const name="visibilityPlaneRange"/>
+			<const name="visibilitySmokeRange"/>
+			<const name="visibilitySubmarineRange"/>
+			<const name="currentVisibilityRange"/>
+			<const name="currentVisibilityPlaneRange"/>
+			<const name="currentShootTARange"/>
+			
+			<const name="sonarShipRange"/>
+			<const name="rlsShipRange"/>
+			<const name="hydrophoneRange"/>
+			<const name="sonarTorpedoRange"/>
+			<const name="aaState"/>
+			<const name="aaRangeFar"/>
+			<const name="aaRangeMid"/>
+			<const name="aaRangeNear"/>
+			<const name="aaRangeMax"/>
+			
+			<const name="visibilityByShipRangeBase"/>
+			<const name="visibilityByPlaneRangeBase"/>
+			<const name="visibilityByShipRangeFire"/>
+			<const name="visibilityByPlaneRangeFire"/>
+			<const name="visibilityByPlaneRangeGK"/>
+			<const name="guaranteedVisibilityRange"/>
+			<const name="visibilityInSmokeRangeGK"/>
+			<const name="visibilityBySubmarineRangeBase"/>
+			<const name="health"/>
+		</enum>
+		
+		<bind name="collectionDH" value="CC.userPrefs; 'userPrefsCollection'"/>
+        <bind name="entityDH" value="'userPrefsEntity'; userPrefsCollection[0].id"/>
+		<bind name="watchDH" value="'userPrefs'; ['userPrefsEntity.userPrefs.evUserPrefsChanged']; userPrefsEntity.userPrefs.userPrefs"/>
+		<bind name="firstEntityDH" value="'stageEntity'; CC.stage"/>
+		<bind name="watchDH" value="'stage'; ['stageEntity.stage.evStageSizeChanged']; stageEntity.stage"/>
+		<bind name="draggableWindow" value="'IPSDragZone'; 'IMPosition'; 'IPS'"/>
+		<bind name="watch" value="'IPSPositionX'; (userPrefs.IMPositionX.IPS == null)  ? '380' : userPrefs.IMPositionX.IPS"/>
+        <bind name="watch" value="'IPSPositionY'; (userPrefs.IMPositionY.IPS == null)  ? ((stage.height) - 250) :  userPrefs.IMPositionY.IPS"/>
+        <bind name="left" value="IPSPositionX"/>
+        <bind name="top" value="IPSPositionY"/>	
+		<bind name="watch" value="'isSelf'; (relation == 0)"/>		
+		<block>			
+			<block type="text"> <!-- maxSpeed -->
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>			
+				<bind name="text" value="format((maxSpeed-0.21), 1)  + ' kts'"/>           
+				<style>
+					<left value="10px"/>
+					<top value="0px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+				<bind name="visible" value="true"/>
+			</block>
+			<block type="text"> <!-- visibility --> 
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>			
+				<bind name="text" value="visibilityByShipRangeBase + ' ' + visibilityByPlaneRangeBase + ' ' + visibilityInSmokeRangeGK"/>           
+				<style>
+					<left value="10px"/>
+					<top value="40px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+				<bind name="visible" value="true"/>
+			</block>
+			<block type="text"> <!-- artillery -->
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>			
+				<bind name="text" value="shootRange + ' ' + (format((artilleryReloadTime), 1)) + ' sec.'"/>           
+				<style>
+					<left value="10px"/>
+					<top value="80px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+				<bind name="visible" value="(artilleryReloadTime &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- torpedoes -->
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>			
+				<bind name="text" value="torpedoMaxDist + ' ' + (format((torpedoReloadTime), 1)) + ' sec.'"/>           
+				<style>
+					<left value="10px"/>
+					<top value="120px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+				<bind name="visible" value="(torpedoReloadTime &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- atba -->
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>			
+				<bind name="text" value="atbaMaxDist + ' ' + atbaEfficiency"/>           
+				<style>
+					<left value="10px"/>
+					<top value="160px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+				<bind name="visible" value="(atbaMaxDist_vis &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- aa -->
+				<styleClass value="$TextDefault"/>
+				<styleClass value="$MiddleAligned"/>
+				<bind name="text" value="(aaRangeMax_vis &gt; 0)	? aaRangeMax + ' ' + aaEfficiency : ' - ')"/>           
+				<style>
+					<left value="10px"/>
+					<top value="200px"/>
+					<position value="absolute"/>
+					<fontSize value="14"/>
+					<textColor value="0xFF66FFC1"/>
+					<fontFamily value="$WWSDefaultFontBold"/>
+				</style>
+			</block>
+		<!-- ================= ICONS ===================== -->			
+			<block type="text"> <!-- max_speed icon -->
+				<bind name="text" value="'L'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="0px"/>
+					<top value="-15px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="22"/>
+					<marginTop value="-3px"/>
+				</style>
+			</block>	
+			<block type="text"> <!-- visibility icon -->
+				<bind name="text" value="'X'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="-3px"/>
+					<top value="25px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="22"/>
+					<marginTop value="-3px"/>
+				</style>
+				<bind name="visible" value="true"/>
+			</block>
+			<block type="text"> <!-- MG icon -->
+				<bind name="text" value="'F'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="0px"/>
+					<top value="65px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="20"/>
+					<marginTop value="-3px"/>
+				</style>
+				<bind name="visible" value="(artilleryReloadTime &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- torpedoes icon -->
+				<bind name="text" value="'J'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="0px"/>
+					<top value="105px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="20"/>
+					<marginTop value="-3px"/>
+				</style>
+				<bind name="visible" value="(torpedoReloadTime &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- atba icon -->
+				<bind name="text" value="'B'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="0px"/>
+					<top value="145px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="22"/>
+					<marginTop value="-3px"/>
+				</style>
+				<bind name="visible" value="(atbaMaxDist_vis &gt; 0)"/>
+			</block>
+			<block type="text"> <!-- aa icon -->
+				<bind name="text" value="'C'"/>
+				<styleClass value="$TextDefault"/>
+				<bind name="class" value="$None"/>
+				<style>
+					<left value="0px"/>
+					<top value="185px"/>
+					<position value="absolute"/>
+					<fontFamily value="$WoWsSymbol"/>
+					<fontSize value="22"/>
+					<marginTop value="-3px"/>
+				</style>
+				<bind name="visible" value="(aaRangeMax_vis &gt; 0)"/>
+			</block>
+			<params>
+				<param name="name" value="IPSDragZone"/>
+			</params>
+		</block>
+		<bind name="visible" value="isSelf &amp;&amp; !(camera.isTactical)"/>
+	</block>	
+    <block className="InfoPanelSelf">	 
+		<bind name="collectionRepeatDH" value="CC.avatar; 'MyShip'; 'team.ally.sortedAlive'; {}"/>		
+    </block>
+	<!-- end of InfoPanelSelf -->
+</ui>

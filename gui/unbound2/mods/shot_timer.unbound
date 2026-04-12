@@ -1,0 +1,131 @@
+(def css $TextShotTimerBase ()
+	(extends $TextDefault17NM)
+	(hitTest=false)
+	(textAlign = "center")
+	(textColor=0xFFFF9900)
+	(filters
+		(dropShadow
+			(distance=0)
+			(angle=0)
+			(color=0x000000)
+			(alpha=0.7)
+			(blurX=2.0)
+			(blurY=2.0)
+			(strength=1.0)
+			(quality=1)
+		)
+	)
+)
+
+(def css $TextShotTimerBold ()
+	(extends $TextShotTimerBase)
+	(fontFamily = '$WWSDefaultFontBold')
+)
+
+(def css $TextShotTimerNormal ()
+	(extends $TextShotTimerBase)
+	# (fontSize = 14)
+)
+
+(def element ShotTimer() layout=true
+	(scope
+		(var aimAssist:gfx = "$datahub.getSingleComponent(CC.aimAssist)")
+
+		(var penaltyTimer:number = "aimAssist ? aimAssist.shootVisibilityTimer : 0" (event "aimAssist.evShootVisibilityTimerChanged"))
+		(var penaltyTimerText:str = "formatFloatingPoint(penaltyTimer <= 10 ? penaltyTimer : floor(penaltyTimer - 0.01), penaltyTimer < 10 ? 1 : 0)")
+
+		(var alertIndication:gfx = "$datahub.getSingleComponent(CC.alertIndication)")
+		(var spotType:str = "alertIndication ? alertIndication.spotType : null" (event "alertIndication.evSpottedChanged"))
+		(var isSpotted:bool = "spotType && spotType != 'none'")
+		(var colorTrans:dict = "isSpotted ? COLOR_TRANSFORM_WHITE_TO_ORANGE : {}")
+		(var fontColor:number = "isSpotted ? SC.Ui_styles.SERVICE_COLORS.ORANGE : SC.Ui_styles.SERVICE_COLORS.WHITE")
+
+		(var avatar:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var isAlive:bool = "avatar && avatar.health ? avatar.health.isAlive : false" (event "avatar.health.evIsAliveChanged"))
+
+		# (var isPenaltyTimerActive:bool = "aimAssist ? aimAssist.shootVisibilityTimerVisible : false" (event "aimAssist.evShootVisibilityTimerChanged"))
+
+		(var isPenaltyActive:bool = "penaltyTimer > 0")
+
+		(macro STAGE_SIZE)
+
+		(var animatedScale:number = 1 watch=false)
+		(var animatedAlpha:number = 1 watch=false)
+		(var animatedVisibility:bool = "isPenaltyActive" watch=false)
+
+		(controller $Animation
+			(bindcall play  duration=0.3
+							easing="Easing.quad_in"
+							from="{ animatedAlpha: 0, animatedScale: 2, animatedVisibility: false }"
+							to="{ animatedAlpha: 1, animatedScale: 1, animatedVisibility: true }"
+							action="killAll"
+							(bind enabled "isPenaltyActive")
+							(bind trigger "isPenaltyActive")
+			)
+			(bindcall play  duration=0.3
+							easing="Easing.quad_out"
+							from="{ animatedAlpha: 1, animatedScale: 1, animatedVisibility: true }"
+							to="{ animatedAlpha: 0, animatedScale: 2, animatedVisibility: false }"
+							action="killAll"
+							(bind enabled "!isPenaltyActive")
+							(bind trigger "isPenaltyActive")
+			)
+		)
+		(var isVisible:bool = "isAlive && animatedVisibility")
+	)
+
+	(bind visible "isVisible")
+
+	(style
+		(position = "absolute")
+		(hitTest = false)
+		(bind width "stageWidth")
+		(bind height "stageHeight")
+		(align = "center|middle")
+	)
+	(block
+		(class $MiddleVHAbsolutely)
+		(hblock
+			(style
+				(position = "absolute")
+				(hgap = 4px)
+				(left = 250)
+				(bottom = "217 - 26")
+				(pivotX = 50%)
+				(pivotY = 50%)
+				(align = "middle|center")
+
+				(bind visualScaleX "animatedScale")
+				(bind visualScaleY "animatedScale")
+				(bind alpha "animatedAlpha")
+			)
+
+			(block
+				(style
+					(backgroundImage = 'url:../battle_hud/reload_bars/icon/main_gun.png')
+					(width = 16)
+					(height = 16)
+					(marginLeft = -5px) # Artificial offset to visually align the elements with a centric line
+					(backgroundSize = "fill")
+				)
+				(bind colorTransform "colorTrans")
+			)
+			(tf
+				(class $TextShotTimerBold)
+				(style
+					(minWidth = 24px)
+					(textAlign = "left") # Prevent the numbers from wiggling as they change
+					(bind textColor "fontColor")
+				)
+				(bind text "penaltyTimerText")
+			)
+			(tf
+				(class $TextShotTimerNormal)
+				(style
+					(bind textColor "fontColor")
+				)
+				(text = "tr('IDS_SECOND')")
+			)
+		)
+	)
+)

@@ -1,0 +1,28 @@
+<code>
+
+	<!-- INSTALLATION INSTRUCTIONS -->
+
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+				<!-- Insert in elementList before element name tasksContainer -->
+			<find_Node tag="elementList">
+				<insert>
+					<element autoPerfTestGroup="markers" class="lesta.unbound2.UbElement" elementName="BattleframeTpd" name="ubBattleframeTpd" url="scenario_markers.swf">
+						<properties hitTest="true"/>
+					</element>
+					<attrs>
+						<do_if_not_exist tag="element" type="name" name="ubBattleframeTpd"/>
+						<position insert="after_node" tag="element" type="name" name="ubMarkersContainer"/>
+					</attrs>
+				</insert>
+			</find_Node>
+		</root_Node>
+	</target_File>
+
+	<!-- END OF INSTALLATION INSTRUCTIONS -->
+
+	<!-- ONLY FOR MODSAPI MODS INSTALLER! DO NOT EDIT OR DELETE INSTRUCTION BELLOW! -->
+	<!-- Skip installation if the mod is already installed -->
+	<check name="BattleFrame_TorpedoDetection" version="1.0"/>
+
+</code>

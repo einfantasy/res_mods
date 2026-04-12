@@ -1,0 +1,94 @@
+(def constant RadarTimer_AVAILABLE_SPOT_TYPES "{
+	rls					: 'Radar',
+	sonar				: 'Hydro',
+	submarine_locator	: 'Sub.R',
+	is_in_rls			: 'Unknown'
+}")
+
+(def element RadarTimer() layout=true
+	(scope
+		# Map
+		(var cameraEntity:gfx = "$datahub.getSingleEntity(CC.camera)")
+		(var tacticalMap:bool = "cameraEntity.camera.isTactical" (event "cameraEntity.camera.evTacticalStateChanged"))
+
+		# Spot Type
+		(var alertIndication:gfx = "$datahub.getSingleEntity(CC.battleIndication).alertIndication")
+		(var spotTypeRaw:str = "alertIndication ? alertIndication.spotType : null" (event "alertIndication.evSpottedChanged"))
+		(var isInRlsZone:bool = "alertIndication ? alertIndication.isInRlsZone : false" (event "alertIndication.evIsInRlsZoneChanged"))
+		(var spotType:str = "isInRlsZone ? 'is_in_rls' : spotTypeRaw")
+
+		(var isTimerEnabled:bool = "spotType in RadarTimer_AVAILABLE_SPOT_TYPES")
+		(var spotTypeName:str = "isTimerEnabled ? RadarTimer_AVAILABLE_SPOT_TYPES[spotType] : ''")
+
+		# Events
+		(event evStartTimer)
+		(event evStopTimer)
+		(event evDetectionTypeChanged)
+
+		(dispatch evStartTimer				args="{}" (bind enabled  "isTimerEnabled") (bind trigger "isTimerEnabled"))
+		(dispatch evStopTimer				args="{}" (bind enabled "!isTimerEnabled") (bind trigger "isTimerEnabled"))
+		(dispatch evDetectionTypeChanged	args="{}" (bind enabled  "isTimerEnabled") (bind trigger "spotType"))
+
+		# Timer
+		(var timerComponent:gfx = "$datahub.getSingleComponent(CC.timer)")
+		(var currentTime:number = "timerComponent.currentTime" (event "timerComponent.evInfrequent"))
+		(var spotStartTimestamp:number = "currentTime" watch=false (event "evStartTimer")(event "evStopTimer")(event "evDetectionTypeChanged"))
+		(var spotTime:number = "isTimerEnabled ? currentTime - spotStartTimestamp : 0")
+		(var spotTimeStr:str = "countdownFormat(spotTime, 0, false)")
+
+		(macro STAGE_SIZE)
+		(var hCenter:number = "isInRlsZone ? (stageWidth  / 2) + 340 : (stageWidth  / 2) + 250")
+		(var vCenter:number = "isInRlsZone ? (stageHeight / 2) - 255 : (stageHeight / 2) - 265")
+		(var textClass:str =  "isInRlsZone ? '$RadarTimerUnknownSpotText' : '$RadarTimerDefaultSpotText'")
+	)
+
+	(hblock
+		(style
+			(position = "absolute")
+			(bind hcenter "hCenter")
+			(bind vcenter "vCenter")
+		)
+		(bind visible "isTimerEnabled && !tacticalMap")
+		(tf
+			(bind class "textClass")
+			(bind text "spotTypeName + ' : '")
+		)
+		(tf
+			(bind class "textClass")
+			(bind text "spotTimeStr")
+			(style
+				(minWidth = 20px)
+				(textAlign = "right")
+			)
+		)
+		(tf
+			(bind class "textClass")
+			(text = "tr('IDS_SECOND')")
+		)
+	)
+)
+
+
+(def css $RadarTimerDefaultSpotText ()
+	(extends $TextDefaultBold)
+	(textAlign = "center")
+	(textColor = "SC.Ui_styles.SERVICE_COLORS.ORANGE")
+	(fontSize  = 15)
+	(filters
+		(dropShadow
+			(distance=0)
+			(angle=0)
+			(color=0x000000)
+			(alpha=0.7)
+			(blurX=2.0)
+			(blurY=2.0)
+			(strength=1.0)
+			(quality=1)
+		)
+	)
+)
+
+(def css $RadarTimerUnknownSpotText()
+	(extends $RadarTimerDefaultSpotText)
+	(textColor = "SC.Ui_styles.SERVICE_COLORS.WHITE")
+)

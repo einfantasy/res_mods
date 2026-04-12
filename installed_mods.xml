@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<data>
+	<mod installer="4.3.1" name="BattleFrame_TorpedoDetection" version="1.0"/>
+	<mod installer="4.3.1" name="BuildViewer" version="1.1.0"/>
+	<mod installer="4.3.1" name="InfoPanelSelf" version="12.0.0v1"/>
+	<mod installer="4.3.1" name="ModuleStateViewer" version="1.1.0"/>
+	<mod installer="4.3.1" name="PenetrationCalculatorContainer" version="1.0.0"/>
+	<mod installer="4.3.1" name="RadarTimer" version="1.0.0"/>
+	<mod installer="4.3.1" name="RegenAssistantUb2" version="2.1.0"/>
+	<mod installer="4.3.1" name="Port_Interface_Resources" version="1"/>
+	<mod installer="4.3.1" name="SecondaryArmament" version="1.0.0"/>
+	<mod installer="4.3.1" name="ShotTimer" version="1.0.0"/>
+	<mod installer="4.3.1" name="SmokeMarker" version="1.4.0"/>
+	<mod installer="4.3.1" name="TTaroChat" version="1.0.0"/>
+	<mod installer="4.3.1" name="TTaroMinimap" version="1.1.0"/>
+	<mod installer="4.3.1" name="TTaroModConfig" version="1.1.0"/>
+	<mod installer="4.3.1" name="TTaroTeamPanels" version="1.0.0"/>
+</data>

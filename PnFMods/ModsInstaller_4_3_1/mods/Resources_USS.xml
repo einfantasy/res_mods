@@ -1,0 +1,21 @@
+<code>
+	<check name="Port_Interface_Resources" version="1"/>
+	<target_File file="gui/uss_settings.xml">
+		<root_Node>
+			<mods>
+				<insert>
+					<swffile>../unbound/mods/PortInterface/Expressions.swf</swffile>
+					<attrs>
+						<do_if_not_exist tag="swffile" text="../unbound/mods/PortInterface/Expressions.swf"/>
+					</attrs>
+				</insert>
+				<insert>
+					<xmlfile>../unbound/mods/PortInterface/Resources.xml</xmlfile>
+					<attrs>
+						<do_if_not_exist tag="xmlfile" text="../unbound/mods/PortInterface/Resources.xml"/>
+					</attrs>
+				</insert>
+			</mods>
+		</root_Node>
+	</target_File>
+</code>

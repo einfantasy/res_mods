@@ -1,0 +1,144 @@
+﻿<ui>
+	<block className="Armament">
+		<bind name="dataRefDH" value="'avatarEntity'; '$dataRef.ref'" />
+		<bind name="watchDH" value="'isAlive';	['avatarEntity.health.evIsAliveChanged']; avatarEntity.health.isAlive"/>
+		<bind name="watchDH" value="'relation';	['avatarEntity.relation.evChanged']; avatarEntity.relation.value"/>
+		<bind name="watch" value="'isSelf'; relation == SC.Battle.DIPLOMACY_RELATIONS.SELF"/>
+		
+		<bind name="collectionDH" value="CC.camera; 'cameraCollection'" />
+		<bind name="entityDH" value="'cameraEntity'; cameraCollection[0].id" />
+		<bind name="watchDH" value="'camera';	['cameraEntity.camera.evAltVisionChanged','cameraEntity.camera.evTacticalStateChanged']; cameraEntity.camera" />
+		
+		<bind name="firstEntityDH" value="'selfAvatarEntity'; CC.playerAvatar" />
+		<bind name="watch" value="'selfAvatarEntityId'; selfAvatarEntity.id" />
+		<bind name="primaryEntityDH" value="'atbaEntity'; CC.parameter; selfAvatarEntityId + '_' + 'atbaMaxDist'" />
+		<bind name="watchDH" value="'atbaMaxDist'; ['atbaEntity.parameter.evChanged']; (format(atbaEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'atbaMaxDist'+'_vis'; ['atbaEntity.parameter.evChanged']; atbaEntity.parameter.currentValue" />
+		
+		<bind name="watchDH" value="'atbaBaseState'; ['']; (format(atbaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="primaryEntityDH" value="'atbaStateEntity'; CC.parameter; selfAvatarEntityId + '_' + 'atbaState'" />
+		<bind name="watchDH" value="'atbaState'; ['atbaStateEntity.parameter.evChanged']; (format(atbaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watch" value="'atbaEfficiency'; format(atbaState / atbaBaseState * 100, 0)+ '%'" />
+		
+		<bind name="primaryEntityDH" value="'aaEntity'; CC.parameter; selfAvatarEntityId + '_' + 'aaRangeMax'" />
+		<bind name="watchDH" value="'aaRangeMax'; ['aaEntity.parameter.evChanged']; (format(aaEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
+		<bind name="watchDH" value="'aaRangeMax'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseNearState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseMidState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		<bind name="watchDH" value="'aaBaseFarState'+'_vis'; ['aaEntity.parameter.evChanged']; aaEntity.parameter.currentValue" />
+		
+		<bind name="watchDH" value="'aaBaseState'; ['']; (format(aaStateEntity.parameter.currentValue, 1, true) + tr(''))" />		
+		<bind name="primaryEntityDH" value="'aaStateEntity'; CC.parameter; selfAvatarEntityId + '_' + 'aaState'" />
+		<bind name="watchDH" value="'aaState'; ['aaStateEntity.parameter.evChanged']; (format(aaStateEntity.parameter.currentValue, 1, true) + tr(''))" />
+		<bind name="watch" value="'aaEfficiency'; format((aaState/aaBaseState) * 100, 0) + '%'" />
+		
+		<enum name="PARAMETER" type="String">		
+			<const name="atbaReloadTime"/>
+			<const name="atbaMaxDist"/>
+			<const name="atbaState"/>
+			<const name="aaState"/>
+			<const name="aaRangeFar"/>
+			<const name="aaRangeMid"/>
+			<const name="aaRangeNear"/>
+			<const name="aaRangeMax"/>
+		</enum>
+		
+		<bind name="collectionDH" value="CC.userPrefs; 'userPrefsCollection'" />
+		<bind name="entityDH" value="'userPrefsEntity'; userPrefsCollection[0].id" />
+		<bind name="watchDH" value="'userPrefs'; ['userPrefsEntity.userPrefs.evUserPrefsChanged']; userPrefsEntity.userPrefs.userPrefs" />
+		<bind name="firstEntityDH" value="'stageEntity'; CC.stage" />
+		<bind name="watchDH" value="'stage'; ['stageEntity.stage.evStageSizeChanged']; stageEntity.stage" />
+		<bind name="draggableWindow" value="'AADragZone'; 'IMPosition'; 'AA'" />
+		<bind name="watch" value="'AAPositionX'; (userPrefs.IMPositionX.AA == null)  ? '350' : userPrefs.IMPositionX.AA" />
+		<bind name="watch" value="'AAPositionY'; (userPrefs.IMPositionY.AA == null)  ? ((stage.height) - 380) :  userPrefs.IMPositionY.AA" />
+		<bind name="left" value="AAPositionX" />
+		<bind name="top" value="AAPositionY" />	
+		
+		<block>			
+			<block type="text"> <!-- atba -->
+				<styleClass value="$TextDefault" />
+				<bind name="text" value="atbaMaxDist" />           
+				<style>
+					<left value="0px" />
+					<top value="5px" />
+					<position value="absolute" />
+					<fontSize value="16" />
+					<textColor value="0xFFFFFF" />
+					<fontFamily value="$WWSDefaultFontBold" />
+				</style>
+				<bind name="visible" value="(atbaMaxDist_vis &gt; 0)" />
+			</block>
+			<block type="text"> <!-- atba Efficiency -->
+				<styleClass value="$TextDefault" />
+				<styleClass value="$MiddleAligned" />
+				<bind name="text" value="atbaEfficiency" />           
+				<style>
+					<left value="80px" />
+					<top value="5px" />
+					<position value="absolute" />
+					<fontSize value="16" />
+					<textColor value="0xFFFFFF" />
+					<fontFamily value="$WWSDefaultFontBold" />
+				</style>
+				<bind name="visible" value="(atbaMaxDist_vis &gt; 0)" />
+			</block>
+			<block type="text"> <!-- aa -->
+				<styleClass value="$TextDefault" />
+				<bind name="text" value="aaRangeMax" />           
+				<style>
+					<left value="0px" />
+					<top value="50px" />
+					<position value="absolute" />
+					<fontSize value="16" />
+					<textColor value="0xFFFFFF" />
+					<fontFamily value="$WWSDefaultFontBold" />
+				</style>
+				<bind name="visible" value="(aaRangeMax_vis &gt; 0)" />
+			</block>
+			<block type="text"> <!-- aa Efficiency -->
+				<styleClass value="$TextDefault" />
+				<styleClass value="$MiddleAligned" />
+				<bind name="text" value="aaEfficiency" />           
+				<style>
+					<left value="80px" />
+					<top value="50px" />
+					<position value="absolute" />
+					<fontSize value="16" />
+					<textColor value="0xFFFFFF" />
+					<fontFamily value="$WWSDefaultFontBold" />
+				</style>
+				<bind name="visible" value="(aaRangeMax_vis &gt; 0)" />
+			</block>
+																	<!-- ================= PICS ===================== -->			
+			<block>
+				<style>
+					<left value="-50px" />
+					<top value="0px" />
+					<position value="absolute" />
+				</style>
+				<bind name="scaleX" value="0.8" />
+				<bind name="scaleY" value="0.8" />
+				<bind name="style" value="'backgroundImage'; ('url:../modernization_icons/icon_modernization_PCM012_SecondaryGun_Mod_II.png')" />
+				<bind name="visible" value="(atbaMaxDist_vis &gt; 0)" />
+			</block>
+			<block>
+				<style>
+					<left value="-50px" />
+					<top value="45px" />
+					<position value="absolute" />
+				</style>
+				<bind name="scaleX" value="0.8" />
+				<bind name="scaleY" value="0.8" />
+				<bind name="style" value="'backgroundImage'; ('url:../modernization_icons/icon_modernization_PCM011_AirDefense_Mod_II.png')" />
+				<bind name="visible" value="(aaRangeMax_vis &gt; 0)" />
+			</block>
+			<params>
+				<param name="name" value="AADragZone" />
+			</params>
+		</block>
+		<bind name="visible" value="isSelf &amp;&amp; !(camera.isTactical)" />
+	</block>	
+	<block className="SecondaryArmament">	 
+		<bind name="collectionRepeatDH" value="CC.avatar; 'Armament'; 'team.ally.sortedAlive'; {}" />				
+	</block>
+</ui>

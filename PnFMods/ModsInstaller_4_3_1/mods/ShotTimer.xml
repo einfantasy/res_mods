@@ -1,0 +1,17 @@
+<code>
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+			<find_Node tag="elementList">
+				<insert>
+					<element name="unbound2ShotTimer" class="lesta.unbound2.UbElement" elementName="ShotTimer">
+						<properties hitTest = "false"/>
+					</element>
+					<attrs>
+						<do_if_not_exist tag="element" type="name" name="ShotTimer"/>
+					</attrs>
+				</insert>
+			</find_Node>
+		</root_Node>
+	</target_File>
+	<check name="ShotTimer" version="1.0.0"/>
+</code>

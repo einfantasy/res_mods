@@ -1,0 +1,299 @@
+#IT IS HIGHLY RECOMMENDED "NOT" TO COPY OR REDISTRIBUTE THIS MODULE.
+#THESE CODE SNIPPETS ARE ORIGINALLY WRITTEN BY AUTOSPY.
+#THIS IS JUST A WORKAROUND UNTIL AUTOSPY OFICIALLY RELEASES A DRAGGABLE-HELPER-MOD.
+
+(def constant DRAGGABLE_SNAP_PIXELS 20)
+
+(def element ModDraggableElement (
+		_elementName		:str,
+		_defaultPosition	:dict="{positionX: 100, positionY: 100}",
+		_screenBoundsOffset	:dict="{top:0, left:0, right:0, bottom:0}"
+	) layout=true
+
+	(scope
+		(event evDraggableMouseDown)
+		(event evDraggableMouseUp)
+		(event evDraggableMouseMove)
+		(event evDraggableMouseDisable)
+		(event evDraggableDragEnded)
+		(var __draggablePosNotifyEventName:str = "'ev' + _elementName + 'PositionChanged'")
+		(event name = "__draggablePosNotifyEventName")
+
+		(var parentElement:gfx = "null")
+
+		(var mouse:gfx = "$datahub.getSingleComponent(CC.mouse)")
+		(var isMouseActive:bool = "mouse.active" (event "mouse.evActiveChanged"))
+
+		(var stageComponent:gfx = "$datahub.getSingleComponent(CC.stage)")
+		(var stageWidth:number = "stageComponent.width" (event "stageComponent.evStageSizeChanged"))
+		(var stageHeight:number = "stageComponent.height" (event "stageComponent.evStageSizeChanged"))
+		(var stageScale:number = "stageComponent.scale" (event "stageComponent.evStageSizeChanged"))
+
+		(var isSnapMode:bool = "$event ? $event.isSnapMode : false" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(var mouseX:number = "$event ? round($event.x / stageScale) : 0" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(var mouseY:number = "$event ? round($event.y / stageScale) : 0" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+
+		(var userPrefsComponent:gfx = "$datahub.getSingleComponent(CC.userPrefs)")
+		(var uPrefsNum:gfx = "userPrefsComponent.userPrefs.chatBoxWidth" watch=false init=false (event "userPrefsComponent.evUserPrefsChanged"))
+
+		(var prefKeyX:str = "_elementName + '_positionX'")
+		(var prefKeyY:str = "_elementName + '_positionY'")
+		
+		(var defaultX:number = "'positionX' in _defaultPosition ? _defaultPosition.positionX : 100")
+		(var defaultY:number = "'positionY' in _defaultPosition ? _defaultPosition.positionY : 100")
+
+		(var positionX:number = "isNumber(uPrefsNum[prefKeyX]) ? round(uPrefsNum[prefKeyX]) : defaultX" watch=false (event "evDraggableMouseDown"))
+		(var positionY:number = "isNumber(uPrefsNum[prefKeyY]) ? round(uPrefsNum[prefKeyY]) : defaultY" watch=false (event "evDraggableMouseDown"))
+
+		(var dragOffsetX:number = "mouseX - positionX" init=false watch=false (event "evDraggableMouseDown"))
+		(var dragOffsetY:number = "mouseY - positionY" init=false watch=false (event "evDraggableMouseDown"))
+
+		(var minBoundOffsetX:number = "_screenBoundsOffset && 'left'	in _screenBoundsOffset ? _screenBoundsOffset.left  : 0")
+		(var minBoundOffsetY:number = "_screenBoundsOffset && 'top'		in _screenBoundsOffset ? _screenBoundsOffset.top   : 0")
+		(var maxBoundOffsetX:number = "_screenBoundsOffset && 'right'	in _screenBoundsOffset ? _screenBoundsOffset.right : 0")
+		(var maxBoundOffsetY:number = "_screenBoundsOffset && 'bottom'	in _screenBoundsOffset ? _screenBoundsOffset.bottom: 0")
+
+		(var originToPivotX:number = "positionX - $globalLayoutBounds[0]" watch=false (event "evDraggableMouseDown")) # Guaranteed to be positive
+		(var originToPivotY:number = "positionY - $globalLayoutBounds[1]" watch=false (event "evDraggableMouseDown")) # Guaranteed to be positive
+		
+		(var elementWidth:number  = "parentElement ? parentElement.width  : $globalLayoutBounds[2]" watch=false (event "evDraggableMouseDown"))
+		(var elementHeight:number = "parentElement ? parentElement.height : $globalLayoutBounds[3]" watch=false (event "evDraggableMouseDown"))
+
+		(var pivotToBoundX:number = "elementWidth  - originToPivotX" watch=false (event "evDraggableMouseDown")) # Guaranteed to be positive
+		(var pivotToBoundY:number = "elementHeight - originToPivotY" watch=false (event "evDraggableMouseDown")) # Guaranteed to be positive
+
+		(var rawDragPosX:number = "mouseX - dragOffsetX" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(var rawDragPosY:number = "mouseY - dragOffsetY" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+
+		(var maxStageX:number = "stageWidth  - maxBoundOffsetX - pivotToBoundX")
+		(var maxStageY:number = "stageHeight - maxBoundOffsetY - pivotToBoundY")
+
+		(var minStageX:number = "originToPivotX + minBoundOffsetX")
+		(var minStageY:number = "originToPivotY + minBoundOffsetY")
+
+		(var snappedDragPosX:number = "isSnapMode ? round(rawDragPosX / DRAGGABLE_SNAP_PIXELS) * DRAGGABLE_SNAP_PIXELS : rawDragPosX" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(var snappedDragPosY:number = "isSnapMode ? round(rawDragPosY / DRAGGABLE_SNAP_PIXELS) * DRAGGABLE_SNAP_PIXELS : rawDragPosY" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+
+		(var clampedDragPosX:number = "min(max(snappedDragPosX, minStageX), maxStageX)" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(var clampedDragPosY:number = "min(max(snappedDragPosY, minStageY), maxStageY)" watch=false (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+
+		(var isDragging:bool = "false" watch=false)
+		# It must be here so that the position update event does not trigger for initializing/changing the variables after evMouseDown.
+		(dispatch "__draggablePosNotifyEventName" args = "{x: clampedDragPosX, y: clampedDragPosY}" dir="EventDirection.UP" watch=false (bind enabled "isDragging && isMouseActive") (event "evDraggableMouseMove")(event "evDraggableMouseDown"))
+		(bind isDragging "$event.isDragging" watch=false init=false (event "evDraggableMouseDown")(event "evDraggableMouseUp")(event "evDraggableMouseDisable"))
+	)
+
+	(class $FullsizeAbsolute)
+	(style
+		(backgroundColor=0x01000000)
+		(zindex = "ZIndex.BACKGROUND")
+	)
+
+	(mc contrast_panel
+		(class $FullsizeAbsolute)
+		(bind alpha "0.4")
+		(bind visible "isMouseActive")
+	)
+
+	(controller $Tooltip
+		(renderer = 'ModDraggableTooltipHelp')
+		(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+	)
+
+	(controller $Animation
+		(bindcall play
+			to		 = "{alpha: 0.3}"
+			duration = 0.15
+			action	 = "killAll"
+			(bind enabled "!isMouseActive")
+			(bind trigger "isMouseActive")
+		)
+		(bindcall play
+			to		 = "{alpha: 1.0}"
+			duration = 0.15
+			action	 = "killAll"
+			(bind enabled "isMouseActive")
+			(bind trigger "isMouseActive")
+		)
+	)
+
+	(sync parentElement from='parent' on='addedToStage')
+
+	(bindcall externalCall
+		'inputMapping.onAction'
+		"[
+			'setUserPref',
+			{'value': clampedDragPosX + 0.00001, 'name': 'chatBoxWidth', 'subName': prefKeyX}
+		]"
+		init	= false
+		watch	= false
+		(event "evDraggableDragEnded")
+	)
+	(bindcall externalCall
+		'inputMapping.onAction'
+		"[
+			'setUserPref',
+			{'value': clampedDragPosY + 0.00001, 'name': 'chatBoxWidth', 'subName': prefKeyY}
+		]"
+		init	= false
+		watch	= false
+		(event "evDraggableDragEnded")
+	)
+
+	(dispatch evDraggableMouseDown
+		args = "{isDragging: true, x: $event.stageX, y: $event.stageY, isSnapMode: $event.shiftKey}"
+		on	 = 'mouseDown'
+	)
+	(dispatch evDraggableMouseUp
+		args = "{isDragging: false}"
+		on	 = 'stageMouseUp'
+	)
+	(dispatch evDraggableMouseMove
+		args = "$event ? {x: $event.stageX, y: $event.stageY, isSnapMode: $event.shiftKey} : null"
+		on	 = 'stageMouseMove'
+		(bind enabled "isDragging")
+	)
+	#(dispatch evDraggableMouseMove		args="{x: mouse.x, y: mouse.y}"			(event "evEnterFrame") (bind enabled "isDragging"))
+	# Without $event check, log will freak out for cannot-execute-update. What's wrong with it?
+	# It has something to do with (bind enabled "var") but the error disappears when you set the var to a fixed value like false or true.
+	# However, as soon as you start using another variable in "var" it spits out the error.
+	# It seems the very first frame after mouseDown is failing due to invalid $event data
+	# I donno what to do.
+	(dispatch evDraggableMouseDisable
+		args = "{isDragging: false}"
+		(event "mouse.evActiveChanged")
+	)
+	(dispatch evDraggableDragEnded
+		args="{}"
+		(bind enabled "!isDragging")
+		(bind trigger "isDragging")
+	)
+)
+
+(def macro DRAGGABLE_GET_DROP_POSITION (_elementName:expression, _defaultPosition:expression="{positionX:100, positionY: 100}")
+	(var __draggablePosNotifyEventName:str = "'ev' + _elementName + 'PositionChanged'")
+	(event name = "__draggablePosNotifyEventName")
+
+	(var __draggablePrefNameX:str = "_elementName + '_positionX'")
+	(var __draggablePrefNameY:str = "_elementName + '_positionY'")
+
+	(var __draggableUserPrefsComponent:gfx = "$datahub.getSingleComponent(CC.userPrefs)")
+	(var __draggableUserPrefsNum:gfx = "__draggableUserPrefsComponent.userPrefs.chatBoxWidth" watch=false (event "__draggableUserPrefsComponent.evUserPrefsChanged"))
+	(var dragPosX:number = "isNumber(__draggableUserPrefsNum[__draggablePrefNameX]) ? round(__draggableUserPrefsNum[__draggablePrefNameX]) : 'positionX' in _defaultPosition ? _defaultPosition.positionX : 100")
+	(var dragPosY:number = "isNumber(__draggableUserPrefsNum[__draggablePrefNameY]) ? round(__draggableUserPrefsNum[__draggablePrefNameY]) : 'positionY' in _defaultPosition ? _defaultPosition.positionY : 100")
+
+	(bind dragPosX "$event.x" init=false watch=false (event "$scope[__draggablePosNotifyEventName]"))
+	(bind dragPosY "$event.y" init=false watch=false (event "$scope[__draggablePosNotifyEventName]"))
+)
+
+(def element ModDraggableKeyIndicatorItem(_keyCode:number, _size:number="1")
+	(scope
+		(var inputKeyEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.inputKey, _keyCode)")
+		(var inputKeyEntity:gfx = "inputKeyEntityWatcher.entity" (event "inputKeyEntityWatcher.event"))
+		(var inputKeyComp:gfx = "inputKeyEntity ? inputKeyEntity.inputKey : null")
+
+		(var keyPureName:str = "inputKeyComp ? inputKeyComp.pureName : ''")
+		(var keyName:str = "inputKeyComp ? inputKeyComp.name : ''")
+		(var isShortKeyName:bool = "keyPureName.length == 1")
+
+		(var isActive:bool = "false")
+		(bind isActive "true"  watch=false init=false (event "inputKeyComp.evKeyDown"))
+		(bind isActive "false" watch=false init=false (event "inputKeyComp.evKeyUp"))
+		(var hotKeyState:number = "isActive ? HotkeyState.POSITIVE : HotkeyState.DEFAULT")
+
+		(var hotkeySize:number = "HOTKEY_SIZE[_size]")
+		(var marginForText:number = "_size == SIZE.SMALL ? 4px : 6px")
+		(var hotkeyScaleSize:number = "HOTKEY_SCALE_ANIMATION_SIZE[_size]")
+
+		(var paramScaleX:number = "($globalLayoutBounds[2] + hotkeyScaleSize) / max(1, $globalLayoutBounds[2])" (event "$evLayoutBoundsChanged")) 
+		(var paramScaleY:number = "($globalLayoutBounds[3] + hotkeyScaleSize) / max(1, $globalLayoutBounds[3])" (event "$evLayoutBoundsChanged")) 
+
+	)
+	(style
+		(bind minWidth "hotkeySize")
+		(bind minHeight "hotkeySize")
+		(align = "center|middle")
+		(bind maxWidth "isShortKeyName ? hotkeySize : 999")
+	)
+	
+	(element HotkeyBackground _hotkeyState="hotKeyState"
+		(class $FullsizeAbsolute)
+
+		(element HotkeyBackground _hotkeyState="hotKeyState"
+			(class $FullsizeAbsolute)
+			(style
+				(pivotX = 50%)
+				(pivotY = 50%)
+				(left = 0%) 
+				(top = 0%)  
+			)
+			(visible = false)
+			(controller $Animation
+				(bindcall play 	from="{scaleX:1, scaleY:1, alpha:1.0, visible:true}"
+								to="{scaleX:paramScaleX, scaleY:paramScaleY, alpha:0.0, visible:false}"
+								watch=false
+								duration=0.25
+								(event "inputKeyComp.evKeyDown")
+				)
+			)
+		)
+	)
+	(tf
+		(style
+			(bind marginLeft "marginForText")
+			(bind marginRight "marginForText")
+		)
+		(bind class "HOTKEY_FONTS[_size]")
+		
+		(bind text "inputKeyEntity	? (isShortKeyName || NOT_LOCALIZE_KEYS[keyPureName])	? toUpper(tr(keyPureName))
+																							: toUpper(tr('IDS_' + keyName))
+									: ''")
+	)
+)
+
+(def element ModDraggableTooltipHelp()
+	(scope
+		(var userPrefsComponent:gfx = "$datahub.getSingleComponent(CC.userPrefs)")
+		(var _userPrefsNum:gfx = "userPrefsComponent.userPrefs.chatBoxWidth" watch=false init=false (event "userPrefsComponent.evUserPrefsChanged"))
+
+		(macro TT_GET_LANGUAGE_INDEX)
+		(macro TT_GET_TRANSLATION _varName="'draggableText'" _key="'IDS_TT_HINT_DRAGGABLE_ELEMENT'")
+		(macro TT_GET_TRANSLATION _varName="'titleText'" _key="'IDS_TT_HINT_DRAGGABLE_SNAP'")
+		(macro TT_GET_TRANSLATION _varName="'descText'" _key="'IDS_TT_HINT_DRAGGABLE_SNAP_DESC'")
+	)
+	(style
+		(hitTest = false)
+		(width = 300px)
+	)
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+
+		(element TooltipSystemHeaderWithIconAndText
+			_imageUrl		= "'url:../service_kit/unified_status_icons/icon_' + SC.Ui_styles.UNIFIED_STATUS.INFO + '.png'"
+			_imageWidth		= 19px
+			_imageHeight	= 19px
+			_headerText		= "draggableText"
+			_unifiedStatus	= "SC.Ui_styles.UNIFIED_STATUS.NOTIFICATION"
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+		(hblock
+			(style
+				(align = "middle|center")
+				(hgap = "S")
+				(marginBottom = "S")
+			)
+			(element ModDraggableKeyIndicatorItem _keyCode=42)
+			(tf
+				(class $TextDefaultBoldNM)
+				(bind text "titleText")
+			)
+		)
+		(element TooltipSystemDescriptionText
+			_descriptionText = "descText"
+		)
+	)
+)

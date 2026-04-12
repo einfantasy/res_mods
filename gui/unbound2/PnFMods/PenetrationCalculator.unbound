@@ -1,0 +1,606 @@
+(def constant PENCALC_COMPONENT_KEY 'modPenetrationCalculator')
+(def constant TT_PENCALCULATOR_INSTALLED true) #for modconfig
+
+(def constant PenCalc_FONT_COLORS [
+	"FONT_CLASS_TO_COLOR['$FontColorDefault']",
+	"FONT_CLASS_TO_COLOR['$FontColorBuoyancy']",
+	"FONT_CLASS_TO_COLOR['$FontColorGolden']",
+	"FONT_CLASS_TO_COLOR['$FontColorGreen']",
+	"FONT_CLASS_TO_COLOR['$FontColorOrange']",
+])
+
+(def constant PenCalc_INVALID_VALUE -1)
+
+(def element PenetrationCalculator() layout=true
+	(scope
+		(var stageComponent:gfx = "$datahub.getSingleComponent(CC.stage)")
+		(var stageWidth:number = "stageComponent.width" (event "stageComponent.evStageSizeChanged"))
+		(var stageHeight:number = "stageComponent.height" (event "stageComponent.evStageSizeChanged"))
+
+		(var cameraEntity:gfx = "$datahub.getSingleEntity(CC.camera)")
+		(var cameraMode:number = "cameraEntity.camera.mode" (event "cameraEntity.camera.evModeChanged"))
+		(var isCameraTrackingShell:bool = "cameraMode == CameraMode.SHELLTRACKER")
+		(var isTactical:bool = "cameraEntity.camera.isTactical" (event "cameraEntity.camera.evTacticalStateChanged"))
+
+		(var avatar:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
+		(var healthComponent:gfx = "avatar ? avatar.health : null")
+		(var isAlive:bool = "healthComponent ? healthComponent.isAlive : false" (event "healthComponent.evIsAliveChanged"))
+
+		(var aircarrier:gfx = "$datahub.getSingleComponent(CC.aircarrier)")
+		(var squadronCameraMode:str = "aircarrier ? aircarrier.squadronCameraMode : ''" (event "aircarrier.evSquadronCameraModeChanged"))
+		(var isLastLookCamera:bool = "aircarrier && (squadronCameraMode != SquadronCameraModes.DEFAULT)")
+
+		(var isCrosshairVisible:bool = "isAlive && !(isCameraTrackingShell) && !(isLastLookCamera) && !isTactical")
+	)
+
+	(style
+		(position = "absolute")
+		(bind width "stageWidth")
+		(bind height "stageHeight")
+	)
+
+	(controller $Instance renderer='PenCalc_CorsshairItem'
+		(bind enabled "isAlive")
+		(exprs
+			(style (position = "absolute") (left = 50%) (top = 50%))
+			(bind visible "isCrosshairVisible")
+		)
+	)
+)
+
+(def element PenCalc_CorsshairItem() layout=true
+	(scope
+		# Camera
+		(var cameraEntity:gfx = "$datahub.getSingleEntity(CC.camera)")
+		(var altVision:bool = "cameraEntity.camera.altVision" (event "cameraEntity.camera.evAltVisionChanged"))
+
+		# UserPrefs
+		(macro TT_GET_USERPREF)
+
+		(macro TT_GET_PREF_NUMBER _varName="'heightOffset'" 				_pref="PENCALC_PREFS.HEIGHT_OFFSET")
+		(macro TT_GET_PREF_NUMBER _varName="'fontStylePrefIndex'" 			_pref="PENCALC_PREFS.FONT_STYLE_INDEX")
+
+		(macro TT_GET_PREF_BOOL   _varName="'isImpactAngleAlwaysVisible'" _pref="PENCALC_PREFS.IMPACT_ANGLE_ALWAYS_VISIBLE")
+
+		# Font style
+		(var fontStyleIndex:number = "fontStylePrefIndex < PenCalc_FONT_COLORS.length ? fontStylePrefIndex : 0")
+		(var fontColor:number = "PenCalc_FONT_COLORS[fontStyleIndex]")
+
+		# Pen Data Entity
+		(var penEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, PENCALC_COMPONENT_KEY)")
+		(var penEntity:gfx = "penEntityWatcher.entity" (event "penEntityWatcher.event"))
+		(var penDataComponent:gfx = "penEntity ? penEntity.mods_DataComponent : null")
+		(var penData:dict = "penDataComponent ? penDataComponent.data : {}" (event "penDataComponent.evDataChanged"))
+
+		# AP Skips
+		# do not feed null to a dict type variable
+		# it will not be able to convert the gfx Object next time.
+		(var apSkipData:dict = "'apSkipData' in penData && null != penData.apSkipData ? penData.apSkipData : {}")
+		(var skipPens:array = "apSkipData && 'penetrations' in apSkipData ? apSkipData.penetrations : []")
+		(var skip1:str = "skipPens.length > 0 ? ' | ' + round(skipPens[0]) : ''")
+		(var skip2:str = "skipPens.length > 1 ? ' | ' + round(skipPens[1]) : ''")
+		(var skip3:str = "skipPens.length > 2 ? ' | ' + round(skipPens[2]) : ''")
+		(var skipPen:str = "skip1 + skip2 + skip3")
+
+		# Data
+		(var penetration:number = "'penetration' in penData ? penData.penetration : PenCalc_INVALID_VALUE")
+		(var penetrationText:str = "toString(round(penetration)) + skipPen")
+		(var isPenetrationVisible:bool = "penetration > 0")
+
+		# Detonator
+		(var detonatorDelay:number = "'detonatorDelay' in penData ? penData.detonatorDelay : PenCalc_INVALID_VALUE")
+		(var detonatorThreshold:number = "'detonatorThreshold' in penData ? penData.detonatorThreshold : PenCalc_INVALID_VALUE")
+		(var detonatorLength:number = "'detonatorLength' in penData ? penData.detonatorLength : PenCalc_INVALID_VALUE")
+
+		# Overmatch
+		(var overmatch:number = "'overmatch' in penData ? penData.overmatch : PenCalc_INVALID_VALUE")
+
+		# Ricochet Angles
+		(var alwaysRicochet:number = "'alwaysRicochet' in penData ? penData.alwaysRicochet : PenCalc_INVALID_VALUE") #60
+		(var startRicochet:number = "'startRicochet' in penData ? penData.startRicochet : PenCalc_INVALID_VALUE") #45
+		(var impactAngle:number = "'impactAngle' in penData ? penData.impactAngle : PenCalc_INVALID_VALUE")
+		(var impactAngleText:str = "formatFloatingPoint(impactAngle, 1)")
+		(var isImpactAngleVisible:bool = "impactAngle > 0")
+
+		# First Row Item
+		# - Adaptive
+		#	- Default: Pen
+		#	- Alt	 : Angle
+		# - Always
+		#	- Default: Pen
+		#	- Alt	 : Pen
+		#
+		# Don't show the impact angle when penetration is not available
+		(var isAdptiveMode:bool = "isPenetrationVisible && !isImpactAngleAlwaysVisible && altVision && isImpactAngleVisible")
+		(var firstRowText:str =	"isAdptiveMode ? impactAngleText : penetrationText")
+		(var firstRowMeasure:str = "isAdptiveMode ? '°' : 'mm'")
+		(var firstRowIcon:str = "isAdptiveMode ? 'angle_indicator' : 'penetration_indicator'")
+
+		# For Rage Mode Gauge and Offset
+		(var selfVehicleWatcher:gfx = "$datahub.getFirstWatcher(CC.selfVehicle)")
+		(var selfVehicleEntity:gfx = "selfVehicleWatcher.entity" (event "selfVehicleWatcher.event"))
+		(var vehicleID:number = "selfVehicleEntity && selfVehicleEntity.vehicle ? selfVehicleEntity.vehicle.id : 0" (event "selfVehicleEntity.evAdded") (event "selfVehicleEntity.evRemoved"))
+
+		(var rageModeWatcher:gfx = "$datahub.getPrimWatcher(CC.rageMode, vehicleID)")
+		(var rageModeEntity:gfx = "rageModeWatcher.entity" (event "rageModeWatcher.event"))
+
+		(var controller:gfx = "selfVehicleEntity ? selfVehicleEntity.weaponController : null" (event "selfVehicleEntity.evAdded") (event "selfVehicleEntity.evRemoved"))
+		(var weaponType:number = "controller ? controller.selectedWeapon
+													: SC.Ships.SHIP_WEAPON_TYPES.NONE" (event "controller.evSelectedWeaponChanged"))
+
+		(var altFireModeEntity:gfx = "$datahub.getSingleEntity(CC.altFireMode)")
+
+		(var isBurstFireGageVisible:bool = "altFireModeEntity != null && weaponType == SC.Ships.SHIP_WEAPON_TYPES.ARTILLERY")
+		(var isRageModeGageVisible:bool = "rageModeEntity != null && weaponType == SC.Ships.SHIP_WEAPON_TYPES.ARTILLERY")
+
+		(var isAddIndicatorOffset:bool = "(isRageModeGageVisible || isBurstFireGageVisible)")
+
+		(var arcOffset:number = "isAddIndicatorOffset ? OFFSET_ARC : 0" watch=false)
+		(controller $Animation
+			(bindcall play duration=0.12 to="{arcOffset:OFFSET_ARC}" watch=false action="killAll" init=false (bind enabled "isAddIndicatorOffset"))
+			(bindcall play duration=0.12 to="{arcOffset:0}" watch=false action="killAll" init=false (bind enabled "!isAddIndicatorOffset"))
+		)
+
+		(var battleDataEntity:gfx = "$datahub.getSingleEntity(CC.battleData)")
+		(var isBattleStarted:bool = "battleDataEntity.battleState.battleState == SC.Common.CLIENT_BATTLE_STATE.STARTED" (event "battleDataEntity.battleState.evBattleStateChanged"))
+		(var isBattleStartAnimationTriggered:bool = "isBattleStarted")
+		#
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(bind right "19 + arcOffset")
+			(bind top "14 + 20 * heightOffset") # Add +20 px for each row
+			(width = 200)
+			(align = "right")
+		)
+		
+		(element PenCalc_TextItem
+			_iconName= "firstRowIcon"
+			_value	 = "firstRowText"
+			_measure = "firstRowMeasure"
+			_fontColor = "fontColor"
+			_animationIndex = "heightOffset"
+			_animationTrigger = "isBattleStartAnimationTriggered"
+
+			(bind visible "isPenetrationVisible")
+		)
+		(controller $Instance renderer='PenCalc_TextItem'
+			(bind enabled "isImpactAngleAlwaysVisible && isImpactAngleVisible")
+			(args
+				_iconName		= 'angle_indicator'
+				_value	 		= "impactAngleText"
+				_measure 		= '°'
+				_fontColor 		= "fontColor"
+				_animationIndex = "heightOffset + 1"
+				_animationTrigger = "isBattleStartAnimationTriggered"
+			)
+		)
+		(controller $Tooltip
+			(renderer='PenCalc_TooltipItem')
+			(args
+				_alwaysRicochet		= "alwaysRicochet"
+				_startRicochet		= "startRicochet"
+				_impactAngle		= "impactAngle"
+				_detonatorDelay		= "detonatorDelay"
+				_detonatorThreshold	= "detonatorThreshold"
+				_detonatorLength	= "detonatorLength"
+				_overmatch			= "overmatch"
+				_apSkipData			= "apSkipData"
+				_userPrefsNum		= "_userPrefsNum"
+			)
+			(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+		)
+		#
+	)
+)
+
+
+(def element PenCalc_TextItem (_iconName:str, _value:str, _measure:str, _fontColor:number, _animationIndex:number, _animationTrigger:bool = false) layout=true
+	(scope
+		(var _index:number = "_animationIndex" watch=false)
+	)
+	(style
+		(flow = "Flow.HORIZONTAL")
+		(marginTop = -5)
+	)
+
+	(hblock
+		(style
+			(marginTop = 2)
+		)
+		(tf
+			(class $TextIndicator)
+			(bind text "_value")
+			(style
+				(bind textColor "_fontColor")
+				#(textAlign = "right") #without these width and align, the icon below moves when num of digits change. ??
+			)
+		)
+		(tf
+			(alpha = 0.8)
+			(class $TextIndicator)
+			(style
+				(letterSpacing = "-1")
+				(scaleX = 0.85)
+				(bind textColor "_fontColor")
+			)
+			(bind text "_measure")
+		)
+		(macro CROSS_SHOW_ANIMATION "_index" "_animationTrigger")
+	)
+	(block
+		(style
+			(bind backgroundImage "'url:../../../PnFMods/PenetrationCalculatorPy/' + _iconName + '.png'")
+			(width = 19) (height = 19)
+			(backgroundSize = "fill")
+			(marginTop = 4)
+		)
+		(macro CROSS_SHOW_ANIMATION "_index + 0.5" "_animationTrigger")
+	)
+)
+
+(def element PenCalc_TooltipItem(_alwaysRicochet:number, _startRicochet:number, _impactAngle:number, _detonatorDelay:number, _detonatorThreshold:number, _detonatorLength:number, _overmatch:number, _apSkipData:dict, _userPrefsNum:gfx=null)
+	(scope
+		(var isRicochetVisible:bool = "_alwaysRicochet > 0 && _startRicochet > 0")
+		(var isImpactAngleVisible:bool = "_impactAngle > 0")
+		(var alwaysRicochetText:str = "ceil(_alwaysRicochet) != _alwaysRicochet ? formatFloatingPoint(_alwaysRicochet, 1) : _alwaysRicochet")
+		(var startRicochetText:str = "ceil(_startRicochet) != _startRicochet ? formatFloatingPoint(_startRicochet, 1) : _startRicochet")
+		(var ricochetAnglesText:str = "startRicochetText + ' - ' + alwaysRicochetText")
+		(var impactAngleText:str = "formatFloatingPoint(_impactAngle, 1)")
+		(var overmatchText:str = "round(_overmatch)")
+		(var isOvermatchVisible:bool = "_overmatch > 0")
+		(var detonatorLengthText:str = "formatFloatingPoint(_detonatorLength, 1)")
+		(var isDetonatorLengthVisible:bool = "_detonatorLength > 0")
+
+		# AP Skips
+		(var skipFuses:array = "_apSkipData && 'detonatorThresholds' in _apSkipData ? _apSkipData.detonatorThresholds : []")
+		(var isSkip:bool = "skipFuses.length > 0")
+
+		(var isDetonatorVisible:bool = "_detonatorDelay > 0 && _detonatorThreshold > 0")
+		(var detonatorDelayText:str = "formatFloatingPoint(_detonatorDelay, 3)")
+		(var detonatorThresholdText:str = "formatFloatingPoint(_detonatorThreshold, 0)")
+
+		(var isInformationAvailable:bool = "(isRicochetVisible || isImpactAngleVisible || isDetonatorVisible)")
+
+		# Translations
+		(macro TT_GET_LANGUAGE_INDEX)
+		(macro TT_GET_TRANSLATION _varName="'ricochetAngleTitle'" _key="'IDS_TT_RICOCHET_ANGLES'")
+		(macro TT_GET_TRANSLATION _varName="'impactAngleTitle'" _key="'IDS_TT_IMPACT_ANGLE'")
+		(macro TT_GET_TRANSLATION _varName="'fuseDelayTitle'" _key="'IDS_TT_FUSE_DELAY'")
+		(macro TT_GET_TRANSLATION _varName="'fuseThresholdTitle'" _key="'IDS_TT_FUSE_THRESHOLD'")
+		(macro TT_GET_TRANSLATION _varName="'fuseDistanceTitle'" _key="'IDS_TT_FUSE_DISTANCE'")
+		(macro TT_GET_TRANSLATION _varName="'overmatchTitle'" _key="'IDS_TT_OVERMATCH'")
+		(macro TT_GET_TRANSLATION _varName="'noInfoTitle'" _key="'IDS_TT_NO_INFORMATION'")
+	)
+
+	(style
+		(align = "middle|center")
+		(hitTest = false)
+		(width = "auto")
+	)
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(style
+			(flow = "Flow.HORIZONTAL")
+			(align = "middle")
+			(width = "auto")
+		)
+
+		(block
+			(style
+				(width = 200px)
+			)
+			(element PenCalc_TooltipText _title="ricochetAngleTitle" _value="ricochetAnglesText" _unit="'°'"
+				(bind visible "isRicochetVisible")
+			)
+			(element TooltipSystemHorizontalDivider
+				(bind visible "isRicochetVisible && isImpactAngleVisible")
+			)
+			(element PenCalc_TooltipText _title="impactAngleTitle" _value="impactAngleText" _unit="'°'"
+				(bind visible "isImpactAngleVisible")
+			)
+			(element TooltipSystemHorizontalDivider
+				(bind visible "isRicochetVisible && isDetonatorVisible")
+			)
+			(element PenCalc_TooltipText _title="fuseDelayTitle" _value="detonatorDelayText" _unit="'s'"
+				(bind visible "isDetonatorVisible")
+			)
+			(element TooltipSystemHorizontalDivider
+				(bind visible "isDetonatorLengthVisible")
+			)
+			(element PenCalc_TooltipText _title="fuseDistanceTitle" _value="detonatorLengthText" _unit="'m'"
+				(bind visible "isDetonatorLengthVisible")
+			)
+			(element TooltipSystemHorizontalDivider
+				(bind visible "isDetonatorVisible")
+			)
+			(block
+				(style
+					(width = 100%)
+				)
+				(controller $Instance renderer='PenCalc_TooltipText'
+					(bind enabled "isDetonatorVisible && !isSkip")
+					(args
+						_title		= "fuseThresholdTitle"
+						_value		= "detonatorThresholdText"
+						_unit		= "'mm'"
+					)
+				)
+				(controller $Instance renderer='PenCalc_TooltipTextMultiValues'
+					(bind enabled "isDetonatorVisible && isSkip")
+					(args
+						_title		= "fuseThresholdTitle"
+						_baseValue	= "detonatorThresholdText"
+						_values		= "skipFuses"
+						_unit		= "'mm'"
+					)
+				)
+			)
+			(element TooltipSystemHorizontalDivider
+				(bind visible "isOvermatchVisible")
+			)
+			(element PenCalc_TooltipText _title="overmatchTitle" _value="overmatchText" _unit="'mm'"
+				(bind visible "isOvermatchVisible")
+			)
+
+			# No Info
+			(element TooltipSystemHeaderSubheaderText _headerText="noInfoTitle" _unifiedStatus = "SC.Ui_styles.UNIFIED_STATUS.INFO"
+				(bind visible "!isInformationAvailable")
+			)
+		)
+
+		# Angle Indicator
+		(block
+			(bind visible "isRicochetVisible")
+			(style
+				(width = 150px)
+				(height = 130px)
+				(marginTop = 15px)
+				(marginLeft = 25px)
+				(align = "middle|center")
+			)
+			(block
+				(style
+					(backgroundImage = 'symbol:compass_default_doll')
+				)
+				(element PenCalc_AngleRightItem
+					_alwaysRicochet="_alwaysRicochet"
+					_startRicochet="_startRicochet"
+					_impactAngle="_impactAngle"
+
+				)
+				(element PenCalc_AngleLeftItem
+					_alwaysRicochet="_alwaysRicochet"
+					_startRicochet="_startRicochet"
+					_impactAngle="_impactAngle"
+
+				)
+			)
+		)
+		#
+	)
+)
+
+(def element PenCalc_TooltipText(_title:str, _value:str, _unit:str=null)
+	(scope
+		
+	)
+	(style
+		(flow = "Flow.HORIZONTAL")
+		(align = "middle")
+		(width = 100%)
+	)
+	(tf
+		(bind text "_title")
+		(class $PenCalc_TextBold)
+		(style
+			(width = 70%)
+		)
+	)
+	(hblock
+		(style
+			(width = 30%)
+			(align = "right|middle")
+		)
+		(tf
+			(class $PenCalc_Text)
+			(bind text "_value")
+			(style
+				(width = 100%)
+				(textAlign = "right")
+			)
+		)
+		(tf
+			(bind visible "_unit")
+			(class $PenCalc_Text)
+			(alpha = "TC")
+			(bind text "_unit")
+			(style
+				(marginLeft = 6px)
+			)
+		)
+	)
+)
+
+(def element PenCalc_TooltipTextMultiValues(_title:str, _baseValue:str, _values:array, _unit:str=null)
+	(scope
+		
+	)
+	(style
+		(flow = "Flow.HORIZONTAL")
+		(align = "middle")
+		(width = 100%)
+	)
+	(tf
+		(bind text "_title")
+		(class $PenCalc_TextBold)
+		(style
+			(width = 70%)
+		)
+	)
+	(hblock
+		(style
+			(width = 30%)
+			(align = "right|middle")
+		)
+		(block
+			(style
+				(align = "right")
+				(vgap = 3px)
+				(width = 100%)
+			)
+			(tf
+				(class $PenCalc_Text)
+				(bind text "_baseValue")
+			)
+			(controller $Repeat layout=true
+				(bind count "_values.length")
+				(exprs
+					(tf
+						(class $PenCalc_Text)
+						(bind text "formatFloatingPoint(_values[$index], 0)")
+						(style
+							(width = 100%)
+							(textAlign = "right")
+						)
+					)
+					(style
+						(width = 100%)
+						(align = "middle|right")
+					)
+				)
+			)
+		)
+		(tf
+			(bind visible "_unit")
+			(class $PenCalc_Text)
+			(alpha = "TC")
+			(bind text "_unit")
+			(style
+				(marginLeft = "6px")
+			)
+		)
+	)
+)
+
+(def element PenCalc_AngleRightItem(_alwaysRicochet:number, _startRicochet:number, _impactAngle:number)
+	(scope
+		# Tachibana AP has very weird settings:
+		# It Must be tested
+		(var ricochetAngleArc:number = "abs(_alwaysRicochet - _startRicochet)")
+		(var alwaysRicochetArc:number = "90 - _alwaysRicochet")
+		(var startRicochetArc:number = "90 - _startRicochet")
+		(var noRicochetArc:number = "180 - max(alwaysRicochetArc, startRicochetArc) * 2")
+	)
+
+	# Always Ricochets
+	(element PenCalc_SectorItem _offset="-90" _arc=" alwaysRicochetArc" _color=0xFF0000)
+	(element PenCalc_SectorItem _offset=" 90" _arc="-alwaysRicochetArc" _color=0xFF0000)
+	# Always-Start Ricochets
+	(element PenCalc_SectorItem _offset="-90 + alwaysRicochetArc" _arc=" ricochetAngleArc" _color=0xFFFF00)
+	(element PenCalc_SectorItem _offset=" 90 - alwaysRicochetArc" _arc="-ricochetAngleArc" _color=0xFFFF00)
+	# No Ricochet
+	(element PenCalc_SectorItem _offset="-90 + startRicochetArc"  _arc=" noRicochetArc" _color=0x00FF00)
+
+	(element PenCalc_LineItem _offset="-90" _angle="0")
+	(element PenCalc_LineItem _offset="-90" _angle="alwaysRicochetArc")
+	(element PenCalc_LineItem _offset="-90" _angle="startRicochetArc" _length=50)
+
+	(style
+		(position = "absolute")
+		(left = 17)
+	)
+)
+
+(def element PenCalc_AngleLeftItem(_alwaysRicochet:number, _startRicochet:number, _impactAngle:number)
+	(scope
+		# Tachibana AP has very weird settings:
+		# It Must be tested
+		(var ricochetAngleArc:number = "abs(_alwaysRicochet - _startRicochet)")
+		(var alwaysRicochetArc:number = "90 - _alwaysRicochet")
+		(var startRicochetArc:number = "90 - _startRicochet")
+		(var noRicochetArc:number = "180 - max(alwaysRicochetArc, startRicochetArc) * 2")
+	)
+
+	# Always Ricochets
+	(element PenCalc_SectorItem _offset="-90" _arc="-alwaysRicochetArc" _color=0xFF0000)
+	(element PenCalc_SectorItem _offset=" 90" _arc=" alwaysRicochetArc" _color=0xFF0000)
+	# Always-Start Ricochets
+	(element PenCalc_SectorItem _offset="-90 - alwaysRicochetArc" _arc="-ricochetAngleArc" _color=0xFFFF00)
+	(element PenCalc_SectorItem _offset=" 90 + alwaysRicochetArc" _arc=" ricochetAngleArc" _color=0xFFFF00)
+	# No Ricochet
+	(element PenCalc_SectorItem _offset=" 90 + startRicochetArc"  _arc=" noRicochetArc" _color=0x00FF00)
+
+	(element PenCalc_LineItem _offset="180" _angle="0" _length=50)
+	(element PenCalc_LineItem _offset="180" _angle="_alwaysRicochet")
+	(element PenCalc_LineItem _offset="180" _angle="_startRicochet" _length=50)
+
+	(style
+		(position = "absolute")
+		(right = 17)
+	)
+)
+
+(def element PenCalc_SectorItem(_offset:number=0, _arc:number=0, _color:number=0xFFFFFF)
+	(controller $Sector
+		(bind offset "_offset")
+		(bind color "_color")
+		(bind arc "_arc")
+		(bind radius "45")
+		(bind innerRadius "0")
+	)
+	(alpha = 0.6)
+)
+
+(def element PenCalc_LineItem(_offset:number, _angle:number, _length:number = 65)
+	(scope
+		(var normOffset:number = "_offset % 360")
+		(var isLeft:bool = "90 <= normOffset && normOffset <= 270 ? true : false")
+		(var angleWithOffset:number = "_offset + _angle")
+		(var rad:number = "gradToRad(angleWithOffset)")
+		(var xEnd:number = "cos(rad) * _length")
+		(var yEnd:number = "sin(rad) * _length")
+		(var label:str = "floor(_angle) != _angle ? formatFloatingPoint(_angle, 1) : _angle")
+	)
+	
+	(block
+		(.graphics
+			(lineStyle "1" "0xFFFFFFFF")
+			(moveTo "0" "0")
+			(lineTo "_length" "0")
+			(endFill)
+		)
+		(style
+			(bind rotation "angleWithOffset")
+		)
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(bind top "yEnd - 15")
+			(bind left "xEnd")
+			(bind pivotX "isLeft ? 100% : 0%")
+		)
+		(tf
+			(class $PenCalc_Text)
+			(bind text "label")
+		)
+	)
+)
+
+(def css $PenCalc_Text()
+	(extends $TextDefaultNM)
+	(extends $FontEnableReadability)
+	(leading = "-3px")
+)
+
+(def css $PenCalc_TextBold()
+	(extends $TextDefaultBoldNM)
+	(extends $FontEnableReadability)
+	(leading = "-3px")
+)

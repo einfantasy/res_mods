@@ -1,0 +1,117 @@
+(def element ShipMarkerIconItem (_markerEntity:gfx, _rotation:number) layout=true
+	(scope
+		(macro GET_MARKER_ENTITY_COMPONENT 'vehicle')
+		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+
+		(var relationValue:number = "relationComponent ? relationComponent.value : -1" (event "relationComponent.evChanged"))
+		(var isSelf:bool = "relationValue == SC.Battle.PLAYER_RELATION.SELF")
+
+		(var cameraEntity:gfx = "$datahub.getSingleEntity(CC.camera)")
+		(var isTactical:bool = "cameraEntity.camera.isTactical" (event "cameraEntity.camera.evTacticalStateChanged"))
+
+		(macro IS_ON_PLANE)
+
+		(var hasDiplomacyComponent:bool = "_markerEntity.hasComponent(CC.diplomacyRelation)")
+
+		(var iconHeight:number = "hasDiplomacyComponent ? DIPLOMACY_TEAM_ICON_SIZE.HEIGHT : SHIP_ICON_SIZE.HEIGHT")
+		(var iconWidth:number = "hasDiplomacyComponent ? DIPLOMACY_TEAM_ICON_SIZE.WIDTH : SHIP_ICON_SIZE.WIDTH")
+
+		(var useDiplomacyIcon:bool = "hasDiplomacyComponent && !(isSelf)")
+
+		(var addRotation:number = "!(useDiplomacyIcon) 	? isTactical 	? (90 * (relationValue == SC.Battle.PLAYER_RELATION.ENEMY ? 1 : -1))
+																		: 0
+														: 0")
+
+		(var colorOffset:number = "0" watch=false)
+		(controller $Animation
+			(bindcall play	duration=0.15
+							from={colorOffset: 0}
+							to={colorOffset: 160}
+							action="killAll"
+							(event "vehicleComponent.evHit")
+			)
+			(bindcall play	duration=0.45
+							delay=0.15
+							from={colorOffset: 160}
+							to={colorOffset: 0}
+							(event "vehicleComponent.evHit")
+			)
+		)
+
+		# Mod
+		(macro IS_SPECTATOR_MODE)
+		(var isDetected:bool = "vehicleComponent.visibilityFlags > 0" (event "vehicleComponent.evVisibilityFlagsChanged"))
+		(var wasDetected:bool=false)
+		(bind wasDetected "true" watch=false init=false (event "vehicleComponent.evVisibilityFlagsChanged"))
+
+		(var iconScale:number = "isTactical ? 0.35 : 0.65")
+		(var iconAlpha:number = "isDetected ? 1
+											: wasDetected	? 0.5
+															: 0"
+		)
+		(var iconCT:dict = "isDetected	? {}
+										: {redMultiplier:0,greenMultiplier:0,blueMultiplier:0,alphaMultiplier:1,redOffset:51,greenOffset:51,blueOffset:51,alphaOffset:0}"
+		)
+		(var isIconVisible:bool = "isSpectatorTrainingMode ? true : (relationValue == SC.Battle.PLAYER_RELATION.ALLY)")
+		#
+	)
+	(class $WorldMarkerItemMargins)
+	(style
+		(bind width "iconWidth")
+		(bind height "iconHeight")
+		(align = "center|middle")
+	)
+
+	(block
+		(style
+			(width = 0) (height = 0)
+			(align = "center|middle")
+			(bind rotation "_rotation + addRotation")
+		)
+
+		(controller $Instance renderer='ShipMarkerIconSimple'
+			(args "_markerEntity")
+			(bind enabled "!(useDiplomacyIcon) && !(isTactical && isSelf && !(isOnPlane))")
+			(exprs
+				(style
+					(width = "SHIP_ICON_SIZE.WIDTH") (height = "SHIP_ICON_SIZE.HEIGHT")
+				)
+			)
+		)
+
+		(controller $Instance renderer='ShipMarkerIconOwnTactical'
+			(args "_markerEntity")
+			(bind enabled "!(useDiplomacyIcon) && isTactical && isSelf && !(isOnPlane)")
+		)
+
+		(controller $Instance renderer='DiplomacyShipTeamIcon'
+			(args "_markerEntity")
+			(bind enabled "useDiplomacyIcon && !(isTactical)")
+		)
+
+		(controller $Instance renderer='DiplomacyMapMarkerShipIcon'
+			(args "_markerEntity")
+			(bind enabled "useDiplomacyIcon && isTactical")
+		)
+
+		(bind colorTransform "{redOffset: colorOffset, greenOffset: colorOffset, blueOffset: colorOffset}")
+	)
+
+	# Mod
+	(block
+		(bind visible "isIconVisible")
+
+		(style
+			(position = "absolute")
+			(bind alpha "iconAlpha")
+			(bind marginLeft "iconWidth")
+			(marginTop = "6px")
+			(backgroundImage = 'url:../ttaro_detection_monitor/icon.png')
+		)
+
+		(macro BIND_FAIR_SCALE "iconScale")
+
+		(bind colorTransform "iconCT")
+	)
+	#
+)

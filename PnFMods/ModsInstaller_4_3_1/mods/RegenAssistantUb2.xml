@@ -1,0 +1,18 @@
+<code>
+	<target_File file="gui/battle_elements.xml">
+		<root_Node>
+			<find_Node tag="elementList">
+				<insert>
+					<element class="lesta.unbound2.UbElement" elementName="RegenAssistantUb2" name="unbound2RegenAssistantUb2">
+						<properties hitTest="true"/>
+					</element>
+					<attrs>
+						<do_if_not_exist tag="element" type="name" name="unbound2RegenAssistantUb2"/>
+						<position insert="after_node" tag="element" attr_1="elementName" value_1="MainHud"/>
+					</attrs>
+				</insert>
+			</find_Node>
+		</root_Node>
+	</target_File>
+	<check name="RegenAssistantUb2" version="2.1.0"/>
+</code>
