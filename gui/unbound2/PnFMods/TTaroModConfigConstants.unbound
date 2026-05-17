@@ -130,6 +130,7 @@
             TP_PREFS.DEAD_PLAYER_VISIBLE,
             TP_PREFS.POS_OFFSET_MODIFIER,
             TP_PREFS.SCALE_OFFSET,
+            TP_PREFS.SIDE_OFFSET,
             TP_PREFS.ALL_ALT_VISIBLE
         ]"
     },
@@ -154,6 +155,7 @@
             TP_PREFS.PLAYER_NAME,
             TP_PREFS.CLAN_NAME,
             TP_PREFS.SHIP_NAME,
+            TP_PREFS.FLOW_DIRECTION,
             TP_PREFS.CLAN_ICON
         ]"
     },
@@ -221,6 +223,7 @@
     },
     {
         sectionTitle: 'IDS_TT_TITLE_AIR_STRIKE',
+        sectionSettings: {isExpanded: false},
         sectionElements: "[
             TP_PREFS.AIRSUPPORT.DISPLAY_MODE,
             TP_PREFS.AIRSUPPORT.RANGE,
@@ -237,6 +240,7 @@
     },
     {
         sectionTitle: 'IDS_TT_TITLE_ATBA',
+        sectionSettings: {isExpanded: false},
         sectionElements: "[
             TP_PREFS.ATBA.DISPLAY_MODE,
             TP_PREFS.ATBA.RANGE
@@ -271,6 +275,15 @@
             TP_PREFS.SUB_CONSUMABLE.DISPLAY_MODE,
             TP_PREFS.SUB_CONSUMABLE.SUB_HYDRO_RANGE,
             TP_PREFS.SUB_CONSUMABLE.SUB_RADAR_RANGE
+        ]"
+    },
+    {
+        sectionTitle: 'IDS_TT_TITLE_DCP_CONSUMABLE',
+        sectionSettings: {isExpanded: false},
+        sectionElements: "[
+            TP_PREFS.DCP.DISPLAY_MODE,
+            TP_PREFS.DCP.WORK_TIME,
+            TP_PREFS.DCP.RELOAD_TIME
         ]"
     }
 ])
@@ -1397,6 +1410,7 @@
     DEAD_PLAYER_VISIBLE: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_SHOW_DEAD', key: 'ttTeamPanelDeadPlayerVisible', default: true},
     POS_OFFSET_MODIFIER: {min: -5, max: 5, step: 1, renderer: "TT_CONFIG_RENDERERS.SLIDER", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_DISPLAY_HEIGHT_OFFSET', key: 'ttTeamPanelPosOffset', default: 0},
     SCALE_OFFSET: {min: 0.5, max: 1.5, step: 0.1, renderer: "TT_CONFIG_RENDERERS.SLIDER", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_UI_SCALE', key: 'ttTeamPanelScaleOffset', default: 1},
+    SIDE_OFFSET: {min: 0, max: 30000, step: 10, renderer: "TT_CONFIG_RENDERERS.NUM_INPUT", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_SIDE_OFFSET', key: 'ttTeamPanelSideOffset', tooltipHint: 'IDS_TT_HINT_NUMBER_INPUT', default: 0},
     ALL_ALT_VISIBLE: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_DISPLAY_ONLY_ON_ALT', key: 'ttTeamPanelVisibleOnAlt', default: false},
     BACKGROUND: {
         DISPLAY_MODE: {min: 0, max: 0, step: 1, renderer: "TT_CONFIG_RENDERERS.DROPDOWN", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_DISPLAY_MODE', key: 'ttTeamPanelBlurDisplayMode', tooltipHint: 'IDS_TT_HINT_DISPLAY_MODE', default: 0, dropdownItems: ['IDS_TURN_OFF', 'IDS_TURN_ON', 'IDS_ALT_VISION_MODE_1'], dropdownType: 'KEY', extraData: {'IDS_ALT_VISION_MODE_1': 'CMD_ICONS'}},
@@ -1408,7 +1422,7 @@
     PLAYER_NAME: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_PLAYER_NAME', key: 'ttTeamPanelPlayerNameVisible', default: true},
     CLAN_NAME: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_CLAN_NAME', key: 'ttTeamPanelClanNameVisible', default: true, parentPrefs: [{pref: "TP_PREFS.PLAYER_NAME", validValues: "[1]"}]},
     SHIP_NAME: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_SHIP_NAME', key: 'ttTeamPanelShipNameVisible', default: true, divider: "bottom"},
-    FLOW_DIRECTION: {min: 0, max: 0, step: 1, renderer: "TT_CONFIG_RENDERERS.DROPDOWN", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_LAYOUT_DIRECTION', key: 'ttTeamPanelPlayerInfoFlowDirection', default: 0, dropdownItems: ['IDS_TT_VERTICAL', 'IDS_TT_HORIZONTAL'], dropdownType: 'CUSTOM_TEXT', divider: "bottom"},
+    FLOW_DIRECTION: {min: 0, max: 0, step: 1, renderer: "TT_CONFIG_RENDERERS.DROPDOWN", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_LAYOUT_DIRECTION', key: 'ttTeamPanelPlayerInfoFlowDirection', default: 1, dropdownItems: ['IDS_TT_VERTICAL', 'IDS_TT_HORIZONTAL'], dropdownType: 'CUSTOM_TEXT', divider: "bottom"},
     CLAN_ICON: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_CLAN_ICON', key: 'ttTeamPanelClanIconVisible', default: false},
     SHIP_NATION: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_NATIONAL_FLAG', key: 'ttTeamPanelShipNationVisible', default: false, divider: "bottom"},
     SHIP_TIER: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_TIER', key: 'ttTeamPanelShipTierVisible', default: true},
@@ -1472,6 +1486,11 @@
         DISPLAY_MODE: {min: 0, max: 0, step: 1, renderer: "TT_CONFIG_RENDERERS.DROPDOWN", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_DISPLAY_MODE', key: 'ttTeamPanelSubConsumableDisplayMode', tooltipHint: 'IDS_TT_HINT_DISPLAY_MODE', default: 0, dropdownItems: ['IDS_TURN_OFF', 'IDS_TURN_ON', 'IDS_ALT_VISION_MODE_1'], dropdownType: 'KEY', extraData: {'IDS_ALT_VISION_MODE_1': 'CMD_ICONS'}},
         SUB_HYDRO_RANGE: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_SUB_HYDRO', key: 'ttTeamPanelSubHydroRangeVisible', default: true, parentPrefs: [{pref: "TP_PREFS.SUB_CONSUMABLE.DISPLAY_MODE", validValues: "[1,2]"}]},
         SUB_RADAR_RANGE: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_SUB_RADAR', key: 'ttTeamPanelSubRadarRangeVisible', default: true, parentPrefs: [{pref: "TP_PREFS.SUB_CONSUMABLE.DISPLAY_MODE", validValues: "[1,2]"}]},
+    },
+    DCP: {
+        DISPLAY_MODE: {min: 0, max: 0, step: 1, renderer: "TT_CONFIG_RENDERERS.DROPDOWN", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_TT_DISPLAY_MODE', key: 'ttTeamPanelDCPDisplayMode', tooltipHint: 'IDS_TT_HINT_DISPLAY_MODE', default: 0, dropdownItems: ['IDS_TURN_OFF', 'IDS_TURN_ON', 'IDS_ALT_VISION_MODE_1'], dropdownType: 'KEY', extraData: {'IDS_ALT_VISION_MODE_1': 'CMD_ICONS'}},
+        WORK_TIME: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_SHIP_PARAM_WORK_TIME', key: 'ttTeamPanelDCPWorkTimeVisible', default: true, parentPrefs: [{pref: "TP_PREFS.DCP.DISPLAY_MODE", validValues: "[1,2]"}]},
+        RELOAD_TIME: {renderer: "TT_CONFIG_RENDERERS.SWITCH", titleColor: "SC.Ui_styles.SERVICE_COLORS.WHITE", configTitle: 'IDS_SHIP_PARAM_DEPTH_CHARGE_RELOAD_TIME', key: 'ttTeamPanelDCPReloadTimeVisible', default: true, parentPrefs: [{pref: "TP_PREFS.DCP.DISPLAY_MODE", validValues: "[1,2]"}]},
     },
 })
 
