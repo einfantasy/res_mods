@@ -1,3 +1,21 @@
+(def macro GET_ORIGIN_SHIP_INFO (_shipId:expression, _isFromTooltip:expression=false)
+	(var originShipId:number = "!ORIGIN_SHIP_ID[_shipId] ? null : ORIGIN_SHIP_ID[_shipId]")
+	(var originShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ship, originShipId)")
+	(var originShipInfo:gfx = "originShipEntity ? originShipEntity.ship : null" (event "originShipEntity.ship.evUpdate") (event "originShipEntity.ship.evCurrentSkinChanged"))
+	(var originPathTinyIcon:str = "originShipInfo ? originShipInfo.pathTinyIcon : ''" (event "originShipInfo.evCurrentSkinChanged") (event "originShipInfo.evUpdate"))
+	(var originPathPreview:str = "originShipInfo ? originShipInfo.pathPreview : ''" (event "originShipInfo.evCurrentSkinChanged") (event "originShipInfo.evUpdate"))
+	(var originShipCountry:str = "originShipInfo ? originShipInfo.flagName : ''" (event "originShipInfo.evUpdate"))
+	(var originShipName:str = "originShipInfo ? (_isFromTooltip ? originShipInfo.nameIDS : (tr(originShipInfo.nameIDS) + '*')) : ''" (event "originShipInfo.evUpdate"))
+	(var originShipNameUpper:str = "originShipInfo ? (tr(originShipInfo.nameUpper) + '*') : ''" (event "originShipInfo.evUpdate")) #Autospy
+	(var originShipNameShort:str = "originShipInfo ? (tr(originShipInfo.nameIDS + '_SHORT') + '*') : ''" (event "originShipInfo.evUpdate")) #Autospy
+	(var originShipFullName:str = "originShipInfo ? (tr(originShipInfo.nameIDS + '_FULL') + '*') : ''" (event "originShipInfo.evUpdate"))
+	(var originShipShortName:str = "originShipInfo ? originShipInfo.shortName : null" (event "originShipInfo.evUpdate"))
+	(var originNeedShowProjectYear:bool = "originShipInfo ? originShipInfo.needShowProjectYear : null" (event "originShipInfo.evUpdate"))
+	(var originIsPaperShip:bool = "originShipInfo ? originShipInfo.isPaperShip : null" (event "originShipInfo.evUpdate"))
+	(var originPeculiarity:bool = "originShipInfo ? originShipInfo.peculiarity : null" (event "originShipInfo.evUpdate"))
+)
+
+
 (def element CrosshairIndicators () layout=true
 	### W03L0BED MAKROS CALL
 	(macro XNG_SCOPE)
@@ -299,11 +317,16 @@
 	(scope
 		(var entity:gfx = "$datahub.getEntity(_targetEntityId)")
 
+		(macro GET_PREF 'disableUpperCase' "'ui.mods.disableUpperCase'")
+		(macro GET_PREF 'showOriginShips' "'ui.mods.showOriginShips'")
+		(macro GET_ORIGIN_SHIP_INFO "entity.avatar.ship.ref.ship.id")
+		(var hasOriginShip:bool = "showOriginShips && originShipId")
+
 		(var shipRlevel:str = "entity.avatar.ship.ref.ship.levelRome")
 		(var shipSubtype:str = "entity.avatar.ship.ref.ship.subtype")
-		(var shipNameIDS:str = "entity.avatar.ship.ref.ship.nameIDS")
-		(var shipFullName:str = "tr(shipNameIDS + '_FULL')")
-		(var shipName:str = "'_FULL' in shipFullName ? tr(shipNameIDS) : shipFullName")
+		(var shipNameIDS:str = "hasOriginShip ? originShipName : tr(entity.avatar.ship.ref.ship.nameIDS)")
+		(var shipFullName:str = "hasOriginShip ? originShipFullName : tr(shipNameIDS + '_FULL')")
+		(var shipName:str = "'_FULL' in shipFullName ? shipNameIDS : shipFullName")
 		(var isSubmarine:bool = "shipSubtype == SC.Common.SHIP_TYPE.SUBMARINE" (event "entity.avatar.evShipTypeChanged"))
 
 		(var shipParamsInBattleCollection:gfx = "$datahub.getCollection(CC.mods_ShipParamsInBattle)")
@@ -358,7 +381,7 @@
 					(marginLeft = 2px)
 				)
 				(class $TextDefault)
-				(bind text "toString(shipRlevel) + ' ' + toString(shipName)")
+				(bind text "toString(shipRlevel) + ' ' + (disableUpperCase ? shipName : toUpper(shipName))")
 			)
 		)
 		(hblock
