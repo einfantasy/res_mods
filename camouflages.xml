@@ -1,4 +1,4 @@
-<!-- Camouflages for realm: notcn -->
+<!-- Camouflages for realm: cn -->
 <data>
 	<shipgroups.xml>
 		<EUR_group_1>
@@ -41,7 +41,7 @@
 			<ships>	PFSD018_L_Aventurier PFSD105_Jaguar PFSD106_Guepard PFSD107_Vauquelin	</ships>
 		</FRA_group_8>
 		<GER_group_1>
-			<ships>	PGSB002_Tirpiz_1942 PGSB103_Nassau PGSB104_Kaiser PGSB105_Koenig PGSB106_Bayern PGSB108_Bismarck PGSB203_Von_der_Tann PGSB204_Moltke PGSB503_Koenig_Albert PGSB508_Odin PGSB598_Black_Tirpitz PGSB818_BA_Tirpitz PGSB828_Odin_TE PGSC105_Konigsberg PGSC106_Nurnberg PGSC107_Yorck PGSC109_Roon PGSC506_Admiral_Graf_Spee PGSC507_Munchen PGSC508_Prinz_Eugen PGSC509_Siegfried PGSC516_Leipzig PGSC517_Weimar PGSC706_HSF_Graf_Spee PGSC728_Wiesbaden PGSC729_Blucher PGSC809_Colorful_Roon PGSC817_Black_Munchen PGSD102_V_25 PGSD103_G_101 PGSD110_Z_52 PGSD111_Z_57 PGSD207_Z_31 PGSD210_Elbing PGSD508_Z_39 PGSD707_Z32_EventDday_Torp PGSD717_Z33_EventDday_MG PGSD727_z34_EventDday_Support PGSD737_z38_EventDday_Heal PGSD990_Lubeck PXSD013_Z_52_PA PGSB898_Azur_Bismarck PGSC010_Prinz_Adalbert PGSC717_Nurnberg_1944 PGSB708_Bismarck_1941 PGSD910_East_Z_52	</ships>
+			<ships>	PGSB002_Tirpiz_1942 PGSB103_Nassau PGSB104_Kaiser PGSB105_Koenig PGSB106_Bayern PGSB108_Bismarck PGSB203_Von_der_Tann PGSB204_Moltke PGSB503_Koenig_Albert PGSB508_Odin PGSB598_Black_Tirpitz PGSB818_BA_Tirpitz PGSB828_Odin_TE PGSC105_Konigsberg PGSC106_Nurnberg PGSC107_Yorck PGSC109_Roon PGSC506_Admiral_Graf_Spee PGSC507_Munchen PGSC508_Prinz_Eugen PGSC509_Siegfried PGSC516_Leipzig PGSC517_Weimar PGSC706_HSF_Graf_Spee PGSC728_Wiesbaden PGSC729_Blucher PGSC809_Colorful_Roon PGSC817_Black_Munchen PGSD102_V_25 PGSD103_G_101 PGSD110_Z_52 PGSD111_Z_57 PGSD207_Z_31 PGSD210_Elbing PGSD508_Z_39 PGSD707_Z32_EventDday_Torp PGSD717_Z33_EventDday_MG PGSD727_z34_EventDday_Support PGSD737_z38_EventDday_Heal PGSD990_Lubeck PXSD013_Z_52_PA PGSB898_Azur_Bismarck PGSC010_Prinz_Adalbert PGSC717_Nurnberg_1944 PGSD910_East_Z_52 PGSB708_Bismarck_1941 PGSB928_Hunt_Bismarck_1941	</ships>
 		</GER_group_1>
 		<GER_group_2>
 			<ships>	PGSC001_Hermelin_1940 PGSC002_Drezden_1908 PGSC103_Kolberg PGSC104_Karlsruhe PGSC111_Clausewitz PGSC502_Emden_1908 PGSD104_V_170 PGSD105_T_22 PGSD106_Ernst_Gaede PGSD107_Leberecht_Maass PGSD108_Z_23 PGSD109_Z_46 PGSD506_T_61 PGSD516_Karl_von_Schonberg PGSD518_Z_35 PGSD519_Z_44 PGSD529_ZF_6 PGSD709_GM_ZF_6 PGSC720_Bremen PGSC920_Gold_Bremen PGSD719_ZH_1	</ships>
@@ -74,7 +74,7 @@
 			<ships>	PISC101_Eritrea PISD102_Curtatone PISD103_Sauro PISD104_Turbine PISD105_Maestrale PISD106_Aviere PISD107_Luca_Tarigo PISD108_Vittorio_Cuniberti PISD109_Adriatico PISD506_Leone	</ships>
 		</ITA_group_3>
 		<ITA_group_4>
-			<ships>	PISA508_Aquila PISB109_Lepanto PISB110_Cristoforo_Colombo PISB509_Marco_Polo PISB709_Olympian_Marco_Polo PISB510_Ruggiero_di_Lauria PISB519_Giuseppe_Verdi PISB719_Olympian_Giuseppe_Verdi PISB710_Sicilia PISB990_Amerigo_Vespucci PISC510_Napoli PISC519_Michelangelo PISC590_Black_Napoli PISC710_Varese PISB810_Cyber_Ruggiero_di_Lauria PISB011_Affondatore PISB909_Azur_Marco_Polo	</ships>
+			<ships>	PISA508_Aquila PISB109_Lepanto PISB110_Cristoforo_Colombo PISB509_Marco_Polo PISB709_Olympian_Marco_Polo PISB510_Ruggiero_di_Lauria PISB519_Giuseppe_Verdi PISB719_Olympian_Giuseppe_Verdi PISB710_Sicilia PISB990_Amerigo_Vespucci PISC510_Napoli PISC519_Michelangelo PISC590_Black_Napoli PISC710_Varese PISB810_Cyber_Ruggiero_di_Lauria PISB011_Affondatore PISB909_Azur_Marco_Polo PISB720_Conte_Verde	</ships>
 		</ITA_group_4>
 		<ITA_group_5>
 			<ships>	PISD110_Attilio_Regolo PISD507_FR25 PISS110_Calvi PISS108_Pietro_Micca	</ships>
@@ -86,7 +86,7 @@
 			<ships>	PJSA002_Hosho_1939 PJSA009_Ryujo_1933 PJSA011_Hiryu_1942 PJSA017_Hakuryu_1942 PJSA104_Hosho PJSA106_Ryujo PJSA110_Hakuryu PJSA917_TST_Hakuryu PJSB001_Kawachi_1912 PJSB007_Kongo_1942 PJSB008_Ishizuchi_1921 PJSB010_Nagato_1944 PJSB011_Mikasa_1905 PJSB013_Amagi_1942 PJSB021_Izumo_1938 PJSB705_Kongou PJSB706_Kirishima PJSB707_Haruna PJSB708_Hiei_Arpeggio PJSB878_Ignis_Purgatio PJSB888_Ragnarok PJSC004_Yubari_1944 PJSC005_Furutaka_1926 PJSC007_Aoba_1943 PJSC008_Myoko_1945 PJSC009_Mogami_1935 PJSC012_Ibuki_1944 PJSC013_Kuma_1938 PJSC018_Tone PJSC034_Zao_1944 PJSC037_Hashidate_1940 PJSC038_Atago_1944 PJSC205_Agano PJSC207_Omono PJSC503_Katori PJSC505_Yahagi PJSC507_Tokachi PJSC598_Black_Atago PJSC610_Kitakami PJSC705_Myoko PJSC707_Ashigara PJSC708_ARP_Takao PJSC709_Haguro PJSC710_Yari PJSC717_Yellow_Dragon PJSC718_ARP_Maya PJSC719_Chikuma_2_Hyb PJSC727_Blue_Dragon PJSC729_GW_Chikuma_2_Hyb PJSC737_Nachi PJSC810_TST_ZAO PJSC890_CLR_Zao PJSC918_Tone_Second PJSC919_Tone_Third PJSD001_Tachibana_1912 PJSD002_Umikaze_1925 PJSD003_Isokaze_1917 PJSD004_Minekadze_1920 PJSD012_Shimakaze_1943 PJSD014_Tachibana_1912_Asus PJSD017_Kamikaze_1930 PJSD024_Wakatake_1923 PJSD025_True_Kamikaze PJSD026_Camo_Kamikaze PJSD105_Mutsuki PJSD106_Fubuki PJSD108_Akizuki PJSD206_Hatsuharu PJSD219_Kitakaze PJSD528_Harekaze_2 PJSD596_Black_Shinonome PJSD706_Shinonome PJSD708_HSF_Harekaze PJSD889_Kitakaze_PR PJSD890_AZUR_Shimakaze PXSD016_Shimakaze_PA PZSB509_Izumo_Bajie PJSC905_East_Furutaka_1926	</ships>
 		</IJN_group_1>
 		<IJN_group_2>
-			<ships>	PJSC015_Tatsuta_1919 PJSC026_Iwaki_1944 PJSC035_Chikuma_1912 PJSD107_Akatsuki PJSD207_Shiratsuyu PJSD208_Kagero PJSD209_Yugumo PJSD210_Harugumo PJSD507_Yudachi PJSD510_Hayate PJSD518_Asashio PJSD598_Black_Asashio PJSD718_AZUR_Yukikaze PJSD719_Minegumo PJSD728_Shigure PJSS508_I58 PJSS518_I56 PJSS528_I54 PJSS720_I56_1944 PJSS820_BA_I56 PXSD018_Harugumo_PA	</ships>
+			<ships>	PJSC015_Tatsuta_1919 PJSC026_Iwaki_1944 PJSC035_Chikuma_1912 PJSD107_Akatsuki PJSD207_Shiratsuyu PJSD208_Kagero PJSD209_Yugumo PJSD210_Harugumo PJSD507_Yudachi PJSD510_Hayate PJSD518_Asashio PJSD598_Black_Asashio PJSD718_AZUR_Yukikaze PJSD719_Minegumo PJSD728_Shigure PJSS508_I58 PJSS518_I56 PJSS528_I54 PJSS720_I56_1944 PJSS820_BA_I56 PXSD018_Harugumo_PA PJSD710_Fuyutsuki	</ships>
 		</IJN_group_2>
 		<IJN_group_3>
 			<ships>	PJSA006_Zuiho_1944 PJSB003_Myogi_1912 PJSB506_Mutsu PJSC208_Shimanto PJSC209_Takahashi PJSC210_Yodo PJSC510_Azumaya PJSC517_Maya PJSC519_AZUR_Azuma PJSC520_Yoshino PJSC819_BA_Takahashi PJSC829_Black_Azumaya PJSC720_Kushiro	</ships>
@@ -95,7 +95,7 @@
 			<ships>	PJSA012_Zuikaku_1944 PJSA108_Shokaku PJSA908_Kikaku	</ships>
 		</IJN_group_4>
 		<IJN_group_5>
-			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano	</ships>
+			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano PJSC021_Kurama 	</ships>
 		</IJN_group_5>
 		<IJN_group_6>
 			<ships>	PJSB507_Ashitaka PJSC206_Gokase	</ships>
@@ -155,7 +155,7 @@
 			<ships>	PRSB001_Nikolay_I PRSB103_Knyaz_Suvorov PRSB104_Gangut PRSB105_Pyotr_Velikiy PRSB106_Izmail PRSB516_Novorossiysk PRSC001_Avrora_1917 PRSC002_Diana_1905 PRSC003_Murmansk_1944 PRSC010_Diana_1905_Asus PRSC101_Orlan PRSC105_Kirov PRSC106_Pr_94_Budeny PRSC107_Schors PRSC108_Pr_68_Chapaev PRSC110_Pr_66_Moskva PRSC215_Kotovsky PRSC503_Oleg PRSC506_Molotov_1943 PRSC508_Kutuzov_1952 PRSC513_Varyag PRSC523_AZUR_Avrora PRSC525_Kirov PRSC528_Ochakov PRSC530_Black_Smolensk PRSC558_Dmitry_Pozharsky PRSC610_Smolensk PRSC719_Kozma_Minin PRSD103_Derzky PRSD104_Izyaslav PRSD709_Pr_41_Neustrashimy PRSD909_Black_Neustrashimy PRSD718_Provorny PRSC818_Cyber_Dmitry_Pozharsky	</ships>
 		</RUS_group_1>
 		<RUS_group_2>
-			<ships>	PRSC102_Novik PRSC103_Bogatyr PRSC104_Svetlana PRSC505_KrasniKrym PRSD001_Gremyashchy_1942 PRSD107_Pr_35_Udaloy PRSD110_Pr_24_Khabarovsk PRSD111_Zorky PRSD205_Podvoisky_pr_1929 PRSD206_Pr_7 PRSD207_Minsk PRSD208_Pr_30 PRSD210_Grozovoy_pr_40N PRSD308_Pr_48 PRSD409_Pr_20i_Tashkent PRSD410_Delny PRSD505_Okhotnik_1917 PRSD507_Leningrad_1944 PRSD810_R_10 PRSS110_K_type PXSD015_Grozovoy_PA PXSD020_Khabarovsk_PA PRSD919_Azur_Tashkent	</ships>
+			<ships>	PRSC102_Novik PRSC103_Bogatyr PRSC104_Svetlana PRSC505_KrasniKrym PRSD001_Gremyashchy_1942 PRSD107_Pr_35_Udaloy PRSD110_Pr_24_Khabarovsk PRSD111_Zorky PRSD205_Podvoisky_pr_1929 PRSD206_Pr_7 PRSD207_Minsk PRSD208_Pr_30 PRSD210_Grozovoy_pr_40N PRSD308_Pr_48 PRSD409_Pr_20i_Tashkent PRSD410_Delny PRSD505_Okhotnik_1917 PRSD507_Leningrad_1944 PRSD810_R_10 PRSS110_K_type PXSD015_Grozovoy_PA PXSD020_Khabarovsk_PA PRSD919_Azur_Tashkent PRSD710_Peredovoy	</ships>
 		</RUS_group_2>
 		<RUS_group_3>
 			<ships>	PRSD102_SM_Storojevoy PRSS106_S_1 PRSS108_L20 PRSS508_S_189	</ships>
@@ -188,7 +188,7 @@
 			<ships>	PBSA204_Hermes PBSB002_Warspite_1941 PBSB103_Bellerophon PBSB104_Orion PBSB105_Iron_Duke PBSB106_Queen_Elizabeth PBSB203_Indefatigable PBSB206_Renown PBSB503_Dreadnought PBSB547_Renown_1944 PBSC101_Black_Swan PBSC104_Danae PBSC105_Emerald PBSC106_Leander PBSC107_Fiji PBSC108_Edinburgh PBSC109_Neptune PBSC111_Edgar PBSC205_Hawkins PBSC207_Surrey PBSC208_Albemarle PBSC209_Drake PBSC210_Goliath PBSC505_Exeter PBSC507_Belfast_1959 PBSC707_STPatric_Belfast_1959 PBSC516_London PBSC518_Tiger_1959 PBSC718_STPatric_Tiger_1959 PBSC526_Dido PBSC528_Belfast_1943 PBSC708_STPatric_Belfast_1943 PBSC538_Hampshire PBSC716_Orion_1944 PBSC888_Edinburgh_PR PBSC910_Cyclops PBSD503_Campbeltown_1941 PBSS106_Undine PBSS108_Sturdy PBSS110_Thrasher PUSC001_Sutlej PUSC014_Dunedin PUSC015_Delhi PUSC025_Red_Fort PUSC506_Perth_1942 PUSC516_Mysore PUSC717_Gambia PBSC719_Aberdeen PBSC909_Pirate_Neptune	</ships>
 		</UK_group_1>
 		<UK_group_2>
-			<ships>	PBSC102_Weymouth PBSC103_Caledon PBSD102_Medea PBSD103_Valkyrie PBSD104_Wakeful PBSD105_Acasta PBSD106_Icarus PBSD107_Jervis PBSD108_Lightning PBSD108_Lightning PBSD109_Jutland PBSD110_Daring PBSD506_Gallant PBSD517_Cossack PBSD519_Somme PBSD598_Black_Cossack PBSD717_Jupiter_1942 PBSD718_Eskimo PBSD719_Barfleur PBSS508_Alliance PBSS710_Seal PBSS910_Selkie PUSC012_Port_Jackson PUSC013_Caradoc PUSD503_Vampire PUSD507_Haida PUSD510_Vampire_2 PUSD517_Huron PXSD019_Daring_PA	</ships>
+			<ships>	PBSC102_Weymouth PBSC103_Caledon PBSD102_Medea PBSD103_Valkyrie PBSD104_Wakeful PBSD105_Acasta PBSD106_Icarus PBSD107_Jervis PBSD108_Lightning PBSD108_Lightning PBSD109_Jutland PBSD110_Daring PBSD506_Gallant PBSD517_Cossack PBSD519_Somme PBSD598_Black_Cossack PBSD717_Jupiter_1942 PBSD718_Eskimo PBSD719_Barfleur PBSS508_Alliance PBSS710_Seal PBSS910_Selkie PUSC012_Port_Jackson PUSC013_Caradoc PUSD503_Vampire PUSD507_Haida PUSD510_Vampire_2 PUSD517_Huron PXSD019_Daring_PA PUSD709_Cayuga	</ships>
 		</UK_group_2>
 		<UK_group_3>
 			<ships>	PBSA508_Indomitable PBSB107_King_George_V PBSB108_Monarch PBSB109_Lion PBSB205_Tiger PBSB208_Monarch_T PBSB505_Agincourt PBSB510_Thunderer PBSB527_Duke_of_York PBSC020_Monmouth PBSC110_Minotaur PBSC206_Devonshire PBSC508_Cheshire PBSC510_Plymouth PBSC558_AZUR_Cheshire PBSC810_Defence PUSB507_Yukon PUSC017_Uganda PUSC018_Auckland PUSC019_Encounter PUSC509_Hector PUSC510_Brisbane PUSC810_Black_Brisbane PBSB747_STPatric_Duke_of_York PUSC710_Pioneer PBSC920_Pirate_Plymouth PBSB708_Prince_of_Wales	</ships>
@@ -1594,6 +1594,13 @@
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorScheme_ConteVerde	</name>
+			<color0>0.1090 0.1510 0.1840 1.0000</color0>
+			<color1>0.0450 0.0500 0.0600 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorScheme_Ferruccio	</name>
 			<color0>0.1920 0.2320 0.2510 1.0000</color0>
 			<color1>0.3299 0.3299 0.3299 1.0000</color1>
@@ -2306,6 +2313,20 @@
 			<color1>0.0850 0.0820 0.0680 1.0000</color1>
 			<color2>0.3440 0.3640 0.3160 1.0000</color2>
 			<color3>0.0250 0.0370 0.0020 0.7840</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Fuyutsuki	</name>
+			<color0>0.2550 0.3941 0.2801 1.0000</color0>
+			<color1>0.0802 0.1905 0.1304 1.0000</color1>
+			<color2>0.5290 0.5760 0.6200 1.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Kurama	</name>
+			<color0>0.1702 0.2011 0.2389 1.0000</color0>
+			<color1>0.5290 0.5760 0.6200 1.0000</color1>
+			<color2>0.2196 0.3158 0.1390 1.0000</color2>
+			<color3>0.0846 0.0939 0.1166 1.0000</color3>
 		</colorScheme>
 		<colorScheme>
 			<name>	colorScheme_Shigure	</name>
@@ -5567,6 +5588,13 @@
 			<color0>0.1010 0.1250 0.1280 0.0000</color0>
 			<color1>0.0130 0.0130 0.0130 0.0000</color1>
 			<color2>0.3250 0.3250 0.3250 1.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Cayuga	</name>
+			<color0>0.1800 0.2010 0.2200 1.0000</color0>
+			<color1>0.0600 0.0760 0.0930 1.0000</color1>
+			<color2>0.7815 0.7067 0.6514 1.0000</color2>
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
@@ -15349,6 +15377,89 @@
 			</Textures>
 		</camouflage>
 		<camouflage>
+			<annotation>	Hunt_for_Bismarck_camouflage	</annotation>
+			<name>	mat_Bismarck_Hunt	</name>
+			<targetShip>	PGSB708_Bismarck_1941	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_alpha_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	1.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+					<camoMode>	1	</camoMode>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_alpha_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+					<camoMode>	1	</camoMode>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_alpha_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+					<camoMode>	1	</camoMode>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_alpha_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	1.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_alpha_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_H_Bismarck_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	1.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+					<camoMode>	1	</camoMode>
+				</Float_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeITA01
+				<colorUI>0.3414 0.3727 0.3997 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
 			<annotation>	mat_BlackAlbedo unique permOflage	</annotation>
 			<name>	mat_BlackAlbedo	</name>
 			<tiled>	false	</tiled>
@@ -19241,6 +19352,41 @@
 					<camoMaskSpeed>	0.2 0.2 0.6 1.1	</camoMaskSpeed>
 				</Wire_mgn>
 			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	matcam for Calvi Italian	</annotation>
+			<name>	mat_Calvi_Italian	</name>
+			<targetShip>	PISS110_Calvi	</targetShip>
+			<UV>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Italian_Calvi_matcam_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Rank_Gold_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.8000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Italian_Calvi_matcam_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Rank_Gold_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.8000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
 		</camouflage>
 		<camouflage>
 			<annotation>	mat_Cassard_FR24 unique permOflage	</annotation>
@@ -26442,6 +26588,85 @@
 			<realm>	all	</realm>
 		</camouflage>
 		<camouflage>
+			<annotation>	mat camo football	</annotation>
+			<name>	mat_Football_2025	</name>
+			<targetShip>	PBSC107_Fiji	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_Black_GW_2024_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_Football_2024_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_Black_GW_2024_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_Football_2024_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_Black_GW_2024_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_Football_2024_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_Black_GW_2024_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_Football_2024_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_Black_GW_2024_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_Football_2024_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.7129 0.7952 0.8426 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
 			<annotation>	mat camo for Olympian_Francesco_Ferruccio	</annotation>
 			<name>	mat_Francesco_Ferruccio_Olympian	</name>
 			<targetShip>	PISC517_Francesco_Ferruccio	</targetShip>
@@ -28407,6 +28632,1216 @@
 				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
 			</colorSchemes>
 			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<UV>
+				<Hull>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*2048	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	EUR_group_2 FRA_group_2 GER_group_2 IJN_group_2 ITA_group_3 NL_group_1 PAM_group_3 PAN_group_2 POL_group_1 RUS_group_2 SP_group_2 UK_group_2 USN_group_2	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 1.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	GER_group_6 RUS_group_3 USN_group_7	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 1.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	4.0000 1.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*4096+4096*2048, 2048*2048+2048*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	FRA_group_3 GER_group_3 IJN_group_3 ITA_group_2 RUS_group_7 UK_group_3 USN_group_3	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*4096+1024*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	IJN_group_4 RUS_group_4 USN_group_4	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.7500 0.7500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*4096+4096*4096	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	FRA_group_4 GER_group_4 IJN_group_5 ITA_group_4 PAN_group_4 RUS_group_5 UK_group_4 USN_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.7500 0.7500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*4096+2048*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	FRA_group_7 GER_group_5 IJN_group_6 RUS_group_6 USN_group_6	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.5000 0.7500	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*2048+4096*4096	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<tiled>	false	</tiled>
+			<shipGroups>	FRA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.00	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.00	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.00	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*2048+2048*2048, 2048*1024+1024*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	EUR_group_3 FRA_group_6 GER_group_7 UK_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.5000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	Hunt_for_Bismark tileoflage block for the ships with a texture 4096*2048+1024*1024	</annotation>
+			<name>	mat_Hunt_for_Bismark	</name>
+			<shipGroups>	FRA_group_8 ITA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Big_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Mid_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.2000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_Hunt_Bismarck_Small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
 		</camouflage>
 		<camouflage>
 			<annotation>	HW2019 unique permOflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
@@ -31620,6 +33055,58 @@
 			<realm>	all	</realm>
 		</camouflage>
 		<camouflage>
+			<annotation>	Italian Event	</annotation>
+			<name>	mat_Italian_FG	</name>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.5000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.5000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PIES401_Italian_Ferrante_Gonzaga_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.5000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
 			<annotation>	mat_Jap_BB_EA_Black unique permOflage	</annotation>
 			<name>	mat_Jap_BB_EA_Black	</name>
 			<tiled>	false	</tiled>
@@ -32132,6 +33619,66 @@
 			<colorSchemes>
 					colorScheme_Johnston_Bottom
 				<colorUI>0.7129 0.7952 0.8426 0.7840</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Jutland material camo	</annotation>
+			<name>	mat_Jutland_03	</name>
+			<targetShip>	PGSC516_Leipzig	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_Jutland_03_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_Black_01_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_Jutland_03_a.dds	</Director>
+				<Director_animmap>	content/gameplay/common/camouflage/textures/mat_Black_01_mgn.dds	</Director_animmap>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_Jutland_03_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_Black_01_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_Jutland_03_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_Black_01_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.7129 0.7952 0.8426 0.0000</colorUI>
 			</colorSchemes>
 			<realm>	all	</realm>
 		</camouflage>
@@ -39306,27 +40853,8 @@
 		<camouflage>
 			<annotation>	mat_Montana_USA250_grey	</annotation>
 			<name>	mat_Montana_USA250	</name>
+			<targetShip>	PASB017_Montana_1945	</targetShip>
 			<UV>
-				<Tile>
-					<scale>	1.0000 1.0000	</scale>
-					<offset>	0.0000 0.0000	</offset>
-					<rotate>	0.0000	</rotate>
-				</Tile>
-				<Hull>
-					<scale>	1.0000 1.0000	</scale>
-					<offset>	0.0000 0.0000	</offset>
-					<rotate>	0.0000	</rotate>
-				</Hull>
-				<DeckHouse>
-					<scale>	1.0000 1.0000	</scale>
-					<offset>	0.0000 0.0000	</offset>
-					<rotate>	0.0000	</rotate>
-				</DeckHouse>
-				<Bulge>
-					<scale>	1.0000 1.0000	</scale>
-					<offset>	0.0000 0.0000	</offset>
-					<rotate>	0.0000	</rotate>
-				</Bulge>
 				<Gun>
 					<scale>	1.0000 1.0000	</scale>
 					<offset>	0.0000 0.0000	</offset>
@@ -39347,81 +40875,43 @@
 					<offset>	0.0000 0.0000	</offset>
 					<rotate>	0.0000	</rotate>
 				</Plane>
-				<Float>
-					<scale>	1.0000 1.0000	</scale>
-					<offset>	0.0000 0.0000	</offset>
-					<rotate>	0.0000	</rotate>
-				</Float>
 			</UV>
 			<Textures>
-				<Tile>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Tile>
-				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Hull>
-				<Hull_mgn>
-						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
-					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
-				</Hull_mgn>
-				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</DeckHouse>
-				<DeckHouse_mgn>
-						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
-					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
-				</DeckHouse_mgn>
-				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Bulge>
-				<Bulge_mgn>
-						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
-					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
-				</Bulge_mgn>
 				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Gun>
 				<Gun_mgn>
 						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
 					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
 				</Gun_mgn>
 				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Director>
 				<Director_mgn>
 						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
 					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
 				</Director_mgn>
 				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Misc>
 				<Misc_mgn>
 						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
 					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
 				</Misc_mgn>
 				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Plane>
 				<Plane_mgn>
 						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
 					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
 				</Plane_mgn>
-				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Montana_USA250.dds	</Float>
-				<Float_mgn>
-						content/gameplay/common/camouflage/textures/mat_camo/MC_USA250_Indiana_mgn.dds
-					<Influence_m>	0.0500	</Influence_m>
-					<Influence_g>	0.0500	</Influence_g>
-					<Influence_n>	0.0500	</Influence_n>
-					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
-				</Float_mgn>
 			</Textures>
 			<colorSchemes>
-					colorSchemeUSN01
+					colorSchemeUSNP17
 				<colorUI>0.4633 0.4941 0.5137 0.7840</colorUI>
 			</colorSchemes>
 			<realm>	all	</realm>
@@ -79536,6 +81026,72 @@
 			<colorSchemes>
 					colorScheme_Gdansk
 				<colorUI>0.3574 0.3956 0.4310 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Base_Camo_for_PAES375	</annotation>
+			<name>	MC_Missouri_EndOfWWII	</name>
+			<targetShip>	PASB509_Missouri	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds
+					<Influence_m>	0.3500	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Missouri_EndOfWWII_a.dds
+					<Influence_m>	0.5900	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSN02
+				<colorUI>0.3020 0.4314 0.5059 1.0000</colorUI>
 			</colorSchemes>
 			<realm>	all	</realm>
 		</camouflage>
@@ -187002,6 +188558,30 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Cayuga camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PUSD709_Cayuga	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/USD301_Cayuga_1947_camo.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Cayuga
+				<colorUI>0.4587 0.4822 0.5025 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeUKP45
+				<colorUI>0.2825 0.3261 0.2825 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Yukon unique permOflage block	</annotation>
 			<name>	camo_permanent_2	</name>
 			<targetShip>	PUSB507_Yukon	</targetShip>
@@ -197574,6 +199154,30 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	ZH_1 unique camoflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PGSD719_ZH_1	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/GSD303_ZH_1_1942_camo_01.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorScheme_ZH1
+				<colorUI>0.6821 0.6712 0.6457 0.9000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorScheme_ZH1_alt
+				<colorUI>0.2986 0.3347 0.3208 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Bismarck_1941 camo permanent block	</annotation>
 			<name>	camo_permanent_1	</name>
 			<useColorScheme>	true	</useColorScheme>
@@ -197596,6 +199200,7 @@
 					colorSchemeGERP42
 				<colorUI>0.6041 0.6821 0.7758 1.0000</colorUI>
 			</colorSchemes>
+			<targetShip>	PGSB928_Hunt_Bismarck_1941	</targetShip>
 		</camouflage>
 		<camouflage>
 			<annotation>	Tirpitz second unique permOflage block	</annotation>
@@ -200641,6 +202246,37 @@
 			<colorSchemes>
 					colorScheme_PietroMicca
 				<colorUI>0.0000 0.0000 0.0000 0.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Conte Verde camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PISB720_Conte_Verde	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/ISB305_Conte_Verde_1944_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/ISB305_Conte_Verde_1944_DeckHouse_camo_01.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_ConteVerde
+				<colorUI>0.6392 0.6549 0.6510 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -205775,6 +207411,78 @@
 			<colorSchemes>
 					colorScheme_Shigure
 				<colorUI>0.5000 0.5000 0.5000 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Fuyutsuki camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PJSD710_Fuyutsuki	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/JSD303_Fuytsuki_camo_01.dds	</Hull>
+				<Gun>	content/gameplay/common/camouflage/textures/R_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/R_gun_camo_01.dds	</Director>
+				<Misc>	content/gameplay/common/camouflage/textures/R_gun_camo_01.dds	</Misc>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Fuyutsuki
+				<colorUI>0.0941 0.2745 0.2235 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeIJNP18
+				<colorUI>0.5449 0.5561 0.3997 0.7840</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Kurama camo permanent blcok	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PJSC021_Kurama	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/JSC305_Kurama_1945_hull_camo.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/JSC305_Kurama_1945_DeckHouse_camo.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Kurama
+				<colorUI>0.0941 0.2745 0.2235 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeIJNP30
+				<colorUI>0.2179 0.2491 0.1339 0.7840</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -215236,6 +216944,30 @@
 			</colorSchemes>
 			<colorSchemes>
 					colorSchemeSibir_alt
+				<colorUI>0.4091 0.4812 0.4222 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Peredovoy camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PRSD710_Peredovoy	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/RSD302_Peredovoy_1944_camo_01.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorSchemeRUSP34
+				<colorUI>0.3956 0.4222 0.4528 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeRUSP40
 				<colorUI>0.4091 0.4812 0.4222 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
