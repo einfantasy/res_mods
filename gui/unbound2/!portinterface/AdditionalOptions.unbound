@@ -1,0 +1,1324 @@
+(def constant ADDITIONAL_OPTIONS_INSTALLED true)
+
+#(def constant ON_INSTALL_STATUS_FOR_ID {
+#	'resources':		"ADDITIONAL_RESOURCES_INSTALLED",
+#	'carousel':			"CAROUSEL_INSTALLED",
+#	'rarity':			"HIDE_RARITY_INSTALLED",
+#	'navi_buttons':		"NAVI_BUTTONS_INSTALLED",
+#	'origin_flag':		"ORIGIN_FLAGS_INSTALLED",
+#	'origin_ship':		"ORIGIN_SHIPS_INSTALLED",
+#	'population':		"SERVER_POPULATION_INSTALLED",
+#	'ship_name':		"SHIP_NAMES_INSTALLED"
+#})
+
+
+(def constant ON_INSTALL_STATUS_FOR_OPTION_COMPONENTS [
+	"ADDITIONAL_RESOURCES_INSTALLED",
+	"CAROUSEL_INSTALLED",
+	"HIDE_RARITY_INSTALLED",
+	"NAVI_BUTTONS_INSTALLED",
+	"ORIGIN_FLAGS_INSTALLED",
+	"ORIGIN_SHIPS_INSTALLED",
+	"SERVER_POPULATION_INSTALLED",
+	"SHIP_NAMES_INSTALLED"
+])
+
+
+(def constant ON_MOD_LOCALIZATIONS {
+	IDS_MOD_SETTINGS: {
+		en: 'Mod Settings',
+		de: 'Mod-Einstellungen',
+		pl: 'Ustawienia moda',
+		fr: 'Paramètres des mods',
+		it: 'Impostazioni mod',
+		es: 'Ajustes del mod',
+		pt: 'Configurações do mod',
+		ru: 'Настройки мода',
+		ja: 'MOD設定',
+		ko: '모드 설정',
+		zh: '模组设置',
+		zh_tw: '模組設定',
+		uk: 'Налаштування моди',
+		nl: 'Mod-instellingen',
+		th: 'ตั้งค่าม็อด',
+		tr: 'Mod Ayarları',
+		cs: 'Nastavení modifikace'
+	},
+	IDS_MOD_DOCK_AND_BATTLE: {
+		en: "tr('IDS_DOCK') + ' ' + tr('IDS_AND') + ' ' + tr('IDS_BATTLE')"
+	},
+	IDS_MOD_RESOURCES: {
+		en: 'Show additional resources',
+		de: 'Zusätzliche Ressourcen anzeigen',
+		pl: 'Pokaż dodatkowe zasoby',
+		fr: 'Afficher les ressources supplémentaires',
+		it: 'Mostra risorse aggiuntive',
+		es: 'Mostrar recursos adicionales',
+		pt: 'Mostrar recursos adicionais',
+		ru: 'Показывать дополнительные ресурсы',
+		ja: '追加のリソースを表示',
+		ko: '추가 자원 표시',
+		zh: '显示额外资源',
+		zh_tw: '顯示額外資源',
+		uk: 'Показувати додаткові ресурси',
+		nl: 'Extra grondstoffen tonen',
+		th: 'แสดงทรัพยากรเพิ่มเติม',
+		tr: 'Ek kaynakları göster',
+		cs: 'Zobrazit dodatečné zdroje'
+	},
+	IDS_MOD_RESOURCES_DESC: {
+		en: 'Show additional resources in port',
+		de: 'Zusätzliche Ressourcen im Hafen anzeigen',
+		pl: 'Pokaż dodatkowe zasoby w porcie',
+		fr: 'Afficher les ressources supplémentaires dans le port',
+		it: 'Mostra risorse aggiuntive nel porto',
+		es: 'Mostrar recursos adicionales en el puerto',
+		pt: 'Mostrar recursos adicionais no porto',
+		ru: 'Показывать дополнительные ресурсы в порту',
+		ja: '港に追加のリソースを表示する',
+		ko: '항구에 추가 자원 표시',
+		zh: '在港口中显示额外资源',
+		zh_tw: '在港口中顯示額外資源',
+		uk: 'Показувати додаткові ресурси в порту',
+		nl: 'Extra grondstoffen tonen in de haven',
+		th: 'แสดงทรัพยากรเพิ่มเติมในท่าเรือ',
+		tr: 'Limanda ek kaynakları göster',
+		cs: 'Zobrazit dodatečné zdroje v přístavu'
+	},
+	IDS_MOD_SERVER_POPULATION: {
+		en: 'Show player numbers of the server',
+		de: 'Spieleranzahl des Servers anzeigen',
+		pl: 'Pokaż liczbę graczy na serwerze',
+		fr: 'Afficher le nombre de joueurs sur le serveur',
+		it: 'Mostra il numero di giocatori del server',
+		es: 'Mostrar número de jugadores del servidor',
+		pt: 'Mostrar número de jogadores do servidor',
+		ru: 'Показывать численность игроков на сервере',
+		ja: 'サーバーのプレイヤー数を表示',
+		ko: '서버 동시 접속자 수 표시',
+		zh: '显示服务器在线人数',
+		zh_tw: '顯示伺服器線上人數',
+		uk: 'Показувати кількість гравців на сервері',
+		nl: 'Aantal spelers op de server tonen',
+		th: 'แสดงจำนวนผู้เล่นของเซิร์ฟเวอร์',
+		tr: 'Sunucudaki oyuncu sayılarını göster',
+		cs: 'Zobrazit počet hráčů na serveru'
+	},
+	IDS_MOD_SERVER_POPULATION_DESC: {
+		en: 'Show current player numbers of the server in port',
+		de: 'Aktuelle Spieleranzahl des Servers im Hafen anzeigen',
+		pl: 'Pokaż aktualną liczbę graczy na serwerze w porcie',
+		fr: 'Afficher le nombre actuel de joueurs sur le serveur dans le port',
+		it: 'Mostra il numero attuale di giocatori del server nel porto',
+		es: 'Mostrar el número actual de jugadores del servidor en el puerto',
+		pt: 'Mostrar o número atual de jogadores do servidor no porto',
+		ru: 'Показывать текущую численность игроков на сервере в порту',
+		ja: '港に現在のサーバーのプレイヤー数を表示する',
+		ko: '항구에 현재 서버 동시 접속자 수 표시',
+		zh: '在港口中显示当前服务器在线人数',
+		zh_tw: '在港口中顯示當前伺服器線上人數',
+		uk: 'Показувати поточну кількість гравців на сервері в порту',
+		nl: 'Actueel aantal spelers op de server tonen in de haven',
+		th: 'แสดงจำนวนผู้เล่นปัจจุบันของเซิร์ฟเวอร์ในท่าเรือ',
+		tr: 'Limanda sunucunun mevcut oyuncu sayılarını göster',
+		cs: 'Zobrazit aktuální počet hráčů na serveru v přístavu'
+	},
+	IDS_MOD_ORIGIN_SHIP: {
+		en: 'Show origin ships',
+		de: 'Ursprüngliche Schiffe anzeigen',
+		pl: 'Pokaż statki pierwotne',
+		fr: 'Afficher les navires d’origine',
+		it: 'Mostra le navi originali',
+		es: 'Mostrar barcos originales',
+		pt: 'Mostrar navios originais',
+		ru: 'Показать исходные корабли',
+		ja: '元になった艦艇を表示',
+		ko: '원본 군함 표시',
+		zh: '显示原型战舰',
+		zh_tw: '顯示原型戰艦',
+		uk: 'Показувати вихідні кораблі',
+		nl: 'Originele schepen tonen',
+		th: 'แสดงเรือต้นแบบ',
+		tr: 'Köken gemileri göster',
+		cs: 'Zobrazit původní lodě'
+	},
+	IDS_MOD_ORIGIN_SHIP_DESC: {
+		en: 'Show names and images of origin ships, on which event ships are based on (black and gold ships excluded)',
+		de: 'Namen und Bilder der ursprünglichen Schiffe, auf denen Eventschiffe basieren, anzeigen (Black- und Goldschiffe ausgenommen)',
+		pl: 'Pokaż nazwy i zdjęcia statków pierwotnych, na których bazują okręty z wydarzeń (z wyłączeniem czarnych i złotych okrętów)',
+		fr: 'Afficher les noms et les images des navires d’origine sur lesquels les navires d’événement sont basés (hors navires noirs et dorés)',
+		it: 'Mostra i nomi e le immagini delle navi originali su cui si basano le navi dell’evento (escluse le navi nere e dorate)',
+		es: 'Mostrar nombres e imágenes de los barcos originales en los que se basan los barcos de evento (excluyendo barcos negros y dorados)',
+		pt: 'Mostrar nomes e imagens dos navios originais nos quais os navios de evento são baseados (excluindo navios pretos e dourados)',
+		ru: 'Показывать названия и изображения исходных кораблей, на которых основаны акционные корабли (исключая чёрные и золотые корабли)',
+		ja: 'イベント艦艇のベースとなった通常艦艇の名前と画像を表示する（ブラック・ゴールド艦艇を除く）',
+		ko: '이벤트 군함의 기반이 되는 원본 군함의 이름과 이미지 표시 (블랙 및 골드 군함 제외)',
+		zh: '显示活动战舰所基于的原型战舰的名称和图片（不包括黑色和金色战舰）',
+		zh_tw: '顯示活動戰艦所基於的原型戰艦的名稱和圖片（不包括黑色和金色戰艦）',
+		uk: 'Показувати назви та зображення вихідних кораблів, на яких базуються акційні кораблі (крім чорних та золотих)',
+		nl: 'Namen en afbeeldingen tonen van originele schepen waar eventschepen op gebaseerd zijn (behalve zwarte en gouden schepen)',
+		th: 'แสดงชื่อและรูปภาพของเรือต้นแบบที่ใช้สร้างเรือกิจกรรม (ไม่รวมเรือสีดำและสีทอง)',
+		tr: 'Etkinlik gemilerinin temel aldığı köken gemilerin adlarını ve görsellerini göster (Siyah ve altın gemiler hariç)',
+		cs: 'Zobrazit názvy a obrázky původních lodí, na kterých jsou založeny akční lodě (s výjimkou černých a zlatých lodí)'
+	},
+	IDS_MOD_ORIGIN_FLAG: {
+		en: 'Show origin nation flags',
+		de: 'Ursprüngliche Nationalflaggen anzeigen',
+		pl: 'Pokaż narodowe flagi pochodzenia',
+		fr: 'Afficher les pavillons de la nation d’origine',
+		it: 'Mostra le bandiere delle nazioni d’origine',
+		es: 'Mostrar banderas de las naciones de origen',
+		pt: 'Mostrar bandeiras das nações de origem',
+		ru: 'Показывать флаги наций происхождения',
+		ja: '元の国籍旗を表示',
+		ko: '원본 국가 국기 표시',
+		zh: '显示原有国家国旗',
+		zh_tw: '顯示原有國家國旗',
+		uk: 'Показувати прапори націй походження',
+		nl: 'Nationale vlaggen van oorsprong tonen',
+		th: 'แสดงธงชาติของเรือต้นแบบ',
+		tr: 'Köken ulusların bayraklarını göster',
+		cs: 'Zobrazit státní vlajky původu'
+	},
+	IDS_MOD_ORIGIN_FLAG_DESC: {
+		en: 'Show origin nation flags of event ships instead of ship specific flags (Arpeggio, Warhammer 40,000, etc.)',
+		de: 'Ursprünglichen Nationalflaggen anstelle von schiffsspezifischen Flaggen für Eventschiffe anzeigen (Arpeggio, Warhammer 40,000, usw.)',
+		pl: 'Pokaż narodowe flagi pochodzenia okrętów wydarzeniowych zamiast flag specyficznych dla okrętów (Arpeggio, Warhammer 40,000 itp.)',
+		fr: 'Afficher les pavillons de la nation d’origine des navires d’événement au lieu des pavillons spécifiques aux navires (Arpeggio, Warhammer 40,000, etc.)',
+		it: 'Mostra le bandiere delle nazioni d’origine delle navi dell’evento invece delle bandiere specifiche delle navi (Arpeggio, Warhammer 40,000, ecc.)',
+		es: 'Mostrar las banderas de las naciones de origen de los barcos de evento en lugar de las banderas específicas de los barcos (Arpeggio, Warhammer 40,000, etc.)',
+		pt: 'Mostrar bandeiras das nações de origem dos navios de evento em vez de bandeiras específicas dos navios (Arpeggio, Warhammer 40,000, etc.)',
+		ru: 'Показывать флаги наций происхождения для акционных кораблей вместо специальных флагов кораблей (Arpeggio, Warhammer 40,000 и т. д.)',
+		ja: 'イベント艦艇に艦艇固有の旗ではなく、元の国籍旗を表示する（Arpeggio、Warhammer 40,000など）',
+		ko: '이벤트 군함에 군함 전용 깃발 대신 원본 국가의 국기 표시 (Arpeggio, Warhammer 40,000 등)',
+		zh: '显示活动战舰的原有国家国旗，而不是战舰专属旗帜（如苍蓝钢铁战舰、战锤 40,000等）',
+		zh_tw: '顯示活動戰艦的原有國家國旗，而不是戰艦專屬旗幟（如蒼藍鋼鐵戰艦、戰錘 40,000等）',
+		uk: 'Показувати прапори націй походження для акційних кораблів замість спеціальних прапорів кораблів (Arpeggio, Warhammer 40,000 тощо)',
+		nl: 'Toon nationale vlaggen van oorsprong voor eventschepen in plaats van scheepspecifieke vlaggen (Arpeggio, Warhammer 40,000, enz.)',
+		th: 'แสดงธงชาติของเรือต้นแบบของเรือกิจกรรมแทนธงเฉพาะของเรือ (Arpeggio, Warhammer 40,000, และอื่น ๆ)',
+		tr: 'Etkinlik gemileri için gemiye özel bayraklar yerine köken ulusların bayraklarını göster (Arpeggio, Warhammer 40.000 vb.)',
+		cs: 'Zobrazit státní vlajky původu u speciálních lodí namísto vlajek specifických pro danou loď (Arpeggio, Warhammer 40,000 atd.)'
+	},
+	IDS_MOD_SHIP_RARITY: {
+		en: 'Hide rarity for ships',
+		de: 'Seltenheit für Schiffe verstecken',
+		pl: 'Ukryj rzadkość dla okrętów',
+		fr: 'Masquer la rareté des navires',
+		it: 'Nascondi rarità per le navi',
+		es: 'Ocultar rareza de los barcos',
+		pt: 'Ocultar raridade dos navios',
+		ru: 'Скрыть редкость кораблей',
+		ja: '艦艇のレア度を非表示',
+		ko: '군함 희귀도 숨기기',
+		zh: '隐藏战舰稀有度',
+		zh_tw: '隱藏戰艦稀有度',
+		uk: 'Приховати рідкість кораблів',
+		nl: 'Zeldzaamheid voor schepen verbergen',
+		th: 'ซ่อนระดับความหายากของเรือ',
+		tr: 'Gemiler için nadirliği gizle',
+		cs: 'Skrýt vzácnost lodí'
+	},
+	IDS_MOD_SHIP_RARITY_DESC: {
+		en: 'Hide rarity bar and description for ships',
+		de: 'Leiste und Beschreibung für Seltenheit bei Schiffen verstecken',
+		pl: 'Ukryj pasek rzadkości i opis dla okrętów',
+		fr: 'Masquer la barre de rareté et la description des navires',
+		it: 'Nascondi la barra della rarità e la descrizione per le navi',
+		es: 'Ocultar la barra de rareza y la descripción de los barcos',
+		pt: 'Ocultar a barra de raridade e a descrição dos navios',
+		ru: 'Скрыть полосу редкости и описание кораблей',
+		ja: '艦艇のレア度インジケーターと説明を非表示にする',
+		ko: '군함의 희귀도 표시줄 및 설명 숨기기',
+		zh: '隐藏战舰的稀有度条和说明',
+		zh_tw: '隱藏戰艦的稀有度條和說明',
+		uk: 'Приховати смугу рідкості та опис кораблів',
+		nl: 'Zeldzaamheidsbalk en beschrijving voor schepen verbergen',
+		th: 'ซ่อนแถบระดับความหายากและคำอธิบายสำหรับเรือ',
+		tr: 'Gemiler için nadirlik çubuğunu ve açıklamasını gizle',
+		cs: 'Skrýt ukazatel a popis vzácnosti u lodí'
+	},
+	IDS_MOD_OTHER_RARITY: {
+		en: 'Hide other rarities',
+		de: 'Andere Seltenheiten verstecken',
+		pl: 'Ukryj inne rzadkości',
+		fr: 'Masquer les autres raretés',
+		it: 'Nascondi altre rarità',
+		es: 'Ocultar otras rarezas',
+		pt: 'Ocultar outras raridades',
+		ru: 'Скрыть другие редкости',
+		ja: 'その他のレア度を非表示',
+		ko: '기타 희귀도 숨기기',
+		zh: '隐藏其他稀有度',
+		zh_tw: '隱藏其他稀有度',
+		uk: 'Приховати інші рідкості',
+		nl: 'Andere zeldzaamheden verbergen',
+		th: 'ซ่อนระดับความหายากอื่นๆ',
+		tr: 'Diğer nadirlikleri gizle',
+		cs: 'Skrýt ostatní vzácnosti'
+	},
+	IDS_MOD_OTHER_RARITY_DESC: {
+		en: 'Hide rarity bar and description for economic bonuses, camouflages and destruction effects',
+		de: 'Leiste und Beschreibung für Seltenheit bei ökonomischen Boni, Tarnungen und Zerstörungseffekten verstecken',
+		pl: 'Ukryj pasek rzadkości i opis dla bonusów ekonomicznych, kamuflaży i efektów zniszczenia',
+		fr: 'Masquer la barre de rareté et la description des bonus économiques, camouflages et effets de destruction',
+		it: 'Nascondi la barra della rarità e la descrizione per bonus economici, mimetiche ed effetti di distruzione',
+		es: 'Ocultar la barra de rareza y la descripción de bonificaciones económicas, camuflajes y efectos de destrucción',
+		pt: 'Ocultar a barra de raridade e a descrição de bônus econômicos, camuflagens e efeitos de destruição',
+		ru: 'Скрыть полосу редкости и описание экономических бонусов, камуфляжей и эффектов уничтожения',
+		ja: 'エコノミーボーナス、迷彩、そして撃沈エフェクトのレア度インジケーターと説明を非表示にする',
+		ko: '수익 보너스, 위장, 파괴 효과의 희귀도 표시줄 및 설명 숨기기',
+		zh: '隐藏经济加成、涂装和击杀特效的稀有度条和说明',
+		zh_tw: '隱藏經濟加成、塗裝和摧毀特效的稀有度條和說明',
+		uk: 'Приховати смугу рідкості та опис економічних бонусів, камуфляжів та ефектів знищення',
+		nl: 'Zeldzaamheidsbalk en beschrijving voor economische bonussen, camouflages en vernietigingseffecten verbergen',
+		th: 'ซ่อนแถบระดับความหายากและคำอธิบายสำหรับโบนัสเศรษฐกิจ ลายพราง และเอฟเฟกต์การทำลายลาย',
+		tr: 'Ekonomik bonuslar, kalıcı kamuflajlar ve imha efektleri için nadirlik çubuğunu ve açıklamasını gizle',
+		cs: 'Skrýt ukazatel a popis vzácnosti u ekonomických bonusů, kamufláží a efektů zničení'
+	},
+	IDS_MOD_DOCK_NAVI_BUTTONS: {
+		en: 'Show additional navigation buttons',
+		de: 'Zusätzliche Navigationsschaltflächen anzeigen',
+		pl: 'Pokaż dodatkowe przyciski nawigacyjne',
+		fr: 'Afficher des boutons de navigation supplémentaires',
+		it: 'Mostra pulsanti di navigazione aggiuntivi',
+		es: 'Mostrar botones de navegación adicionales',
+		pt: 'Mostrar botões de navegação adicionais',
+		ru: 'Показывать дополнительные кнопки навигации',
+		ja: '追加のナビゲーションボタンを表示',
+		ko: '추가 탐색 버튼 표시',
+		zh: '显示额外的导航按钮',
+		zh_tw: '顯示額外的導航按鈕',
+		uk: 'Показувати додаткові кнопки навігації',
+		nl: 'Extra navigatieknoppen tonen',
+		th: 'แสดงปุ่มนำทางเพิ่มเติม',
+		tr: 'Ek gezinti düğmelerini göster',
+		cs: 'Zobrazit dodatečná navigační tlačítka'
+	},
+	IDS_MOD_DOCK_NAVI_BUTTONS_DESC: {
+		en: 'Show additional navigation buttons for camouflages, permanent camouflages, flags, achievements, collections and summary in port (for screen width above 1900)',
+		de: 'Zusätzliche Navigationsschaltflächen für Tarnungen, permanente Tarnungen, Flaggen, Errungenschaften, Sammlungen und Zusammenfassung im Hafen anzeigen (für Bildschirmbreite über 1900)',
+		pl: 'Pokaż dodatkowe przyciski nawigacyjne dla kamuflaży, stałych kamuflaży, flag, osiągnięć, kolekcji i podsumowania w porcie (dla ekranów o szerokości powyżej 1900)',
+		fr: 'Afficher des boutons de navigation supplémentaires pour les camouflages, les camouflages permanents, les pavillons, les faits d’armes, les collections et le résumé dans le port (pour les écrans de largeur supérieure à 1900)',
+		it: 'Mostra pulsanti di navigazione aggiuntivi per mimetiche, mimetiche permanenti, bandiere, emblemi, collezioni e riepilogo nel porto (per larghezze dello schermo superiori a 1900)',
+		es: 'Mostrar botones de navegación adicionales para camuflajes, camuflajes permanentes, banderas, logros, colecciones y resumen en el puerto (para pantallas con un ancho superior a 1900)',
+		pt: 'Mostrar botões de navegação adicionais para camuflagens, camuflagens permanentes, bandeiras, conquistas, coleções e resumo no porto (para largura de tela acima de 1900)',
+		ru: 'Показывать в порту дополнительные кнопки навигации для камуфляжей, постоянных камуфляжей, флагов, достижений, коллекций и сводки (для экранов шириной более 1900)',
+		ja: '港に迷彩、無期限迷彩、旗、実績、コレクション、要約の追加ナビゲーションボタンを表示する（画面幅1900以上用）',
+		ko: '항구에 위장, 영구 위장, 깃발, 업적, 컬렉션, 요약용 추가 탐색 버튼 표시 (화면 너비 1900 이상 대상)',
+		zh: '在港口中显示涂装、永久涂装、旗帜、成就、收藏和总览的额外导航按钮（适用于屏幕宽度在 1900 以上）',
+		zh_tw: '在港口中顯示塗裝、永久塗裝、旗幟、成就、收藏和總覽的額外導航按鈕（適用於螢幕寬度在 1900 以上）',
+		uk: 'Показувати в порту додаткові кнопки навігації для камуфляжів, постійних камуфляжів, прапорів, досягнень, колекцій та зведення (для екранів шириною понад 1900)',
+		nl: 'Extra navigatieknoppen tonen voor camouflages, permanente camouflages, vlaggen, prestaties, collecties en samenvatting in de haven (voor schermbreedtes boven 1900)',
+		th: 'แสดงปุ่มนำทางเพิ่มเติมสำหรับลายพราง ลายพรางถาวร ธง ความสำเร็จ ของสะสม และสรุปในท่าเรือ (สำหรับความกว้างหน้าจอมากกว่า 1900)',
+		tr: 'Limanda kamuflajlar, kalıcı kamuflajlar, bayraklar, başarımlar, koleksiyonlar ve özet için ek gezinti düğmeleri göster (1900 üzeri ekran genişliği için)',
+		cs: 'Zobrazit v přístavu dodatečná navigační tlačítka pro kamufláže, trvalé kamufláže, vlajky, úspěchy, sbírky a přehled (pro šířku obrazovky nad 1900)'
+	},
+	IDS_MOD_CAROUSEL: {
+		en: 'Carousel',
+		de: 'Karussell',
+		pl: 'Karuzela',
+		fr: 'Carrousel',
+		it: 'Carosello',
+		es: 'Carrusel',
+		pt: 'Carrossel',
+		ru: 'Карусель',
+		ja: 'カルーセル',
+		ko: '캐러셀',
+		zh: '战舰卷轴',
+		zh_tw: '戰艦卷軸',
+		uk: 'Карусель',
+		nl: 'Carrousel',
+		th: 'แถบเลือกเรือ',
+		tr: 'Atlıkarınca',
+		cs: 'Panel lodí'
+	},
+	IDS_MOD_SHIP_NAME_CAPITALISATION: {
+		en: 'Use normal capitalization',
+		de: 'Normale Großschreibung verwenden',
+		pl: 'Używaj standardowej wielkości liter',
+		fr: 'Utiliser la casse normale',
+		it: 'Usa le maiuscole normali',
+		es: 'Usar mayúsculas normales',
+		pt: 'Usar maiúsculas normais',
+		ru: 'Использовать обычный регистр',
+		ja: '通常の大小文字を使用',
+		ko: '일반 대소문자 사용',
+		zh: '使用常规大小写',
+		zh_tw: '使用常規大小寫',
+		uk: 'Використовувати звичайний регістр',
+		nl: 'Normaal hoofdlettergebruik gebruiken',
+		th: 'ใช้ตัวพิมพ์ใหญ่พิมพ์เล็กแบบปกติ',
+		tr: 'Normal büyük/küçük harf kullanımını etkinleştir',
+		cs: 'Použít běžná velká a malá písmena'
+	},
+	IDS_MOD_SHIP_NAME_CAPITALISATION_DESC: {
+		en: 'Use normal capitalization instead of all caps for ship names',
+		de: 'Schiffsnamen normal schreiben statt nur in Großbuchstaben',
+		pl: 'Używaj wielkich i małych liter zamiast samych dużych dla nazw statków',
+		fr: 'Ne pas écrire les noms de navires entièrement en majuscules',
+		it: 'Non scrivere i nomi delle navi tutto in maiuscolo',
+		es: 'No escribir los nombres de los barcos solo en mayúsculas',
+		pt: 'Não escrever os nomes dos navios apenas em letras maiúsculas',
+		ru: 'Пишите названия судов обычными буквами, а не только заглавными',
+		ja: '艦艇の名前をすべて大文字にする代わりに、通常の大小文字を使用する',
+		ko: '군함 이름에 모두 대문자 대신 일반 대소문자 사용',
+		zh: '战舰名称使用标准大小写，而不是全部大写',
+		zh_tw: '戰艦名稱使用標準大小寫，而不是全部大寫',
+		uk: 'Використовувати звичайний регістр замість великих літер для назв кораблів',
+		nl: 'Gebruik normaal hoofdlettergebruik in plaats van alleen hoofdletters voor scheepsnamen',
+		th: 'ใช้ตัวพิมพ์ใหญ่ผสมตัวพิมพ์เล็กปกติแทนที่จะใช้ตัวพิมพ์ใหญ่ทั้งหมดสำหรับชื่อเรือ',
+		tr: 'Gemi isimleri için tamamen büyük harf yerine normal büyük/küçük harf kullanımını uygula',
+		cs: 'Použít u názvů lodí běžná velká a malá písmena namísto psaní celého názvu velkými písmeny'
+	},
+	IDS_MOD_NO_CREW_TEXT: {
+		en: 'Turn off text “No commander”',
+		de: 'Text „Kein Kapitän“ deaktivieren',
+		pl: 'Wyłącz tekst „Brak dowódcy“',
+		fr: 'Désactiver texte « Pas de commandant »',
+		it: 'Disattiva testo «Nessun comandante»',
+		es: 'Desactivar texto «Sin comandante»',
+		pt: 'Desativar texto «Sem comandante»',
+		ru: 'Выключить текст «Нет командира»',
+		ja: 'テキスト「艦長なし」をオフにする',
+		ko: '“지휘관 없음” 텍스트 끄기',
+		zh: '关闭“无指挥官”文字提示',
+		zh_tw: '關閉「無指揮官」文字提示',
+		uk: 'Вимкнути текст «Немає командира»',
+		nl: 'Tekst "Geen commandant" uitschakelen',
+		th: 'ปิดข้อความ "ไม่มีผู้บังคับการ"',
+		tr: '"Komutan yok" metnini kapat',
+		cs: 'Vypnout text „Bez velitele“'
+	},
+	IDS_MOD_NO_CREW_TEXT_DESC: {
+		en: 'Turn off the text “No commander” in carousel',
+		de: 'Den Text „Kein Kapitän“ im Karussell deaktivieren',
+		pl: 'Wyłącz tekst „Brak dowódcy“ w karuzeli',
+		fr: 'Désactiver le texte « Pas de commandant » dans le carrousel',
+		it: 'Disattiva il testo «Nessun comandante» nel carosello',
+		es: 'Desactivar el texto «Sin comandante» en el carrusel',
+		pt: 'Desativar o texto «Sem comandante» no carrossel',
+		ru: 'Выключить текст «Нет командира» в карусели',
+		ja: 'カルーセル内のテキスト「艦長なし」をオフにする',
+		ko: '캐러셀에서 “지휘관 없음” 텍스트 끄기',
+		zh: '关闭战舰卷轴中的“无指挥官”文字提示',
+		zh_tw: '關閉戰艦卷轴中的「無指揮官」文字提示',
+		uk: 'Вимкнути текст «Немає командира» в каруселі',
+		nl: 'De Tekst "Geen commandant" in carrousel uitschakelen',
+		th: 'ปิดข้อความ "ไม่มีผู้บังคับการ" ในแถบเลือกเรือ',
+		tr: 'Atlıkarıncada "Komutan yok" metnini kapat',
+		cs: 'Vypnout text „Bez velitele“ v panelu lodí'
+	},
+	IDS_MOD_NO_CREW_OVERLAY: {
+		en: 'Turn off background overlay',
+		de: 'Hintergrundüberdeckung deaktivieren',
+		pl: 'Wyłącz nakładkę tła dla „Brak dowódcy”',
+		fr: 'Désactiver la superposition d\'arrière-plan',
+		it: 'Disattiva la sovrapposizione dello sfondo',
+		es: 'Desactivar la superposición de fondo',
+		pt: 'Desativar sobreposição de fundo',
+		ru: 'Выключить фоновый оверлей',
+		ja: '背景のオーバーレイをオフにする',
+		ko: '배경 오버레이 끄기',
+		zh: '关闭背景遮罩',
+		zh_tw: '關閉背景遮罩',
+		uk: 'Вимкнути фоновий оверлей',
+		nl: 'Achtergrondoverlay uitschakelen',
+		th: 'ปิดการซ้อนทับพื้นหลัง',
+		tr: 'Arka plan katmanını kapat',
+		cs: 'Vypnout překrytí pozadí'
+	},
+	IDS_MOD_NO_CREW_OVERLAY_DESC: {
+		en: 'Turn off the background overlay for “No commander” in carousel',
+		de: 'Die Hintergrundüberdeckung für „Kein Kapitän“ im Karussell deaktivieren',
+		pl: 'Wyłącz nakładkę tła dla „Brak dowódcy” w karuzeli',
+		fr: 'Désactiver la superposition d’arrière-plan pour « Pas de commandant » dans le carrousel',
+		it: 'Disattiva la sovrapposizione dello sfondo per «Nessun comandante» nel carosello',
+		es: 'Desactivar la superposición de fondo para «Sin comandante» en el carrusel',
+		pt: 'Desativar sobreposição de fundo para «Sem comandante» no carrossel',
+		ru: 'Выключить фоновый оверлей для «Нет командира» в карусели',
+		ja: 'カルーセル内の「艦長なし」に対する背景のオーバーレイをオフにする',
+		ko: '캐러셀에서 “지휘관 없음”에 대한 배경 오버레이 끄기',
+		zh: '关闭战舰卷轴中“无指挥官”战舰状态下的背景灰色遮罩',
+		zh_tw: '關閉戰艦卷軸中「無指揮官」戰艦狀態下的背景灰色遮罩',
+		uk: 'Вимкнути фоновий оверлей для «Немає командира» в каруселі',
+		nl: 'De achtergrondoverlay voor "Geen commandant" in carrousel uitschakelen',
+		th: 'ปิดการซ้อนทับพื้นหลังสำหรับ "ไม่มีผู้บังคับการ" ในแถบเลือกเรือ',
+		tr: 'Atlıkarıncada "Komutan yok" durumu için arka plan katmanını kapat',
+		cs: 'Vypnout překrytí pozadí pro „Bez velitele“ v panelu lodí'
+	},
+})
+
+
+(def constant ROW_TYPE {
+	header:				'ON_PrefRowHeader',
+	control:			'ON_PrefRowControl',
+	keybinding:			'PrefRowKeyBinding',
+	keybindingHeader:	'PrefRowKeybindingHeader'
+})
+
+(def constant OWNER_MODAL_TYPE {
+	main:		'Main',
+	secondary:	'Secondary'
+})
+
+(def constant CONTROL_TYPE {
+	switcher:				'PrefRowControllerSwitcher',
+	sliderFloat:			'PrefRowControllerSliderFloat',
+	sliderInt:				'PrefRowControllerSliderInt',
+	inversedSliderFloat:	'PrefRowControllerSliderFloatInversed',
+	itemChooser:			'PrefRowControllerItemChooser',
+	modalOpenBtn:			'PrefRowControllerModalOpenBtn'
+})
+
+#	{
+#		label: ON_MOD_LOCALIZATIONS['IDS_MOD_VANILLA_FLAGS'],
+#		type: ROW_TYPE.control,
+#		controlType: CONTROL_TYPE.switcher,
+#		option: 'ui.mods.showVanillaFlags',
+#		isLastInSection: true,
+#		id: 'port_interface_vanilla_flags'
+#	},
+#	{
+#		label: ON_MOD_LOCALIZATIONS['IDS_MOD_BANNER'],
+#		type: ROW_TYPE.control,
+#		controlType: CONTROL_TYPE.switcher,
+#		option: 'ui.mods.activateBannerMod',
+#		isLastInSection: true,
+#		id: 'port_interface_banner'
+#	},
+
+(def constant PREFS_OTHER_DATA "[
+	{ label: 'IDS_PREFERENCES_OTHER_SECTION_HEADER_ADDITIONAL_SETTINGS',	type: ROW_TYPE.header },
+	{ label: 'IDS_PORT_CLOCK',			type: ROW_TYPE.control,	controlType: CONTROL_TYPE.switcher,		option: 'ui.showPortClock' },
+	{ label: 'IDS_SKIP_VIDEO',			type: ROW_TYPE.control,	controlType: CONTROL_TYPE.switcher,		option: 'ui.skipVideo' },
+	{ label: 'IDS_SHOW_IMELANGBAR',		type: ROW_TYPE.control,	controlType: CONTROL_TYPE.switcher,		option: 'ui.enableLanguageBar',		isLastInSection: true },
+
+
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_SETTINGS'],
+		type: ROW_TYPE.header,
+		id: 'mod_settings'
+	},
+	{ label: ON_MOD_LOCALIZATIONS['IDS_MOD_DOCK_AND_BATTLE'], type: ROW_TYPE.header, isSecondary: true, id: 'dock_battle' },
+	{ label: 'IDS_HELP_SHIP_NAME', type: ROW_TYPE.header, isSecondary: true, id: 'ship_name' },
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_SHIP_NAME_CAPITALISATION'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_SHIP_NAME_CAPITALISATION_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.disableUpperCase',
+		id: 'ship_name'
+	},
+	{ label: 'IDS_SHIP_INFO_HAS_CLONE_SHIP', type: ROW_TYPE.header, isSecondary: true, id: 'origin_ship' },
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_ORIGIN_SHIP'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_ORIGIN_SHIP_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.showOriginShips',
+		isLastInSection: true,
+		id: 'origin_ship'
+	},
+	{ label: 'Port Interface', type: ROW_TYPE.header, isSecondary: true, id: 'port_interface' },
+	{ label: 'IDS_DOCK', type: ROW_TYPE.header, isSecondary: true, id: 'dock' },
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_DOCK_NAVI_BUTTONS'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_DOCK_NAVI_BUTTONS_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.showNaviButtons',
+		id: 'navi_buttons'
+	},
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_RESOURCES'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_RESOURCES_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.showResources',
+		id: 'resources'
+	},
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_SERVER_POPULATION'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_SERVER_POPULATION_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.showPopulation',
+		isLastInSection: true,
+		id: 'population'
+	},
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_ORIGIN_FLAG'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_ORIGIN_FLAG_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.showOriginFlags',
+		isLastInSection: true,
+		id: 'origin_flag'
+	},
+	{ label: 'IDS_RARITY', type: ROW_TYPE.header, isSecondary: true, id: 'rarity' },
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_SHIP_RARITY'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_SHIP_RARITY_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.hideShipRarity',
+		id: 'rarity'
+	},
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_OTHER_RARITY'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_OTHER_RARITY_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.hideOtherRarity',
+		isLastInSection: true,
+		id: 'rarity'
+	},
+	{ label: ON_MOD_LOCALIZATIONS['IDS_MOD_CAROUSEL'], sublabel: 'IDS_WITHOUT_COMMANDER', type: ROW_TYPE.header, isSecondary: true, id: 'no_crew' },
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_NO_CREW_TEXT'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_NO_CREW_TEXT_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.hideNoCrewText',
+		id: 'no_crew'
+	},
+	{
+		label: ON_MOD_LOCALIZATIONS['IDS_MOD_NO_CREW_OVERLAY'],
+		description: ON_MOD_LOCALIZATIONS['IDS_MOD_NO_CREW_OVERLAY_DESC'],
+		type: ROW_TYPE.control,
+		controlType: CONTROL_TYPE.switcher,
+		option: 'ui.mods.hideNoCrewOverlay',
+		isLastInSection: true,
+		id: 'no_crew'
+	}
+]")
+
+#	{ label: 'TTaro Mod Config', type: ROW_TYPE.header, isSecondary: true, id: 'ttaro' }
+
+(def constant PREF_ROW_TOOLTIP {
+	'graphics.postFX.colorblind.mode':		{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.postFX.colorblind.intensity':	{ tooltip: 'PrefRowCommonTooltip' },
+
+
+	'monitor.index':			{ tooltip: 'PrefRowMonitorTooltip' },
+	'monitor.windowMode':		{ tooltip: 'PrefRowCommonTooltip' },
+	'monitor.mode':				{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'monitor.uiScale':			{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.gamma':			{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.vsync':			{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM" } },
+	'graphics.tripleBuffering':	{ tooltip: 'PrefRowCommonTooltip' },
+
+	'graphics.preset':							{ tooltip: 'PrefRowCommonTooltip' },
+
+	'graphics.texture.quality':					{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM" } },
+	'graphics.texture.filtering':				{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW" } },
+	'graphics.postFX.fidelityFX_CAS':			{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.browser.hardwareAcceleration':	{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	restart: true } },
+	
+	'graphics.GUI.quality':						{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.GUI.contrast':					{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM" } },
+
+	'graphics.postFX.aaMode':					{ tooltip: 'PrefRowItemsTooltip',			extraData: { itemRenderer: 'PrefRowTooltipInnerItemPerformanceExplanation', itemParams: [{data: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } }, {data: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW" } }] } },
+	'graphics.postFX.fxaa.quality':				{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW" } },
+
+	'graphics.sea.simulation.quality':				{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.VERYHIGH" } },
+	'graphics.forest.quality':						{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.camera.farPlane':						{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.object.lod':							{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM" } },
+	'graphics.sea.reflection.quality':				{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.sea.reflection.screenSpace.quality':	{ tooltip: 'PrefRowPerformanceTooltip',	extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+
+	'graphics.particle.preset':				{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	restart: true } },
+	'graphics.particle.quality':			{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.shadow.quality':				{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.lighting.dynamic.quality':	{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.postFX.quality':				{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.HIGH" } },
+	'graphics.gameLogic.preset':			{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM",	gpuImpact: "SC.Ui_prefs.PERF_IMPACT.MEDIUM" } },
+	
+	'graphics.GUI.effects':					{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.fog.alpha':					{ tooltip: 'PrefRowPerformanceTooltip',		extraData: { cpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW",		gpuImpact: "SC.Ui_prefs.PERF_IMPACT.LOW" } },
+
+	'sound.volume.master':			{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_MASTER_VOLUME_TOOLTIP_HEADER' } },
+	'sound.source':					{ tooltip: 'PrefRowCommonTooltip' },
+	'graphics.sound.quality':		{ tooltip: 'PrefRowCommonTooltip',	extraData: { restart: true } },
+
+	'sound.music.dockVolume':		{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_DOCK_MUSIC_VOLUME_TOOLTIP_HEADER' } },
+	'sound.music.battleVolume':		{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_BATTLE_MUSIC_VOLUME_TOOLTIP_HEADER' } },
+	'sound.music.mod':				{ tooltip: 'PrefRowItemsTooltip' },
+
+	'sound.mixingPreset':				{ tooltip: 'PrefRowItemsTooltip' },
+	'sound.volume.world':				{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_WORLD_VOLUME_TOOLTIP_HEADER' } },
+	'sound.volume.ui':					{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_UI_VOLUME_TOOLTIP_HEADER' } },
+	'sound.volume.engines':				{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_ENGINES_VOLUME_TOOLTIP_HEADER' } },
+	'sound.volume.shoot':				{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_SHOOT_VOLUME_TOOLTIP_HEADER' } },
+	'sound.volume.damage':				{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_OPTIONS_DAMAGE_VOLUME_TOOLTIP_HEADER' } },
+	'sound.narrowDynamicRange':			{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.toneDefeat':					{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.foghorn.enabled':			{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.thirdPartyMusic.enabled':	{ tooltip: 'PrefRowCommonTooltip' },
+
+	'sound.volume.voice':			{ tooltip: 'PrefRowCommonTooltip',		extraData: { customHeader: 'IDS_OPTIONS_VOICE_VOLUME_TOOLTIP_HEADER' } },
+	'sound.voice.package':			{ tooltip: 'PrefRowCommonTooltip',		extraData: { customHeader: 'IDS_VOICE_PACKAGE_TOOLTIP_HEADER' } },
+	'sound.voice.mod':				{ tooltip: 'PrefRowSoundModsTooltip',	extraData: { customHeader: 'IDS_VOICE_MOD_TOOLTIP_HEADER' } },
+	'sound.quickCommands':			{ tooltip: 'PrefRowCommonTooltip',		extraData: { customHeader: 'IDS_OPTIONS_QUICKCOMMANDS_SOUND_TOOLTIP_HEADER' } },
+	'sound.voiceOverEffect':		{ tooltip: 'PrefRowCommonTooltip' },
+
+	'sound.voice.chat.enabled':				{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.voice.chat.outputVolume':		{ tooltip: 'PrefRowCommonTooltip',	extraData: { customHeader: 'IDS_VOICECHAT_OUTPUT_VOLUME_TOOLTIP_HEADER' } },
+	'sound.voice.chat.device':				{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.voice.chat.inputVolume':			{ tooltip: 'PrefRowCommonTooltip' },
+	'sound.voice.chat.activationMethod':	{ tooltip: 'PrefRowCommonTooltip' },
+
+	'battle.altVision.mode': {
+		tooltip: 'PrefRowImageAndItemsTooltip',
+		extraData: {
+			img: 'battle_alt_vision_mode',
+			customHeader: 'IDS_ALTERNATE_INTERFACE_TOOLTIP_HEADER',
+		}
+	},
+	'battle.ears.enabled':				{ tooltip: 'PrefRowImageTooltip',			extraData: { img: 'battle_ears_enabled' } },
+	'ui.showPerformance':				{ tooltip: 'PrefRowImageTooltip',			extraData: { img: 'ui_show_performance' } },
+	'ui.battleChat.enabledChannels':	{ tooltip: 'PrefRowImageTooltip',			extraData: { img: 'ui_enable_battle_chat' } },
+
+	'battle.terrain.shooting.mode': {
+		tooltip: 'PrefRowImageTooltip',
+		extraData: {
+			img: 'battle_terrain_shooting_mode',
+			customHeader: 'IDS_TERRAIN_SHOOT_INDICATOR_TOOLTIP_HEADER',
+			unifiedStatus: "SC.Ui_styles.UNIFIED_STATUS.ATTENTION"
+		}
+	},
+	'battle.weapon.indicator.simultaneousReload':	{ tooltip: 'PrefRowImageTooltip',	extraData: { img: 'battle_weapon_indicator_simultaneous_reload',	customHeader: 'IDS_SIMULTANEOUS_RELOAD_TOOLTIP_HEADER' } },
+	'ui.alwaysShowModifiersTimers':					{ tooltip: 'PrefRowImageTooltip',	extraData: { img: 'ui_always_show_modifiers_timers' } },
+
+	'battle.camera.fov':	{ tooltip: 'PrefRowCommonTooltip' },
+	'battle.camera.height':	{ tooltip: 'PrefRowCommonTooltip' },
+
+	'battle.camera.autoTrackTarget.enabled':	{ tooltip: 'PrefRowCommonTooltip', extraData: {unifiedStatus: "SC.Ui_styles.UNIFIED_STATUS.ATTENTION"} },
+	'battle.camera.wheelTransition.enabled':	{ tooltip: 'PrefRowCommonTooltip' },
+	'battle.camera.autoChangePosition.enabled':	{ tooltip: 'PrefRowCommonTooltip' },
+	'battle.camera.observeYawRestore.enabled':	{ tooltip: 'PrefRowCommonTooltip' },
+	'battle.camera.damageEffect.enabled':		{ tooltip: 'PrefRowCommonTooltip' },
+
+	'battle.ui.crosshairIndicators.timeToTarget':			{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_time_to_target' } },
+	'battle.ui.crosshairIndicators.distanceToTarget':		{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_distance_to_target' } },
+	'battle.ui.crosshairIndicators.visibilityDistance':		{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_visibility_distance' } },
+	'battle.ui.crosshairIndicators.visibilityPenaltyTimer':	{
+		tooltip: 'PrefRowImageTooltip',
+		extraData: {
+			img: 'ui_visibility_penalty_timer',
+			unifiedStatus: "SC.Ui_styles.UNIFIED_STATUS.INFO"
+		}
+	},
+
+	'battle.ui.additionalDamageCounters.spot':			{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_additional_damage_counter_spot' } },
+	'battle.ui.additionalDamageCounters.potential':		{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_additional_damage_counter_potential' } },
+	'battle.ui.additionalDamageCounters.antiAir': 		{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_additional_damage_counter_anti_air' } },
+	'battle.ui.additionalDamageCounters.victoryPoints':	{ tooltip: 'PrefRowImageTooltip', extraData: { img: 'ui_additional_damage_counter_victory_points' } },
+
+	'battle.ui.scoreTimer': {
+		tooltip: 'PrefRowImageTooltip',
+		extraData: {
+			img: 'ui_score_timer',
+			unifiedStatus: "SC.Ui_styles.UNIFIED_STATUS.INFO"
+		}
+	},
+
+	'ui.mouse.sensivity':			{ tooltip: 'PrefRowCommonTooltip' },
+	'ui.mouse.wheelSensivity':		{ tooltip: 'PrefRowCommonTooltip' },
+	'battle.camera.signY.inverted':	{ tooltip: 'PrefRowCommonTooltip' },
+
+	'battle.autoPilot.mode':	{ tooltip: 'PrefRowCommonTooltip' },
+	'ui.showPortClock':			{ tooltip: 'PrefRowCommonTooltip' },
+	'ui.skipVideo':				{ tooltip: 'PrefRowCommonTooltip' },
+	'ui.enableLanguageBar':		{ tooltip: 'PrefRowCommonTooltip' },
+
+	'ui.mods.showPopulation':		{ tooltip: 'ON_PrefRowCommonTooltip' },
+	'ui.mods.showResources':		{ tooltip: 'ON_PrefRowCommonTooltip' },
+
+	'ui.mods.showOriginShips':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_show_origin_ships' } },
+	'ui.mods.showOriginFlags':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_show_origin_flags' } },
+	'ui.mods.showNaviButtons':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_show_navi_buttons' } },
+	'ui.mods.disableUpperCase':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_disable_upper_case' } },
+	'ui.mods.hideShipRarity':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_hide_ship_rarity' } },
+	'ui.mods.hideOtherRarity':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_hide_other_rarity' } },
+	'ui.mods.hideNoCrewText':			{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_hide_no_crew_text' } },
+	'ui.mods.hideNoCrewOverlay':		{ tooltip: 'ON_PrefRowImageTooltip', extraData: { img: 'ui_mods_hide_no_crew_overlay' } }
+})
+
+
+(def element PrefsMainContentCommon (_selectedPage:str)
+	(scope
+		(event evScrollAreaValueChanged)
+		(event evCloseDropdownByOuterEvent)
+
+		(var stageComponent:gfx = "$datahub.getSingleEntity(CC.stage).stage")
+		(var stageWidth:number = "stageComponent.width" (event "stageComponent.evStageSizeChanged"))
+		(var contentWidth:number = "stageWidth > 1366 ? 800 : 720")
+
+		(var data:array	= "PREFS_LISTS[_selectedPage]")
+		(var resetBtnLabel:str = "_selectedPage == SC.Ui_windows.ROUTE.GRAPHICS	? 'IDS_PREFS_AUTODETECT_BUTTON'
+																				: 'IDS_PREFS_RESET_PAGE_BUTTON'")
+
+		#(macro TT_GET_USERPREF)
+	)
+
+	(class $PrefsMainLayoutWrapper)
+	(style (bind width "contentWidth + PREF_ROW_SIDE_PADDING * 2"))
+
+	(scrollArea
+		(class $Fullsize)
+		
+		
+		(style (backgroundColor = 0x01000000))
+
+		(verticalSlider='ScrollBarVLightWithValueChangedEvent')
+
+		(topShadow='ScrollAreaShadowTop')
+		(bottomShadow='ScrollAreaShadowBottom')
+
+		(wheelScrollSpeed = "1.0")
+		(wheelScrollAcceleration = "1")
+		(maxScrollingAnimatedDistance = "50")
+
+		(hscrollPolicy='off')
+		(vscrollPolicy='auto')
+
+		(drag=false)
+
+		(content
+			(style (bind width "contentWidth + PREF_ROW_SIDE_PADDING * 2"))
+
+			(block
+				(class $PrefsPageTopButtonContainer)
+
+				(element DefaultButton
+					_name = "'btn_defaults'"
+					_type = "SC.Ui_styles.BUTTON_TYPE.SECONDARY"
+					_size = "SIZE.SMALL"
+					_label = "resetBtnLabel"
+					_focusIndex = 1
+					_tooltipText = "'IDS_PREFS_COMMONPAGE_RESET_' + toUpper(_selectedPage) + '_TOOLTIP'"
+				)
+			)
+
+			(block
+				(style (width = 100%) (marginBottom = "L"))
+
+				(controller $Repeat renderer='PrefRow'
+					(bind count "data.length")
+					(args
+						_ownerModal = "OWNER_MODAL_TYPE.main"
+						_data = "data[$index]"
+					)
+				)
+			)
+
+			(block
+				(bind visible "_selectedPage == SC.Ui_windows.ROUTE.OTHER")
+				(style
+					(width = "100%")
+					(marginTop = "-34px")
+					(marginBottom = "20px")
+					(paddingLeft = "PREF_ROW_SIDE_PADDING")
+					(paddingRight = "PREF_ROW_SIDE_PADDING")
+				)
+
+				(controller $Instance renderer='HorizontalDividerTwoPx'
+					(bind enabled "true")
+				)
+			)
+#TTaro
+			#(element TT_ModConfigsWindowElement
+			#	_userPrefsNum = "_userPrefsNum"
+			#	(bind visible "_selectedPage == SC.Ui_windows.ROUTE.OTHER")
+			#	(style
+			#		(width = 100%)
+			#		(paddingLeft = "PREF_ROW_SIDE_PADDING")
+			#		(paddingRight = "PREF_ROW_SIDE_PADDING")
+			#		(marginBottom = "L")
+			#	)
+			#)
+		)
+
+		(bindcall scrollToBegin animated=false (bind trigger "_selectedPage"))
+		(dispatch evCloseDropdownByOuterEvent dir="EventDirection.DOWN" (event "evScrollAreaValueChanged"))
+	)
+)
+
+
+(def element ON_PrefRowControl (_ownerModal:str, _data:dict, _isNested:bool)
+	(scope
+		(var showOption:bool = "!('id' in _data) || _data.id == 'navi_buttons' && NAVI_BUTTONS_INSTALLED ||
+													_data.id == 'no_crew' && CAROUSEL_INSTALLED ||
+													_data.id == 'resources' && ADDITIONAL_RESOURCES_INSTALLED ||
+													_data.id == 'population' && SERVER_POPULATION_INSTALLED ||
+													_data.id == 'rarity' && HIDE_RARITY_INSTALLED ||
+													_data.id == 'ship_name' && SHIP_NAMES_INSTALLED ||
+													_data.id == 'origin_ship' && ORIGIN_SHIPS_INSTALLED ||
+													_data.id == 'origin_flag' && ORIGIN_FLAGS_INSTALLED")
+
+		(event evShowResetBtn)
+		(event evHideResetBtn)
+
+		(macro MOUSE_HANDLER_SCOPE)
+
+		(var stageComponent:gfx = "$datahub.getSingleEntity(CC.stage).stage")
+
+		(var isSingleLinePrefRow:bool = "_ownerModal == OWNER_MODAL_TYPE.main")
+
+		(var option:str = "'option' in _data ? _data.option : null")
+		(var valueEntity:gfx = "option ? $datahub.getPrimaryEntity(CC.preference, option) : null")
+		(var value:number = "valueEntity ? valueEntity.preference.value : 0" (event "valueEntity.preference.evValueChanged"))
+
+		(var realmConstantsEntity:gfx = "$datahub.getSingleEntity(CC.realmConstants)")
+		(var currentLocale:str = "realmConstantsEntity.realmConstants.currentLocale")
+
+		(var nestedHeadersAmount:number = "'nestedHeadersAmount' in _data ? _data.nestedHeadersAmount : 0")
+		(var isLastInSection:bool = "'isLastInSection' in _data ? _data.isLastInSection : false")
+		(var isFirstInNestedSection:bool = "'isFirstInNestedSection' in _data ? _data.isFirstInNestedSection : false")
+		(var additionalData:dict = "'data' in _data ? _data.data : {}")
+		(var controlType:str = "'controlType' in _data ? _data.controlType : ''")
+		(var label:str = "'label' in _data ? (currentLocale in _data.label ? _data.label[currentLocale]
+																			: 'en' in _data.label ? _data.label['en']
+																									: _data.label)
+											: ''")
+		(var description:str = "'description' in _data ? (currentLocale in _data.description ? _data.description[currentLocale]
+																								: 'en' in _data.description ? _data.description['en']
+																															: _data.description)
+											: ''")
+
+		(var isResetablePref:bool = "'isResetable' in additionalData ? additionalData.isResetable : false")
+
+		(var isCustomTooltip:bool = "'tooltipInfo' in additionalData")
+		(var isTooltipVisible:bool = "(option != null && option != '') || isCustomTooltip")
+		(var tooltipRenderer:str = "isCustomTooltip							? additionalData.tooltipInfo.template :
+									option && option in PREF_ROW_TOOLTIP	? PREF_ROW_TOOLTIP[option].tooltip
+																			: ''")
+
+		
+		(var nestedGroupKey:str = "'nestedGroupsRemap' in _data	&&	toString(value) in _data.nestedGroupsRemap	? _data.nestedGroupsRemap[value]
+																												: value")
+		(var areNestedGroupsInData:bool = "'nestedGroups' in _data")
+		(var curGroup:array = "areNestedGroupsInData ? _data.nestedGroups[nestedGroupKey] : []")
+		(var nestedDividersHeight:number = "isLastInSection ? 2 : 0")
+		(var groupHeight:number = "curGroup.length	? isSingleLinePrefRow	?	nestedHeadersAmount	?	(curGroup.length * PREF_ROW_SIZES.SINGLELINE_HEIGHT) + ((nestedHeadersAmount - 1) * PREF_ROW_SIZES.DEFAULT_NESTED_HEADER_MARGIN_TOP) + PREF_ROW_SIZES.FIRST_NESTED_HEADER_MARGIN_TOP + nestedDividersHeight
+																									:	curGroup.length * PREF_ROW_SIZES.SINGLELINE_HEIGHT + nestedDividersHeight
+																			:	nestedHeadersAmount	?	(curGroup.length * PREF_ROW_SIZES.MULTILINE_HEIGHT) + ((nestedHeadersAmount - 1) * PREF_ROW_SIZES.DEFAULT_NESTED_HEADER_MARGIN_TOP) + PREF_ROW_SIZES.FIRST_NESTED_HEADER_MARGIN_TOP + nestedDividersHeight
+																									:	curGroup.length * PREF_ROW_SIZES.MULTILINE_HEIGHT + nestedDividersHeight
+													: 0")
+		(var initialHeight:number="groupHeight" watch=false)
+		
+
+		(var contextResetParams:array = "[ { type: 'direct.action', name: 'option.contextDefault', args: [option] } ]")
+	)
+
+	(bind visible "showOption")
+
+	(dispatch evShowResetBtn (bind trigger "rollOver") (bind enabled "isResetablePref && !rollOver"))
+	(dispatch evHideResetBtn (bind trigger "rollOver") (bind enabled "isResetablePref && rollOver"))
+
+	(style (width = 100%))
+
+	(block
+		(bind class "isSingleLinePrefRow ? '$SingleLinePrefRowSize' : '$MultilinePrefRowSize'")
+		(style
+			(width = 100%)
+			(bind height "isSingleLinePrefRow	? isLastInSection ? 50px : PREF_ROW_SIZES.SINGLELINE_HEIGHT
+												: PREF_ROW_SIZES.MULTILINE_HEIGHT")
+		)
+
+		(block
+			(style
+				(position = "absolute")
+				(width = 100%)
+
+				(bind paddingLeft "	_isNested	? isSingleLinePrefRow		? SXS : M
+												: PREF_ROW_SIDE_PADDING")
+				(bind paddingRight "_isNested	? isSingleLinePrefRow		? SXS : M
+												: PREF_ROW_SIDE_PADDING")
+			)
+
+			(block
+				(bind visible "(_isNested && $index == 0) || (isSingleLinePrefRow ? !_isNested : (!_isNested && $index > 0))")
+				(style
+					(width = "100%")
+					(bind paddingLeft "	_isNested && $index == 0	? isSingleLinePrefRow	? -SXS : -M
+																	: 0px")
+					(bind paddingRight "_isNested && $index == 0	? isSingleLinePrefRow	? -SXS : -M
+																	: 0px")
+				)
+
+				(controller $Instance renderer='HorizontalDividerTwoPx'
+					(bind enabled "(_isNested && $index == 0) || (isSingleLinePrefRow ? !_isNested : (!_isNested && $index > 0))")
+				)
+			)
+
+			(controller $Instance renderer='DottedHorizontalDivider'
+				(bind enabled "_isNested && !isFirstInNestedSection")
+			)
+		)
+
+		(block
+			(bind class "isSingleLinePrefRow	? '$SingleLinePrefRowCaption' : '$MultilinePrefRowCaption'")
+			(style (bind top "isSingleLinePrefRow ? 18px : 0px"))
+
+			(tf
+				(class $TextDefault19NM)
+				(style
+					(bind width "isSingleLinePrefRow ? 'auto' : '100%'")
+					(bind marginTop "isSingleLinePrefRow ? 0px : 18px")
+					(bind marginLeft "_isNested ? 0px : isSingleLinePrefRow	? PREF_ROW_SIDE_PADDING
+																			: 0px")
+					(alpha = "TC")
+					(multiline = false)
+				)
+
+				(bind text "label")
+			)
+		)
+
+		(block
+			(style
+				(position = "absolute")
+				(height = 100%)
+				(left = "isSingleLinePrefRow		? _isNested	? 0px : PREF_ROW_SIDE_PADDING
+													: 0px")
+				(bind right "isSingleLinePrefRow	? _isNested		? isResetablePref	? -PREF_ROW_SIDE_PADDING : 0px
+																	: isResetablePref	? 0px : PREF_ROW_SIDE_PADDING
+													: 0px" (event "stageComponent.evStageSizeChanged"))
+				
+				(backgroundColor = 0x01000000)
+			)
+
+			(controller $Tooltip
+			#	(trace "'Tooltip name has no corresponding renderer.'" init="!tooltipRenderer") #OlliN-
+				(bind enabled "isTooltipVisible && tooltipRenderer")
+				(bind renderer "tooltipRenderer")
+				(args
+					_option = "option"
+					_localization = "label"
+					_description = "description"
+					_extraData = "	isCustomTooltip && 'extraData' in additionalData.tooltipInfo	? additionalData.tooltipInfo.extraData :
+									'extraData' in PREF_ROW_TOOLTIP[option] 						? PREF_ROW_TOOLTIP[option].extraData
+																									: null"
+				)
+				
+				(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+			)
+		)
+
+		(block
+			(bind class "!isSingleLinePrefRow	? '$MultilinePrefRowControl' : '$None'")
+			(style
+				(position = "absolute")
+				(bind right "isSingleLinePrefRow	? _isNested ? M : PREF_ROW_SIDE_PADDING + M
+													: 0px")
+				(bind top "isSingleLinePrefRow	? 0px : 34px")
+			)
+
+			(block
+				(controller $Instance
+					(bind renderer "controlType")
+					(args
+						_option = "option"
+						_data = "additionalData"
+						_isSingleLinePrefRow = "isSingleLinePrefRow"
+					)
+				)
+			)
+		)
+	)
+
+	(block
+		(bind visible "areNestedGroupsInData")
+
+		(style
+			(paddingLeft = "isSingleLinePrefRow ? PREF_ROW_SIDE_PADDING : 0px")
+			(paddingRight = "isSingleLinePrefRow ? PREF_ROW_SIDE_PADDING : 0px")
+			(width = 100%)
+			
+			(height = "initialHeight")
+		)
+
+		(alpha = "groupHeight > 0 ? 1 : 0")
+
+		(controller $Animation
+			(bind enabled "areNestedGroupsInData")
+
+			(bindcall play
+				duration = 0.3
+				to = "{ height: groupHeight, alpha: groupHeight == 0 ? 0 : 1 }"
+				easing = "Easing.quad_in"
+				action="kill"
+				(bind trigger "nestedGroupKey")
+			)
+		)
+
+		(block
+			(style (width = 100%) (backgroundColor = "SC.Ui_styles.SERVICE_COLORS.INNER_PANEL"))
+
+			(controller $Animation
+				(bind enabled "areNestedGroupsInData")
+
+				(bindcall play
+					duration = 0.4
+					from	 = "{ alpha: 0 }"
+					to		 = "{ alpha: 1 }"
+					easing = "Easing.quad_in"
+					action="kill"
+					(bind trigger "nestedGroupKey")
+				)
+			)
+
+			(controller $Repeat renderer='PrefRow'
+				(bind enabled "curGroup.length && areNestedGroupsInData")
+				(bind count "curGroup.length")
+				(args
+					_ownerModal = "_ownerModal"
+					_data = "curGroup[$index]"
+					_isNested = true
+				)
+			)
+		)
+
+		(controller $Instance renderer='HorizontalDividerTwoPx'
+			(bind enabled "areNestedGroupsInData && isLastInSection")
+			(exprs
+				(style (position = "absolute") (bottom = 0px))
+			)
+		)
+	)
+
+	(block
+		(bind visible "isResetablePref")
+
+		(style
+			(bind alpha "0")
+			(position = "absolute")
+			(bind right "_isNested ? -22px : 18px")
+			(top = "M")
+		)
+
+		(controller $Instance renderer='ImageButton'
+			(bind enabled "isResetablePref")
+			(args
+				_width = 18
+				_height = 18
+				_backgroundImage = 'url:../service_kit/buttons/context/update.png'
+				_hitAreaMargin = "[-XS, -14, -18, -14]"
+				_tooltipText = "'IDS_PREFERENCES_CONTEXT_PREF_RESET'"
+				_methods = "contextResetParams"
+			)
+		)
+
+		(controller $Animation
+			(bind enabled "isResetablePref")
+
+			(bindcall play
+				duration = 0.2
+				to = "{ alpha: 1 }"
+				easing = "Easing.quad_in"
+				action="killAll"
+				(event "evShowResetBtn")
+			)
+			(bindcall play
+				duration = 0.1
+				to = "{ alpha: 0 }"
+				easing = "Easing.quad_in"
+				action="killAll"
+				(event "evHideResetBtn")
+			)
+		)
+	)
+
+	(macro MOUSE_EVENTS_DISPATCHER)
+)
+
+
+(def element ON_PrefRowHeader (_ownerModal:str, _data:dict, _isNested:bool)
+	(scope
+		(var anyModInstalled:bool = "SHIP_NAMES_INSTALLED ||
+									ORIGIN_SHIPS_INSTALLED ||
+									NAVI_BUTTONS_INSTALLED ||
+									ADDITIONAL_RESOURCES_INSTALLED ||
+									SERVER_POPULATION_INSTALLED ||
+									ORIGIN_FLAGS_INSTALLED ||
+									CAROUSEL_INSTALLED ||
+									HIDE_RARITY_INSTALLED")
+		(var hasShipMods:bool = "SHIP_NAMES_INSTALLED || ORIGIN_SHIPS_INSTALLED")
+		(var hasPortMods:bool = "NAVI_BUTTONS_INSTALLED || ADDITIONAL_RESOURCES_INSTALLED || SERVER_POPULATION_INSTALLED || ORIGIN_FLAGS_INSTALLED")
+		(var showOption:bool = "!('id' in _data) || _data.id == 'mod_settings' && anyModInstalled ||
+													_data.id == 'dock_battle' && hasShipMods ||
+													_data.id == 'port_interface' && (hasPortMods || CAROUSEL_INSTALLED || HIDE_RARITY_INSTALLED) ||
+													_data.id == 'dock' && hasPortMods ||
+													_data.id == 'no_crew' && CAROUSEL_INSTALLED ||
+													_data.id == 'rarity' && HIDE_RARITY_INSTALLED")
+
+		(var realmConstantsEntity:gfx = "$datahub.getSingleEntity(CC.realmConstants)")
+		(var currentLocale:str = "realmConstantsEntity.realmConstants.currentLocale")
+
+		(var isFirst:bool = "$index == 0")
+		(var label:str = "'label' in _data ? (currentLocale in _data.label ? _data.label[currentLocale]
+																			: 'en' in _data.label ? _data.label['en']
+																									: _data.label)
+											: ''")
+		(var sublabel:str = "'sublabel' in _data ? (currentLocale in _data.sublabel ? _data.sublabel[currentLocale]
+																					: 'en' in _data.sublabel ? _data.sublabel['en']
+																												: _data.sublabel)
+											: ''")
+		(var isKeybindingRelated:bool = "'isKeybindingRelated' in _data ? _data.isKeybindingRelated : false")
+		(var isSecondary:bool = "'isSecondary' in _data ? _data.isSecondary : false")
+	)
+
+	(bind visible "showOption")
+
+	(style
+		(width = 100%)
+		(bind height "isSecondary ? 48px : isFirst	? _isNested ? 60px : 48px
+								: 72px")
+	)
+
+	(controller $Instance renderer='HorizontalDividerTwoPx'
+		(bind enabled "_isNested && isFirst")
+		(exprs
+			(style (position = "absolute") (top = "-XXS") (width = 100%))
+		)
+	)
+
+	(tf
+		(bind class "_isNested || isSecondary ? '$TextDefaultBold21NM' : '$TextDefaultBold25NM'")
+		(style
+			(position = "absolute")
+			(left = "M")
+			(bottom = 15px)
+			(bind left "_isNested ? M : PREF_ROW_SIDE_PADDING + M")
+			(alpha = "TA")
+		)
+
+	#	(bind text "sublabel != '' ? (tr(label) + ' ' + tr('IDS_AND') + ' ' + tr(sublabel)) : label")
+		(bind text "sublabel != '' ? (tr(label) + ' - ' + tr(sublabel)) : label")
+	)
+
+	(block
+		(bind visible "isFirst && isKeybindingRelated")
+
+		(style
+			(position = "absolute")
+			(bottom = 26px)
+			(right = "PREF_ROW_SIZES.KEYBINDING_RIGHT_PADDING + PREF_ROW_SIDE_PADDING")
+		)
+
+		(block
+			(class $SingleLinePrefRowHeaderSubColumnInitPosition)
+			(style (right = "PREF_ROW_SIZES.KEYBINDING_SPACE_BETWEEN_KEYS"))
+
+			(tf
+				(class $TextDefaultNM)
+				(style (alpha = "TC"))
+				(text = 'IDS_PREFERENCES_KEYBINDINGS_SECTION_HEADER_SUB_MAIN')
+			)
+		)
+
+		(block
+			(class $SingleLinePrefRowHeaderSubColumnInitPosition)
+
+			(tf
+				(class $TextDefaultNM)
+				(style (alpha = "TC"))
+				(text = 'IDS_PREFERENCES_KEYBINDINGS_SECTION_HEADER_SUB_ALTERNATIVE')
+			)
+		)
+	)
+)
+
+
+(def element ON_PrefRowCommonTooltip (_option:str, _localization:str, _description:str, _extraData:dict)
+	(scope
+		(var tooltipHeader:str = "'customHeader' in _extraData ? _extraData.customHeader : _localization")
+		(var isRestartNeeded:bool = "'restart' in _extraData ? _extraData.restart : false")
+	)
+
+	(style (hitTest = false) (width = "DEFAULT_TOOLTIP_WIDTH"))
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(element TooltipSystemHeaderSubheaderText
+			_headerText = "tooltipHeader"
+		)
+
+		(block
+			(bind visible "isRestartNeeded")
+			(style (width = 100%))
+
+			(element TooltipSystemHorizontalDivider)
+			(element TooltipSystemStatusLine
+				_unifiedStatus = "SC.Ui_styles.UNIFIED_STATUS.ATTENTION"
+				_text = "'IDS_PREF_CHANGE_RESTART_NEEDED'"
+				_width = "100%"
+			)
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+		#(element PrefRowTooltipStatusLine
+		#	_extraData = "_extraData"
+		#	_localization = "_localization"
+		#)
+
+		(element TooltipSystemDescriptionText
+			#_descriptionText = "_localization + '_DESCRIPTION'"
+			_descriptionText = "_description"
+		)
+	)
+)
+
+
+(def element ON_PrefRowImageTooltip (_option:str, _localization:str, _description:str, _extraData:dict)
+	(scope
+		(var tooltipHeader:str = "'customHeader' in _extraData ? _extraData.customHeader : _localization")
+		(var imagePath:str = "_extraData.img")
+	)
+
+	(style (hitTest = false) (width = 380px))
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(element ON_TooltipSystemImageContainer
+			_path = "imagePath"
+			_imgHeight = 214
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+		(element TooltipSystemHeaderSubheaderText
+			_headerText = "tooltipHeader"
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+	#	(element PrefRowTooltipStatusLine
+	#		_localization = "_localization"
+	#		_extraData = "_extraData"
+	#	)
+
+		(element TooltipSystemDescriptionText
+			#_descriptionText = "_localization + '_DESCRIPTION'"
+			_descriptionText = "_description"
+		)
+	)
+)
+
+(def element ON_TooltipSystemImageContainer(_path:str, _imgHeight:number=200)
+	(style (width = 100%) (paddingTop = "-SXS") (paddingBottom = "-SXS") (paddingLeft = "-M") (paddingRight = "-M"))
+
+	(block
+		(style
+			(width = 100%)
+			(bind height "_imgHeight")
+			(backgroundSize = "fill")
+			(bind backgroundImage "'url:../portinterface/prefs_tooltips/' + _path + '.png'")
+		)
+	)
+)
+

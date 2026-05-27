@@ -56,6 +56,8 @@
     <clansInGame auth="auth_wows">https://clans.worldofwarships.asia/</clansInGame>
     <clanInvites auth="auth_wows">https://clans.worldofwarships.asia/</clanInvites>
     <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.asia/clan-wars?source=port</clanWarsInGame>
+    <clanRequest auth="auth_wows">https://clans.worldofwarships.asia/%(request)s</clanRequest>
+    <poshtaService auth="auth_wows">https://poshta.worldofwarships.asia/</poshtaService>
     <!-- Warehouse -->
     <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.asia</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.asia/content/additional-information-and-conditions/</pageAboutGameMechanics>
@@ -225,6 +227,8 @@
     <clansInGame auth="auth_wows">https://clans.worldofwarships.eu/</clansInGame>
     <clanInvites auth="auth_wows">https://clans.worldofwarships.eu/</clanInvites>
     <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.eu/clan-wars?source=port</clanWarsInGame>
+    <clanRequest auth="auth_wows">https://clans.worldofwarships.eu/%(request)s</clanRequest>
+    <poshtaService auth="auth_wows">https://poshta.worldofwarships.eu/</poshtaService>
     <!-- Warehouse -->
     <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.eu</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.eu/content/additional-information-and-conditions/</pageAboutGameMechanics>
@@ -394,6 +398,8 @@
     <clansInGame auth="auth_wows">https://clans.worldofwarships.com/</clansInGame>
     <clanInvites auth="auth_wows">https://clans.worldofwarships.com/</clanInvites>
     <clanWarsInGame auth="auth_wows">https://clans.worldofwarships.com/clan-wars?source=port</clanWarsInGame>
+    <clanRequest auth="auth_wows">https://clans.worldofwarships.com/%(request)s</clanRequest>
+    <poshtaService auth="auth_wows">https://poshta.worldofwarships.com/</poshtaService>
     <!-- Warehouse -->
     <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.com</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.com/content/additional-information-and-conditions/</pageAboutGameMechanics>
@@ -566,6 +572,8 @@
 		<clansInGame auth="auth_wows">https://clans.wowsgame.cn/</clansInGame>
 		<clanInvites token="true">https://clans.wowsgame.cn/auth/?token=%(wgni_token)s&amp;spa_id=%(spa_id)s&amp;redirect_to=%(redirect_to)s</clanInvites>
 		<clanWarsInGame auth="auth_wows">https://clans.wowsgame.cn/clan-wars?source=port</clanWarsInGame>
+		<clanRequest auth="auth_wows">https://clans.wowsgame.cn/%(request)s</clanRequest>
+		<poshtaService auth="auth_wows">https://poshta.wowsgame.cn/</poshtaService>
 
 		<!-- Warehouse -->
 		<warehouseInGame auth="auth_wows">https://warehouse.wowsgame.cn</warehouseInGame>

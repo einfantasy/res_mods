@@ -201,10 +201,7 @@
 # battle\minimap\markers\base_marker.unbound
 (def constant TMap_MINIMAP_RANGES_SETTINGS "{
 	artilleryMaxDist:				{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'MAIN_ARMAMENT',	optionName: 'shootMGRangeEnabled' },
-	phaser_laserMaxDist:			{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'MAIN_ARMAMENT',	optionName: 'shootPhaserLaserRangeEnabled' },
 	torpedoMaxDist:					{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'TORPEDO',		optionName: 'shootTARangeEnabled' },
-	pulsePhaserMaxDist:				{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'MAIN_ARMAMENT',	optionName: 'shootPulsePhaserRangeEnabled' },
-	ionicPhaserMaxDist:				{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'MAIN_ARMAMENT',	optionName: 'shootIonicPhaserRangeEnabled' },
 	antiMissileMaxDist:				{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 , 	prefName: 'ANTIAIR',		optionName: 'shootAntiMissileSystemRangeEnabled' },
 	missilesMaxDist:				{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 , 	prefName: 'MAIN_ARMAMENT',	optionName: 'shootMissilesRangeEnabled' },
 	pingerMaxDist:					{ color: 0xBBBBBB, boldText: true , dashLength: 0 , drawDotted: false, forceEnabled: false, lineThickness: 1  , spacing: 0 ,	prefName: 'PINGER',			optionName: 'shootPingerRangeEnabled' },
@@ -3951,7 +3948,6 @@
 		(var planeTypeInt:number = "_markerEntity.plane.planeType")
 		(var ammoType:number = "_markerEntity.plane.ammoType")
 		(var ammoTypeName:str = "SC.Common.PLANE_AMMO_TYPES.VALUE_TO_NAME[ammoType]")
-		(var customUIPostfix:str = "_markerEntity.plane.customUIPostfix")
 		(var isModified:bool = "_markerEntity.plane.isModified")
 		(var isConsumable:bool = "_markerEntity.plane.isConsumable && !_markerEntity.plane.isAirSupport")
 
@@ -3963,7 +3959,7 @@
 																				: 'controllable/'"
 		)
 		(var postfix:str = "isModified ? '_upgrade' : ''")
-		(var planeIconPath:str = "planeCathegoryFolder + PLANE_TYPE_TO_STR[planeTypeInt] + ammoPostfix + customUIPostfix + postfix")
+		(var planeIconPath:str = "planeCathegoryFolder + PLANE_TYPE_TO_STR[planeTypeInt] + ammoPostfix + postfix")
 		
 		(var ownerEntity:gfx = "_markerEntity.squadron.owner.ref")
 		(var ownerAvatar:gfx = "ownerEntity.avatar")
@@ -5027,16 +5023,6 @@
 		controlType: "TMap_SETTINGS_CONTROL_TYPE.RANGE_CHECKBOX",
 		controlStyle: 'activeEquipmentStyle',
 		prefName: 'TORPEDO'
-	},
-	'shootPulsePhaserRangeEnabled': {
-		controlType: "TMap_SETTINGS_CONTROL_TYPE.RANGE_CHECKBOX",
-		controlStyle: 'activeEquipmentStyle',
-		prefName: 'MAIN_ARMAMENT'
-	},
-	'shootIonicPhaserRangeEnabled': {
-		controlType: "TMap_SETTINGS_CONTROL_TYPE.RANGE_CHECKBOX",
-		controlStyle: 'activeEquipmentStyle',
-		prefName: 'MAIN_ARMAMENT'
 	},
 	'shootAntiMissileSystemRangeEnabled': {
 		controlType: "SETTINGS_CONTROL_TYPE.RANGE_CHECKBOX",

@@ -68,8 +68,16 @@
 		<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/>
 		<bind name="watchDH" value="'isOnboardingNeeded'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.isOnboardingNeeded"/>
 		<bind name="request" value="'isEventModeEnabled' + varChanged; isEventModeEnabled &amp;&amp; isOnboardingNeeded ? 'showWindowEventHubOnboardingAnimation' : ''; {}"/>
+		<bind name="file" value="'portInterfaceAdditionalOptionsInstalled'; '../unbound2/!portinterface/AdditionalOptions.unbound'"/>
+		<bind name="file" value="'portInterfaceDockNaviButtonsInstalled'; '../unbound/mods/PortInterface/DockNaviButtons.xml'"/>
 		<bind name="file" value="'portInterfaceResourcesInstalled'; '../unbound/mods/PortInterface/Resources.xml'"/>
 		<bind name="file" value="'portInterfaceServerPopulationInstalled'; '../unbound/mods/PortInterface/ServerPopulation.xml'"/>
+		<bind name="primaryEntityDH" value="'showNaviButtonsEntity'; CC.preference; 'ui.mods.showNaviButtons'"/>
+		<bind name="watchDH" value="'showNaviButtons'; ['showNaviButtonsEntity.preference.evValueChanged']; portInterfaceDockNaviButtonsInstalled ? (portInterfaceAdditionalOptionsInstalled ? showNaviButtonsEntity.preference.value : true) : false"/>
+		<bind name="primaryEntityDH" value="'showResourcesEntity'; CC.preference; 'ui.mods.showResources'"/>
+		<bind name="watchDH" value="'showResources'; ['showResourcesEntity.preference.evValueChanged']; portInterfaceResourcesInstalled ? (portInterfaceAdditionalOptionsInstalled ? showResourcesEntity.preference.value : true) : false"/>
+		<bind name="primaryEntityDH" value="'showPopulationEntity'; CC.preference; 'ui.mods.showPopulation'"/>
+		<bind name="watchDH" value="'showPopulation'; ['showPopulationEntity.preference.evValueChanged']; portInterfaceServerPopulationInstalled ? (portInterfaceAdditionalOptionsInstalled ? showPopulationEntity.preference.value : true) : false"/>
 		<styleClass value="$Fullsize"/>
 		<bind name="stageSize"/>
 		<block>
@@ -477,6 +485,8 @@
 								isClansIntroRepeatNewTipActive	? SC.Context_guiding_tip.TIP_TYPE.CLANS_INTRO_REPEAT
 																: SC.Context_guiding_tip.TIP_TYPE.NONE"/>
 						<bind name="watch" value="'isNewTipVisible'; tipId != SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+						<bind name="collectionDH" value="CC.clanMarkers; 'activeClanMarkers'; 'active'"/>
+						<bind name="watch" value="'hasActiveClanMarkers'; activeClanMarkers.length &gt; 0"/>
 						<block>
 							<bind name="visible" value="isClansAvailable &amp;&amp; !isEventModeEnabled"/>
 							<bind name="primaryEntityDH" value="'featureEntity_27'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[27]"/>
@@ -490,7 +500,7 @@
 												_action: 'navigateTo',
 												_actionParams: {route: SC.Ui_windows.ROUTE.CLANS, data: {url: SC.Ui_windows.GUI_URL.CLANS_IN_GAME}},
 												_dispatch: 'hideCrew',
-												_isNewMarker: feature_27 == 'new' &amp;&amp; !selfPlayerEntity.clanman }"/>
+												_isNewMarker: (feature_27 == 'new' &amp;&amp; !selfPlayerEntity.clanman) || hasActiveClanMarkers }"/>
 							<bind name="action" value="'click'; 'deactivateTipChain'; chainId != SC.Context_guiding_tip.TIP_CHAIN_ID.NONE 	? {tip_chain_id: chainId}
 																												: null"/>
 							<bind name="instance" value="'NewGuidingTipHub'; isNewTipVisible	? {	_newTipId: tipId,
@@ -546,6 +556,142 @@
 												_actionParams: { route: SC.Ui_windows.ROUTE.EVENT_HUB_COLLECTION },
 												_dispatch: 'hideCrew',
 												_isNewMarker: newCollectionCounter &gt; 0}"/>
+						</block>
+						<style>
+							<flow value="horizontal"/>
+						</style>
+					</block>
+				</block>
+			</block>
+			<block>
+				<bind name="primaryEntityDH" value="'routeEntityExterior'; CC.route; SC.Ui_windows.ROUTE.EXTERIOR"/>
+				<bind name="watchDH" value="'currentExteriorSubroute'; ['routeEntityExterior.route.evActiveChildChanged']; routeEntityExterior.route.activeChild"/>
+				<bind name="primaryEntityDH" value="'routeEntityProfile'; CC.route; SC.Ui_windows.ROUTE.PROFILE"/>
+				<bind name="watchDH" value="'currentProfileSubroute'; ['routeEntityProfile.route.evActiveChildChanged']; routeEntityProfile.route.activeChild"/>
+				<bind name="visible" value="showNaviButtons &amp;&amp; stageWidth &gt;= 1904 &amp;&amp; currentPortSubroute != SC.Ui_windows.ROUTE.RESEARCH &amp;&amp; !isEventModeEnabled"/>
+				<styleClass value="$MiddleAligned"/>
+				<style>
+					<position value="absolute"/>
+					<marginTop value="87px"/>
+				</style>
+				<block className="DockNaviButtons">
+					<block>
+						<styleClass value="$FullsizeAbsolute"/>
+						<style>
+							<backgroundImage value="url:../service_kit/buttons/tab_bar/bg.png"/>
+							<background9Slice value="[4,4]"/>
+						</style>
+					</block>
+					<block>
+						<style>
+							<margin value="2px"/>
+						</style>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_CAMOUFLAGE',
+															_name: 'DockSubMenuCamouflage',
+															_selected: currentExteriorSubroute == SC.Ui_windows.ROUTE.CAMOUFLAGE,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.CAMOUFLAGE},
+															_dispatch: 'hideCrew'
+															}"/>
+						</block>
+						<block>
+							<style>
+								<height value="25px"/>
+							</style>
+							<block className="VerticalDivider">
+								<style>
+									<height value="100%"/>
+									<width value="3px"/>
+									<backgroundSize value="fill"/>
+									<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+								</style>
+							</block>
+						</block>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_EXTERIOR_TYPE_PERMOFLAGE',
+															_name: 'DockSubMenuPermoflage',
+															_width: '163px',
+															_selected: currentExteriorSubroute == SC.Ui_windows.ROUTE.PERMOFLAGE,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.PERMOFLAGE},
+															_dispatch: 'hideCrew'
+															}"/>
+						</block>
+						<block>
+							<style>
+								<height value="25px"/>
+							</style>
+							<block className="VerticalDivider">
+								<style>
+									<height value="100%"/>
+									<width value="3px"/>
+									<backgroundSize value="fill"/>
+									<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+								</style>
+							</block>
+						</block>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_FLAGS',
+															_name: 'DockSubMenuSignals',
+															_selected: currentExteriorSubroute == SC.Ui_windows.ROUTE.ENSIGN,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.ENSIGN},
+															_dispatch: 'hideCrew'
+															}"/>
+						</block>
+						<block>
+							<style>
+								<height value="25px"/>
+							</style>
+							<block className="VerticalDivider">
+								<style>
+									<height value="100%"/>
+									<width value="3px"/>
+									<backgroundSize value="fill"/>
+									<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+								</style>
+							</block>
+						</block>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_PROFILE_SUMMARY',
+															_name: 'DockSubMenuSummary',
+															_selected: currentProfileSubroute == SC.Ui_windows.ROUTE.SUMMARY,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.SUMMARY},
+															_dispatch: 'hideCrew'
+															}"/>
+						</block>
+						<block>
+							<style>
+								<height value="25px"/>
+							</style>
+							<block className="VerticalDivider">
+								<style>
+									<height value="100%"/>
+									<width value="3px"/>
+									<backgroundSize value="fill"/>
+									<backgroundImage value="url:../service_kit/dividers/divider_v.png"/>
+								</style>
+							</block>
+						</block>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_PROFILE_ACHIEVEMENTS',
+															_name: 'DockSubMenuAchievements',
+															_selected: currentProfileSubroute == SC.Ui_windows.ROUTE.ACHIEVEMENTS,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.ACHIEVEMENTS},
+															_dispatch: 'hideCrew'
+															}"/>
+						</block>
+						<block>
+							<bind name="instance" value="'MainTabButton'; {_label: 'IDS_PROFILE_COLLECTIONS',
+															_name: 'DockSubMenuCollections',
+															_selected: currentProfileSubroute == SC.Ui_windows.ROUTE.COLLECTIONS,
+															_action: 'navigateTo',
+															_actionParams: {route: SC.Ui_windows.ROUTE.COLLECTIONS},
+															_dispatch: 'hideCrew'
+															}"/>
 						</block>
 						<style>
 							<flow value="horizontal"/>
@@ -654,7 +800,7 @@
 							<bind name="instance" value="'PortSwitcher'; !isEventModeEnabled ? {} : null"/>
 						</block>
 						<block>
-							<bind name="visible" value="portInterfaceServerPopulationInstalled"/>
+							<bind name="visible" value="showPopulation"/>
 							<style>
 								<width value="1280:16,1920:32aw"/>
 							</style>
@@ -662,7 +808,7 @@
 						<block>
 							<bind name="firstEntityDH" value="'dockDataEntity'; CC.dockData"/>
 							<bind name="watchDH" value="'playersOnCurrentRealm'; ['dockDataEntity.dockData.evPlayersOnCurrentRealmChanged']; dockDataEntity.dockData.playersOnCurrentRealm"/>
-							<bind name="instance" value="'ON_PlayersNumber'; portInterfaceServerPopulationInstalled ? {_playersOnline: playersOnCurrentRealm} : null"/>
+							<bind name="instance" value="'ON_PlayersNumber'; showPopulation ? {_playersOnline: playersOnCurrentRealm} : null"/>
 						</block>
 						<block>
 							<style>
@@ -763,7 +909,7 @@
 						<bind name="instance" value="'BattleTypeChooser'; {_isFromPort: true, _canShowTip: true}"/>
 					</block>
 					<block>
-						<bind name="instance" value="portInterfaceResourcesInstalled ? 'ON_AccountResourcesWidget' : 'AccountResourcesWidget'; {}"/>
+						<bind name="instance" value="showResources ? 'ON_AccountResourcesWidget' : 'AccountResourcesWidget'; {}"/>
 					</block>
 					<block>
 						<style>

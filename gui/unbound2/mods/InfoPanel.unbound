@@ -1,3 +1,10 @@
+(def constant ON_INSTALL_STATUS_FOR_INFO_PANEL_COMPONENTS [
+	"ADDITIONAL_OPTIONS_INSTALLED",
+	"ORIGIN_SHIPS_INSTALLED",
+	"SHIP_NAMES_INSTALLED"
+])
+
+
 (def macro GET_ORIGIN_SHIP_INFO (_shipId:expression, _isFromTooltip:expression=false)
 	(var originShipId:number = "!ORIGIN_SHIP_ID[_shipId] ? null : ORIGIN_SHIP_ID[_shipId]")
 	(var originShipEntity:gfx = "$datahub.getPrimaryEntity(CC.ship, originShipId)")
@@ -320,7 +327,8 @@
 		(macro GET_PREF 'disableUpperCase' "'ui.mods.disableUpperCase'")
 		(macro GET_PREF 'showOriginShips' "'ui.mods.showOriginShips'")
 		(macro GET_ORIGIN_SHIP_INFO "entity.avatar.ship.ref.ship.id")
-		(var hasOriginShip:bool = "showOriginShips && originShipId")
+		(var showNormalCase:bool = "ADDITIONAL_OPTIONS_INSTALLED && SHIP_NAMES_INSTALLED ? disableUpperCase : SHIP_NAMES_INSTALLED")
+		(var hasOriginShip:bool = "originShipId && (ADDITIONAL_OPTIONS_INSTALLED && ORIGIN_SHIPS_INSTALLED ? showOriginShips : ORIGIN_SHIPS_INSTALLED)")
 
 		(var shipRlevel:str = "entity.avatar.ship.ref.ship.levelRome")
 		(var shipSubtype:str = "entity.avatar.ship.ref.ship.subtype")
@@ -381,7 +389,7 @@
 					(marginLeft = 2px)
 				)
 				(class $TextDefault)
-				(bind text "toString(shipRlevel) + ' ' + (disableUpperCase ? shipName : toUpper(shipName))")
+				(bind text "toString(shipRlevel) + ' ' + (showNormalCase ? shipName : toUpper(shipName))")
 			)
 		)
 		(hblock
