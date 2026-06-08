@@ -1,8 +1,18 @@
-(def constant ON_INSTALL_STATUS_FOR_INFO_PANEL_COMPONENTS [
-	"ADDITIONAL_OPTIONS_INSTALLED",
-	"ORIGIN_SHIPS_INSTALLED",
-	"SHIP_NAMES_INSTALLED"
-])
+(def constant INFO_PANEL_INSTALLED true)
+
+
+(def constant ON_INSTALLED_INFO_PANEL_COMPONENTS {
+	ADDITIONAL_OPTIONS: "ADDITIONAL_OPTIONS_INSTALLED",
+	ORIGIN_SHIPS: "ORIGIN_SHIPS_INSTALLED",
+	SHIP_NAMES: "SHIP_NAMES_INSTALLED"
+})
+
+
+(def macro ON_GET_INFO_PANEL_COMPONENTS_FROM_CONSTANT()
+	(var additionalOptionsAvailable:bool = "ON_INSTALLED_INFO_PANEL_COMPONENTS['ADDITIONAL_OPTIONS']")
+	(var originShipsAvailable:bool = "ON_INSTALLED_INFO_PANEL_COMPONENTS['ORIGIN_SHIPS']")
+	(var shipNamesAvailable:bool = "ON_INSTALLED_INFO_PANEL_COMPONENTS['SHIP_NAMES']")
+)
 
 
 (def macro GET_ORIGIN_SHIP_INFO (_shipId:expression, _isFromTooltip:expression=false)
@@ -324,11 +334,12 @@
 	(scope
 		(var entity:gfx = "$datahub.getEntity(_targetEntityId)")
 
+		(macro ON_GET_INFO_PANEL_COMPONENTS_FROM_CONSTANT)
 		(macro GET_PREF 'disableUpperCase' "'ui.mods.disableUpperCase'")
 		(macro GET_PREF 'showOriginShips' "'ui.mods.showOriginShips'")
 		(macro GET_ORIGIN_SHIP_INFO "entity.avatar.ship.ref.ship.id")
-		(var showNormalCase:bool = "ADDITIONAL_OPTIONS_INSTALLED && SHIP_NAMES_INSTALLED ? disableUpperCase : SHIP_NAMES_INSTALLED")
-		(var hasOriginShip:bool = "originShipId && (ADDITIONAL_OPTIONS_INSTALLED && ORIGIN_SHIPS_INSTALLED ? showOriginShips : ORIGIN_SHIPS_INSTALLED)")
+		(var showNormalCase:bool = "additionalOptionsAvailable && shipNamesAvailable ? disableUpperCase : shipNamesAvailable")
+		(var hasOriginShip:bool = "originShipId && (additionalOptionsAvailable && originShipsAvailable ? showOriginShips : originShipsAvailable)")
 
 		(var shipRlevel:str = "entity.avatar.ship.ref.ship.levelRome")
 		(var shipSubtype:str = "entity.avatar.ship.ref.ship.subtype")
@@ -348,7 +359,9 @@
 
 		(var shipTTX:gfx = "isRealParams ? shipBattleInfo.shipTTX : shipParamsInBattle.shipTTX")
 		(var artilleryTTX:gfx = "shipTTX.artillery")
-		(var torpedoesTTX:gfx = "shipTTX[isSubmarine ? 'torpedoGroups' : 'torpedoes']")
+		(var torpedoesTTX:gfx = "shipTTX.torpedoes")
+		(var bowTorpedoGroupTTX:gfx = "shipTTX.torpedoes ? shipTTX.torpedoes.bowGroup : null")
+		(var sternTorpedoGroupTTX:gfx = "shipTTX.torpedoes ? shipTTX.torpedoes.sternGroup : null")
 		(var visibilityTTX:gfx = "shipTTX.visibility")
 		(var mobilityTTX:gfx = "shipTTX.mobility")
 		(var squadronsTTX:gfx = "shipTTX.squadrons")
@@ -358,9 +371,17 @@
 		(var torpedoRange:number = "torpedoesTTX ? torpedoesTTX.torpedo.maxDist.value : 0")
 		(var torpedoAltRange:number = "torpedoesTTX ? torpedoesTTX.torpedoAlt.maxDist.value : 0")
 		(var torpedoDeepwaterRange:number = "torpedoesTTX ? torpedoesTTX.torpedoDeepwater.maxDist.value : 0")
-		(var shipTorpedoRange:number = "isSubmarine ? max(torpedoRange, torpedoAltRange) : max(torpedoRange, torpedoDeepwaterRange)")
-		(var torpedoReloadTimeEntity:gfx = "isSubmarine ? torpedoesTTX.groups[0] : torpedoesTTX")
-		(var torpedoReloadTime:number = "torpedoReloadTimeEntity.reloadTime.value")
+		(var torpedoGroupsRange:number = "bowTorpedoGroupTTX || sternTorpedoGroupTTX ? max(bowTorpedoGroupTTX.torpedo.maxDist.value, sternTorpedoGroupTTX.torpedo.maxDist.value) : 0")
+		(var shipTorpedoRange:number = "max(torpedoRange, torpedoAltRange, torpedoDeepwaterRange, torpedoGroupsRange)")
+
+		(var torpedoReloadTime:number = "torpedoesTTX ? torpedoesTTX.reloadTime.value : 0")
+		(var torpedoGroupsReloadTime:number = "bowTorpedoGroupTTX || sternTorpedoGroupTTX ? min(bowTorpedoGroupTTX.reloadTime.value, sternTorpedoGroupTTX.reloadTime.value) : 0")
+		(var shipTorpedoReloadTime:number = "torpedoReloadTime && torpedoGroupsReloadTime ? min(torpedoReloadTime, torpedoGroupsReloadTime) : torpedoReloadTime || torpedoGroupsReloadTime || 0")
+
+#alternative
+#		(var shipTorpedoReloadTime:number = "torpedoReloadTime == 0 || torpedoGroupsReloadTime == 0 ? (torpedoReloadTime == 0 ? torpedoGroupsReloadTime : torpedoReloadTime)
+#																									: min(torpedoReloadTime, torpedoGroupsReloadTime)")
+
 		(var isDeepWater:bool = "torpedoesTTX.torpedoDeepwater.canHitClasses.length > 0")
 		(var shipVisibilityRange:number = "visibilityTTX ? visibilityTTX.visibilityByShip.normal.value : 0")
 		(var shipSpeed:number = "mobilityTTX ? mobilityTTX.speed.value : 0")
@@ -473,7 +494,7 @@
 			)
 			(element InfoPanelItem
 				 _valueSymbol = "'Q'"
-				 _valueText = "torpedoReloadTime"
+				 _valueText = "shipTorpedoReloadTime"
 				 _valueMeasure = "'s'"
 				 _textColor = "isDeepWater ? 0xFFCC66 : 0xEEEEEE"
 			)
