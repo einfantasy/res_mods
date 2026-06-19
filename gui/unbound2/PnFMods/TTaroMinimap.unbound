@@ -2452,11 +2452,8 @@
 		(var torp1:number = "torps && torps.torpedo ? torps.torpedo.maxDist.value : 0")
 		(var torp2:number = "torps && torps.torpedoDeepwater ? torps.torpedoDeepwater.maxDist.value : 0")
 		(var torp3:number = "torps && torps.torpedoAlt ? torps.torpedoAlt.maxDist.value : 0")
-		(var subTorps:gfx = "shipTTX && shipTTX.torpedoGroups ? shipTTX.torpedoGroups : null")
-		(var torp4:number = "subTorps && subTorps.torpedo ? subTorps.torpedo.maxDist.value : 0")
-		(var torp5:number = "subTorps && subTorps.torpedoDeepwater ? subTorps.torpedoDeepwater.maxDist.value : 0")
-		(var torp6:number = "subTorps && subTorps.torpedoAlt ? subTorps.torpedoAlt.maxDist.value : 0")
-		(var torpMaxRange:number = "max(torp1, torp2, torp3, torp4, torp5, torp6)")
+		# Submarine torpedoGroups were integrated into torpedoes; sub ammo now reads through torp1/torp2/torp3 above.
+		(var torpMaxRange:number = "max(torp1, torp2, torp3)")
 		(macro TT_GET_PREF_NUMBER	_varName="'torpDisplayMode'"		_pref="torpPref.DISPLAY_MODE")
 		(macro TT_GET_NULLABLE_PREF_BOOL	_varName="'isTorpEnabledInClass'"	_nullablePref="torpPref[enableInClassPrefKey]" _default="true")
 		(var isTorpEnabled:bool = "torpDisplayMode != TMap_DISPLAY_MODES.DISABLE && isTorpEnabledInClass")

@@ -95,7 +95,7 @@
 			<ships>	PJSA012_Zuikaku_1944 PJSA108_Shokaku PJSA908_Kikaku	</ships>
 		</IJN_group_4>
 		<IJN_group_5>
-			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano PJSC021_Kurama 	</ships>
+			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano PJSC021_Kurama	</ships>
 		</IJN_group_5>
 		<IJN_group_6>
 			<ships>	PJSB507_Ashitaka PJSC206_Gokase	</ships>
@@ -119,14 +119,20 @@
 			<ships>	PVSB019_Los_Andes PVSB719_Valparaiso PVSC104_Cordoba PVSC105_La_Argentina PVSC106_Almirante_Cochrane PVSC107_Coronel_Bolognesi PVSC502_Almirante_Abreu PVSC507_Nueve_de_Julio_1951 PVSC508_Almirante_Grau PVSC708_Comandante_Aguirre	</ships>
 		</PAM_group_1>
 		<PAM_group_2>
-			<ships>	PVSB505_Rio_de_Janeiro PVSC108_Ignacio_Allende PVSC109_Santander PVSC110_San_Martin	</ships>
+			<ships>	PVSB505_Rio_de_Janeiro PVSC108_Ignacio_Allende PVSC109_Santander PVSC110_San_Martin PVSC710_Almirante_Irizar	</ships>
 		</PAM_group_2>
 		<PAM_group_3>
-			<ships>	PVSC101_Hercules PVSC102_Almirante_Barroso PVSC103_Vicente_Guerrero PVSD506_Jurua PVSD710_La_Pampa	</ships>
+			<ships>	PVSC101_Hercules PVSC102_Almirante_Barroso PVSC103_Vicente_Guerrero PVSD506_Jurua PVSD710_La_Pampa PVSD018_Cuauhtemoc PVSD016_Cervantes PVSD019_Nueva_Esparta PVSD015_Antioquia	</ships>
 		</PAM_group_3>
 		<PAM_group_4>
 			<ships>	PVSB010_Libertad PVSB018_Ipiranga PVSB508_Atlantico PVSB990_Comodoro PVSA710_Independencia PVSB710_Sete_de_Setembro	</ships>
 		</PAM_group_4>
+		<PAM_group_5>
+			<ships>	PVSD010_20_de_Julio	</ships>
+		</PAM_group_5>
+		<PAM_group_6>
+			<ships>	PVSD017_Marcilio_Dias	</ships>
+		</PAM_group_6>
 		<PAN_group_1>
 			<ships>	PZSA508_Saipan_Sanzang PZSB708_Xuan_Wu PZSB709_Taihang PZSC106_Rahmat PZSC107_Chumphon PZSC108_Harbin PZSC503_Ning_Hai PZSC508_Irian PZSC509_Dalian PZSC710_Incheon PZSC719_Tianjin PZSC720_Zhuge_Liang PZSD508_LoYang PZSD510_Lushun PZSD910_Black_Lushun PZSD708_Zhu_Que PZSC718_Narai PZSC908_Pinata_Irian PZSC717_Lanzhou PZSC918_Azur_Harbin	</ships>
 		</PAN_group_1>
@@ -182,7 +188,7 @@
 			<ships>	PSSC101_Jupiter PSSC103_Navarra PSSD510_Alvaro_de_Bazan	</ships>
 		</SP_group_2>
 		<SP_group_3>
-			<ships>	PSSB719_Victoria PSSC719_Almirante_Oquendo	</ships>
+			<ships>	PSSB719_Victoria PSSC719_Almirante_Oquendo PSSB709_Triunfante	</ships>
 		</SP_group_3>
 		<UK_group_1>
 			<ships>	PBSA204_Hermes PBSB002_Warspite_1941 PBSB103_Bellerophon PBSB104_Orion PBSB105_Iron_Duke PBSB106_Queen_Elizabeth PBSB203_Indefatigable PBSB206_Renown PBSB503_Dreadnought PBSB547_Renown_1944 PBSC101_Black_Swan PBSC104_Danae PBSC105_Emerald PBSC106_Leander PBSC107_Fiji PBSC108_Edinburgh PBSC109_Neptune PBSC111_Edgar PBSC205_Hawkins PBSC207_Surrey PBSC208_Albemarle PBSC209_Drake PBSC210_Goliath PBSC505_Exeter PBSC507_Belfast_1959 PBSC707_STPatric_Belfast_1959 PBSC516_London PBSC518_Tiger_1959 PBSC718_STPatric_Tiger_1959 PBSC526_Dido PBSC528_Belfast_1943 PBSC708_STPatric_Belfast_1943 PBSC538_Hampshire PBSC716_Orion_1944 PBSC888_Edinburgh_PR PBSC910_Cyclops PBSD503_Campbeltown_1941 PBSS106_Undine PBSS108_Sturdy PBSS110_Thrasher PUSC001_Sutlej PUSC014_Dunedin PUSC015_Delhi PUSC025_Red_Fort PUSC506_Perth_1942 PUSC516_Mysore PUSC717_Gambia PBSC719_Aberdeen PBSC909_Pirate_Neptune	</ships>
@@ -215,7 +221,7 @@
 			<ships>	PASA002_Bogue_1942 PASA010_Ranger_1944 PASA106_Ranger PASC207_Helena PASC508_Wichita	</ships>
 		</USN_group_4>
 		<USN_group_5>
-			<ships>	PASA015_Midway_1945 PASA028_Yorktown PASA110_Midway PASA111_United_States PASA208 PASA508_Enterprise PASA510_Roosevelt PASA518_Enterprise PASA538_Hornet PASA898_AZUR_Hornet PASA915_TST_Midway PASB109_Minnesota PASB110_Vermont PASB111_Maine PASB208_Nebraska PASB209_Delaware PASB210_Louisiana PASB519_Kearsarge PASB527_West_Virginia_1944 PASB539_Illinois PASB599_Black_Kearsarge PASB889_Azur_Kearsarge PASB707_California PASB718_Tennessee PASB730_Wisconsin PASB910_Connecticut PASB990_Utah PASC610_Puerto_Rico PASC910_Black_Puerto_Rico Yorktown PASB719_Indiana PASC720_Hawaii PASC920_Gold_Hawaii PASB909_Pirate_Delaware PASC729_Fort_Worth	</ships>
+			<ships>	PASA015_Midway_1945 PASA028_Yorktown PASA110_Midway PASA111_United_States PASA208 PASA508_Enterprise PASA510_Roosevelt PASA518_Enterprise PASA538_Hornet PASA898_AZUR_Hornet PASA915_TST_Midway PASB109_Minnesota PASB110_Vermont PASB111_Maine PASB208_Nebraska PASB209_Delaware PASB210_Louisiana PASB519_Kearsarge PASB527_West_Virginia_1944 PASB539_Illinois PASB599_Black_Kearsarge PASB889_Azur_Kearsarge PASB707_California PASB718_Tennessee PASB730_Wisconsin PASB910_Connecticut PASB990_Utah PASC610_Puerto_Rico PASC910_Black_Puerto_Rico Yorktown PASB719_Indiana PASC720_Hawaii PASC920_Gold_Hawaii PASB909_Pirate_Delaware PASC729_Fort_Worth PASB940_250TH_Wisconsin PASC909_250TH_Fort_Worth	</ships>
 		</USN_group_5>
 		<USN_group_6>
 			<ships>	PASC810_Austin	</ships>
@@ -2532,6 +2538,27 @@
 			<color3>1.0000 1.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorSchemeViente_de_Julio	</name>
+			<color0>0.1840 0.2120 0.2310 0.7840</color0>
+			<color1>0.0000 0.0000 0.0000 0.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Almirante_Irizar	</name>
+			<color0>0.1870 0.2670 0.3400 1.0000</color0>
+			<color1>0.0870 0.1470 0.1900 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Cervantes	</name>
+			<color0>0.1870 0.2670 0.3400 1.0000</color0>
+			<color1>0.0870 0.1470 0.1900 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorScheme_ComandanteAguirre	</name>
 			<color0>0.1260 0.1340 0.1370 1.0000</color0>
 			<color1>0.2900 0.3250 0.3201 1.0000</color1>
@@ -2539,9 +2566,30 @@
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorScheme_Cuauhtemoc	</name>
+			<color0>0.0461 0.1010 0.1434 1.0000</color0>
+			<color1>0.2271 0.2759 0.3297 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorScheme_Independencia	</name>
 			<color0>0.0870 0.1470 0.1900 1.0000</color0>
 			<color1>0.1870 0.2670 0.3400 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Marcilio_Dias	</name>
+			<color0>0.1361 0.1801 0.2233 1.0000</color0>
+			<color1>0.5234 0.5542 0.5796 1.0000</color1>
+			<color2>0.0278 0.0342 0.0462 1.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Nueva_Esparta	</name>
+			<color0>0.1870 0.2270 0.2500 1.0000</color0>
+			<color1>0.0000 0.0000 0.0000 0.0000</color1>
 			<color2>0.0000 0.0000 0.0000 0.0000</color2>
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
@@ -3344,13 +3392,6 @@
 			<color3>0.1810 0.1010 0.0620 1.0000</color3>
 		</colorScheme>
 		<colorScheme>
-			<name>	colorSchemeSPP01_CN	</name>
-			<color0>0.3070 0.3110 0.3299 1.0000</color0>
-			<color1>0.0000 0.0000 0.0000 0.0000</color1>
-			<color2>0.0530 0.0880 0.1290 1.0000</color2>
-			<color3>0.0000 0.0000 0.0000 0.0000</color3>
-		</colorScheme>
-		<colorScheme>
 			<name>	colorSchemeSP01	</name>
 			<color0>0.0530 0.0880 0.1290 1.0000</color0>
 			<color1>0.0140 0.0260 0.0600 1.0000</color1>
@@ -3363,6 +3404,13 @@
 			<color1>0.4450 0.2830 0.0270 1.0000</color1>
 			<color2>0.0680 0.0880 0.1190 1.0000</color2>
 			<color3>0.1760 0.0210 0.0210 1.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorSchemeSPP01_CN	</name>
+			<color0>0.3070 0.3110 0.3299 1.0000</color0>
+			<color1>0.0530 0.0880 0.1290 1.0000</color1>
+			<color2>0.0530 0.0880 0.1290 1.0000</color2>
+			<color3>0.0530 0.0880 0.1290 1.0000</color3>
 		</colorScheme>
 		<colorScheme>
 			<name>	colorSchemeSPP02	</name>
@@ -32348,6 +32396,1793 @@
 					<Influence_m>	0.0	</Influence_m>
 					<Influence_g>	0.0	</Influence_g>
 					<Influence_n>	0.0	</Influence_n>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	IND250	</annotation>
+			<name>	mat_IND250_Carolina	</name>
+			<targetShip>	PASB012_North_Carolina_1945	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES302_Ind250_North_Carolina_1945_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Ind250	</annotation>
+			<name>	mat_Ind250_Gold	</name>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	notcn	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Ind250_Gold	</annotation>
+			<name>	mat_Ind250_Gold_Wisconsin	</name>
+			<targetShip>	PASB940_250TH_Wisconsin	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Gold_Wisconsin_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Ind250	</annotation>
+			<name>	mat_Ind250_Maine	</name>
+			<targetShip>	PASB111_Maine	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.5000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.5000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.5000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Maine_mgn.dds
+					<Influence_m>	0.7900	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	ind250	</annotation>
+			<name>	mat_Ind250_Puerto_Rico	</name>
+			<targetShip>	PASC610_Puerto_Rico	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_Puerto_Rico_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Ind250 unique permOflage block for the ships with a texture 4096*4096+4096*4096	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<UV>
+				<Hull>
+					<scale>	1.5000 1.5000	</scale>
+					<offset>	-1.9200 -0.0400	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.5000 1.5000	</scale>
+					<offset>	0.0000 -0.5500	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*2048	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	EUR_group_2 FRA_group_2 GER_group_2 IJN_group_2 ITA_group_3 NL_group_1 PAM_group_3 PAN_group_2 POL_group_1 RUS_group_2 SP_group_2 UK_group_2 USN_group_2	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	2.0000 1.0000	</scale>
+					<offset>	2.1100 -0.1400	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.2000	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	GER_group_6 RUS_group_3 USN_group_7	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 1.0000	</scale>
+					<offset>	0.0100 -0.2000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.2000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.3800 0.8700	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*4096+4096*2048, 2048*2048+2048*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	FRA_group_3 GER_group_3 IJN_group_3 ITA_group_2 RUS_group_7 UK_group_3 USN_group_3	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 0.5000	</scale>
+					<offset>	0.0100 -0.2000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.2000	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*4096+1024*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	IJN_group_4 RUS_group_4 USN_group_4	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*4096+4096*4096	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	FRA_group_4 GER_group_4 IJN_group_5 ITA_group_4 PAN_group_4 RUS_group_5 UK_group_4 USN_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*4096+2048*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	FRA_group_7 GER_group_5 IJN_group_6 RUS_group_6 USN_group_6	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*2048+4096*4096	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	FRA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*2048+2048*2048, 2048*1024+1024*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	EUR_group_3 FRA_group_6 GER_group_7 UK_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 0.5000	</scale>
+					<offset>	-0.9900 0.1300	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0100 0.3500	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	mat_Ind250_Style tileoflage block for the ships with a texture 4096*2048+1024*1024	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	FRA_group_8 ITA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 0.5000	</scale>
+					<offset>	-0.0500 2.3200	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.5000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_a.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP17
+				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	Ind250 unique permOflage block for the ships with a texture 4096*4096, 2048*2048, 4096*4096+2048*2048	</annotation>
+			<name>	mat_Ind250_Style	</name>
+			<shipGroups>	EUR_group_1 FRA_group_1 GER_group_1 IJN_group_1 ITA_group_1 NL_group_2 PAM_group_1 PAN_group_1 PAN_group_3 RUS_group_1 SP_group_1 UK_group_1 USN_group_1	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0100 -0.1900	</offset>
+					<rotate>	2.2200	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_DarkBlue_Azur_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_PAES403_Ind250_Gold_Fort_Worth_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
 				</Wire_mgn>
 			</Textures>
 			<colorSchemes>
@@ -77224,7 +79059,7 @@
 					<rotate>	0.0	</rotate>
 				</DeckHouse>
 				<Tile>
-					<scale>	2.0	12.0	</scale>
+					<scale>	2.0	1.0	</scale>
 					<offset>	0.0	0.0	</offset>
 					<rotate>	0.0	</rotate>
 				</Tile>
@@ -90313,6 +92148,123 @@
 			<colorSchemes>	colorSchemePAM01	</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*2048	</annotation>
+			<name>	camo_1_tile	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<shipGroups>	PAM_group_5	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<Tile>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Tile>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/PAM_camo_tile_01.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
+			<name>	camo_1_tile	</name>
+			<useColorScheme>	True	</useColorScheme>
+			<shipGroups>	PAM_group_6	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<DeckHouse>
+					<scale>	1.6	0.8	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</DeckHouse>
+				<Tile>
+					<scale>	3.2	1.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Tile>
+				<Gun>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Director>
+				<Plane>
+					<scale>	0.5	0.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5	0.25	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Float>
+				<Misc>
+					<scale>	0.3	0.3	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Misc>
+				<Bulge>
+					<scale>	1.5	1.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Bulge>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/PAM_camo_tile_01.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Pan-America tile camouflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
 			<name>	camo_2_tile	</name>
 			<useColorScheme>	True	</useColorScheme>
@@ -90525,6 +92477,123 @@
 			<colorSchemes>	colorSchemePAM01	</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*2048	</annotation>
+			<name>	camo_2_tile	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<shipGroups>	PAM_group_5	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<Tile>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Tile>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/IJN_tile_camo_02.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
+			<name>	camo_2_tile	</name>
+			<useColorScheme>	True	</useColorScheme>
+			<shipGroups>	PAM_group_6	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<DeckHouse>
+					<scale>	1.6	0.8	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</DeckHouse>
+				<Tile>
+					<scale>	3.2	1.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Tile>
+				<Gun>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Director>
+				<Plane>
+					<scale>	0.5	0.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5	0.25	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Float>
+				<Misc>
+					<scale>	0.3	0.3	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Misc>
+				<Bulge>
+					<scale>	1.5	1.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Bulge>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/IJN_tile_camo_02.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Pan-America tile camouflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
 			<name>	camo_3_tile	</name>
 			<useColorScheme>	True	</useColorScheme>
@@ -90737,6 +92806,123 @@
 			<colorSchemes>	colorSchemePAM01	</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*2048	</annotation>
+			<name>	camo_3_tile	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<shipGroups>	PAM_group_5	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<Tile>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Tile>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/Dazzle_tile_camo_05.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
+			<name>	camo_3_tile	</name>
+			<useColorScheme>	True	</useColorScheme>
+			<shipGroups>	PAM_group_6	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<DeckHouse>
+					<scale>	1.6	0.8	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</DeckHouse>
+				<Tile>
+					<scale>	3.2	1.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Tile>
+				<Gun>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Director>
+				<Plane>
+					<scale>	0.5	0.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5	0.25	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Float>
+				<Misc>
+					<scale>	0.3	0.3	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Misc>
+				<Bulge>
+					<scale>	1.5	1.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Bulge>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/Dazzle_tile_camo_05.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Pan-America economic tile camouflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
 			<name>	camo_economic_tile	</name>
 			<useColorScheme>	True	</useColorScheme>
@@ -90947,6 +93133,123 @@
 				<Tile>	content/gameplay/common/camouflage/textures/Dazzle_tile_camo_04.dds	</Tile>
 			</Textures>
 			<colorSchemes>	colorSchemePAM01	</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*2048	</annotation>
+			<name>	camo_economic_tile	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<shipGroups>	PAM_group_5	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<Tile>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Tile>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/Dazzle_tile_camo_04.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Pan-America tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
+			<name>	camo_economic_tile	</name>
+			<useColorScheme>	True	</useColorScheme>
+			<shipGroups>	PAM_group_6	</shipGroups>
+			<tiled>	true	</tiled>
+			<UV>
+				<DeckHouse>
+					<scale>	1.6	0.8	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</DeckHouse>
+				<Tile>
+					<scale>	3.2	1.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Tile>
+				<Gun>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.6	0.6	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Director>
+				<Plane>
+					<scale>	0.5	0.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.5	0.25	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Float>
+				<Misc>
+					<scale>	0.3	0.3	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Misc>
+				<Bulge>
+					<scale>	1.5	1.5	</scale>
+					<offset>	0.0	0.0	</offset>
+					<rotate>	0.0	</rotate>
+				</Bulge>
+			</UV>
+			<Textures>
+				<Tile>	content/gameplay/common/camouflage/textures/Dazzle_tile_camo_04.dds	</Tile>
+			</Textures>
+			<colorSchemes>
+					colorSchemePAM01
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
 		</camouflage>
 		<camouflage>
 			<annotation>	Pan-Asian tile camouflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
@@ -95445,7 +97748,7 @@
 		<camouflage>
 			<annotation>	ACT tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_ACT_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -96142,7 +98445,7 @@
 		<camouflage>
 			<annotation>	American Arc tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_American_Arc_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -96795,7 +99098,7 @@
 		<camouflage>
 			<annotation>	ANZAC day tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_ANZAC_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -97486,7 +99789,7 @@
 		<camouflage>
 			<annotation>	Azure tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Azure_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -98207,7 +100510,7 @@
 		<camouflage>
 			<annotation>	March madness basketball event tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_basketball_tile_1	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -98830,7 +101133,7 @@
 		<camouflage>
 			<annotation>	March madness basketball event tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_basketball_tile_2	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -99453,7 +101756,7 @@
 		<camouflage>
 			<annotation>	March madness basketball event tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_basketball_tile_3	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -100076,7 +102379,7 @@
 		<camouflage>
 			<annotation>	March madness basketball event tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_basketball_tile_4	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -100699,7 +103002,7 @@
 		<camouflage>
 			<annotation>	Black templar tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_BIGNIL_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -101562,7 +103865,7 @@
 		<camouflage>
 			<annotation>	Blue Archive tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_BlueArchive_tile	</name>
-			<shipGroups>	EUR_group_2 USN_group_8	</shipGroups>
+			<shipGroups>	EUR_group_2 USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -102325,7 +104628,7 @@
 		<camouflage>
 			<annotation>	Brazilian Anniversary tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Brazilian_Anniversary_tile	</name>
-			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -102980,7 +105283,7 @@
 		<camouflage>
 			<annotation>	Canada day tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_CanadaDay_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -103513,7 +105816,7 @@
 		<camouflage>
 			<annotation>	CN NY 2018 tile 01 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_CN_NY_2018_01_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -104136,7 +106439,7 @@
 		<camouflage>
 			<annotation>	CN NY 2018 tile 02 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_CN_NY_2018_02_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -104759,7 +107062,7 @@
 		<camouflage>
 			<annotation>	CN NY 2018 tile 03 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_CN_NY_2018_03_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -105485,7 +107788,7 @@
 		<camouflage>
 			<annotation>	CN special tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_cn_special_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -106108,7 +108411,7 @@
 		<camouflage>
 			<annotation>	Clash of the Elements Fire tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_coefire_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -106731,7 +109034,7 @@
 		<camouflage>
 			<annotation>	Clash of the Elements Water tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_coewater_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -107355,7 +109658,7 @@
 		<camouflage>
 			<annotation>	CompasRose tile block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_CompasRose_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -107978,7 +110281,7 @@
 		<camouflage>
 			<annotation>	Contributors 01 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Contributors_01_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -108605,7 +110908,7 @@
 		<camouflage>
 			<annotation>	Contributors 02 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Contributors_02_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -109246,7 +111549,7 @@
 		<camouflage>
 			<annotation>	Dumpling tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Dumpling_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -109869,7 +112172,7 @@
 		<camouflage>
 			<annotation>	DutchArc tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_DutchArc_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -110498,7 +112801,7 @@
 		<camouflage>
 			<annotation>	Dynamo tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Dynamo_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -111121,7 +113424,7 @@
 		<camouflage>
 			<annotation>	EGS tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_EGS_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -111744,7 +114047,7 @@
 		<camouflage>
 			<annotation>	Elite Tournament 2022 tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_ET2022_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -112367,7 +114670,7 @@
 		<camouflage>
 			<annotation>	Restless Fire tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_EU_special_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -112990,7 +115293,7 @@
 		<camouflage>
 			<annotation>	Black templar tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Fields_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -113779,7 +116082,7 @@
 		<camouflage>
 			<annotation>	Games Con 2016 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_gamescon_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -114402,7 +116705,7 @@
 		<camouflage>
 			<annotation>	Tier 11 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_generalBattle_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -115285,7 +117588,7 @@
 		<camouflage>
 			<annotation>	German Arc 2020 tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_GermanArc_2020_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -115908,7 +118211,7 @@
 		<camouflage>
 			<annotation>	German Reunification 24 tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_German_Reunification_24_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -116541,7 +118844,7 @@
 		<camouflage>
 			<annotation>	GNB tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_GNB_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -117164,7 +119467,7 @@
 		<camouflage>
 			<annotation>	GoldenWeek2021 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_GoldenWeek2021_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -117976,7 +120279,7 @@
 		<camouflage>
 			<annotation>	Halloween 2016 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_halloween_2016_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -118599,7 +120902,7 @@
 		<camouflage>
 			<annotation>	Halloween 2015 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_halloween_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -119222,7 +121525,7 @@
 		<camouflage>
 			<annotation>	Headless Horseman tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Headless_Horseman_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -119913,7 +122216,7 @@
 		<camouflage>
 			<annotation>	Hololive tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Hololive_tile	</name>
-			<shipGroups>	USN_group_8 EUR_group_2	</shipGroups>
+			<shipGroups>	USN_group_8 EUR_group_2 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -120588,7 +122891,7 @@
 		<camouflage>
 			<annotation>	Humble_Bundle tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Humble_Bundle_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -121211,7 +123514,7 @@
 		<camouflage>
 			<annotation>	Hunt tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_hunt_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -122417,7 +124720,7 @@
 		<camouflage>
 			<annotation>	India tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_India_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -123020,7 +125323,7 @@
 		<camouflage>
 			<annotation>	Ionasi tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Ionasi_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -123553,7 +125856,7 @@
 		<camouflage>
 			<annotation>	Italian_Arc_tile camouflage block for the ships with a texture 4096*2048+2048+1024	</annotation>
 			<name>	camo_Italian_Arc_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -124316,7 +126619,7 @@
 		<camouflage>
 			<annotation>	Jutland tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Jutland_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -124939,7 +127242,7 @@
 		<camouflage>
 			<annotation>	KNGvsGODZ Godzilla tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_KNGvsGODZ_Godzilla_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -125562,7 +127865,7 @@
 		<camouflage>
 			<annotation>	KNGvsGODZ Kong tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_KNGvsGODZ_Kong_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -126223,7 +128526,7 @@
 		<camouflage>
 			<annotation>BestNaomi KOL tile camouflage block for the ships with a texture 4096*2048+2048*1024</annotation>
 			<name>camo_KOL_BestNaomi_tile</name>
-			<shipGroups>USN_group_8</shipGroups>
+			<shipGroups>USN_group_8 PAM_group_6</shipGroups>
 			<tiled>true</tiled>
 			<UV>
 	  
@@ -127003,7 +129306,7 @@
 		<camouflage>
 			<annotation>UoCat KOL tile camouflage block for the ships with a texture 4096*2048+2048*1024</annotation>
 			<name>camo_KOL_UoCat_tile</name>
-			<shipGroups>USN_group_8</shipGroups>
+			<shipGroups>USN_group_8 PAM_group_6</shipGroups>
 			<tiled>true</tiled>
 			<UV>
 	  
@@ -127603,7 +129906,7 @@
 		<camouflage>
 			<annotation>	Korea tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_korea_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -128240,7 +130543,7 @@
 		<camouflage>
 			<annotation>	KOTS13 green tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_KOTS13_green_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	false	</tiled>
 			<UV>
 				<Tile>
@@ -129006,7 +131309,7 @@
 		<camouflage>
 			<annotation>	KOTS13 red tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_KOTS13_red_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	false	</tiled>
 			<UV>
 				<Tile>
@@ -129699,7 +132002,7 @@
 		<camouflage>
 			<annotation>	Blue Lagoon tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_lagoon_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -130478,7 +132781,7 @@
 		<camouflage>
 			<annotation>	LOGH_Aliance tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_LOGH_Aliance	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -131101,7 +133404,7 @@
 		<camouflage>
 			<annotation>	LOGH_Empire tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_LOGH_Empire	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -131724,7 +134027,7 @@
 		<camouflage>
 			<annotation>	LTT tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_LTT_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -132347,7 +134650,7 @@
 		<camouflage>
 			<annotation>	Lunar new year 2019 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_lunarnewyear_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -133038,7 +135341,7 @@
 		<camouflage>
 			<annotation>	MGT-20 event tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_mgt_20_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -133661,7 +135964,7 @@
 		<camouflage>
 			<annotation>	MicrosoftStore tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_MicrosoftStore_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -134352,7 +136655,7 @@
 		<camouflage>
 			<annotation>	Museum Activities tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Museum_Activities_tile	</name>
-			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -135027,7 +137330,7 @@
 		<camouflage>
 			<annotation>	Natu_Camo tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Natu_Camo_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -135650,7 +137953,7 @@
 		<camouflage>
 			<annotation>	Black templar tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_navoeval_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -136273,7 +138576,7 @@
 		<camouflage>
 			<annotation>	Navy_day_CN tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Navy_day_CN_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -136844,7 +139147,7 @@
 		<camouflage>
 			<annotation>	NY 2021 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_NewYear2021_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -137467,7 +139770,7 @@
 		<camouflage>
 			<annotation>	NewYear 2016 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_newyear_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -138090,7 +140393,7 @@
 		<camouflage>
 			<annotation>	NewYear 2017 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_newyear_tile_2	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -138713,7 +141016,7 @@
 		<camouflage>
 			<annotation>	NY 2018 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_newyear_tile_3	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -140043,7 +142346,7 @@
 		<camouflage>
 			<annotation>	Ordem e Progresso tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Ordem_e_Progresso_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -140666,7 +142969,7 @@
 		<camouflage>
 			<annotation>	Ovechkin camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Ovechkin_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -141289,7 +143592,7 @@
 		<camouflage>
 			<annotation>	st. Patrick day 2017 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_patrick_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -141912,7 +144215,7 @@
 		<camouflage>
 			<annotation>	Narvik Gray tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_PCEM195_Tile_Narvik_Gray	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -142535,7 +144838,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -143158,7 +145461,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_aqua	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -143781,7 +146084,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_black	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -144404,7 +146707,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_blue	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -145027,7 +147330,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_carrot	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -145650,7 +147953,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_emerald	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -146273,7 +148576,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_green	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -146896,7 +149199,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_indigo	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -147519,7 +149822,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_khaki	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -148142,7 +150445,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_lilac	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -148765,7 +151068,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_orange	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -149388,7 +151691,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_pink	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -150011,7 +152314,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_purple	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -150634,7 +152937,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_red	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -151257,7 +153560,7 @@
 		<camouflage>
 			<annotation>	Pinata tile camouflage block for all of the ships	</annotation>
 			<name>	camo_Pinata_tile_yellow	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -151880,7 +154183,7 @@
 		<camouflage>
 			<annotation>	Pirate tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Pirate_tile	</name>
-			<shipGroups>	IJN_group_7 USN_group_8 GER_group_8 ITA_group_3 EUR_group_2 NL_group_1	</shipGroups>
+			<shipGroups>	IJN_group_7 USN_group_8 GER_group_8 ITA_group_3 EUR_group_2 NL_group_1 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -152399,7 +154702,7 @@
 		<camouflage>
 			<annotation>	Pi Day 2018 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Pi_day_2018_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -153022,7 +155325,7 @@
 		<camouflage>
 			<annotation>	Postap tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Postap_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -153645,7 +155948,7 @@
 		<camouflage>
 			<annotation>	PQ17 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_PQ17_tile	</name>
-			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 EUR_group_2 GER_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -154324,7 +156627,7 @@
 		<camouflage>
 			<annotation>	Psplive tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Psplive_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -155019,7 +157322,7 @@
 		<camouflage>
 			<annotation>	Public Test 2022 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_PT2022_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -155642,7 +157945,7 @@
 		<camouflage>
 			<annotation>	PvE disguising type tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_pve1_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -156265,7 +158568,7 @@
 		<camouflage>
 			<annotation>	PvE bright type tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_pve2_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -156888,7 +159191,7 @@
 		<camouflage>
 			<annotation>	Ranked battles tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_ranked_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -157609,7 +159912,7 @@
 		<camouflage>
 			<annotation>	RexMaris tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_RexMaris_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -158232,7 +160535,7 @@
 		<camouflage>
 			<annotation>	Sci-fi tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_SciFi_space01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -158958,7 +161261,7 @@
 		<camouflage>
 			<annotation>	Secret Santa 2018 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_secretsanta2018_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -160630,7 +162933,7 @@
 		<camouflage>
 			<annotation>	Soviet Arc camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Soviet_Arc_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -161253,7 +163556,7 @@
 		<camouflage>
 			<annotation>	SSE tasks tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_sse_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -161876,7 +164179,7 @@
 		<camouflage>
 			<annotation>	Steam tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Steam_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -162499,7 +164802,7 @@
 		<camouflage>
 			<annotation>	EGS tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_StPatrick_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -163190,7 +165493,7 @@
 		<camouflage>
 			<annotation>	Stream Dream camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Stream_Dream_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -163813,7 +166116,7 @@
 		<camouflage>
 			<annotation>	Super Test Unique tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_sts_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -164436,7 +166739,7 @@
 		<camouflage>
 			<annotation>	SummerSale2020 tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_SummerSale2020_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -165064,7 +167367,7 @@
 			<annotation>	Summer Festival tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Summer_Festival_tile	</name>
 			<useColorScheme>	false	</useColorScheme>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -165695,7 +167998,7 @@
 		<camouflage>
 			<annotation>	Super Test Tile tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_supertest_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -166298,7 +168601,7 @@
 		<camouflage>
 			<annotation>	SwedenArc tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_SwedenArc_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -166831,7 +169134,7 @@
 		<camouflage>
 			<annotation>	TGS 2017 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_TGS_2017_tile01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -167449,7 +169752,7 @@
 		<camouflage>
 			<annotation>	Thanks Giving Day camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_thxGiving_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -168188,7 +170491,7 @@
 		<camouflage>
 			<annotation>	Transformer Autobots tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Transformer_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -168711,7 +171014,7 @@
 		<camouflage>
 			<annotation>	Transformer Decepticon tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Transformer_tile_02	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -169244,7 +171547,7 @@
 		<camouflage>
 			<annotation>	Twitch tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_twitch_tile01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -169866,7 +172169,7 @@
 		<camouflage>
 			<annotation>	Ukr Charity tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Ukr_Charity_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -170614,7 +172917,7 @@
 		<camouflage>
 			<annotation>	Union Jack tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Union_Jack_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -171255,7 +173558,7 @@
 		<camouflage>
 			<annotation>	Valentines day 2017 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_valentine_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -171878,7 +174181,7 @@
 		<camouflage>
 			<annotation>	Victory Day tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_victoryday_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -172505,7 +174808,7 @@
 		<camouflage>
 			<annotation>	Viva_la_France tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Viva_la_France_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -173126,7 +175429,7 @@
 		<camouflage>
 			<annotation>	Volunteer tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Volunteer_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -173659,7 +175962,7 @@
 		<camouflage>
 			<annotation>	Black templar tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_Warhammer_BlackTemplar_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -175041,7 +177344,7 @@
 		<camouflage>
 			<annotation>	WH40K Chaos tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_WH40K_Chaos_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -175732,7 +178035,7 @@
 		<camouflage>
 			<annotation>	WH40K Imperial tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_WH40K_Imperial_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -176355,7 +178658,7 @@
 		<camouflage>
 			<annotation>	International Women's Day 2018 tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_womens_day_2018_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -176978,7 +179281,7 @@
 		<camouflage>
 			<annotation>	WowsBirthday5 tile camouflage block for all ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_WowsBirthday5_tile_01	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -177601,7 +179904,7 @@
 		<camouflage>
 			<annotation>	WoWs birthday special tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	camo_wows_birthday_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -178292,7 +180595,7 @@
 		<camouflage>
 			<annotation>	Commander Day tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Commander_day	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -179018,7 +181321,7 @@
 		<camouflage>
 			<annotation>	DMM tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	DMM_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -179641,7 +181944,7 @@
 		<camouflage>
 			<annotation>	Dragon_Boat_Festival tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Dragon_Boat_Festival	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -180264,7 +182567,7 @@
 		<camouflage>
 			<annotation>	Sharks vs Eagles tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Eagles_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -180887,7 +183190,7 @@
 		<camouflage>
 			<annotation>	GamesCom 2018 camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	GamesCom_2018	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<Tile>
@@ -181608,7 +183911,7 @@
 		<camouflage>
 			<annotation>	Navy day tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Navy_day	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -182623,7 +184926,7 @@
 		<camouflage>
 			<annotation>	Sharks vs Eagles tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Sharks_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -183252,7 +185555,7 @@
 		<camouflage>
 			<annotation>	Ranked battles tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	Super_ECO_Type_8	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -183905,7 +186208,7 @@
 		<camouflage>
 			<annotation>	WG_Fest tile camouflage block for the ships with a texture 4096*2048+2048*1024	</annotation>
 			<name>	WG_Fest_tile	</name>
-			<shipGroups>	USN_group_8	</shipGroups>
+			<shipGroups>	USN_group_8 PAM_group_6	</shipGroups>
 			<tiled>	true	</tiled>
 			<UV>
 				<DeckHouse>
@@ -210034,6 +212337,186 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Cuauhtemoc camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSD018_Cuauhtemoc	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/VSD308_Cuauhtemoc_1970_camo_01.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Cuauhtemoc
+				<colorUI>0.2469 0.3527 0.4136 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Almirante Irizar camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSC710_Almirante_Irizar	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/VSC302_Almirante_Irizar_1955_camo01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/VSC302_Almirante_Irizar_1955_Deckhouse_camo01.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Almirante_Irizar
+				<colorUI>0.4667 0.5487 0.6124 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Veinte_de_Julio_unique permOflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSD010_20_de_Julio	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Director>
+				<Plane>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Plane>
+				<Float>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Float>
+			</Textures>
+			<colorSchemes>
+					colorSchemeViente_de_Julio
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Cervantes unique permOflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSD016_Cervantes	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/VSD306_Cervantes_1927_camo_01.dds	</Hull>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Director>
+				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Cervantes
+				<colorUI>0.4667 0.5487 0.6124 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Marcilio_Dias camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSD017_Marcilio_Dias	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/VSD307_Marcilio_Dias_1943_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/VSD307_Marcilio_Dias_1943_DeckHouse_camo_01.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Marcilio_Dias
+				<colorUI>0.4039 0.4588 0.5059 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Nueva Esparta camo permannt block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PVSD019_Nueva_Esparta	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Nueva_Esparta
+				<colorUI>0.4667 0.5097 0.5325 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Almirante Abreu unique permOflage block	</annotation>
 			<name>	camo_permanent_2	</name>
 			<targetShip>	PVSC502_Almirante_Abreu	</targetShip>
@@ -218645,6 +221128,66 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Triumfante  unique permOflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PSSB709_Triunfante	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/SSB302_Triunfante_1945_Camo1_Hull.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Director>
+				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+				<Plane>	content/gameplay/common/camouflage/textures/Plane_tile_camo_R.dds	</Plane>
+				<Float>	content/gameplay/common/camouflage/textures/Plane_tile_camo_R.dds	</Float>
+			</Textures>
+			<colorSchemes>
+					colorSchemeSPP01
+				<colorUI>0.0680 0.0880 0.1190 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeSPP01_CN
+				<colorUI>0.6921 0.5634 0.1936 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Canarias unique permOflage block	</annotation>
 			<name>	camo_permanent_flag	</name>
 			<useColorScheme>	True	</useColorScheme>
@@ -219445,6 +221988,62 @@
 				<Plane>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Plane>
 				<Float>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Float>
 				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+			</Textures>
+			<colorSchemes>
+					colorSchemeSPP02
+				<colorUI>0.0680 0.0880 0.1190 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Triunfante unique permOflage block	</annotation>
+			<name>	camo_permanent_flag	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PSSB709_Triunfante	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/SSB302_Triunfante_1945_Camo3_Hull.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Director>
+				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+				<Plane>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Plane>
+				<Float>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Float>
 			</Textures>
 			<colorSchemes>
 					colorSchemeSPP02
@@ -232406,6 +235005,7 @@
 					colorSchemeWisconsin_alt
 				<colorUI>0.4200 0.4390 0.4630 1.0000</colorUI>
 			</colorSchemes>
+			<targetShip>	PASB940_250TH_Wisconsin	</targetShip>
 		</camouflage>
 		<camouflage>
 			<annotation>	Jacksonville permOflage block	</annotation>
@@ -233055,6 +235655,7 @@
 					colorSchemeUSNP15
 				<colorUI>0.4397 0.4972 0.5227 1.0000</colorUI>
 			</colorSchemes>
+			<targetShip>	PASC909_250TH_Fort_Worth	</targetShip>
 		</camouflage>
 		<camouflage>
 			<annotation>	Black Rank camo Crocodile unique permOflage block	</annotation>

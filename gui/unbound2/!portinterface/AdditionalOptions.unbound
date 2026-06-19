@@ -1,27 +1,28 @@
 (def constant ADDITIONAL_OPTIONS_INSTALLED true)
 
-#(def constant ON_INSTALL_STATUS_FOR_ID {
-#	'resources':		"ADDITIONAL_RESOURCES_INSTALLED",
-#	'carousel':			"CAROUSEL_INSTALLED",
-#	'rarity':			"HIDE_RARITY_INSTALLED",
-#	'navi_buttons':		"NAVI_BUTTONS_INSTALLED",
-#	'origin_flag':		"ORIGIN_FLAGS_INSTALLED",
-#	'origin_ship':		"ORIGIN_SHIPS_INSTALLED",
-#	'population':		"SERVER_POPULATION_INSTALLED",
-#	'ship_name':		"SHIP_NAMES_INSTALLED"
-#})
+
+(def constant ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS {
+	ADDITIONAL_RESOURCES: "ADDITIONAL_RESOURCES_INSTALLED",
+	CAROUSEL: "CAROUSEL_INSTALLED",
+	HIDE_RARITY: "HIDE_RARITY_INSTALLED",
+	NAVI_BUTTONS: "NAVI_BUTTONS_INSTALLED",
+	ORIGIN_FLAGS: "ORIGIN_FLAGS_INSTALLED",
+	ORIGIN_SHIPS: "ORIGIN_SHIPS_INSTALLED",
+	SERVER_POPULATION: "SERVER_POPULATION_INSTALLED",
+	SHIP_NAMES: "SHIP_NAMES_INSTALLED"
+})
 
 
-(def constant ON_INSTALL_STATUS_FOR_OPTION_COMPONENTS [
-	"ADDITIONAL_RESOURCES_INSTALLED",
-	"CAROUSEL_INSTALLED",
-	"HIDE_RARITY_INSTALLED",
-	"NAVI_BUTTONS_INSTALLED",
-	"ORIGIN_FLAGS_INSTALLED",
-	"ORIGIN_SHIPS_INSTALLED",
-	"SERVER_POPULATION_INSTALLED",
-	"SHIP_NAMES_INSTALLED"
-])
+(def macro ON_GET_ADDITIONAL_OPTION_COMPONENTS_FROM_CONSTANT()
+	(var additionalResourcesAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['CAROUSEL']")
+	(var carouselAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['CAROUSEL']")
+	(var hideRarityAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['HIDE_RARITY']")
+	(var naviButtonsAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['NAVI_BUTTONS']")
+	(var originFlagsAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['ORIGIN_FLAGS']")
+	(var originShipsAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['ORIGIN_SHIPS']")
+	(var serverPopulationAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['SERVER_POPULATION']")
+	(var shipNamesAvailable:bool = "ON_INSTALLED_ADDITIONAL_OPTION_COMPONENTS['SHIP_NAMES']")
+)
 
 
 (def constant ON_MOD_LOCALIZATIONS {
@@ -849,14 +850,15 @@
 
 (def element ON_PrefRowControl (_ownerModal:str, _data:dict, _isNested:bool)
 	(scope
-		(var showOption:bool = "!('id' in _data) || _data.id == 'navi_buttons' && NAVI_BUTTONS_INSTALLED ||
-													_data.id == 'no_crew' && CAROUSEL_INSTALLED ||
-													_data.id == 'resources' && ADDITIONAL_RESOURCES_INSTALLED ||
-													_data.id == 'population' && SERVER_POPULATION_INSTALLED ||
-													_data.id == 'rarity' && HIDE_RARITY_INSTALLED ||
-													_data.id == 'ship_name' && SHIP_NAMES_INSTALLED ||
-													_data.id == 'origin_ship' && ORIGIN_SHIPS_INSTALLED ||
-													_data.id == 'origin_flag' && ORIGIN_FLAGS_INSTALLED")
+		(macro ON_GET_ADDITIONAL_OPTION_COMPONENTS_FROM_CONSTANT)
+		(var showOption:bool = "!('id' in _data) || _data.id == 'navi_buttons' && naviButtonsAvailable ||
+													_data.id == 'no_crew' && carouselAvailable ||
+													_data.id == 'resources' && additionalResourcesAvailable ||
+													_data.id == 'population' && serverPopulationAvailable ||
+													_data.id == 'rarity' && hideRarityAvailable ||
+													_data.id == 'ship_name' && shipNamesAvailable ||
+													_data.id == 'origin_ship' && originShipsAvailable ||
+													_data.id == 'origin_flag' && originFlagsAvailable")
 
 		(event evShowResetBtn)
 		(event evHideResetBtn)
@@ -1138,22 +1140,23 @@
 
 (def element ON_PrefRowHeader (_ownerModal:str, _data:dict, _isNested:bool)
 	(scope
-		(var anyModInstalled:bool = "SHIP_NAMES_INSTALLED ||
-									ORIGIN_SHIPS_INSTALLED ||
-									NAVI_BUTTONS_INSTALLED ||
-									ADDITIONAL_RESOURCES_INSTALLED ||
-									SERVER_POPULATION_INSTALLED ||
-									ORIGIN_FLAGS_INSTALLED ||
-									CAROUSEL_INSTALLED ||
-									HIDE_RARITY_INSTALLED")
-		(var hasShipMods:bool = "SHIP_NAMES_INSTALLED || ORIGIN_SHIPS_INSTALLED")
-		(var hasPortMods:bool = "NAVI_BUTTONS_INSTALLED || ADDITIONAL_RESOURCES_INSTALLED || SERVER_POPULATION_INSTALLED || ORIGIN_FLAGS_INSTALLED")
+		(macro ON_GET_ADDITIONAL_OPTION_COMPONENTS_FROM_CONSTANT)
+		(var anyModInstalled:bool = "shipNamesAvailable ||
+									originShipsAvailable ||
+									naviButtonsAvailable ||
+									additionalResourcesAvailable ||
+									serverPopulationAvailable ||
+									originFlagsAvailable ||
+									carouselAvailable ||
+									hideRarityAvailable")
+		(var hasShipMods:bool = "shipNamesAvailable || originShipsAvailable")
+		(var hasPortMods:bool = "naviButtonsAvailable || additionalResourcesAvailable || serverPopulationAvailable || originFlagsAvailable")
 		(var showOption:bool = "!('id' in _data) || _data.id == 'mod_settings' && anyModInstalled ||
 													_data.id == 'dock_battle' && hasShipMods ||
-													_data.id == 'port_interface' && (hasPortMods || CAROUSEL_INSTALLED || HIDE_RARITY_INSTALLED) ||
+													_data.id == 'port_interface' && (hasPortMods || carouselAvailable || hideRarityAvailable) ||
 													_data.id == 'dock' && hasPortMods ||
-													_data.id == 'no_crew' && CAROUSEL_INSTALLED ||
-													_data.id == 'rarity' && HIDE_RARITY_INSTALLED")
+													_data.id == 'no_crew' && carouselAvailable ||
+													_data.id == 'rarity' && hideRarityAvailable")
 
 		(var realmConstantsEntity:gfx = "$datahub.getSingleEntity(CC.realmConstants)")
 		(var currentLocale:str = "realmConstantsEntity.realmConstants.currentLocale")

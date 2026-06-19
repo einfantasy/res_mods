@@ -83,7 +83,7 @@
 		<block>
 			<bind name="var" value="{inPort: true}"/>
 			<bind name="firstEntityDH" value="'dockDataEntity'; CC.dockData"/>
-			<bind name="watchDH" value="'isShipOverviewEnabled';  ['dockDataEntity.dockData.evIsShipOverviewEnabledChanged']; dockDataEntity.dockData.isShipOverviewEnabled"/>
+			<bind name="watchDH" value="'isShipOverviewEnabled'; ['dockDataEntity.dockData.evIsShipOverviewEnabledChanged']; dockDataEntity.dockData.isShipOverviewEnabled"/>
 			<bind name="transition" value="isShipOverviewEnabled; isShipOverviewEnabled ? 0.4 : 0.25; {alpha: 1}; {alpha: 0}; {alpha: 1}; SC.Common.EASING_FUNCTIONS.IN_QUAD; !isShipOverviewEnabled &amp;&amp; !(inPort) ? 0.15 : 0.5"/>
 			<bind name="style" value="'hitTest'; !isShipOverviewEnabled"/>
 			<styleClass value="$Fullsize"/>

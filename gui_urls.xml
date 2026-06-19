@@ -8,12 +8,12 @@
       <domain name="wows" url="https://*.worldofwarships.asia/" domain="worldofwarships.asia"/>
     </cookie>
     <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
-    <forum>http://forum.worldofwarships.%(realm)s/</forum>
-    <register>http://cpm.wargaming.net/suq0obpj/?pub_id=loginscreen</register>
+    <forum>https://forum.worldofwarships.%(realm)s/</forum>
+    <register>https://cpm.wargaming.net/suq0obpj/?pub_id=loginscreen</register>
     <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
-    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wargamingNet>https://wargaming.net</wargamingNet>
     <wowsWebsite>https://worldofwarships.%(realm)s/</wowsWebsite>
-    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
+    <eula>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
     <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
     <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
     <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
@@ -108,7 +108,7 @@
     <phobosServiceURL>https://phobos-api.worldofwarships.asia</phobosServiceURL>
     <prospectiveEventURL>https://phobos-api.worldofwarships.asia</prospectiveEventURL>
     <!-- Licenses page -->
-    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <extraLicences>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
     <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
     <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
     <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
@@ -146,29 +146,29 @@
     <!-- Modules -->
     <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
     <!-- PCZA021_CAPT Collection Videos -->
-    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
-    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
-    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
-    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
-    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
-    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
-    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
-    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
-    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
-    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
-    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
-    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
-    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
-    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
-    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
-    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
-    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
-    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
-    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
-    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
-    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
-    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
-    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>https://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>https://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>https://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>https://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>https://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>https://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>https://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>https://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>https://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>https://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>https://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>https://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>https://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>https://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>https://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>https://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>https://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>https://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>https://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>https://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>https://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>https://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>https://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
   </asia>
   <eu>
     <auth>
@@ -179,12 +179,12 @@
       <domain name="wows" url="https://*.worldofwarships.eu/" domain="worldofwarships.eu"/>
     </cookie>
     <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
-    <forum>http://forum.worldofwarships.%(realm)s/</forum>
-    <register>http://cpm.wargaming.net/jhv2ojf6/?pub_id=loginscreen</register>
+    <forum>https://forum.worldofwarships.%(realm)s/</forum>
+    <register>https://cpm.wargaming.net/jhv2ojf6/?pub_id=loginscreen</register>
     <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
-    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wargamingNet>https://wargaming.net</wargamingNet>
     <wowsWebsite>https://worldofwarships.%(realm)s/</wowsWebsite>
-    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/eula/</eula>
+    <eula>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/eula/</eula>
     <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
     <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
     <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
@@ -279,7 +279,7 @@
     <phobosServiceURL>https://phobos-api.worldofwarships.eu</phobosServiceURL>
     <prospectiveEventURL>https://phobos-api.worldofwarships.eu</prospectiveEventURL>
     <!-- Licenses page -->
-    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <extraLicences>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
     <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
     <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
     <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
@@ -317,29 +317,29 @@
     <!-- Modules -->
     <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
     <!-- PCZA021_CAPT Collection Videos -->
-    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
-    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
-    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
-    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
-    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
-    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
-    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
-    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
-    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
-    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
-    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
-    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
-    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
-    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
-    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
-    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
-    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
-    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
-    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
-    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
-    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
-    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
-    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>https://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>https://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>https://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>https://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>https://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>https://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>https://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>https://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>https://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>https://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>https://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>https://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>https://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>https://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>https://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>https://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>https://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>https://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>https://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>https://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>https://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>https://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>https://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
   </eu>
   <na>
     <auth>
@@ -350,12 +350,12 @@
       <domain name="wows" url="https://*.worldofwarships.com/" domain="worldofwarships.com"/>
     </cookie>
     <reportError>https://%(realm)s.wargaming.net/support/products/wows/</reportError>
-    <forum>http://forum.worldofwarships.com/</forum>
-    <register>http://cpm.wargaming.net/uuct697w/?pub_id=loginscreen</register>
+    <forum>https://forum.worldofwarships.com/</forum>
+    <register>https://cpm.wargaming.net/uuct697w/?pub_id=loginscreen</register>
     <passwordRecovery>https://%(realm)s.wargaming.net/personal/password_reset/new/</passwordRecovery>
-    <wargamingNet>http://wargaming.net</wargamingNet>
+    <wargamingNet>https://wargaming.net</wargamingNet>
     <wowsWebsite>https://worldofwarships.com/</wowsWebsite>
-    <eula>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
+    <eula>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</eula>
     <buyGold>https://%(realm)s.wargaming.net/shop/wows/</buyGold>
     <buyPrem>https://%(realm)s.wargaming.net/shop/wows/premium/</buyPrem>
     <support>https://%(realm)s.wargaming.net/support/products/wows/</support>
@@ -450,7 +450,7 @@
     <phobosServiceURL>https://phobos-api.worldofwarships.com</phobosServiceURL>
     <prospectiveEventURL>https://phobos-api.worldofwarships.com</prospectiveEventURL>
     <!-- Licenses page -->
-    <extraLicences>http://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
+    <extraLicences>https://legal.%(realm)s.wargaming.net/%(localeRfcName)s/end-user-licence-agreement/</extraLicences>
     <licenseEULA>https://legal.wargaming.net/en/user-documents/eula/end-user-license-agreement/</licenseEULA>
     <licenseImpressum>https://legal.wargaming.net/en/user-documents/other/impressum/view/</licenseImpressum>
     <licenseReport>https://wargaming.net/support/%(localeRfcName)s/products/wows/help/29948/</licenseReport>
@@ -488,29 +488,29 @@
     <!-- Modules -->
     <guide_Modules_InGame>https://www.youtube.com/embed/vqMYVRqINWE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</guide_Modules_InGame>
     <!-- PCZA021_CAPT Collection Videos -->
-    <collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
-    <collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
-    <collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
-    <collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
-    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
-    <collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
-    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
-    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
-    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
-    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
-    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
-    <collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
-    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
-    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
-    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
-    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
-    <collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
-    <collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
-    <collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
-    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
-    <collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
-    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
-    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+    <collection_video_PCZC436_CAPT_1_1_child_InGame>https://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+    <collection_video_PCZC437_CAPT_1_2_school_InGame>https://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+    <collection_video_PCZC438_CAPT_1_3_friend_InGame>https://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+    <collection_video_PCZC439_CAPT_1_4_cat_InGame>https://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+    <collection_video_PCZC440_CAPT_1_5_torpedo_InGame>https://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+    <collection_video_PCZC441_CAPT_1_6_box_InGame>https://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+    <collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>https://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+    <collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>https://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+    <collection_video_PCZC444_CAPT_2_3_bismarck_InGame>https://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+    <collection_video_PCZC445_CAPT_2_4_yamato_InGame>https://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+    <collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>https://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+    <collection_video_PCZC447_CAPT_2_6_lion_InGame>https://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+    <collection_video_PCZC448_CAPT_3_1_halloween_InGame>https://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+    <collection_video_PCZC449_CAPT_3_2_april_1st_InGame>https://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+    <collection_video_PCZC450_CAPT_3_3_NE1_InGame>https://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+    <collection_video_PCZC451_CAPT_3_4_NE2_InGame>https://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+    <collection_video_PCZC452_CAPT_3_5_beep_InGame>https://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+    <collection_video_PCZC453_CAPT_3_6_old_InGame>https://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+    <collection_video_PCZC454_CAPT_4_1_lady_InGame>https://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+    <collection_video_PCZC455_CAPT_4_2_rambo_InGame>https://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+    <collection_video_PCZC456_CAPT_4_3_fish_InGame>https://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+    <collection_video_PCZC457_CAPT_4_4_oscar_InGame>https://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+    <collection_video_PCZC458_CAPT_4_5_uboot_InGame>https://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
   </na>
 	<cn>
 		<reportError>https://kf.wg.360.cn/</reportError>
@@ -635,28 +635,28 @@
 		<guide_Modules_InGame>https://wg.360.cn/v/video.html?id=130&amp;type=webm&amp;autoplay=0</guide_Modules_InGame>
 
 		<!-- PCZA021_CAPT Collection Videos -->
-		<collection_video_PCZC436_CAPT_1_1_child_InGame>http://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
-		<collection_video_PCZC437_CAPT_1_2_school_InGame>http://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
-		<collection_video_PCZC438_CAPT_1_3_friend_InGame>http://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
-		<collection_video_PCZC439_CAPT_1_4_cat_InGame>http://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
-		<collection_video_PCZC440_CAPT_1_5_torpedo_InGame>http://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
-		<collection_video_PCZC441_CAPT_1_6_box_InGame>http://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
-		<collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>http://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
-		<collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>http://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
-		<collection_video_PCZC444_CAPT_2_3_bismarck_InGame>http://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
-		<collection_video_PCZC445_CAPT_2_4_yamato_InGame>http://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
-		<collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>http://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
-		<collection_video_PCZC447_CAPT_2_6_lion_InGame>http://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
-		<collection_video_PCZC448_CAPT_3_1_halloween_InGame>http://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
-		<collection_video_PCZC449_CAPT_3_2_april_1st_InGame>http://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
-		<collection_video_PCZC450_CAPT_3_3_NE1_InGame>http://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
-		<collection_video_PCZC451_CAPT_3_4_NE2_InGame>http://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
-		<collection_video_PCZC452_CAPT_3_5_beep_InGame>http://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
-		<collection_video_PCZC453_CAPT_3_6_old_InGame>http://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
-		<collection_video_PCZC454_CAPT_4_1_lady_InGame>http://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
-		<collection_video_PCZC455_CAPT_4_2_rambo_InGame>http://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
-		<collection_video_PCZC456_CAPT_4_3_fish_InGame>http://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
-		<collection_video_PCZC457_CAPT_4_4_oscar_InGame>http://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
-		<collection_video_PCZC458_CAPT_4_5_uboot_InGame>http://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
+		<collection_video_PCZC436_CAPT_1_1_child_InGame>https://youtube.com/embed/kwNMyEUwO68?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC436_CAPT_1_1_child_InGame>
+		<collection_video_PCZC437_CAPT_1_2_school_InGame>https://youtube.com/embed/S4JmIFwbHA8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC437_CAPT_1_2_school_InGame>
+		<collection_video_PCZC438_CAPT_1_3_friend_InGame>https://youtube.com/embed/XtGQ0Xl_9bM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC438_CAPT_1_3_friend_InGame>
+		<collection_video_PCZC439_CAPT_1_4_cat_InGame>https://youtube.com/embed/b3QorkeArhE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC439_CAPT_1_4_cat_InGame>
+		<collection_video_PCZC440_CAPT_1_5_torpedo_InGame>https://youtube.com/embed/Onq-Br6JKyg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC440_CAPT_1_5_torpedo_InGame>
+		<collection_video_PCZC441_CAPT_1_6_box_InGame>https://youtube.com/embed/EJ4w3G9ypsc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC441_CAPT_1_6_box_InGame>
+		<collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>https://youtube.com/embed/RGTs4TrZ9CI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC442_CAPT_2_1_mutsuki_InGame>
+		<collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>https://youtube.com/embed/mUjFXw6Vxeg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC443_CAPT_2_2_edinburgh_InGame>
+		<collection_video_PCZC444_CAPT_2_3_bismarck_InGame>https://youtube.com/embed/JzgyQ0OQRuI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC444_CAPT_2_3_bismarck_InGame>
+		<collection_video_PCZC445_CAPT_2_4_yamato_InGame>https://youtube.com/embed/zEeLUkVwek8?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC445_CAPT_2_4_yamato_InGame>
+		<collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>https://youtube.com/embed/JWffwU-gCXo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC446_CAPT_2_5_scharnhorst_InGame>
+		<collection_video_PCZC447_CAPT_2_6_lion_InGame>https://youtube.com/embed/8yBspeDoUqM?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC447_CAPT_2_6_lion_InGame>
+		<collection_video_PCZC448_CAPT_3_1_halloween_InGame>https://youtube.com/embed/u-PY3KWYiVc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC448_CAPT_3_1_halloween_InGame>
+		<collection_video_PCZC449_CAPT_3_2_april_1st_InGame>https://youtube.com/embed/XOaDrHVqlng?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC449_CAPT_3_2_april_1st_InGame>
+		<collection_video_PCZC450_CAPT_3_3_NE1_InGame>https://youtube.com/embed/6uYVzWPGN2o?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC450_CAPT_3_3_NE1_InGame>
+		<collection_video_PCZC451_CAPT_3_4_NE2_InGame>https://youtube.com/embed/LaKLyaTVLKo?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC451_CAPT_3_4_NE2_InGame>
+		<collection_video_PCZC452_CAPT_3_5_beep_InGame>https://youtube.com/embed/kjVgwo3qmdc?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC452_CAPT_3_5_beep_InGame>
+		<collection_video_PCZC453_CAPT_3_6_old_InGame>https://youtube.com/embed/QHiloPY0NEg?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC453_CAPT_3_6_old_InGame>
+		<collection_video_PCZC454_CAPT_4_1_lady_InGame>https://youtube.com/embed/9L_2-NuiKeI?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC454_CAPT_4_1_lady_InGame>
+		<collection_video_PCZC455_CAPT_4_2_rambo_InGame>https://youtube.com/embed/Lr_sW7wz_Ys?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC455_CAPT_4_2_rambo_InGame>
+		<collection_video_PCZC456_CAPT_4_3_fish_InGame>https://youtube.com/embed/tjR0JaNeyAE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC456_CAPT_4_3_fish_InGame>
+		<collection_video_PCZC457_CAPT_4_4_oscar_InGame>https://youtube.com/embed/MB4hSSKsfEE?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC457_CAPT_4_4_oscar_InGame>
+		<collection_video_PCZC458_CAPT_4_5_uboot_InGame>https://youtube.com/embed/pMcv9YCI2QY?autoplay=1&amp;fs=0&amp;showinfo=0&amp;cc_load_policy=1&amp;modestbranding=1&amp;rel=0</collection_video_PCZC458_CAPT_4_5_uboot_InGame>
 	</cn>
 </gui_urls.xml>

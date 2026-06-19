@@ -237,7 +237,6 @@
 	(bindcall externalCall 'inputMapping.onAction' "['createParamsForAllShipsInBattle', {}]" on='addedToStage')
 
 	(scope
-		(event evTargetChanged)
 		(var targetEntityId:number = "currentTarget.id" watch=false init=false (event "evTargetChanged"))
 
 		(var targetEntity:gfx = "$datahub.getEntity(targetEntityId)")
