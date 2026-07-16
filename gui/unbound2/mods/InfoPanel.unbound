@@ -376,13 +376,9 @@
 
 		(var torpedoReloadTime:number = "torpedoesTTX ? torpedoesTTX.reloadTime.value : 0")
 		(var torpedoGroupsReloadTime:number = "bowTorpedoGroupTTX || sternTorpedoGroupTTX ? min(bowTorpedoGroupTTX.reloadTime.value, sternTorpedoGroupTTX.reloadTime.value) : 0")
-		(var shipTorpedoReloadTime:number = "torpedoReloadTime && torpedoGroupsReloadTime ? min(torpedoReloadTime, torpedoGroupsReloadTime) : torpedoReloadTime || torpedoGroupsReloadTime || 0")
+		(var shipTorpedoReloadTime:number = "torpedoReloadTime > 0 ? torpedoReloadTime : torpedoGroupsReloadTime > 0 ? torpedoGroupsReloadTime : 0")
 
-#alternative
-#		(var shipTorpedoReloadTime:number = "torpedoReloadTime == 0 || torpedoGroupsReloadTime == 0 ? (torpedoReloadTime == 0 ? torpedoGroupsReloadTime : torpedoReloadTime)
-#																									: min(torpedoReloadTime, torpedoGroupsReloadTime)")
-
-		(var isDeepWater:bool = "torpedoesTTX.torpedoDeepwater.canHitClasses.length > 0")
+		(var isDeepWater:bool = "torpedoesTTX.torpedoDeepwater ? torpedoesTTX.torpedoDeepwater.canHitClasses.length > 0 : false")
 		(var shipVisibilityRange:number = "visibilityTTX ? visibilityTTX.visibilityByShip.normal.value : 0")
 		(var shipSpeed:number = "mobilityTTX ? mobilityTTX.speed.value : 0")
 

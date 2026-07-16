@@ -59,7 +59,6 @@
     <clanRequest auth="auth_wows">https://clans.worldofwarships.asia/%(request)s</clanRequest>
     <poshtaService auth="auth_wows">https://poshta.worldofwarships.asia/</poshtaService>
     <!-- Warehouse -->
-    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.asia</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.asia/content/additional-information-and-conditions/</pageAboutGameMechanics>
     <markerHost auth="auth_wows">https://marker.worldofwarships.asia/</markerHost>
     <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.asia/</dwhExporterHost>
@@ -230,7 +229,6 @@
     <clanRequest auth="auth_wows">https://clans.worldofwarships.eu/%(request)s</clanRequest>
     <poshtaService auth="auth_wows">https://poshta.worldofwarships.eu/</poshtaService>
     <!-- Warehouse -->
-    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.eu</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.eu/content/additional-information-and-conditions/</pageAboutGameMechanics>
     <markerHost auth="auth_wows">https://marker.worldofwarships.eu/</markerHost>
     <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.eu/</dwhExporterHost>
@@ -401,7 +399,6 @@
     <clanRequest auth="auth_wows">https://clans.worldofwarships.com/%(request)s</clanRequest>
     <poshtaService auth="auth_wows">https://poshta.worldofwarships.com/</poshtaService>
     <!-- Warehouse -->
-    <warehouseInGame auth="auth_wows">https://warehouse.worldofwarships.com</warehouseInGame>
     <pageAboutGameMechanics>https://worldofwarships.com/content/additional-information-and-conditions/</pageAboutGameMechanics>
     <markerHost auth="auth_wows">https://marker.worldofwarships.com/</markerHost>
     <dwhExporterHost auth="auth_wows">https://stats.worldofwarships.com/</dwhExporterHost>
@@ -576,7 +573,6 @@
 		<poshtaService auth="auth_wows">https://poshta.wowsgame.cn/</poshtaService>
 
 		<!-- Warehouse -->
-		<warehouseInGame auth="auth_wows">https://warehouse.wowsgame.cn</warehouseInGame>
 		<pageAboutGameMechanics>https://wowsgame.cn/content/additional_information_and_conditions/</pageAboutGameMechanics>
 
 		<markerHost auth="auth_wows">https://marker.wowsgame.cn/</markerHost>
