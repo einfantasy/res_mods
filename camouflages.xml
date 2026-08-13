@@ -23,7 +23,7 @@
 			<ships>	PFSC101_Bougainville PFSD010_Cassard PFSD015_L_Adroit PFSD016_Duchaffault PFSD017_Le_Hardi PFSD019_Orage PFSD102_Enseigne_Gabolde PFSD104_Bourrasque PFSD110_Kleber PFSD210_Marceau PFSD504_Siroco PFSD605_Cyclone_event PFSD810_Colorful_Kleber PFSD820_Kleber_TE PXSD021_Kleber_PA	</ships>
 		</FRA_group_2>
 		<FRA_group_3>
-			<ships>	PFSB106_Normandie PFSB506_Dunkerque_1940 PFSB507_Strasbourg PFSB516_Strasbourg PFSC209_Brest PFSC210_Marseille PFSC509_Carnot PFSC719_Le_Havre PFSC819_BA_Le_Havre PFSD103_Fusilier	PFSC730_Amiral_Lartigue	</ships>
+			<ships>	PFSB106_Normandie PFSB506_Dunkerque_1940 PFSB507_Strasbourg PFSB516_Strasbourg PFSC209_Brest PFSC210_Marseille PFSC509_Carnot PFSC719_Le_Havre PFSC819_BA_Le_Havre PFSD103_Fusilier	PFSC730_Amiral_Lartigue PFSC720_Latouche_Treville	</ships>
 		</FRA_group_3>
 		<FRA_group_4>
 			<ships>	PFSA506_Bearn PFSB108_Richelieu PFSB109_Alsace PFSB110_France PFSB111_Patrie PFSB508_Gascogne PFSB510_Bourgogne PFSB518_Jean_Bart PFSB528_Champagne PFSB538_Flandre PFSB599_Black_Jean_Bart PFSC111_Conde PFSB709_Roussillon PFSB909_Pirate_Jean_Bart PFSB908_Azur_Richelieu	</ships>
@@ -68,7 +68,7 @@
 			<ships>	PISB104_Dante_Alighieri PISB105_Conte_di_Cavour PISB505_Giulio_Cesare PISC102_Nino_Bixio PISC103_Taranto PISC104_Alberto_da_Giussano PISC105_Raimondo_Montecuccoli PISC106_Trento PISC107_Zara PISC108_Amalfi PISC505_Genova PISC506_DucadAosta PISC507_Duca_degli_Abruzzi PISC517_Francesco_Ferruccio PISC707_Olympian_Francesco_Ferruccio PISC607_Gorizia PISC719_Ferrante_Gonzaga PISD509_Paolo_Emilio PISD710_Alberico_da_Barbiano PISC897_Azur_Gorizia PISB718_Marcantonio_Colonna PISB818_BA_Marcantonio_Colonna PISC729_Messina PISC908_East_Amalfi	</ships>
 		</ITA_group_1>
 		<ITA_group_2>
-			<ships>	PISB106_Andrea_Doria PISB107_Francesco_Caracciolo PISB108_Vittorio_Veneto PISB508_Roma PISB908_FBO_Roma PISB708_AZUR_Littorio PISC109_Brindisi PISC110_Venezia PISC111_Piemonte PISC990_Ravenna PISC717_Fiume	</ships>
+			<ships>	PISB106_Andrea_Doria PISB107_Francesco_Caracciolo PISB108_Vittorio_Veneto PISB508_Roma PISB908_FBO_Roma PISB708_AZUR_Littorio PISC109_Brindisi PISC110_Venezia PISC111_Piemonte PISC990_Ravenna PISC717_Fiume PISC739_La_Spezia	</ships>
 		</ITA_group_2>
 		<ITA_group_3>
 			<ships>	PISC101_Eritrea PISD102_Curtatone PISD103_Sauro PISD104_Turbine PISD105_Maestrale PISD106_Aviere PISD107_Luca_Tarigo PISD108_Vittorio_Cuniberti PISD109_Adriatico PISD506_Leone	</ships>
@@ -95,7 +95,7 @@
 			<ships>	PJSA012_Zuikaku_1944 PJSA108_Shokaku PJSA908_Kikaku	</ships>
 		</IJN_group_4>
 		<IJN_group_5>
-			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano PJSC021_Kurama	</ships>
+			<ships>	PJSA015_Taiho_1944 PJSA111_Sekiryu PJSA507_Kaga PJSA518_Kaga PJSA598_Black_Kaga PJSA710_Shinano PJSA910_Taiho PJSB006_Fuso_1943 PJSB018_Yamato_1944 PJSB111_Satsuma PJSB208_Yumihari PJSB209_Adatara PJSB210_Bungo PJSB508_Kii PJSB509_Musashi PJSB510_Shikishima PJSB517_Hyuga PJSB519_Hizen PJSB526_Ise PJSB529_Iwami PJSB539_Daisen PJSB549_Tsurugi PJSB559_Black_Iwami PJSB700_ARP_Yamato PJSB719_Hotaka PJSB906_Ise_TEST1 PJSB916_Ise_TEST2 PJSC739_Suzuya PJSC739_GM_Suzuya PJSC759_VL_Suzuya PJSB710_FBO_Yamato PJSB720_Aki PJSB920_Gold_Aki PJSA920_Azur_Shinano PJSC021_Kurama PJSB730_Togasa	</ships>
 		</IJN_group_5>
 		<IJN_group_6>
 			<ships>	PJSB507_Ashitaka PJSC206_Gokase	</ships>
@@ -104,7 +104,7 @@
 			<ships>	PJSD111_Yamagiri	</ships>
 		</IJN_group_7>
 		<NL_group_1>
-			<ships>	PHSC101_Van_Kinsbergen PHSC102_Gelderland PHSD509_Groningen PHSD510_Friesland PWSD510_Friesland	</ships>
+			<ships>	PHSC101_Van_Kinsbergen PHSC102_Gelderland PHSD509_Groningen PHSD510_Friesland PWSD510_Friesland PHSD708_Philips_van_Almonde	</ships>
 		</NL_group_1>
 		<NL_group_2>
 			<ships>	PHSC010_Utrecht PHSC018_Jaarsveld PHSC019_Menno_Van_Coehoorn PHSC103_Java PHSC104_De_Ruyter PHSC105_Celebes PHSC106_Kijkduin PHSC107_Eendracht PHSC108_Haarlem PHSC109_Johan_de_Witt PHSC110_Gouden_Leeuw PHSC508_De_Zeven_Provincien PHSC509_Van_Speijk PHSC708_Vrijheid PHSC710_Prins_Van_Oranje PHSC720_Gold_Prins_Van_Oranje PHSC980_Noord_Brabant PHSC730_Unie PHSC988_Admiraal PHSC990_Vrijheid PHSC998_Statenland PHSS710_Tonijn	</ships>
@@ -170,13 +170,13 @@
 			<ships>	PRSC518_Lazo PRSC568_Black_Lazo PRSC606_Admiral_Makarov	</ships>
 		</RUS_group_4>
 		<RUS_group_5>
-			<ships>	PRSA108_Pobeda PRSA110_Admiral_Nakhimov PRSA508_Chkalov PRSA598_Black_Chkalov PRSA990_Admiral_Orlov PRSB107_Sinop PRSB108_Vladivostok PRSB110_Sovetskaya_Rossiya PRSB111_Admiral_Ushakov PRSB510_Slava PRSB528_Borodino PRSB710_Sibir PRSB717_Arkhangelsk PRSB719_Zarya_Svobody PRSB819_BA_Zarya_Svobody PRSB818_Borodino_TE PRSC109_Dmitry_Donskoy PRSC509_Kronshtadt PRSC510_Stalingrad PRSC520_Stalingrad PRSC709_Vyazma PRSC710_Sevastopol	</ships>
+			<ships>	PRSA108_Pobeda PRSA110_Admiral_Nakhimov PRSA508_Chkalov PRSA598_Black_Chkalov PRSA990_Admiral_Orlov PRSB107_Sinop PRSB108_Vladivostok PRSB110_Sovetskaya_Rossiya PRSB111_Admiral_Ushakov PRSB510_Slava PRSB528_Borodino PRSB710_Sibir PRSB717_Arkhangelsk PRSB719_Zarya_Svobody PRSB819_BA_Zarya_Svobody PRSB818_Borodino_TE PRSC109_Dmitry_Donskoy PRSC509_Kronshtadt PRSC510_Stalingrad PRSC520_Stalingrad PRSC709_Vyazma PRSC710_Sevastopol PRSB729_Respublika	</ships>
 		</RUS_group_5>
 		<RUS_group_6>
 			<ships>	PRSB505_Oktyabrskaya_Revolutsiya PRSC209_Riga	</ships>
 		</RUS_group_6>
 		<RUS_group_7>
-			<ships>	PRSA104_Komsomolets PRSA106_Serov PRSB109_Sovetsky_Soyuz PRSB508_Poltava PRSB509_Navarin PRSB518_Lenin PRSB538_V_I_Lenin PRSB709_AZUR_Sov_Russia PRSC111_Novosibirsk PRSC208_Tallin PRSC210_Pr_84_Alexander_Nevsky PRSC310_Petropavlovsk PRSC920_PostApoc_Petropavlovsk PRSC515_Mikoyan PRSC538_Petr_Bagration PRSC548_Bagration PRSC810_Komissar PRSC980_Vladimir_Monomakh PRSC990_Petrozavodsk PRSB909_East_Navarin	</ships>
+			<ships>	PRSA104_Komsomolets PRSA106_Serov PRSB109_Sovetsky_Soyuz PRSB508_Poltava PRSB509_Navarin PRSB518_Lenin PRSB538_V_I_Lenin PRSB709_AZUR_Sov_Russia PRSC111_Novosibirsk PRSC208_Tallin PRSC210_Pr_84_Alexander_Nevsky PRSC310_Petropavlovsk PRSC920_PostApoc_Petropavlovsk PRSC515_Mikoyan PRSC538_Petr_Bagration PRSC548_Bagration PRSC810_Komissar PRSC980_Vladimir_Monomakh PRSC990_Petrozavodsk PRSB909_East_Navarin PRSB739_Sovetskaya_Rossiya	</ships>
 		</RUS_group_7>
 		<RUS_group_8>
 			<ships>	PRSD517_Tashkent_1939	</ships>
@@ -200,7 +200,7 @@
 			<ships>	PBSA508_Indomitable PBSB107_King_George_V PBSB108_Monarch PBSB109_Lion PBSB205_Tiger PBSB208_Monarch_T PBSB505_Agincourt PBSB510_Thunderer PBSB527_Duke_of_York PBSC020_Monmouth PBSC110_Minotaur PBSC206_Devonshire PBSC508_Cheshire PBSC510_Plymouth PBSC558_AZUR_Cheshire PBSC810_Defence PUSB507_Yukon PUSC017_Uganda PUSC018_Auckland PUSC019_Encounter PUSC509_Hector PUSC510_Brisbane PUSC810_Black_Brisbane PBSB747_STPatric_Duke_of_York PUSC710_Pioneer PBSC920_Pirate_Plymouth PBSB708_Prince_of_Wales PVSB720_Almirante_Perez_Gacitua	</ships>
 		</UK_group_3>
 		<UK_group_4>
-			<ships>	PBSA106_Furious PBSA108_Implacable PBSA111_Eagle PBSA210_Audacious PBSA510_Malta PBSA518_Ark_Royal PBSA528_Colossus PBSA718_Theseus PBSA910_TST_Audacious PBSB110_Conqueror PBSB111_Devastation PBSB204_Queen_Mary PBSB207_Rooke PBSB208_Hawke PBSB209_Duncan PBSB210_St_Vincent PBSB507_Hood PBSB508_Vanguard PBSB509_Marlborough PBSB517_Nelson PBSB526_Repulse PBSB536_Black_Repulse PBSB537_Collingwood PBSB609_Scarlet_Thunder PBSB610_Incomparable PBSB717_Rodney PBSB727_Duke_of_Bronte PBSB737_Royal_Sovereign PBSB810_Cumberland PBSB911_Conqueror_T PBSB998_St_Lawrence PBSC610_Gibraltar PUSB710_Irresistible PUSC010_Cerberus PBSA710_Ocean	</ships>
+			<ships>	PBSA106_Furious PBSA108_Implacable PBSA111_Eagle PBSA210_Audacious PBSA510_Malta PBSA518_Ark_Royal PBSA528_Colossus PBSA718_Theseus PBSA910_TST_Audacious PBSB110_Conqueror PBSB111_Devastation PBSB204_Queen_Mary PBSB207_Rooke PBSB208_Hawke PBSB209_Duncan PBSB210_St_Vincent PBSB507_Hood PBSB508_Vanguard PBSB509_Marlborough PBSB517_Nelson PBSB526_Repulse PBSB536_Black_Repulse PBSB537_Collingwood PBSB609_Scarlet_Thunder PBSB610_Incomparable PBSB717_Rodney PBSB727_Duke_of_Bronte PBSB737_Royal_Sovereign PBSB810_Cumberland PBSB911_Conqueror_T PBSB998_St_Lawrence PBSC610_Gibraltar PUSB710_Irresistible PUSC010_Cerberus PBSA710_Ocean PBSB920_MC_Conqueror	</ships>
 		</UK_group_4>
 		<UK_group_5>
 			<ships>	PBSD510_Druid	</ships>
@@ -764,6 +764,20 @@
 			<color0>0.0120 0.0200 0.0640 1.0000</color0>
 			<color1>0.0000 0.0000 0.0000 0.0000</color1>
 			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Latouche_Treville	</name>
+			<color0>0.2560 0.2560 0.2560 1.0000</color0>
+			<color1>0.0720 0.0720 0.0720 1.0000</color1>
+			<color2>0.0220 0.0220 0.0220 1.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Latouche_Treville_alt	</name>
+			<color0>0.0940 0.2010 0.3590 1.0000</color0>
+			<color1>0.0120 0.0200 0.0640 1.0000</color1>
+			<color2>0.3750 0.3490 0.3160 1.0000</color2>
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
@@ -1376,6 +1390,13 @@
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorScheme_Nurnberg44_alt	</name>
+			<color0>0.0350 0.0470 0.0120 0.7840</color0>
+			<color1>0.0000 0.0000 0.0000 0.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorScheme_Wiesbaden	</name>
 			<color0>0.1380 0.1330 0.1450 1.0000</color0>
 			<color1>0.1380 0.1330 0.1450 0.0000</color1>
@@ -1645,6 +1666,13 @@
 			<name>	colorScheme_PietroMicca	</name>
 			<color0>0.0000 0.0000 0.0000 0.0000</color0>
 			<color1>0.0400 0.0161 0.0029 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorSchemeLaSpezia	</name>
+			<color0>0.1250 0.1980 0.2430 1.0000</color0>
+			<color1>0.0100 0.0100 0.0100 1.0000</color1>
 			<color2>0.0000 0.0000 0.0000 0.0000</color2>
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
@@ -2230,6 +2258,13 @@
 			<color3>0.0150 0.0150 0.0150 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorSchemeIJN_I56_1944_alt	</name>
+			<color0>0.0580 0.1390 0.1770 1.0000</color0>
+			<color1>0.0150 0.0150 0.0150 0.0000</color1>
+			<color2>0.0150 0.0150 0.0150 1.0000</color2>
+			<color3>0.0150 0.0150 0.0150 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorSchemeIJN_Kure_Naval	</name>
 			<color0>0.0550 0.0550 0.0570 1.0000</color0>
 			<color1>0.0210 0.0200 0.0210 0.0000</color1>
@@ -2356,6 +2391,27 @@
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
+			<name>	colorScheme_Shigure_alt	</name>
+			<color0>0.0850 0.0820 0.0680 1.0000</color0>
+			<color1>0.2080 0.2200 0.1300 1.0000</color1>
+			<color2>0.3440 0.3640 0.3160 1.0000</color2>
+			<color3>0.0250 0.0370 0.0020 0.7840</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Togasa	</name>
+			<color0>0.1702 0.2011 0.2389 1.0000</color0>
+			<color1>0.0846 0.0939 0.1166 1.0000</color1>
+			<color2>0.1361 0.1450 0.1332 1.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Togasa_alt	</name>
+			<color0>0.2380 0.2200 0.1300 1.0000</color0>
+			<color1>0.0410 0.0470 0.0220 0.9500</color1>
+			<color2>0.0470 0.0280 0.0150 0.9500</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
 			<name>	colorSchemeDutchArc	</name>
 			<color0>0.6311 0.6159 0.5221 1.0000</color0>
 			<color1>0.6940 0.1100 0.0320 1.0000</color1>
@@ -2430,6 +2486,13 @@
 			<color0>0.0170 0.0370 0.0410 0.9000</color0>
 			<color1>1.0000 0.0000 0.0000 0.0000</color1>
 			<color2>1.0000 0.0000 0.0000 0.0000</color2>
+			<color3>0.0000 0.0000 0.0000 0.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Philips_van_Almonde	</name>
+			<color0>0.3530 0.4100 0.4558 1.0000</color0>
+			<color1>0.3993 0.5990 0.6121 1.0000</color1>
+			<color2>0.0000 0.0000 0.0000 0.0000</color2>
 			<color3>0.0000 0.0000 0.0000 0.0000</color3>
 		</colorScheme>
 		<colorScheme>
@@ -3404,6 +3467,20 @@
 			<color1>0.0930 0.1180 0.0550 1.0000</color1>
 			<color2>0.1100 0.1100 0.1300 0.9000</color2>
 			<color3>0.1810 0.1010 0.0620 1.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Sov_Russia	</name>
+			<color0>0.3120 0.3110 0.3310 1.0000</color0>
+			<color1>0.0000 0.0000 0.0000 0.0000</color1>
+			<color2>0.0300 0.0300 0.0300 1.0000</color2>
+			<color3>0.0400 0.0650 0.0750 1.0000</color3>
+		</colorScheme>
+		<colorScheme>
+			<name>	colorScheme_Sov_Russia_alt	</name>
+			<color0>0.1600 0.1000 0.0700 1.0000</color0>
+			<color1>0.0000 0.0000 0.0000 0.0000</color1>
+			<color2>0.3500 0.3500 0.3510 1.0000</color2>
+			<color3>0.1400 0.2000 0.1500 1.0000</color3>
 		</colorScheme>
 		<colorScheme>
 			<name>	colorSchemeSP01	</name>
@@ -22321,6 +22398,72 @@
 			<realm>	all	</realm>
 		</camouflage>
 		<camouflage>
+			<annotation>	Colorful	</annotation>
+			<name>	mat_Conqueror_Colorful	</name>
+			<targetShip>	PBSB920_MC_Conqueror	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Conqueror_Colorful_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
 			<annotation>	mat_CopperAlbedo unique permOflage	</annotation>
 			<name>	mat_CopperAlbedo	</name>
 			<tiled>	false	</tiled>
@@ -26342,6 +26485,218 @@
 			<colorSchemes>
 					colorSchemeUSNP17
 				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	EA_PAM_DD	</annotation>
+			<name>	mat_EA_Cuauhtemoc	</name>
+			<targetShip>	PVSD018_Cuauhtemoc	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Cuauhtemoc_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	EA	</annotation>
+			<name>	mat_EA_Nueva_Esparta	</name>
+			<targetShip>	PVSD019_Nueva_Esparta	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Wire>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Wire>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_East_4_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Nueva_Esparta_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	EA PAM DD	</annotation>
+			<name>	mat_EA_Veinte_de_Julio	</name>
+			<targetShip>	PVSD010_Veinte_de_Julio	</targetShip>
+			<UV>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
+			</colorSchemes>
+			<realm>	all	</realm>
+		</camouflage>
+		<camouflage>
+			<annotation>	PAM_DD_EA	</annotation>
+			<name>	mat_EA_Veinte_de_Julio	</name>
+			<targetShip>	PVSD010_20_de_Julio	</targetShip>
+			<UV>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_mgn.dds
+					<Influence_m>	0.5000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/MC_EA_Veinte_de_Julio_mgn.dds
+					<Influence_m>	0.5000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Misc_mgn>
+			</Textures>
+			<colorSchemes>
+					colorSchemeFRAP06
+				<colorUI>0.1175 0.1175 0.1175 0.0000</colorUI>
 			</colorSchemes>
 			<realm>	all	</realm>
 		</camouflage>
@@ -33337,9 +33692,9 @@
 					<Influence_n>	0.0000	</Influence_n>
 					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
 				</Misc_mgn>
-				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_a.dds	</Plane>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_a.dds	</Plane>
 				<Plane_mgn>
-						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_misc_mgn.dds
+						content/gameplay/common/camouflage/textures/mat_camo/MC_Ind250_mgn.dds
 					<Influence_m>	1.0000	</Influence_m>
 					<Influence_g>	1.0000	</Influence_g>
 					<Influence_n>	0.0000	</Influence_n>
@@ -55497,6 +55852,1216 @@
 				<Wire>	content/gameplay/common/camouflage/textures/mat_PostAp2022_gray_a.dds	</Wire>
 				<Wire_mgn>
 						content/gameplay/common/camouflage/textures/mat_PostAp2022_gray_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 2048*2048, 4096*4096, 4096*4096+2048*2048	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<UV>
+				<Hull>
+					<scale>	3.5000 3.5000	</scale>
+					<offset>	0.0000 -0.0600	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.6000 0.5400	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.6000 0.6000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*2048	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	EUR_group_2 FRA_group_2 GER_group_2 IJN_group_2 ITA_group_3 NL_group_1 PAM_group_3 PAN_group_2 POL_group_1 RUS_group_2 SP_group_2 UK_group_2 USN_group_2	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	-0.5000 1.1200	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.8100 0.8900	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	GER_group_6 RUS_group_3 USN_group_7	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 1.0000	</scale>
+					<offset>	0.0600 1.4400	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	4.0000 1.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*4096+4096*2048, 2048*2048+2048*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	FRA_group_3 GER_group_3 IJN_group_3 ITA_group_2 RUS_group_7 UK_group_3 USN_group_3	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	2.5000 2.5000	</scale>
+					<offset>	-0.6300 0.0900	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 1.0000	</scale>
+					<offset>	0.8100 1.2300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*4096+1024*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	IJN_group_4 RUS_group_4 USN_group_4	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.0100 1.6400	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.8100 0.7700	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*4096+4096*4096	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	FRA_group_4 GER_group_4 IJN_group_5 ITA_group_4 PAN_group_4 RUS_group_5 UK_group_4 USN_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.1800 1.7500	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	0.8100 0.7200	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.7500 0.7500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*4096+2048*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	FRA_group_7 GER_group_5 IJN_group_6 RUS_group_6 USN_group_6	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 3.0000	</scale>
+					<offset>	-0.9700 1.8000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 1.0000	</scale>
+					<offset>	0.8100 0.8000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*2048+4096*4096	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<tiled>	false	</tiled>
+			<shipGroups>	FRA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	0.1300 1.6700	</offset>
+					<rotate>	0.00	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.00	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	4.0000 4.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.1500 0.1500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.00	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*2048+2048*2048, 2048*1024+1024*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	EUR_group_3 FRA_group_6 GER_group_7 UK_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	3.0000 1.5000	</scale>
+					<offset>	1.3800 0.5200	</offset>
+					<rotate>	-0.1500	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	0.0000	</Influence_m>
+					<Influence_g>	0.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	false	</useCamoMaskGlobal>
+				</Wire_mgn>
+			</Textures>
+		</camouflage>
+		<camouflage>
+			<annotation>	TEMPALTE_TILE tileoflage block for the ships with a texture 4096*2048+1024*1024	</annotation>
+			<name>	mat_PCEM228_Tile_PSPLive2026	</name>
+			<shipGroups>	FRA_group_8 ITA_group_5	</shipGroups>
+			<UV>
+				<Hull>
+					<scale>	4.0000 2.0000	</scale>
+					<offset>	0.3200 0.9300	</offset>
+					<rotate>	-0.1500	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.8100 0.9300	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Bulge>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Bulge>
+				<Gun>
+					<scale>	0.3300 0.3300	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	0.0100 0.0100	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Plane>
+					<scale>	2.0000 2.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Plane>
+				<Float>
+					<scale>	0.2500 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Hull>
+				<Hull_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Hull_mgn>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</DeckHouse>
+				<DeckHouse_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</DeckHouse_mgn>
+				<Bulge>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_a.dds	</Bulge>
+				<Bulge_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_Big_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Bulge_mgn>
+				<Gun>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Gun>
+				<Gun_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Gun_mgn>
+				<Director>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Director>
+				<Director_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Director_mgn>
+				<Misc>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Misc>
+				<Misc_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Misc_mgn>
+				<Plane>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Plane>
+				<Plane_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Plane_mgn>
+				<Float>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Float>
+				<Float_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
+					<Influence_m>	1.0000	</Influence_m>
+					<Influence_g>	1.0000	</Influence_g>
+					<Influence_n>	0.0000	</Influence_n>
+					<useCamoMaskGlobal>	true	</useCamoMaskGlobal>
+				</Float_mgn>
+				<Wire>	content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_a.dds	</Wire>
+				<Wire_mgn>
+						content/gameplay/common/camouflage/textures/mat_camo/mat_PCEM228_Tile_PSPLive2026_small_mgn.dds
 					<Influence_m>	0.0000	</Influence_m>
 					<Influence_g>	0.0000	</Influence_g>
 					<Influence_n>	0.0000	</Influence_n>
@@ -190958,6 +192523,36 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	Latouche_Treville camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PFSC720_Latouche_Treville	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/FSC306_Latouche_Treville_1955_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/FSC306_Latouche_Treville_1955_DeckHouse_camo_01.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Latouche_Treville
+				<colorUI>0.3176 0.3569 0.3922 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorScheme_Latouche_Treville_alt
+				<colorUI>0.3414 0.4822 0.6277 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Yukon unique permOflage block	</annotation>
 			<name>	camo_permanent_2	</name>
 			<targetShip>	PUSB507_Yukon	</targetShip>
@@ -201504,6 +203099,10 @@
 					colorScheme_Nurnberg44
 				<colorUI>0.5020 0.5451 0.5412 1.0000</colorUI>
 			</colorSchemes>
+			<colorSchemes>
+					colorScheme_Nurnberg44_alt
+				<colorUI>0.2179 0.2491 0.1339 0.7840</colorUI>
+			</colorSchemes>
 		</camouflage>
 		<camouflage>
 			<annotation>	ZH_1 unique camoflage block	</annotation>
@@ -204659,6 +206258,50 @@
 			<colorSchemes>
 					colorScheme_ConteVerde
 				<colorUI>0.6392 0.6549 0.6510 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	La_Spezia unique permOflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PISC739_La_Spezia	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Director>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Director>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/ISC303_La_Spezia_1943_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/ISC303_La_Spezia_1943_DeckHouse_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Director>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Director>
+				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+			</Textures>
+			<colorSchemes>
+					colorSchemeLaSpezia
+				<colorUI>0.3886 0.4790 0.5257 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -209690,6 +211333,10 @@
 					colorSchemeIJN_I56_1944
 				<colorUI>0.0941 0.2745 0.2235 1.0000</colorUI>
 			</colorSchemes>
+			<colorSchemes>
+					colorSchemeIJN_I56_1944_alt
+				<colorUI>0.2741 0.4078 0.4552 1.0000</colorUI>
+			</colorSchemes>
 		</camouflage>
 		<camouflage>
 			<annotation>	Kushiro unique permOflage block	</annotation>
@@ -209792,7 +211439,11 @@
 			</Textures>
 			<colorSchemes>
 					colorScheme_Shigure
-				<colorUI>0.5000 0.5000 0.5000 1.0000</colorUI>
+				<colorUI>0.5325 0.5325 0.5325 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorScheme_Shigure_alt
+				<colorUI>0.3261 0.3208 0.2947 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -209865,6 +211516,36 @@
 			<colorSchemes>
 					colorSchemeIJNP30
 				<colorUI>0.2179 0.2491 0.1339 0.7840</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Togasa camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PJSB730_Togasa	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/JSB304_Togasa_1944_Hull_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/JSB304_Togasa_1944_DeckHouse_camo_01.dds	</DeckHouse>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Togasa
+				<colorUI>0.4471 0.4824 0.5216 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorScheme_Togasa_alt
+				<colorUI>0.3176 0.4706 0.3961 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -211551,6 +213232,26 @@
 			<colorSchemes>
 					colorSchemeNL01
 				<colorUI>0.2947 0.3313 0.3800 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Philips_van_Almonde camo permanent block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PHSD708_Philips_van_Almonde	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/HSD302_Philips_van_Almonde_1940_camo_01.dds	</Hull>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Philips_van_Almonde
+				<colorUI>0.6706 0.7098 0.7490 1.0000</colorUI>
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
@@ -219575,6 +221276,90 @@
 			</colorSchemes>
 		</camouflage>
 		<camouflage>
+			<annotation>	PRSB739_Sovetskaya_Rossiya camo permanrnt block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PRSB739_Sovetskaya_Rossiya	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	-0.0300 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/RSB310_Sovietskaya_Russia_1949_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/RSB310_Sovietskaya_Russia_1949_DeckHouse_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/AGM034_16in50_Mk7_camo_01_B.dds	</Gun>
+			</Textures>
+			<colorSchemes>
+					colorScheme_Sov_Russia
+				<colorUI>0.5325 0.5785 0.6205 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorScheme_Sov_Russia_alt
+				<colorUI>0.4347 0.3511 0.2986 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
+			<annotation>	Respublika unique permOflage block	</annotation>
+			<name>	camo_permanent_1	</name>
+			<useColorScheme>	true	</useColorScheme>
+			<targetShip>	PRSB729_Respublika	</targetShip>
+			<UV>
+				<Hull>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Hull>
+				<DeckHouse>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</DeckHouse>
+				<Gun>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Gun>
+				<Misc>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
+				<Float>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Float>
+			</UV>
+			<Textures>
+				<Hull>	content/gameplay/common/camouflage/textures/RSB304_Respublika_1945_camo_01.dds	</Hull>
+				<DeckHouse>	content/gameplay/common/camouflage/textures/RSB304_Respublika_1945_DeckHouse_camo_01.dds	</DeckHouse>
+				<Gun>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Gun>
+				<Misc>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Misc>
+				<Float>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Float>
+			</Textures>
+			<colorSchemes>
+					colorSchemeRUSP34
+				<colorUI>0.3956 0.4222 0.4528 1.0000</colorUI>
+			</colorSchemes>
+			<colorSchemes>
+					colorSchemeRUSP44
+				<colorUI>0.1339 0.1339 0.1339 1.0000</colorUI>
+			</colorSchemes>
+		</camouflage>
+		<camouflage>
 			<annotation>	Avrora unique permOflage block	</annotation>
 			<name>	camo_permanent_2	</name>
 			<targetShip>	PRSC001_Avrora_1917	</targetShip>
@@ -224555,6 +226340,7 @@
 					colorSchemeUKP34
 				<colorUI>0.3880 0.4350 0.3520 1.0000</colorUI>
 			</colorSchemes>
+			<targetShip>	PBSB920_MC_Conqueror	</targetShip>
 		</camouflage>
 		<camouflage>
 			<annotation>	Queen_Elizabeth unique permOflage block	</annotation>
@@ -230057,40 +231843,39 @@
 		<camouflage>
 			<annotation>	Albany unique permOflage block	</annotation>
 			<name>	camo_permanent_1	</name>
-			<useColorScheme>	True	</useColorScheme>
+			<useColorScheme>	true	</useColorScheme>
 			<targetShip>	PASC003_Albany_1898	</targetShip>
-			<tiled>	false	</tiled>
 			<UV>
 				<Tile>
-					<scale>	1.0	1.0	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
 				</Tile>
 				<Gun>
-					<scale>	1.0	1.0	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
+					<scale>	1.0000 1.0000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
 				</Gun>
 				<Director>
-					<scale>	0.5	0.5	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
 				</Director>
+				<Misc>
+					<scale>	0.3000 0.3000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
+				</Misc>
 				<Plane>
-					<scale>	0.5	0.5	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
+					<scale>	0.5000 0.5000	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
 				</Plane>
 				<Float>
-					<scale>	0.5	0.25	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
+					<scale>	0.5000 0.2500	</scale>
+					<offset>	0.0000 0.0000	</offset>
+					<rotate>	0.0000	</rotate>
 				</Float>
-				<Misc>
-					<scale>	0.3	0.3	</scale>
-					<offset>	0.0	0.0	</offset>
-					<rotate>	0.0	</rotate>
-				</Misc>
 			</UV>
 			<Textures>
 				<Hull>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Hull>
@@ -230098,6 +231883,10 @@
 				<Plane>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Plane>
 				<Float>	content/gameplay/common/camouflage/textures/Black_gun_camo_01.dds	</Float>
 			</Textures>
+			<colorSchemes>
+					colorSchemeUSNP64
+				<colorUI>0.2676 0.3081 0.3741 1.0000</colorUI>
+			</colorSchemes>
 			<colorSchemes>
 					colorSchemeUSNP04
 				<colorUI>0.3380 0.4080 0.4860 1.0000</colorUI>
