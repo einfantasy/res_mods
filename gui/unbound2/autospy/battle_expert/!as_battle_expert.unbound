@@ -427,7 +427,7 @@
 	)
 
 	# AA aura
-	(controller $Instance renderer='ShipDollAirDefenseSectors'
+	(controller $Instance renderer='ShipDollManualAA'
 		(bind enabled "hasAA && !_isTarget")
 		(exprs
 		#	(macro MOD_BE_SCALE_STYLE) #OlliN-
