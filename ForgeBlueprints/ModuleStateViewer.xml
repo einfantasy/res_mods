@@ -1,0 +1,4 @@
+<mod name="ModuleStateViewer" version="1.1.0" priority="0">
+	<requires installer=">=1.0.0"/>
+	<ubMountInBattle unbound="2" rootElementId="ModuleStateViewer" name="unbound2ModuleStateViewer" hitTest="false" before="MarkersContainer"/>
+</mod>

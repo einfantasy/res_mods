@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 5,
+  "opVocabularyVersion": 3,
+  "slug": "3d-radar",
+  "migrations": [
+    {
+      "version": 1,
+      "description": "legacy values decoded and folded onto the derived keys",
+      "ops": [
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.distanceOffset",
+          "sources": [
+            {
+              "key": "3dRadarCircleRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.active.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityActive",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 51,
+              "b": 0
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.active.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityActiveWithEnemy",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 51,
+              "b": 0
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.ready.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReady",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 255,
+              "b": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.ready.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReadyWithEnemy",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 255,
+              "b": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.reload.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReload",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 153,
+              "b": 51
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.otherTeam.reload.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReloadWithEnemy",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 153,
+              "b": 51
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.active.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityActive",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 76,
+              "g": 232,
+              "b": 170
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.active.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityActiveWithEnemy",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 76,
+              "g": 232,
+              "b": 170
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.ready.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReady",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 255,
+              "b": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.ready.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReadyWithEnemy",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 255,
+              "b": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.reload.color",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReload",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 153,
+              "b": 51
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadar.ownTeam.reload.colorEnemyInRange",
+          "sources": [
+            {
+              "key": "3dRadarCircleOpacityReloadWithEnemy",
+              "default": 7
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": 255,
+              "g": 153,
+              "b": 51
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

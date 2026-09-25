@@ -1,0 +1,122 @@
+<ui>
+<block className="ON_AccountResourcesWidget"><bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'"/><bind name="watch" value="'selectedBattleTypeGPID'; selectedBattleTypes[0].battleType.battleTypeGameParamId"/><bind name="collectionDH" value="CC.eventHubPhase; 'eventHubPhaseCollection'"/><bind name="watch" value="'currentPhaseEventID'; eventHubPhaseCollection[0].eventHubPhase.battleTypeGameParamId"/><bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason"/><bind name="watchDH" value="'hasOwnSpace'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.hasOwnSpace"/><bind name="watch" value="'isInEventHub'; hasOwnSpace &amp;&amp; isIn(selectedBattleTypes[0].eventBattleState.name, SC.Ui_common.EVENTS.EVENT_HUB_OPERATIONS)"/><bind name="primaryEntityDH" value="'eventHubFeatureEntity'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[31]"/><bind name="watchDH" value="'eventHubFeatureState'; ['eventHubFeatureEntity.accountFeature.evStateChanged']; eventHubFeatureEntity.accountFeature.state"/><bind name="watch" value="'isEventHubUnlocked'; eventHubFeatureState != 'locked'"/><bind name="watch" value="'isEventModeEnabled'; hasOwnSpace &amp;&amp; (selectedBattleTypeGPID == currentPhaseEventID || (isInEventHub &amp;&amp; !isEventHubUnlocked))"/><bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource"/><bind name="watchDH" value="'isSyncedWithWallet'; ['resourceEntity.accountResource.evChangedIsSyncedWithWallet']; resourceEntity.accountResource.isSyncedWithWallet"/><bind name="watchDH" value="'walletAvailable'; ['resourceEntity.accountResource.evChangedWalletStatus']; resourceEntity.accountResource.walletStatus"/><bind name="watch" value="'showWGWalletWarning'; isSyncedWithWallet == false || walletAvailable == false"/><bind name="file" value="'portInterfaceUrlsInstalled'; '../../gui_urls.xml'"/><bind name="stageSize"/><block>
+				<style>
+					<marginTop value="-4px"/>
+					<flow value="horizontal"/>
+				</style>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCommunity'} : {}"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'recruitmentPoints',                        _currency: SC.Common.CURRENCIES.RECRUITMENT_POINTS,                        _label: 'IDS_REWARD_RECRUITMENT_POINTS_TITLE'}"/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="showWGWalletWarning"/>
+					<style>
+						<marginTop value="6px"/>
+						<height value="30px"/>
+						<width value="30px"/>
+					</style>
+					<bind name="instance" value="'WGWalletServiceStatus'; showWGWalletWarning ? {} : null"/>
+				</block>
+				<block>
+					<bind name="name" value="'buttonBuyGold'"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'goldBalance',                       _currency: SC.Common.CURRENCIES.GOLD,                       _label: 'IDS_GOLD'}"/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="name" value="'buttonExchangeGold'"/>
+					<bind name="style" value="'alpha'; showWGWalletWarning ? 0.5 : 1"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'creditBalance',                       _currency: SC.Common.CURRENCIES.CREDITS,                       _label: 'IDS_CONVERT_CREDITS'} "/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="name" value="'buttonConvertExp'"/>
+					<bind name="primaryEntityDH" value="'featureEntity_5'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[5]"/>
+					<bind name="watchDH" value="'feature_5'; ['featureEntity_5.accountFeature.evStateChanged']; featureEntity_5.accountFeature.state"/>
+					<bind name="watch" value="'featureState'; feature_5"/>
+					<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 5}"/>
+					<bind name="visible" value="feature_5 != 'locked'"/>
+					<block>
+						<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'freeExpBalance',                        _currency: SC.Common.CURRENCIES.FREE_XP,                        _label: 'IDS_CONVERT_FREE_EXPERIENCE'}"/>
+					</block>
+					<block>
+						<bind name="fade" value="(feature_5 == 'new'); 0.15; {alpha: 0, top: 10}; {alpha: 1, top: 0}; {alpha: 0, top: -10}; 2"/>
+						<style>
+							<position value="absolute"/>
+							<right value="-7px"/>
+							<top value="7px"/>
+						</style>
+						<bind name="instance" value="'MarkerNewAttention'; {}"/>
+					</block>
+					<bind name="primaryEntityDH" value="'researchFreeXpNewTip';    CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP"/>
+					<bind name="primaryEntityDH" value="'researchFreeXpRepeatNewTip';  CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT"/>
+					<bind name="primaryEntityDH" value="'freeXpIntroNewTip';    CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO"/>
+					<bind name="primaryEntityDH" value="'freeXpIntroRepeatNewTip';   CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT"/>
+					<bind name="watchDH" value="'researchFreeXpNewTipActive';   ['researchFreeXpNewTip.newGuidingTip.evChanged'];   researchFreeXpNewTip.newGuidingTip.isActive"/>
+					<bind name="watchDH" value="'researchFreeXpRepeatNewTipActive'; ['researchFreeXpRepeatNewTip.newGuidingTip.evChanged']; researchFreeXpRepeatNewTip.newGuidingTip.isActive"/>
+					<bind name="watchDH" value="'freeXpIntroNewTipActive';   ['freeXpIntroNewTip.newGuidingTip.evChanged'];    freeXpIntroNewTip.newGuidingTip.isActive"/>
+					<bind name="watchDH" value="'freeXpIntroRepeatNewTipActive';  ['freeXpIntroRepeatNewTip.newGuidingTip.evChanged'];  freeXpIntroRepeatNewTip.newGuidingTip.isActive"/>
+					<bind name="watch" value="'freeXpTipId';  researchFreeXpNewTipActive   ? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP :            researchFreeXpRepeatNewTipActive ? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT :            freeXpIntroNewTipActive    ? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO :            freeXpIntroRepeatNewTipActive  ? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT                     : SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+					<bind name="watch" value="'freeXpTipVisible'; freeXpTipId != SC.Context_guiding_tip.TIP_TYPE.NONE"/>
+					<bind name="instance" value="'NewGuidingTipHub'; freeXpTipVisible ? {_newTipId: freeXpTipId,                  _tipPositioning: 'bottom',                  _offset: 5,                  _hasNextButton: true,                  _keepOnNotFit: true,                  _pinOffset: 92,                  _screenOffsetRight: 16,                  _pointerOffset: -24}                 : null"/>
+				</block>
+			</block><block>
+				<style>
+					<marginTop value="-7px"/>
+					<flow value="horizontal"/>
+				</style>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopSteel'} : {}"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'steel',                        _currency: SC.Common.CURRENCIES.STEEL,                        _label: 'IDS_REWARD_STEEL_TITLE'} "/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopResearchBureau'} : {}"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'paragonXP',                        _currency: SC.Common.CURRENCIES.PARAGON_XP,                        _label: 'IDS_REWARD_PARAGONXP_TITLE'}"/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCoal'} : {}"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'coal',                        _currency: SC.Common.CURRENCIES.COAL,                        _label: 'IDS_REWARD_COAL_TITLE'} "/>
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw"/>
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'showCrewManagement'; {}"/>
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'eliteXPBalance',                        _currency: SC.Common.CURRENCIES.ELITE_XP,                        _label: 'IDS_REWARD_ELITEXP_TITLE'} "/>
+				</block>
+			</block></block>
+</ui>

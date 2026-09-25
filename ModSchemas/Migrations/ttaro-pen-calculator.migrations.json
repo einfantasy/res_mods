@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 5,
+  "opVocabularyVersion": 3,
+  "slug": "pen-calculator",
+  "migrations": [
+    {
+      "version": 1,
+      "description": "flat keys → dotted ancestry keys; legacy values decoded and folded onto the derived keys",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "penCalcImpactAngleAlwaysVisible",
+          "to": "penCalc.alwaysShowImpactAngle"
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "penCalc.font.color",
+          "sources": [
+            {
+              "key": "penCalcFontStyleIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    15658734,
+                    1296887,
+                    16764006,
+                    5040298,
+                    16750899
+                  ],
+                  "fallback": 15658734
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "penCalc.rowIndex",
+          "sources": [
+            {
+              "key": "penCalcHeightOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

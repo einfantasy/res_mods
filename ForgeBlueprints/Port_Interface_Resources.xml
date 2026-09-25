@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mod name="Port_Interface_Resources" version="1">
+	<requires installer=">=1.0.0"/>
+	<ubBuildBlock name="ON_AccountResourcesWidget">
+		<insert into=".">
+			<bind name="collectionDH" value="CC.battleType; 'selectedBattleTypes'; 'selected'" />
+			<bind name="watch" value="'selectedBattleTypeGPID'; selectedBattleTypes[0].battleType.battleTypeGameParamId" />
+			<bind name="collectionDH" value="CC.eventHubPhase; 'eventHubPhaseCollection'" />
+			<bind name="watch" value="'currentPhaseEventID'; eventHubPhaseCollection[0].eventHubPhase.battleTypeGameParamId" />
+			<bind name="firstEntityDH" value="'eventHubEntity'; CC.eventHubSeason" />
+			<bind name="watchDH" value="'hasOwnSpace'; ['eventHubEntity.eventHubSeason.evChanged']; eventHubEntity.eventHubSeason.hasOwnSpace" />
+			<bind name="watch" value="'isInEventHub'; hasOwnSpace &amp;&amp; isIn(selectedBattleTypes[0].eventBattleState.name, SC.Ui_common.EVENTS.EVENT_HUB_OPERATIONS)" />
+			<bind name="primaryEntityDH" value="'eventHubFeatureEntity'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[31]" />
+			<bind name="watchDH" value="'eventHubFeatureState'; ['eventHubFeatureEntity.accountFeature.evStateChanged']; eventHubFeatureEntity.accountFeature.state" />
+			<bind name="watch" value="'isEventHubUnlocked'; eventHubFeatureState != 'locked'" />
+			<bind name="watch" value="'isEventModeEnabled'; hasOwnSpace &amp;&amp; (selectedBattleTypeGPID == currentPhaseEventID || (isInEventHub &amp;&amp; !isEventHubUnlocked))" />
+			<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource" />
+			<bind name="watchDH" value="'isSyncedWithWallet'; ['resourceEntity.accountResource.evChangedIsSyncedWithWallet']; resourceEntity.accountResource.isSyncedWithWallet" />
+			<bind name="watchDH" value="'walletAvailable'; ['resourceEntity.accountResource.evChangedWalletStatus']; resourceEntity.accountResource.walletStatus" />
+			<bind name="watch" value="'showWGWalletWarning'; isSyncedWithWallet == false || walletAvailable == false" />
+			<bind name="file" value="'portInterfaceUrlsInstalled'; '../../gui_urls.xml'" />
+			<bind name="stageSize" />
+			<block>
+				<style>
+					<marginTop value="-4px" />
+					<flow value="horizontal" />
+				</style>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCommunity'} : {}" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'recruitmentPoints',                        _currency: SC.Common.CURRENCIES.RECRUITMENT_POINTS,                        _label: 'IDS_REWARD_RECRUITMENT_POINTS_TITLE'}" />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="showWGWalletWarning" />
+					<style>
+						<marginTop value="6px" />
+						<height value="30px" />
+						<width value="30px" />
+					</style>
+					<bind name="instance" value="'WGWalletServiceStatus'; showWGWalletWarning ? {} : null" />
+				</block>
+				<block>
+					<bind name="name" value="'buttonBuyGold'" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'goldBalance',                       _currency: SC.Common.CURRENCIES.GOLD,                       _label: 'IDS_GOLD'}" />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="name" value="'buttonExchangeGold'" />
+					<bind name="style" value="'alpha'; showWGWalletWarning ? 0.5 : 1" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'creditBalance',                       _currency: SC.Common.CURRENCIES.CREDITS,                       _label: 'IDS_CONVERT_CREDITS'} " />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="name" value="'buttonConvertExp'" />
+					<bind name="primaryEntityDH" value="'featureEntity_5'; CC.accountFeature; SC.Common.ACCOUNT_FEATURE.BIT_MASKS[5]" />
+					<bind name="watchDH" value="'feature_5'; ['featureEntity_5.accountFeature.evStateChanged']; featureEntity_5.accountFeature.state" />
+					<bind name="watch" value="'featureState'; feature_5" />
+					<bind name="action" value="'click'; 'featureSeen'; {featureIndex: 5}" />
+					<bind name="visible" value="feature_5 != 'locked'" />
+					<block>
+						<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'freeExpBalance',                        _currency: SC.Common.CURRENCIES.FREE_XP,                        _label: 'IDS_CONVERT_FREE_EXPERIENCE'}" />
+					</block>
+					<block>
+						<bind name="fade" value="(feature_5 == 'new'); 0.15; {alpha: 0, top: 10}; {alpha: 1, top: 0}; {alpha: 0, top: -10}; 2" />
+						<style>
+							<position value="absolute" />
+							<right value="-7px" />
+							<top value="7px" />
+						</style>
+						<bind name="instance" value="'MarkerNewAttention'; {}" />
+					</block>
+					<bind name="primaryEntityDH" value="'researchFreeXpNewTip';    CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP" />
+					<bind name="primaryEntityDH" value="'researchFreeXpRepeatNewTip';  CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT" />
+					<bind name="primaryEntityDH" value="'freeXpIntroNewTip';    CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO" />
+					<bind name="primaryEntityDH" value="'freeXpIntroRepeatNewTip';   CC.newGuidingTip; SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT" />
+					<bind name="watchDH" value="'researchFreeXpNewTipActive';   ['researchFreeXpNewTip.newGuidingTip.evChanged'];   researchFreeXpNewTip.newGuidingTip.isActive" />
+					<bind name="watchDH" value="'researchFreeXpRepeatNewTipActive'; ['researchFreeXpRepeatNewTip.newGuidingTip.evChanged']; researchFreeXpRepeatNewTip.newGuidingTip.isActive" />
+					<bind name="watchDH" value="'freeXpIntroNewTipActive';   ['freeXpIntroNewTip.newGuidingTip.evChanged'];    freeXpIntroNewTip.newGuidingTip.isActive" />
+					<bind name="watchDH" value="'freeXpIntroRepeatNewTipActive';  ['freeXpIntroRepeatNewTip.newGuidingTip.evChanged'];  freeXpIntroRepeatNewTip.newGuidingTip.isActive" />
+					<bind name="watch" value="'freeXpTipId';  researchFreeXpNewTipActive   ? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP :            researchFreeXpRepeatNewTipActive ? SC.Context_guiding_tip.TIP_TYPE.RESEARCH_FREEEXP_REPEAT :            freeXpIntroNewTipActive    ? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO :            freeXpIntroRepeatNewTipActive  ? SC.Context_guiding_tip.TIP_TYPE.FREE_XP_INTRO_REPEAT                     : SC.Context_guiding_tip.TIP_TYPE.NONE" />
+					<bind name="watch" value="'freeXpTipVisible'; freeXpTipId != SC.Context_guiding_tip.TIP_TYPE.NONE" />
+					<bind name="instance" value="'NewGuidingTipHub'; freeXpTipVisible ? {_newTipId: freeXpTipId,                  _tipPositioning: 'bottom',                  _offset: 5,                  _hasNextButton: true,                  _keepOnNotFit: true,                  _pinOffset: 92,                  _screenOffsetRight: 16,                  _pointerOffset: -24}                 : null" />
+				</block>
+			</block>
+			<block>
+				<style>
+					<marginTop value="-7px" />
+					<flow value="horizontal" />
+				</style>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopSteel'} : {}" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'steel',                        _currency: SC.Common.CURRENCIES.STEEL,                        _label: 'IDS_REWARD_STEEL_TITLE'} " />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopResearchBureau'} : {}" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'paragonXP',                        _currency: SC.Common.CURRENCIES.PARAGON_XP,                        _label: 'IDS_REWARD_PARAGONXP_TITLE'}" />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'openMetashop'; portInterfaceUrlsInstalled ? {url: 'metaShopCoal'} : {}" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'coal',                        _currency: SC.Common.CURRENCIES.COAL,                        _label: 'IDS_REWARD_COAL_TITLE'} " />
+				</block>
+				<block>
+					<style>
+						<width value="1280:10,1920:18aw" />
+					</style>
+				</block>
+				<block>
+					<bind name="request" value="'click'; 'showCrewManagement'; {}" />
+					<bind name="instance" value="'ON_DockResourcesWidget'; {_name: 'eliteXPBalance',                        _currency: SC.Common.CURRENCIES.ELITE_XP,                        _label: 'IDS_REWARD_ELITEXP_TITLE'} " />
+				</block>
+			</block>
+		</insert>
+	</ubBuildBlock>
+	<ubBuildBlock name="ON_DockResourcesWidget">
+		<insert into=".">
+			<bind name="controller" value="'lesta.unbound.controls.UbInteractiveController'" />
+			<bind name="firstEntityDH" value="'realmConstantsEntity'; CC.realmConstants" />
+			<bind name="watchDH" value="'isPremshopUIAvailable'; []; realmConstantsEntity.realmConstants.isPremshopUIAvailable" />
+			<bind name="watchDH" value="'isMergedShopsRealm'; []; realmConstantsEntity.realmConstants.isMergedShopsRealm" />
+			<bind name="firstEntityDH" value="'loginEntity'; CC.loginData" />
+			<bind name="watchDH" value="'isExternalPlatformClient'; ['loginEntity.loginData.evUpdate']; loginEntity.loginData.isExternalPlatformClient" />
+			<bind name="watchDH" value="'isEGSClient'; ['loginEntity.loginData.evUpdate']; loginEntity.loginData.isEGS" />
+			<bind name="watch" value="'isOpenPremInClientBrowser'; isExternalPlatformClient || isPremshopUIAvailable" />
+			<bind name="watch" value="'isGold'; _currency == SC.Common.CURRENCIES.GOLD" />
+			<bind name="watch" value="'isCredits'; _currency == SC.Common.CURRENCIES.CREDITS" />
+			<bind name="watch" value="'isFreeXP'; _currency == SC.Common.CURRENCIES.FREE_XP" />
+			<bind name="watch" value="'clickAction'; isGold ? isOpenPremInClientBrowser ? null : 'gotoUrlByIdent'                   : isCredits ? 'creditsGoldWindow'                       : isFreeXP ? 'xpFreeExpWindow'                           : null" />
+			<bind name="watch" value="'clickRequest'; isGold ? isOpenPremInClientBrowser ? isEGSClient || isMergedShopsRealm ? 'openMetashop'                                         : 'openPremShop'                             : null                    : null" />
+			<bind name="action" value="'click'; clickAction; isGold ? { ident: SC.Ui_windows.GUI_URL.BUY_GOLD }                      : {}" />
+			<bind name="request" value="'click'; clickRequest; isGold ? isOpenPremInClientBrowser ? isEGSClient ? {url: SC.Ui_windows.GUI_URL.BUY_GOLD_IN_METASHOP_IN_GAME}                                     : {url: SC.Ui_windows.GUI_URL.BUY_GOLD_IN_GAME}                                : null                       : null" />
+			<bind name="soundSet" value="!(clickAction || clickRequest) ? 'default_button' : 'button_' + _currency" />
+			<style>
+				<height value="30px" />
+				<backgroundColor value="0x01000000" />
+			</style>
+			<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource" />
+			<bind name="watchDH" value="'accountResources'; ['resourceEntity.accountResource.evChangedGold',            'resourceEntity.accountResource.evChangedCredit',            'resourceEntity.accountResource.evChangedFreeXP',            'resourceEntity.accountResource.evChangedEliteXP',            'resourceEntity.accountResource.evChangedSteel',            'resourceEntity.accountResource.evChangedCoal',            'resourceEntity.accountResource.evChangedRecruitmentPoints',            'resourceEntity.accountResource.evChangedParagonXP']; resourceEntity.accountResource" />
+			<bind name="name" value="_name" />
+			<block>
+				<style>
+					<marginTop value="8" />
+					<right value="0" />
+				</style>
+				<bind name="transition" value="rollOver &amp;&amp; !(mouseDown); 0.07; {alpha: 1}; {alpha: 1.15}" />
+				<bind name="instance" value="'PriceTag'; {priceInfo: {finalPrice: accountResources[_currency], currency: _currency}, _medium: true}" />
+				<bind name="tooltip" value="'ON_CurrencyWidgetTooltip'; {_currency: _currency}" />
+			</block>
+		</insert>
+	</ubBuildBlock>
+	<ubBuildBlock name="ON_CurrencyWidgetTooltip">
+		<insert into=".">
+			<bind name="action" value="'Tooltip.selfOpened'; isSplitCurrency &amp;&amp; lootedMoney[_currency].finalPrice &lt; 0 ? 'DockProxy.getSplitCurrencies' : null" />
+			<bind name="firstEntityDH" value="'realmConstantsEntity'; CC.realmConstants" />
+			<bind name="watchDH" value="'isMergedShopsRealm'; []; realmConstantsEntity.realmConstants.isMergedShopsRealm" />
+			<bind name="watch" value="'mergedShopsPostfix'; isMergedShopsRealm &amp;&amp; _currency == SC.Common.CURRENCIES.GOLD ? '_SHOPMERGE' : ''" />
+			<bind name="firstEntityDH" value="'resourceEntity'; CC.accountResource" />
+			<bind name="watchDH" value="'accountResources'; ['resourceEntity.accountResource.evChangedGold',            'resourceEntity.accountResource.evChangedCredit',            'resourceEntity.accountResource.evChangedFreeXP',            'resourceEntity.accountResource.evChangedEliteXP',            'resourceEntity.accountResource.evChangedSteel',            'resourceEntity.accountResource.evChangedCoal',            'resourceEntity.accountResource.evChangedRecruitmentPoints',            'resourceEntity.accountResource.evChangedParagonXP']; resourceEntity.accountResource" />
+			<bind name="watch" value="'amount'; _amount != undefined ? _amount : accountResources[_currency]" />
+			<bind name="watch" value="'accountResourcePriceInfo'; {finalPrice: amount, currency: _currency}" />
+			<bind name="watchDH" value="'splitGold';    ['resourceEntity.accountResource.evUpdateSplitCurrency']; resourceEntity.accountResource.splitGold" />
+			<bind name="watchDH" value="'accountGoldLooted';  ['resourceEntity.accountResource.evChangedSplitGold']; resourceEntity.accountResource.goldLooted" />
+			<bind name="watchDH" value="'accountGoldPurchased'; ['resourceEntity.accountResource.evChangedSplitGold']; resourceEntity.accountResource.goldPurchased" />
+			<bind name="watchDH" value="'splitCredits';    ['resourceEntity.accountResource.evUpdateSplitCurrency']; resourceEntity.accountResource.splitCredits" />
+			<bind name="watchDH" value="'accountCreditsLooted';  ['resourceEntity.accountResource.evChangedSplitCredit']; resourceEntity.accountResource.creditsLooted" />
+			<bind name="watchDH" value="'accountCreditsPurchased'; ['resourceEntity.accountResource.evChangedSplitCredit']; resourceEntity.accountResource.creditsPurchased" />
+			<bind name="watch" value="'isSplitCurrency'; _currency == SC.Common.CURRENCIES.GOLD ? splitGold :                  _currency == SC.Common.CURRENCIES.CREDITS ? splitCredits                                : false" />
+			<bind name="watch" value="'lootedMoney'; {gold: {finalPrice: accountGoldLooted, currency: 'gold'},          credits: { finalPrice: accountCreditsLooted, currency: 'credits'}}" />
+			<bind name="watch" value="'purchasedMoney'; {gold: {finalPrice: accountGoldPurchased, currency: 'gold'},                 credits: { finalPrice: accountCreditsPurchased, currency: 'credits'}}" />
+			<bind name="watch" value="'isLootedMoneySynced'; lootedMoney[_currency].finalPrice &gt;= 0" />
+			<bind name="watch" value="'isPurchasedMoneySynced'; purchasedMoney[_currency].finalPrice &gt;= 0" />
+			<bind name="watch" value="'isLootedMoneyVisible'; isSplitCurrency &amp;&amp; isLootedMoneySynced" />
+			<bind name="watch" value="'isPurchasedMoneyVisible'; isSplitCurrency &amp;&amp; isPurchasedMoneySynced" />
+			<bind name="watch" value="'isUnavailableStatusVisible'; isSplitCurrency &amp;&amp; (!isLootedMoneySynced || !isPurchasedMoneySynced)" />
+			<bind name="watch" value="'headerText'; 'IDS_CURRENCY_' + toUpperCase(_currency)" />
+			<bind name="watch" value="'descriptionTextSpend'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_SPEND_DESCRIPTION'" />
+			<bind name="watch" value="'descriptionTextGet'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_GET_DESCRIPTION' + mergedShopsPostfix" />
+			<bind name="watch" value="'priceTagLineTitle'; _isEventumReward ? 'IDS_COUNT' : 'IDS_CURRENCY_IN_STOCK_COLON'" />
+			<bind name="watch" value="'eventCurrencyText'; 'IDS_CURRENCY_' + toUpperCase(_currency) + '_STATUS'" />
+			<bind name="watch" value="'mouseInstruction'; {_unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.MOUSE_LEFT,                   _text: _currency == SC.Common.CURRENCIES.ELITE_XP ? 'IDS_MOUSE_INSTRUCTION_CREW_TOOLTIP_GO_TO_SKILLS' :                      _currency == SC.Common.CURRENCIES.STEEL ||                      _currency == SC.Common.CURRENCIES.COAL ||                      _currency == SC.Common.CURRENCIES.PARAGON_XP ||                      _currency == SC.Common.CURRENCIES.RECRUITMENT_POINTS ? 'IDS_GO_TO_METASHOP_MOUSE_INSTRUCTION'                                        : 'IDS_CURRENCY_' + toUpperCase(_currency) + '_MOUSE_INSTRUCTION'}" />
+			<styleClass value="$DefaultTooltipBehaviour" />
+			<style>
+				<width value="340px" />
+				<hitTest value="false" />
+			</style>
+			<bind name="primaryEntityDH" value="'_blurEntity'; CC.preference; 'graphics.GUI.blur'" />
+			<bind name="watchDH" value="'isBlurOptionEnabled'; ['_blurEntity.preference.evValueChanged']; _blurEntity.preference.value" />
+			<bind name="primaryEntityDH" value="'_contrastEntity'; CC.preference; 'graphics.GUI.contrast'" />
+			<bind name="watchDH" value="'isUIContrastOptionEnabled'; ['_contrastEntity.preference.evValueChanged']; _contrastEntity.preference.value" />
+			<bind name="firstEntityDH" value="'windowManagerEntity'; CC.windowManager" />
+			<bind name="watchDH" value="'windowQueue';  ['windowManagerEntity.windowManager.evChanged']; windowManagerEntity.windowManager.windowQueue" />
+			<bind name="watch" value="'isInBattle'; isIn('Battle', windowQueue)" />
+			<bind name="watch" value="'isHighContrast'; isInBattle || isUIContrastOptionEnabled || !(isBlurOptionEnabled)" />
+			<bind name="dispatch" value="'Tooltip.selfOpened'; 'startShow'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN" />
+			<bind name="dispatch" value="'Tooltip.selfClosed'; 'startHide'; {}; SC.Common.UBSCOPE_EVENT_DIRECTIONS.DOWN" />
+			<block>
+				<styleClass value="$FullsizeAbsolute" />
+				<style>
+					<margin value="-1px" />
+				</style>
+				<block>
+					<styleClass value="$FullsizeAbsolute" />
+					<bind name="instance" value="'TooltipSystemBlur'; !(isHighContrast) ? {} : null" />
+				</block>
+				<block>
+					<bind name="visible" value="!(isHighContrast)" />
+					<styleClass value="$FullsizeAbsolute" />
+					<style>
+						<backgroundImage value="url:../service_kit/panel_backgrounds/hint_panel.png" />
+						<background9Slice value="[3]" />
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="isHighContrast" />
+					<styleClass value="$FullsizeAbsolute" />
+					<style>
+						<backgroundImage value="url:../service_kit/panel_backgrounds/hint_panel_high_contrast.png" />
+						<background9Slice value="[3]" />
+					</style>
+				</block>
+			</block>
+			<block>
+				<style>
+					<width value="100%" />
+					<paddingRight value="16px" />
+					<paddingLeft value="16px" />
+					<paddingBottom value="12px" />
+					<paddingTop value="12px" />
+				</style>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemHeaderWithIconAndText'; { _imageWidth: '80px',                 _imageHeight: '80px',                 _imageUrl: 'url:../reward_icons/' + _currency + '.png',                 _headerText: headerText}" />
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="_isReceived" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemStatusLine'; _isReceived ? { _unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.CHECK,                  _text: 'IDS_TOOLTIP_REWARD_TAKEN' }                 : null" />
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="_isEventumReward" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemStatusLine'; _isEventumReward ? { _unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.CALENDAR,                   _text: eventCurrencyText }                  : null" />
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="_isUnavailableStatusVisible" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemStatusLine'; _isUnavailableStatusVisible ? { _unifiedStatus: SC.Ui_styles.UNIFIED_STATUS.ATTENTION,                      _text: 'IDS_SERVICE_IS_UNAVAILABLE_WEB' }                     : null" />
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="!isSplitCurrency" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemPriceTagLine'; isSplitCurrency ? null                   : { _title: priceTagLineTitle,                    _priceInfo: accountResourcePriceInfo}" />
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="isLootedMoneyVisible || isPurchasedMoneyVisible" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="isLootedMoneyVisible || isPurchasedMoneyVisible" />
+					<style>
+						<width value="100%" />
+						<marginBottom value="-12px" />
+					</style>
+					<block>
+						<bind name="visible" value="isLootedMoneyVisible" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemPriceTagLine'; isLootedMoneyVisible ? { _title: 'IDS_CURRENCY_LOOTED',                     _priceInfo: lootedMoney[_currency]}                    : null" />
+					</block>
+					<block>
+						<bind name="visible" value="isPurchasedMoneyVisible" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemPriceTagLine'; isPurchasedMoneyVisible ? { _title: 'IDS_CURRENCY_PURCHASED',                      _priceInfo: purchasedMoney[_currency]}                     : null" />
+					</block>
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="true" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="true" />
+					<style>
+						<width value="100%" />
+						<marginBottom value="-12px" />
+					</style>
+					<block>
+						<bind name="visible" value="true" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemSecondaryHeaderText'; { _headerText: 'IDS_CURRENCY_EXPLANATION_TITLE'}" />
+					</block>
+					<block>
+						<bind name="visible" value="true" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemDescriptionText'; { _descriptionText: descriptionTextSpend }" />
+					</block>
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="true" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<bind name="visible" value="true" />
+					<style>
+						<width value="100%" />
+						<marginBottom value="-12px" />
+					</style>
+					<block>
+						<bind name="visible" value="true" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemSecondaryHeaderText'; { _headerText: 'IDS_CURRENCY_HOW_TO_GET_TITLE'}" />
+					</block>
+					<block>
+						<bind name="visible" value="true" />
+						<style>
+							<width value="100%" />
+							<marginBottom value="12px" />
+						</style>
+						<bind name="instance" value="'TooltipSystemDescriptionText'; { _descriptionText: descriptionTextGet }" />
+					</block>
+				</block>
+				<block className="TooltipSystemHorizontalDivider">
+					<bind name="visible" value="mouseInstruction" />
+					<style>
+						<width value="100%" />
+						<height value="2px" />
+						<marginTop value="12px" />
+						<marginBottom value="12px" />
+						<marginRight value="-16px" />
+						<marginLeft value="-16px" />
+						<backgroundSize value="fill" />
+						<backgroundImage value="url:../service_kit/dividers/divider_h.png" />
+					</style>
+				</block>
+				<block>
+					<style>
+						<width value="100%" />
+					</style>
+					<bind name="instance" value="'TooltipSystemStatusLine'; mouseInstruction" />
+				</block>
+			</block>
+		</insert>
+	</ubBuildBlock>
+	<ubBuildBlock name="DefaultDock">
+		<insert into="." after="bind[@name='request'][contains(@value,'showWindowEventHubOnboardingAnimation')]">
+			<bind name="file" value="'resourcesAdditionalOptionsInstalled'; '../unbound2/!portinterface/AdditionalOptions.unbound'" />
+			<bind name="primaryEntityDH" value="'showResourcesEntity'; CC.preference; 'ui.mods.showResources'" />
+			<bind name="watchDH" value="'showResources'; ['showResourcesEntity.preference.evValueChanged']; resourcesAdditionalOptionsInstalled ? showResourcesEntity.preference.value : true" />
+		</insert>
+		<remove select=".//width[@value='1280:14,1920:30aw']/../.." />
+		<setAttribute select=".//bind[@name='instance'][@value=&quot;'AccountResourcesWidget'; {}&quot;]" attribute="value" to="showResources ? 'ON_AccountResourcesWidget' : 'AccountResourcesWidget'; {}" />
+	</ubBuildBlock>
+</mod>

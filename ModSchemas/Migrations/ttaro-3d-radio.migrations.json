@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 5,
+  "opVocabularyVersion": 3,
+  "slug": "3d-radio",
+  "migrations": [
+    {
+      "version": 1,
+      "description": "flat keys → dotted ancestry keys; legacy values decoded and folded onto the derived keys",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "3dRadioAnimationMaxOpacity",
+          "to": "3dRadio.maxBrightness"
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadio.appearance.lineColor",
+          "sources": [
+            {
+              "key": "3dRadioLineOpacity",
+              "default": 2
+            },
+            {
+              "key": "3dRadioLineColorRed",
+              "default": 10
+            },
+            {
+              "key": "3dRadioLineColorGreen",
+              "default": 10
+            },
+            {
+              "key": "3dRadioLineColorBlue",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              },
+              {
+                "present": 2
+              },
+              {
+                "present": 3
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 1
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "g": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 2
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "b": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 3
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              }
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadio.appearance.sectorColor",
+          "sources": [
+            {
+              "key": "3dRadioSectorOpacity",
+              "default": 4
+            },
+            {
+              "key": "3dRadioSectorColorRed",
+              "default": 10
+            },
+            {
+              "key": "3dRadioSectorColorGreen",
+              "default": 10
+            },
+            {
+              "key": "3dRadioSectorColorBlue",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              },
+              {
+                "present": 2
+              },
+              {
+                "present": 3
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.01
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 1
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "g": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 2
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "b": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 3
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              }
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "3dRadio.displayMode",
+          "sources": [
+            {
+              "key": "3dRadioVisibleOnAlt"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

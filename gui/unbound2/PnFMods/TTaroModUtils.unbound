@@ -1,0 +1,1503 @@
+# Core view: window, gear, recursive node tree, read macros. Files auto-load into one
+# order-independent namespace (no includes; defs resolve by name).
+# Data in: modPrefs.registry / modPrefs.<fullKey> / modPrefs.framework.
+# Writes: externalCall 'direct.action' ['mod.setPref'|...]; values cross as real types.
+
+# TT_ELEMENT_NAME matches a legacyPositions migration entry's `element` field (STORE key) verbatim, used ONLY there; the live draggable is keyed by TT_POSITION_FULLKEY (HUB key) below.
+(def constant TT_ELEMENT_NAME "'ttaroModConfig'")
+(def constant TT_POSITION_FULLKEY "'ttaro.ttModConfig.position'")
+
+(def constant TT_CONFIG_WINDOW_WIDTH 480px)
+(def constant TT_CONFIG_SECTION_MARGIN 20px)
+
+(def constant TT_CONFIG_OPTION_WIDTH 205px) # = CONTROL + VALUE + VALUE_MARGIN + RESET_BUTTON below
+(def constant TT_CONFIG_OPTION_CONTROL_WIDTH 140px)
+(def constant TT_CONFIG_OPTION_VALUE_WIDTH 40px)
+(def constant TT_CONFIG_OPTION_VALUE_MARGIN 7px)
+(def constant TT_CONFIG_RESET_BUTTON_SIZE 18px)
+(def constant TT_CONFIG_COLOR_SWATCH_SIZE 24px)
+
+# Indent per nesting level: LEFT only, so the right edge (control column) stays flush at every depth.
+(def constant TT_CONFIG_GROUP_INDENT 16px)
+(def constant TT_CONFIG_LABEL_CONTROL_GAP 15px)
+
+
+(def constant TT_MOD_SELECTOR_WIDTH 320px)
+(def constant TT_MOD_SELECTOR_DROPDOWN_WIDTH 340px)
+
+# Below this, a mod's whole tree fits one list -- paging a handful of short sections costs more navigation than it saves scrolling.
+(def constant TT_CONFIG_PAGINATE_MIN 7)
+# service_kit/buttons/expand_up.png, native 8x13, points RIGHT -- prev arrow mirrors it (flip trap: see TT_ArrowButton).
+(def constant TT_PAGE_ARROW_WIDTH 8px)
+(def constant TT_PAGE_ARROW_HEIGHT 13px)
+# Hit area is deliberately larger than the 8x13 glyph -- also the surface the hover plate fills.
+(def constant TT_PAGE_ARROW_HIT_W 30px)
+(def constant TT_PAGE_ARROW_HIT_H 26px)
+# Disabled is an alpha, not a colour multiplier, so it can tween.
+(def constant TT_PAGE_ARROW_ALPHA_OFF 0.3)
+
+(def constant TT_ELEMENT_SIZE {
+	WIDTH: 50,
+	HEIGHT: 30
+})
+
+(def constant TT_MAX_GROUP_DEPTH 8)
+
+(def element TTaroModUtils() layout=true
+	(scope
+		(macro TT_DRAGGABLE_POSITION _fullKey="TT_POSITION_FULLKEY")
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(bind left "dragX")
+			(bind top "dragY")
+			(width = "TT_ELEMENT_SIZE.WIDTH")
+			(height = "TT_ELEMENT_SIZE.HEIGHT")
+		)
+		# Must stay declared BEFORE the content hblock -- document order sets z-order (no zindex crosses a block).
+		(block
+			(class $FullsizeAbsolute)
+			(style (backgroundColor = 0x01000000))
+			(macro TT_DRAGGABLE _fullKey="TT_POSITION_FULLKEY")
+		)
+		(hblock
+			(element TT_OptionButtonElement)
+			(element TT_DragTitleElement)
+		)
+	)
+)
+
+(def element TT_OptionButtonElement () layout=true
+	(scope
+		(macro TT_OPENER_SCOPE)
+	)
+	(dispatch evTTSelfHideInfotip args="{}" (bind trigger "isMouseActive"))
+
+	(controller $Tooltip
+		(renderer='TT_ModConfigsWindowElement')
+		(macro TT_CONFIG_BEHAVIOUR)
+
+		# Cursor state is engine-owned (CursorHold.py drives the flag); acquire on evStartShow, not evShow -- evShow lets the vanilla Ctrl-cursor die before our flag takes over.
+		(bindcall externalCall 'direct.action' "['mod.setCursorHold', [true]]" init=false watch=false on=evStartShow)
+		(bindcall externalCall 'direct.action' "['mod.setCursorHold', [false]]" init=false watch=false on=evHide)
+	)
+
+	# Belt-and-braces: evHide can miss on teardown; Python's battle-boundary release is the backup layer.
+	(bindcall externalCall 'direct.action' "['mod.setCursorHold', [false]]" init=false watch=false on='removedFromStage')
+
+	(style
+		(width = 30)
+		(height = 30)
+	)
+
+	(element ButtonSettingsSmall
+		(style
+			(position = "absolute")
+			(left = "3px")
+			(top = "3px")
+			(bind alpha "isMouseActive ? 1.0 : 0.4")
+		)
+	)
+)
+
+(def element TT_ModConfigsWindowElement () layout=true
+	(scope
+		# registry: {mods:[{slug, modName, tree}]} -- drives selector + content (static post-load).
+		(macro TT_GET_REGISTRY)
+
+		# Selection is the mod SLUG, not an index -- selecting only WRITES the slug; Python republishes uiState (no view-side slug->index step).
+		(var uiWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.uiState')")
+		(var uiEntity:gfx  = "uiWatcher.entity" (event "uiWatcher.event"))
+		(var uiComp:gfx    = "uiEntity ? uiEntity.mods_DataComponent : null")
+		(var selectedSlug:str = "uiComp && uiComp.data.selectedTab ? uiComp.data.selectedTab : ''" (event "uiComp.evDataChanged"))
+		# Python's, not derived here: indexOf() matches array ELEMENTS and `mods` holds dicts.
+		(var selectedModIndex:number = "uiComp && null != uiComp.data.selectedTabIndex ? uiComp.data.selectedTabIndex : 0" (event "uiComp.evDataChanged"))
+
+		(var noModSelectedText:str = "tr('IDS_TT_SELECT_MOD_TO_CONFIGURE')")
+	)
+
+	(style
+		(align = "middle|center")
+		(width = "TT_CONFIG_WINDOW_WIDTH + 4") # +4 for side
+	)
+
+	(element TT_BackgroundElement)
+
+	# Framework's own settings (saveMode/hotReload/position) share the same pref pipeline via the reserved `ttaro-mod-config` schema on modPrefs.framework -- not a tab; the gear opens TT_FrameworkSettingsElement.
+	# Close dispatches evTTUpHideInfotip into the window's UNGATED hide; only click-outside is depth-gated (ttCanClose).
+	(block
+		(style
+			(position = "absolute")
+			(right = 4px)
+			(top = 4px)
+			(width = 30px)
+			(height = 30px)
+			(align = "middle|center")
+		)
+		(element TT_WindowCloseButton _dispatchedEv = "'evTTUpHideInfotip'")
+	)
+	(block
+		(style
+			(position = "absolute")
+			(right = 38px) # 4 (edge) + 30 (close block) + 4 (gap)
+			(top = 4px)
+			(width = 30px)
+			(height = 30px)
+		)
+		(element TT_FrameworkGearElement)
+	)
+
+	# Mod selector: writes uiState.selectedTab as a slug; no marginBottom here -- TT_ArrowSelectElement carries its own (both would stack).
+	(block
+		(style
+			(width = "TT_CONFIG_WINDOW_WIDTH")
+			(align = "center|middle")
+			(marginTop = "TT_CONFIG_SECTION_MARGIN")
+		)
+		(block
+			(style
+				(width = "TT_CONFIG_WINDOW_WIDTH")
+				(align = "center|middle")
+			)
+			(element TT_ArrowSelectElement
+				_items = "mods"
+				_index = "selectedModIndex"
+				_valueKey = "'slug'"
+				_selectedValue = "selectedSlug"
+				_writePath = "'selectedTab'"
+				_boxWidth = "TT_MOD_SELECTOR_WIDTH"
+				_dropWidth = "TT_MOD_SELECTOR_DROPDOWN_WIDTH"
+			)
+			# Placeholder for the pre-load frame / no-mods edge; Python defaults selectedTab so this never persists.
+			(tf
+				(bind visible "selectedSlug == ''")
+				(class $TextDefaultBold)
+				(style
+					(position = "absolute")
+					(hcenter = 0%)
+					(vcenter = 0%)
+					(fontSize = 20)
+					(alpha = "TS")
+					(hitTest = false)
+					(elideMode = true)
+					(textAlign = "center")
+					(maxWidth = "TT_MOD_SELECTOR_WIDTH - 40")
+				)
+				(bind text "noModSelectedText")
+			)
+		)
+	)
+
+	# One slot per mod; only the ACTIVE slug's slot builds its tree. Switching slug rebuilds fresh.
+	(controller $Repeat renderer='TT_ModConfigSlot'
+		(bind count "mods.length")
+		(args
+			_modData = "mods[$index]"
+			_active  = "mods[$index].slug == selectedSlug"
+		)
+	)
+
+	(block
+		(bind visible "selectedSlug == ''")
+		(style
+			(marginTop = "TT_CONFIG_SECTION_MARGIN")
+			(marginBottom = "TT_CONFIG_SECTION_MARGIN")
+			(width = 100%)
+			(align = "middle|center")
+		)
+		(element TT_HorizontalDivider _margin=5px _alpha=2 _width=90%)
+		(tf
+			(style
+				(marginTop = 5px)
+				(alpha = "TS")
+			)
+			(class $TextDefaultBold17NM)
+			(bind text "noModSelectedText")
+		)
+	)
+)
+
+# (bind enabled "_active") gates CONSTRUCTION, not visibility -- an inactive slot builds nothing and collapses to zero height.
+(def element TT_ModConfigSlot (_modData:gfx, _active:bool=false) layout=true
+	(style
+		(width = 100%)
+		(align = "middle|center")
+	)
+	(controller $Instance renderer='TT_ModConfigsElement'
+		(bind enabled "_active")
+		(args _modData = "_modData")
+	)
+)
+
+# Gear for the framework's OWN settings, via the shared popup contract (which keeps the config window open behind it). Hidden until modPrefs.framework exists.
+(def element TT_FrameworkGearElement () layout=true
+	(scope
+		(event evHideInfotip)
+		(event evTTSelfHideInfotip)
+		(event evTTUpHideInfotip)
+		# Close the gear on the window's teardown broadcast (evTTDownCloseAll, dispatched DOWN at evStartHide -- TT_CONFIG_BEHAVIOUR). Its own nested popups fall away via removedFromStage.
+		(event evTTDownCloseAll)
+
+		(var mouse:gfx = "$datahub.getSingleComponent(CC.mouse)")
+		(var isMouseActive:bool = "mouse.active" (event "mouse.evActiveChanged"))
+
+
+		(macro TT_POPUP_DEPTH_SCOPE _tag="'gear'")
+
+		(macro TT_GET_FRAMEWORK)
+		(var hasFramework:bool = "fwComp ? true : false" (event "fwComp.evDataChanged"))
+	)
+	(dispatch evTTSelfHideInfotip args="{}" (bind trigger "isMouseActive"))
+
+	(bind visible "hasFramework")
+	(style
+		(width = 30)
+		(height = 30)
+	)
+
+	# The shared nested-popup contract, NOT TT_CONFIG_BEHAVIOUR.
+	(controller $Tooltip
+		(renderer='TT_FrameworkSettingsElement')
+
+		(macro TT_POPUP_BEHAVIOUR _align="innerTop|outerLeft" _offset="{ x: 0, y: 0 }")
+		(bindcall hide (event "evHideInfotip") (event "evTTSelfHideInfotip") (event "evTTUpHideInfotip"))
+
+	)
+
+	(element ButtonSettingsSmall
+		(style
+			(position = "absolute")
+			(left = "3px")
+			(top = "3px")
+			(bind alpha "isMouseActive ? 1.0 : 0.4")
+		)
+	)
+)
+
+# Gear popup. modPrefs.framework carries the {slug, tree} shape TT_ModConfigsElement consumes, so the framework tree renders through the standard renderers.
+(def element TT_FrameworkSettingsElement () layout=true
+	(scope
+		(macro TT_GET_FRAMEWORK)
+		(var fwData:gfx    = "fwComp ? fwComp.data : null" (event "fwComp.evDataChanged"))
+
+		(var titleText:str = "tr('IDS_MODAL_WINDOW_TITLE_PREFERENCES')")
+	)
+
+	(style
+		(align = "middle|center")
+		(width = "TT_CONFIG_WINDOW_WIDTH + 4")
+	)
+
+	(element TT_BackgroundElement)
+
+	(block
+		(style
+			(marginTop = "TT_CONFIG_SECTION_MARGIN")
+			(width = 100%)
+			(align = "middle|center")
+		)
+		(tf
+			(class $TextDefaultBold17NM)
+			(style (alpha = "TS"))
+			(bind text "titleText")
+		)
+		(element TT_HorizontalDivider _margin=5px _alpha=2 _width=90%)
+	)
+
+	(controller $Instance renderer='TT_ModConfigsElement'
+		(bind enabled "fwData != null")
+		(args _modData = "fwData")
+	)
+)
+
+(def element TT_ModConfigsElement (_modData:gfx)layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE) #mandatory: battle scroll
+		(macro STAGE_SIZE)
+		(var clampedMaxHeight:number = "min(stageHeight - 300, stageHeight * 0.7)")
+
+		(var tree:array = "_modData && _modData.tree ? _modData.tree : []")
+		(var slug:str   = "_modData && _modData.slug ? _modData.slug : ''")
+
+		# One page per visible top-level group, plus a leading page for loose root settings. Python builds them; `idx` indexes into `tree`, so a page carries several nodes without copying any.
+		(var pages:array = "_modData && _modData.pages ? _modData.pages : []")
+		(var isPaginated:bool = "pages.length >= TT_CONFIG_PAGINATE_MIN")
+
+		(var pgWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.uiState')")
+		(var pgEntity:gfx  = "pgWatcher.entity" (event "pgWatcher.event"))
+		(var pgComp:gfx    = "pgEntity ? pgEntity.mods_DataComponent : null")
+		(var pgMap:gfx     = "pgComp ? pgComp.data.selectedPage : null" (event "pgComp.evDataChanged"))
+		# Python publishes an entry for every slug, so this index never misses.
+		(var storedPage:number = "null != pgMap ? pgMap[slug] : 0")
+		# Python clamps on publish; this covers the frame between a schema reload and its republish.
+		(var pageIndex:number = "storedPage < pages.length ? storedPage : 0")
+		(var pageIdx:array = "isPaginated ? pages[pageIndex].idx : []")
+
+		# A page IS one top-level group: rendering it whole would repeat the pager label as a title and let its
+		# own collapse arrow fold the entire page, so we render children instead (loose-root page indexes `tree` directly).
+		(var pageGroup:gfx = "isPaginated && pageIdx.length == 1 ? tree[pageIdx[0]] : null")
+		(var pageIsGroup:bool = "null != pageGroup && pageGroup.kind == 'group'")
+		(var pageNodes:array = "pageIsGroup && pageGroup.children ? pageGroup.children : []")
+		# Dropping the group wrapper drops its enabledWhen greying with it, so the gate moves to the page body.
+		(var pageGroupKey:str = "pageIsGroup && pageGroup.key ? pageGroup.key : ''")
+		(macro TT_GET_PREF _varName="'pageGate'" _key="pageGroupKey")
+		(var isPageApplicable:bool = "null == pageGateC ? true : pageGate.visible")
+	)
+	(style
+		(align = "middle|center")
+		(width="TT_CONFIG_WINDOW_WIDTH")
+		(marginBottom = 15px)
+	)
+
+	(controller $Animation
+		(bindcall play duration="0.25"  from={alpha:0} to={alpha:1} watch=false action="killAll" easing="Easing.cubic_in" (bind trigger "_modData"))
+	)
+
+	# mandatory: battle scroll
+	(bindcall externalCall 'inputMapping.onAction' "['battleChat.rollOverChanged', { rollOver: rollOver }]" init=false watch=false (bind trigger "rollOver"))
+	(macro MOUSE_EVENTS_DISPATCHER) # mandatory: battle scroll
+
+	# Gated, not hidden: a mod under the threshold never builds the pager at all.
+	(controller $Instance renderer='TT_ArrowSelectElement'
+		(bind enabled "isPaginated")
+		(args
+			_items = "pages"
+			_index = "pageIndex"
+			_valueKey = "'value'"
+			_selectedValue = "pageIndex"
+			# LIST path, not dotted: setUiState splits a dotted string, and a slug contains dots, so 'selectedPage.ttaro.minimap' would nest three levels deep and never be read back.
+			_writePath = "['selectedPage', slug]"
+			_boxWidth = "TT_MOD_SELECTOR_WIDTH"
+			_dropWidth = "TT_MOD_SELECTOR_DROPDOWN_WIDTH"
+		)
+	)
+
+	(scrollArea
+		(style
+			(backgroundColor = 0x01000000) #mandatory: battle scroll
+			(width = "TT_CONFIG_WINDOW_WIDTH")
+			(bind maxHeight "clampedMaxHeight")
+		)
+
+		(verticalSlider='ScrollBarVLight')
+		(topShadow='ScrollAreaShadowTop')
+		(bottomShadow='ScrollAreaShadowBottom')
+
+		(activeControlsAlpha=0.7)
+		(inactiveControlsAlpha=0.2)
+
+		(wheelScrollSpeed = "1.5")
+		(wheelScrollAcceleration = "0.9")
+		(maxScrollingAnimatedDistance = "150")
+
+		(animationDuration=0.2)
+		(animationEasing="Easing.cubic_out")
+
+		(hscrollPolicy='off')
+		(vscrollPolicy='auto')
+		(repeatController='TT_NodeElementRepeat')
+
+		(content
+			(style
+				(width = "TT_CONFIG_WINDOW_WIDTH")
+				(align = "middle|center")
+				(bind alpha "isPageApplicable ? 1.0 : 0.3")
+				(bind hitTest "isPageApplicable")
+			)
+
+			(controller $Repeat renderer='TT_NodeElement' name='TT_NodeElementRepeat'
+				(bind count "!isPaginated ? tree.length : (pageIsGroup ? pageNodes.length : pageIdx.length)")
+				(args
+					_node  = "!isPaginated ? tree[$index] : (pageIsGroup ? pageNodes[$index] : tree[pageIdx[$index]])"
+					_slug  = "slug"
+					_depth = "0"
+				)
+			)
+		)
+	)
+)
+
+# Not vanilla ImageButton (it tints its own glyph on hover) -- grows the chooser box's own outline plate
+# instead, so all three row controls react alike. flip needs pivotX=50%, or it flips about the block's left edge and lands off-centre.
+(def element TT_ArrowButton (_enabled:bool=true, _flip:bool=false, _methods:array=[]) layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE)
+		(var isHot:bool  = "_enabled && rollOver && !mouseDown")
+		(var isPressed:bool = "_enabled && mouseDown")
+		(var glyphAlpha:number = "_enabled ? 1.0 : TT_PAGE_ARROW_ALPHA_OFF")
+	)
+	(style
+		(width = "TT_PAGE_ARROW_HIT_W")
+		(height = "TT_PAGE_ARROW_HIT_H")
+		(align = "center|middle")
+		# Near-transparent fill: a block with no background is not hit-tested, so there would be nothing to roll over.
+		(backgroundColor = 0x01000000)
+	)
+
+	# No explicit `from` on any of these: a tween restarted mid-flight would jump back to it and snap; `to` carries the state and `action="kill"` drops the in-flight one, so it eases from where it is.
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(alpha = 0)
+			(scale9grid = 4)
+			(backgroundImage = 'url:../service_kit/buttons/button_dock/over.png')
+		)
+		(controller $Animation
+			(bindcall play duration=0.15 to="{ alpha: isHot ? 1 : 0 }" action="kill" (bind trigger "isHot"))
+		)
+	)
+
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(alpha = 0)
+			(scale9grid = 4)
+			(backgroundImage = 'url:../service_kit/buttons/button_dock/down.png')
+		)
+		(controller $Animation
+			(bindcall play duration=0.15 to="{ alpha: isPressed ? 1 : 0 }" action="kill" (bind trigger "isPressed"))
+		)
+	)
+
+	(block
+		(style
+			(width = "TT_PAGE_ARROW_WIDTH")
+			(height = "TT_PAGE_ARROW_HEIGHT")
+			(backgroundImage = 'url:../service_kit/buttons/expand_up.png')
+			(backgroundSize = "fill")
+			(bind scaleX "_flip ? -1 : 1")
+			(pivotX = 50%)
+			(hitTest = false)
+		)
+		(controller $Animation
+			(bindcall play duration=0.2 to="{ alpha: glyphAlpha }" action="kill" (bind trigger "glyphAlpha"))
+		)
+	)
+
+	(block
+		(class $FullsizeAbsolute)
+		(macro MOUSE_HANDLER
+			_enabled = "_enabled"
+			_methods = "_methods"
+			_soundSet = "'button_context'"
+		)
+	)
+)
+
+# One row of "[<] chooser [>]" shared by the mod selector and page pager: both step a list by VALUE
+# (slug or ordinal), so the caller passes _valueKey/_index and this writes what TT_Select would. Chooser's
+# own chevron is off (arrows already say this steps); arrows CLAMP rather than hide (end one dims via alpha, not colour -- see TT_ArrowButton).
+(def element TT_ArrowSelectElement (_items:array=[], _index:number=0, _valueKey:str='value',
+		_selectedValue:gfx=null, _writePath:gfx='', _boxWidth:number=220, _dropWidth:number=300) layout=true
+	(scope
+		(var atFirst:bool = "_index <= 0")
+		(var atLast:bool  = "_index >= _items.length - 1")
+		(var prevValue:gfx = "atFirst ? _selectedValue : _items[_index - 1][_valueKey]")
+		(var nextValue:gfx = "atLast ? _selectedValue : _items[_index + 1][_valueKey]")
+		(var prevMethods:array = "[{type: 'direct.action', name: 'mod.setUiState', args: [_writePath, prevValue]}]")
+		(var nextMethods:array = "[{type: 'direct.action', name: 'mod.setUiState', args: [_writePath, nextValue]}]")
+	)
+	(style
+		(width = "TT_CONFIG_WINDOW_WIDTH")
+		(align = "center|middle")
+		(marginBottom = "TT_CONFIG_SECTION_MARGIN")
+	)
+
+	(hblock
+		(style
+			(align = "center|middle")
+		)
+
+		(element TT_ArrowButton
+			_enabled = "!atFirst"
+			_flip = "true"
+			_methods = "prevMethods"
+		)
+
+		(block
+			(style
+				(bind width "_boxWidth")
+				(align = "center|middle")
+				(marginLeft = 16px)
+				(marginRight = 16px)
+			)
+			(element TT_Select
+				_items = "_items"
+				_valueKey = "_valueKey"
+				_listItemRenderer = "'TT_ModSelectItemRenderer'"
+				_choosedItemRenderer = "'TT_ArrowSelectChosenRenderer'"
+				_writeAction = "'mod.setUiState'"
+				_writeArg0 = "_writePath"
+				_selectedMaxWidth = "_boxWidth"
+				_dropDownWidth = "_dropWidth"
+				_maxDropDownHeight = "400"
+				_selectedValue = "_selectedValue"
+				_centerChosen = "true"
+				_showNavigateIcon = "false"
+			)
+		)
+
+		(element TT_ArrowButton
+			_enabled = "!atLast"
+			_methods = "nextMethods"
+		)
+	)
+)
+
+# Self-recursive node dispatcher: group -> TT_GroupElement, setting -> TT_SettingRowElement. UI prunes hidden:true subtrees (Python still stores them); depth-capped.
+(def element TT_NodeElement (_node:gfx, _slug:str, _depth:number=0) layout=true
+	(scope
+		(var kind:str      = "_node && _node.kind ? _node.kind : ''")
+		(var isHidden:bool = "_node && _node.hidden ? true : false")
+		(var isGroup:bool  = "kind == 'group'")
+		(var isSetting:bool = "kind == 'setting'")
+		# display:"popup" is a ROW at parent depth, not a titled block -- dispatches away from TT_GroupElement rather than branching inside it. Python fills `display` for a v4 schema.
+		(var isPopup:bool = "isGroup && _node.display == 'popup'")
+		# Python's derived flag: every setting at or below this group is hidden:true, so the group would render as an empty titled section. Literal on the LEFT so an absent flag reads false.
+		(var isEmptyGroup:bool = "isGroup && false == _node.hasVisible")
+
+		# Staggered realization: gating the $Instance below defers the whole shell (not just the leaf control), so a large tree builds a few elements per tick and cascades down the generations.
+		(var isInstantiated:bool = false)
+		(controller $Animation
+			(bindcall play
+				delay = "isGroup ? $index * 0.1 : $index * 0.03"
+				duration = "0.001"
+				from = "{ isInstantiated: false }"
+				to   = "{ isInstantiated: true }"
+				init = true
+			)
+		)
+	)
+	(style
+		(width = 100%)
+		(align = "middle|center")
+	)
+
+	(controller $Instance renderer='TT_GroupElement'
+		(bind enabled "isInstantiated && isGroup && !isPopup && !isHidden && !isEmptyGroup && _depth < TT_MAX_GROUP_DEPTH")
+		(args _node="_node" _slug="_slug" _depth="_depth")
+	)
+
+	# Same depth cap -- the popup builds children through TT_NodeElement, so popup groups recurse like plain ones.
+	(controller $Instance renderer='TT_GroupRowElement'
+		(bind enabled "isInstantiated && isPopup && !isHidden && !isEmptyGroup && _depth < TT_MAX_GROUP_DEPTH")
+		(args _node="_node" _slug="_slug" _depth="_depth")
+	)
+
+	(controller $Instance renderer='TT_SettingRowElement'
+		(bind enabled "isInstantiated && isSetting && !isHidden")
+		(args _node="_node" _slug="_slug" _depth="_depth")
+	)
+)
+
+# A group: optional collapsible title + recursive children. display:"transparent" is a panel (no title
+# chrome, children flush). Collapse persistence: see the scope below. enabledWhen greys (does not hide); Python publishes {visible} on modPrefs.<groupKey>.
+(def element TT_GroupElement (_node:gfx, _slug:str, _depth:number=0) layout=true
+	(scope
+		(var label:str     = "_node && _node.label ? _node.label : ''")
+		(var children:array = "_node && _node.children ? _node.children : []")
+		(var isInline:bool = "_node && _node.display == 'transparent' ? true : false")
+		(var hasLabel:bool = "label != '' && !isInline")
+		(var groupKey:str  = "_node && _node.key ? _node.key : ''")
+
+		# Read once (no event subs): uiState publishes at framework start, so it's there at construction -- and another group's later republish can't clobber this group's live toggle.
+		(var uiStateWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.uiState')")
+		(var uiStateComp:gfx    = "uiStateWatcher.entity ? uiStateWatcher.entity.mods_DataComponent : null")
+		(var collapsedAll:dict  = "uiStateComp ? (uiStateComp.data.collapsed ? uiStateComp.data.collapsed : {}) : {}")
+		(var collapsedSlug:dict = "collapsedAll[_slug] ? collapsedAll[_slug] : {}")
+		(var storedExpanded:gfx = "groupKey != '' ? collapsedSlug[groupKey] : null")
+
+		# !isInline: an inline group has no title bar, so its expander and click handler are both inside the hasLabel gate -- `collapse:"collapsed"` there would hide the children with nothing to reopen.
+		(var isCollapsible:bool = "_node && _node.collapse && !isInline ? true : false")
+		(var collapseState:str  = "isCollapsible ? _node.collapse : 'expanded'")
+		# Declared HERE, above the isExpanded bind that subscribes to groupExpand_evClicked. Scope declarations are order-sensitive: a bind naming an undeclared event silently never fires.
+		(macro MOUSE_HANDLER_SCOPE "'groupExpand_'")
+
+		# isCollapsible gates the stored fold: a group that LOSES `collapse` (or turns inline) in a later schema
+		# keeps its stored `false` and hides its children with no way back -- the expander is gated on isCollapsible and an inline group has no title bar to click.
+		(var startsExpanded:bool = "(isCollapsible && null != storedExpanded) ? storedExpanded : (collapseState != 'collapsed')")
+		(var isExpanded:bool = "startsExpanded")
+		# Toggles this group's OWN click event (declared above), NOT via MOUSE_HANDLER's _dispatchedEv: that
+		# reaches vanilla CLICK_HANDLER's dir=UP, crossing element boundaries and flipping every ancestor group.
+		(bind isExpanded "isCollapsible ? !isExpanded : isExpanded" watch=false init=false (event "groupExpand_evClicked"))
+		# Latch: children build on first expand and stay built -- a hidden subtree is still fully constructed, so rebuilding it on every collapse/expand would hitch.
+		(var hasExpanded:bool = "startsExpanded")
+		(bind hasExpanded "true" watch=false init=false (event "groupExpand_evClicked"))
+
+		# Discriminate on the COMPONENT (grpVisC), not grpVis.visible: Python only publishes a component for a
+		# group WITH an enabledWhen; {}.visible is undefined (truthy under `null !=`), which would grey every OTHER group.
+		(macro TT_GET_PREF _varName="'grpVis'" _key="groupKey")
+		(var isApplicable:bool = "null == grpVisC ? true : grpVis.visible")
+
+		(var localizedTitleText:str = "tr(label)")
+
+		(var hintKey:str = "_node && _node.hint && _node.hint.text ? _node.hint.text : ''")
+		(var localizedHintText:str = "tr(hintKey)")
+		(var hintImage:str = "_node && _node.hint && _node.hint.image ? _node.hint.image : ''")
+		(var hasHint:bool = "hintKey != '' || hintImage != ''")
+	)
+
+	# init=false so the seed read does not write. Path passed as SEGMENTS, never pre-joined: _slug is `<author>.<slug>` (has a dot), so a joined path would nest a level and the read above would miss it.
+	(bindcall externalCall 'direct.action' "['mod.setUiState', [['collapsed', _slug, groupKey], isExpanded]]" init=false watch=false (bind trigger "isExpanded"))
+
+	(style
+		(align = "middle|center")
+		(bind width "isInline ? 100% : (_depth == 0 ? 90% : 100%)")
+		# isInline indents nothing: the splice below keeps children at THIS depth, so an indent here would restore the level it avoided. Must guard on isInline like the other three binds.
+		(bind paddingLeft "(isInline || _depth == 0) ? 0 : TT_CONFIG_GROUP_INDENT")
+		(bind marginTop "_depth == 0 ? TT_CONFIG_SECTION_MARGIN : (isInline ? 0 : 8px)")
+		(bind marginBottom "isInline ? 0 : TT_CONFIG_SECTION_MARGIN")
+		(backgroundColor = 0x01000000) # For hittest
+		(bind alpha "isApplicable ? 1.0 : 0.3")
+		(bind hitTest "isApplicable")
+	)
+
+	(hblock
+		(bind visible "hasLabel")
+		(style
+			(width = 100%)
+			(align = "middle|center")
+			(backgroundColor = 0x01000000) # For tooltip hittest
+		)
+		(block
+			(bind visible "isCollapsible")
+			(style
+				(position = "absolute")
+				(left = -15px)
+				(vcenter = 0%)
+				(alpha = "0.7")
+			)
+			(element ButtonExpand
+				_isInOverState="groupExpand_rollOver && !groupExpand_mouseDown"
+				_isInDownState="groupExpand_rollOver && groupExpand_mouseDown"
+				_expanded="isExpanded"
+			)
+		)
+		(tf
+			(class $TextDefaultBold)
+			(bind text "localizedTitleText")
+			(style
+				(fontSize = 21)
+				(width = 100%)
+				(marginLeft = 3px)
+				(textColor = 0xFFFFFFFF)
+			)
+		)
+		(block
+			(bind visible "hasHint")
+			(style
+				(width = 19px) (height = 19px) (backgroundSize = "fill")
+				(marginLeft = 5px) (marginRight = 5px)
+				(bind backgroundImage "'url:../service_kit/unified_status_icons/icon_info.png'")
+			)
+		)
+		# On the title bar only, so hovering the children shows their own hints, not this one.
+		(controller $Tooltip (renderer = 'TT_TooltipHintElement')
+			(bind enabled "hasHint")
+			(args
+				_text = "localizedHintText"
+				_unifiedStatus = "SC.Ui_styles.UNIFIED_STATUS.INFO"
+				_image = "hintImage"
+			)
+			(macro TT_TOOLTIP_BEHAVIOUR)
+		)
+		# No _dispatchedEv on purpose -- vanilla CLICK_HANDLER's dir=UP toggles every ancestor group.
+		(macro MOUSE_HANDLER
+			_prefix = "'groupExpand_'"
+			_enabled = "isCollapsible"
+			_soundSet = "'dropdown'"
+		)
+	)
+
+	(controller $Instance renderer='TT_HorizontalDivider'
+		(bind enabled "hasLabel")
+		(args _margin="5px" _alpha="2")
+	)
+
+	(block
+		(bind visible "isExpanded")
+		(style
+			(width = 100%)
+			(align = "middle|center")
+		)
+		# display:"transparent" SPLICES children in as siblings at the panel's own depth. Otherwise a depth-0 inline panel's group children land at depth 1 and lose the 5%-per-side margin.
+		(controller $Repeat renderer='TT_NodeElement'
+			(bind count "hasExpanded ? children.length : 0")
+			(args
+				_node  = "children[$index]"
+				_slug  = "_slug"
+				_depth = "isInline ? _depth : _depth + 1"
+			)
+		)
+	)
+)
+
+# A setting row: title + control widget + greying. The per-setting "visible" flag dims to 0.3 and disables
+# hit-test; it does NOT hide. Minimap/button/position rows have no value component, so they are always interactive.
+(def element TT_SettingRowElement (_node:gfx, _slug:str, _depth:number=0) layout=true
+	(scope
+		(var control:str = "_node && _node.control ? _node.control : ''")
+		(var key:str     = "_node && _node.key ? _node.key : ''")
+
+		(var isMinimap:bool = "_node && (_node.backend == 'minimapOption' || (null != _node.owned && _node.owned == false))")
+		(var rendererTable:dict = "isMinimap ? TT_MINIMAP_RENDERERS : TT_CONFIG_RENDERERS")
+		(var renderer:str = "control in rendererTable ? rendererTable[control] : ''")
+
+		(macro TT_GET_PREF _varName="'prefData'" _key="key")
+		(var isInteractive:bool = "(isMinimap || control == 'button' || control == 'position') ? true : (null != prefData && null != prefData.visible ? prefData.visible : true)")
+
+		(macro MOUSE_HANDLER_SCOPE)
+
+		(var hintKey:str = "_node && _node.hint && _node.hint.text ? _node.hint.text : ''")
+		(var localizedHintText:str = "tr(hintKey)")
+		(var hintImage:str = "_node && _node.hint && _node.hint.image ? _node.hint.image : ''")
+
+		# No per-row delay: TT_NodeElement's isInstantiated already staggers creation. This flag flips one tick later to fade the row in and defer the heavy control widget past the shell.
+		(var isConfigInitialized:bool = false)
+		(var targetAlpha:number = "isInteractive ? 1.0 : 0.3")
+
+		(controller $Animation
+			(bindcall play
+				duration = "0.001"
+				from = "{ isConfigInitialized: false }"
+				to   = "{ isConfigInitialized: true }"
+				init = true
+			)
+		)
+	)
+
+	(macro MOUSE_EVENTS_DISPATCHER)
+
+	# A depth-0 bare setting has no group to supply the 90% inset, so it insets itself to keep its control column aligned with grouped rows'.
+	(style
+		(bind width "_depth == 0 ? 90% : 100%")
+		(bind hitTest "isInteractive")
+	)
+
+	(block
+		(style
+			(alpha = 0)
+			(width = 100%)
+		)
+		(controller $Animation
+			(bindcall play
+				duration = "0.2"
+				to = "{ alpha: targetAlpha }"
+				watch=true
+				action="killAll"
+				(bind trigger "isConfigInitialized")
+			)
+		)
+
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(backgroundColor = 0x1FFFFFFF)
+				(alpha = 0)
+			)
+			(controller $Animation
+				(bindcall play duration = 0.1 to = { alpha: 1 } action="killAll" (event "evRollOver"))
+				(bindcall play duration = 0.1 to = { alpha: 0 } action="killAll" (event "evRollOut"))
+			)
+		)
+
+		# Control: fixed-width block pinned right, constant across depth; the title shortens as the row indents, not this.
+		(hblock
+			(style
+				(align = "middle|center")
+				(width = 100%)
+				(marginBottom = 4px)
+				(marginTop = 4px)
+				(backgroundColor = 0x01000000) # For tooltip hittest
+			)
+
+			# Control is absolute, so flow collapses the row to the title's height; this zero-width spacer keeps the row at least as tall as the control widget.
+			(block (style (width = 0px) (height = 23px)))
+
+			(element TT_ConfigTitleElement _node="_node")
+
+			(block
+				(style
+					(position = "absolute")
+					(right = 0px)
+					(vcenter = 0%)
+					(width = "TT_CONFIG_OPTION_WIDTH")
+				)
+				(controller $Instance
+					(bind renderer "renderer")
+					(bind enabled "isConfigInitialized && renderer != ''")
+					(args
+						_node="_node"
+					)
+				)
+			)
+		)
+
+		# Gated on the KEY, not the translated text: tr() passes an unresolved key through, so the text never signals absence.
+		(controller $Tooltip (renderer = 'TT_TooltipHintElement')
+			(bind enabled "hintKey != '' || hintImage != ''")
+			(args
+				_text = "localizedHintText"
+				_unifiedStatus = "SC.Ui_styles.UNIFIED_STATUS.INFO"
+				_image="hintImage"
+			)
+			(macro TT_TOOLTIP_BEHAVIOUR)
+		)
+	)
+)
+
+(def element TT_ConfigTitleElement (_node:gfx) layout=true
+	(scope
+		(var titleKey:str = "_node && _node.label ? _node.label : ''")
+		(var localizedTitleText:str = "tr(titleKey)")
+		(var hasTooltip:bool = "_node && _node.hint ? true : false")
+	)
+	# paddingRight reserves the control column; this text area shortens as rows indent.
+	(style
+		(width = 100%)
+		(paddingRight = "TT_CONFIG_OPTION_WIDTH + TT_CONFIG_LABEL_CONTROL_GAP")
+	)
+	(hblock
+		(style
+			(width = 100%)
+			(align = "middle|center")
+		)
+		(tf
+			(bind text "localizedTitleText")
+			(class $TextDefault)
+			(style
+				(width = 100%)
+				(leading = -5)
+				(marginLeft = 8px)
+				(textColor = 0xFFFFFFFF)
+			)
+		)
+		(block
+			(bind visible "hasTooltip")
+			(style
+				(width = 19px) (height = 19px) (backgroundSize = "fill")
+				(marginLeft = 5px) (marginRight = 5px)
+				(bind backgroundImage "'url:../service_kit/unified_status_icons/icon_info.png'")
+			)
+		)
+	)
+)
+
+# A display:"popup" group renders as ONE row (hover hint + click popup holding the real rows); children
+# never enter the panel's flow. Sits at the PARENT's depth so control columns line up. `collapse` is ignored.
+# enabledWhen greys the row (does not hide); the hover yields while its own popup is open.
+(def element TT_GroupRowElement (_node:gfx, _slug:str, _depth:number=0) layout=true
+	(scope
+		# DECLARES the evClicked/evRollOver/evRollOut that MOUSE_EVENTS_DISPATCHER raises below -- without it the
+		# dispatcher errors on evClicked (silently, only in ub_player_errors) and hover breaks. Computed names ("_prefix + 'evRollOver'") no grep finds -- do NOT rename these into evTTSelf*.
+		(macro MOUSE_HANDLER_SCOPE)
+
+		(var groupKey:str = "_node && _node.key ? _node.key : ''")
+
+		# Discriminate on the COMPONENT (grpVisC), not grpVis.visible -- see TT_GroupElement above.
+		(macro TT_GET_PREF _varName="'grpVis'" _key="groupKey")
+		(var isInteractive:bool = "null == grpVisC ? true : grpVis.visible")
+
+		(var hintKey:str = "_node && _node.hint && _node.hint.text ? _node.hint.text : ''")
+		(var localizedHintText:str = "tr(hintKey)")
+		(var hintImage:str = "_node && _node.hint && _node.hint.image ? _node.hint.image : ''")
+
+		# As the trigger's PARENT, this counts the trigger's popup and anything deeper -- "at or below" IS "below"
+		# here (we host no popup), so > 0 needs no correction. Must be a COUNTER, not a bool (blind past one layer): the row STAYS HOVERABLE while its own popup is open.
+		(macro TT_POPUP_COUNT_SCOPE _tag="'grouprow'")
+		(var isPopupOpen:bool = "ttOpenHere > 0")
+
+		(var isConfigInitialized:bool = false)
+		(var targetAlpha:number = "isInteractive ? 1.0 : 0.3")
+		(controller $Animation
+			(bindcall play
+				duration = "0.001"
+				from = "{ isConfigInitialized: false }"
+				to   = "{ isConfigInitialized: true }"
+				init = true
+			)
+		)
+	)
+
+	(macro MOUSE_EVENTS_DISPATCHER)
+
+	(style
+		(bind width "_depth == 0 ? 90% : 100%")
+		(bind hitTest "isInteractive")
+	)
+
+	(block
+		(style
+			(alpha = 0)
+			(width = 100%)
+		)
+		(controller $Animation
+			(bindcall play
+				duration = "0.2"
+				to = "{ alpha: targetAlpha }"
+				watch=true
+				action="killAll"
+				(bind trigger "isConfigInitialized")
+			)
+		)
+
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(backgroundColor = 0x1FFFFFFF)
+				(alpha = 0)
+			)
+			(controller $Animation
+				(bindcall play duration = 0.1 to = { alpha: 1 } action="killAll" (event "evRollOver"))
+				(bindcall play duration = 0.1 to = { alpha: 0 } action="killAll" (event "evRollOut"))
+			)
+		)
+
+		(hblock
+			(style
+				(align = "middle|center")
+				(width = 100%)
+				(marginBottom = 4px)
+				(marginTop = 4px)
+				(backgroundColor = 0x01000000) # For tooltip hittest
+			)
+
+			(block (style (width = 0px) (height = 23px)))
+
+			(element TT_ConfigTitleElement _node="_node")
+
+			(block
+				(style
+					(position = "absolute")
+					(right = 0px)
+					(vcenter = 0%)
+					(width = "TT_CONFIG_OPTION_WIDTH")
+				)
+				(controller $Instance renderer='TT_GroupTriggerElement'
+					(bind enabled "isConfigInitialized")
+					(args _node="_node" _slug="_slug")
+				)
+			)
+		)
+
+		# Hover is the group's own hint, gated on the KEY as TT_SettingRowElement is -- a group need not carry a hint, and an ungated tooltip would build an empty blurred panel tracking the mouse.
+		(controller $Tooltip (renderer = 'TT_TooltipHintElement')
+			(bind enabled "!isPopupOpen && (hintKey != '' || hintImage != '')")
+			(args
+				_text = "localizedHintText"
+				_unifiedStatus = "SC.Ui_styles.UNIFIED_STATUS.INFO"
+				_image = "hintImage"
+			)
+			(macro TT_TOOLTIP_BEHAVIOUR)
+			(bindcall hide (event "evTTUpPopupShown"))
+		)
+	)
+)
+
+# Editable body behind a display:"popup" row. Rows build at _depth 0 (same inset as TT_ConfigSubsetElement);
+# children recurse through TT_NodeElement, so a nested tooltip-group opens its own popup. Built from the WINDOW's own parts (background blur + scrollArea), not the tooltip system's.
+(def element TT_GroupPopupElement (_node:gfx, _slug:str) layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE) # mandatory: battle scroll
+		(macro STAGE_SIZE)
+		(var clampedMaxHeight:number = "min(stageHeight - 300, stageHeight * 0.7)")
+
+		(var children:array = "_node && _node.children ? _node.children : []")
+		(var titleKey:str = "_node && _node.label ? _node.label : ''")
+		(var localizedTitleText:str = "tr(titleKey)")
+		(var hasLabel:bool = "titleKey != ''")
+	)
+
+	# REQUIRED: TT_BackgroundElement is $FullsizeAbsolute (no size), so without an explicit width the body measures 0 wide and the $Tooltip positioner throws the popup off-screen.
+	(style
+		(align = "middle|center")
+		(width = "TT_CONFIG_WINDOW_WIDTH + 4") # +4 for side
+	)
+
+	(element TT_BackgroundElement)
+
+	# Interior click absorber: TT_BackgroundElement does not hit-test, so an interior click would read as evClickOutside and close the popup. Interactive children MUST come after it for hit priority.
+	(block
+		(class $FullsizeAbsolute)
+		(style (backgroundColor = 0x00FFFFFF)) # seamless hittest; NOT 0x01000000 (tints)
+	)
+
+	# mandatory: battle scroll
+	(bindcall externalCall 'inputMapping.onAction' "['battleChat.rollOverChanged', { rollOver: rollOver }]" init=false watch=false (bind trigger "rollOver"))
+	(macro MOUSE_EVENTS_DISPATCHER) # mandatory: battle scroll
+
+	(hblock
+		(bind visible "hasLabel")
+		(style
+			(width = 90%)
+			(align = "middle|center")
+			(marginTop = 12px)
+		)
+		(tf
+			(class $TextDefaultBold)
+			(bind text "localizedTitleText")
+			(style
+				(fontSize = 21)
+				(width = 100%)
+				(textColor = 0xFFFFFFFF)
+			)
+		)
+	)
+	(controller $Instance renderer='TT_HorizontalDivider'
+		(bind enabled "hasLabel")
+		(args _margin="5px" _alpha="2")
+	)
+
+	(scrollArea
+		(style
+			(backgroundColor = 0x01000000) # mandatory: battle scroll
+			(width = "TT_CONFIG_WINDOW_WIDTH")
+			(marginBottom = 12px)
+			(bind maxHeight "clampedMaxHeight")
+		)
+
+		(verticalSlider='ScrollBarVLight')
+		(topShadow='ScrollAreaShadowTop')
+		(bottomShadow='ScrollAreaShadowBottom')
+
+		(activeControlsAlpha=0.7)
+		(inactiveControlsAlpha=0.2)
+
+		(wheelScrollSpeed = "1.5")
+		(wheelScrollAcceleration = "0.9")
+		(maxScrollingAnimatedDistance = "150")
+
+		(animationDuration=0.2)
+		(animationEasing="Easing.cubic_out")
+
+		(hscrollPolicy='off')
+		(vscrollPolicy='auto')
+		(repeatController='TT_GroupPopupRepeat')
+
+		(content
+			(style
+				(width = "TT_CONFIG_WINDOW_WIDTH")
+				(align = "middle|center")
+			)
+			(controller $Repeat renderer='TT_NodeElement' name='TT_GroupPopupRepeat'
+				(bind count "children.length")
+				(args
+					_node  = "children[$index]"
+					_slug  = "_slug"
+					_depth = "0"
+				)
+			)
+		)
+	)
+)
+(def element TT_DragTitleElement () layout=true
+	(scope
+		(var mouse:gfx = "$datahub.getSingleComponent(CC.mouse)")
+		(var isMouseActive:bool = "mouse.active" (event "mouse.evActiveChanged"))
+	)
+	(tf
+		(class $TextDefaultBold)
+		(bind text "'T'")
+		(style
+			(bind alpha "isMouseActive ? 0.6 : 0.0")
+			(hitTest = false)
+			(fontSize = 18)
+		)
+	)
+)
+
+# Window close (X): INTERNALIZED copy of vanilla CloseButton (no dependency on it surviving a patch).
+# Dispatches _dispatchedEv UP as 'evTTUpHideInfotip', NOT the vanilla name -- that reached vanilla ancestors listening for evHideInfotip too, closing their windows along with ours.
+(def element TT_WindowCloseButton (_tooltipText:str='IDS_CLOSE', _dispatchedEv:str='', _dispatchParams:gfx={}) layout=true
+	(scope
+		(macro SIMPLE_MOUSE_OVER_DOWN_SELECTED_COLORTRANSFORM_SCOPE)
+		(macro MOUSE_HANDLER_SCOPE)
+		# On close, hide the IDS_CLOSE hint: clicking IS the close, so rollOut never fires and the SimpleStatusTooltip would orphan on screen.
+		(event evTTDownCloseAll)
+	)
+
+	(style
+		(width = 12px)
+		(height = 12px)
+		(padding = -1px)
+		(backgroundImage = 'url:../service_kit/buttons/button_close.png')
+	)
+
+	(macro SIMPLE_MOUSE_OVER_DOWN_SELECTED_COLORTRANSFORM "true")
+
+	(controller $Tooltip
+		(renderer='SimpleStatusTooltip')
+		(bind enabled "_tooltipText")
+		(args
+			_text = "_tooltipText"
+		)
+		# TT_STATUS_TOOLTIP_BEHAVIOUR hides on removedFromStage; the evTTDownCloseAll hide fires at evStartHide, so the hint goes with the window instead of lingering through the fade.
+		(macro TT_STATUS_TOOLTIP_BEHAVIOUR "0")
+		(bindcall hide (event "evTTDownCloseAll"))
+	)
+
+	(macro MOUSE_HANDLER
+		_dispatchedEv = "_dispatchedEv"
+		_dispatchParams = "_dispatchParams"
+		_soundSet = "'button_default'"
+	)
+)
+
+(def element TT_TooltipConfigElement(_modSlug:str)
+	# Opens a specific mod's config panel directly. _modSlug matches registry.mods[].slug -- keyed by slug, not index, since the registry holds only INSTALLED mods (a positional index would shift).
+	(scope
+		(macro TT_GET_REGISTRY)
+	)
+
+	# REQUIRED width -- see TT_GroupPopupElement. TT_ConfigSubsetElement does NOT need it: it uses TOOLTIP_SYSTEM_DEFAULT_BACKGROUND, which sizes to content.
+	(style
+		(align = "middle|center")
+		(width = "TT_CONFIG_WINDOW_WIDTH + 4") # +4 for side
+	)
+
+	(element TT_BackgroundElement)
+
+	# Close (X): same one-click teardown as the main window; no gear (single-mod popup has no framework settings).
+	(block
+		(style
+			(position = "absolute")
+			(right = 4px)
+			(top = 4px)
+			(width = 30px)
+			(height = 30px)
+			(align = "middle|center")
+		)
+		(element TT_WindowCloseButton _dispatchedEv = "'evTTUpHideInfotip'")
+	)
+
+	# Only the matching slug's slot builds; an unknown slug is a graceful no-op.
+	(controller $Repeat renderer='TT_ModConfigSlot'
+		(bind count "mods.length")
+		(args
+			_modData = "mods[$index]"
+			_active  = "mods[$index].slug == _modSlug"
+		)
+	)
+)
+
+(def element TT_ConfigButtonElement (_modSlug:str, _tooltipPosition:number="border", _tooltipAlign:number="innerTop|outerLeft") layout=true
+	# For other mods to open the config window directly. _modSlug matches registry.mods[].slug.
+	(scope
+		(macro TT_OPENER_SCOPE)
+	)
+	(dispatch evTTSelfHideInfotip args="{}" (bind trigger "isMouseActive"))
+
+	# Free the battle cursor while open -- same timing as TT_OptionButtonElement; without it the child number/colour popups are unusable in battle.
+	(bindcall externalCall 'direct.action' "['mod.setCursorHold', [false]]" init=false watch=false on='removedFromStage')
+
+	(style
+		(position = "absolute")
+		(width = 30px)
+		(height = 30px)
+		(align = "middle|center")
+	)
+
+	(controller $Tooltip
+		(renderer='TT_TooltipConfigElement')
+		(args _modSlug = "_modSlug")
+		(macro TT_CONFIG_BEHAVIOUR _position="_tooltipPosition" _align="_tooltipAlign")
+
+		(bindcall externalCall 'direct.action' "['mod.setCursorHold', [true]]" init=false watch=false on=evStartShow)
+		(bindcall externalCall 'direct.action' "['mod.setCursorHold', [false]]" init=false watch=false on=evHide)
+	)
+
+	(element ButtonSettingsSmall
+		(bind visible "isMouseActive")
+		(alpha = 0.7)
+	)
+)
+
+# A tooltip body holding JUST the named settings of one mod. _keys are full dotted keys, matched against
+# each setting node's `key`; rows come out in SCHEMA order, NOT _keys order. _isEnabled=false is the read-only variant (hit-test off).
+(def element TT_ConfigSubsetElement (_modSlug:str, _keys:array, _isEnabled:bool=true)
+	(scope
+		(macro TT_GET_REGISTRY)
+	)
+
+	(style
+		(bind hitTest "_isEnabled")
+	)
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(style
+			(width = "TT_CONFIG_WINDOW_WIDTH")
+			(align = "middle|center")
+		)
+
+		(controller $Repeat renderer='TT_ConfigSubsetSlot'
+			(bind count "mods.length")
+			(args
+				_modData = "mods[$index]"
+				_keys    = "_keys"
+				_active  = "mods[$index].slug == _modSlug"
+			)
+		)
+	)
+)
+
+# One subset slot per registry mod. Only the active slug walks its tree ($Repeat count 0 elsewhere).
+(def element TT_ConfigSubsetSlot (_modData:gfx, _keys:array, _active:bool=false) layout=true
+	(scope
+		(var tree:array = "_modData && _modData.tree ? _modData.tree : []")
+		(var slug:str   = "_modData && _modData.slug ? _modData.slug : ''")
+	)
+	(style
+		(width = 100%)
+		(align = "middle|center")
+	)
+	(controller $Repeat renderer='TT_SubsetNodeElement'
+		(bind count "_active ? tree.length : 0")
+		(args
+			_node = "tree[$index]"
+			_slug = "slug"
+			_keys = "_keys"
+		)
+	)
+)
+
+# Self-recursive key filter: descend every group, emit a row only for a setting whose key is in _keys.
+# Deliberately renders NO group chrome (title, collapse, indent, greying); rows build at _depth 0 for the same inset as a top-level row. No realization stagger (unlike TT_NodeElement) -- just a handful of rows.
+(def element TT_SubsetNodeElement (_node:gfx, _slug:str, _keys:array, _depth:number=0) layout=true
+	(scope
+		(var kind:str       = "_node && _node.kind ? _node.kind : ''")
+		(var isHidden:bool  = "_node && _node.hidden ? true : false")
+		(var children:array = "kind == 'group' && _node.children ? _node.children : []")
+		(var key:str        = "kind == 'setting' && _node.key ? _node.key : ''")
+		# `in` over an :array is the cheap membership form.
+		(var isWanted:bool  = "key != '' && key in _keys")
+	)
+	(style
+		(width = 100%)
+		(align = "middle|center")
+	)
+
+	(controller $Instance renderer='TT_SettingRowElement'
+		(bind enabled "isWanted && !isHidden")
+		(args _node="_node" _slug="_slug" _depth="0")
+	)
+
+	(controller $Repeat renderer='TT_SubsetNodeElement'
+		(bind count "!isHidden && _depth < TT_MAX_GROUP_DEPTH ? children.length : 0")
+		(args
+			_node  = "children[$index]"
+			_slug  = "_slug"
+			_keys  = "_keys"
+			_depth = "_depth + 1"
+		)
+	)
+)
+
+# Read-path macros: the bridge consumers use to read modPrefs.* components.
+
+# Pulls a setting's component into scope var _varName ({value, visible, ...} as GFX); dynamic-named (+W/E/C intermediates) so multiple calls coexist in one scope.
+# <var> is NULL until the component loads -- guard the var ITSELF ({} fallback THROWS):
+#   "null != <var> && null != <var>.value ? <var>.value : default"
+# null on the LEFT, so 0/false/'' aren't mis-read as absent.
+(def macro TT_GET_PREF (_varName:expression, _key:expression)
+	(var name="_varName + 'W'" type=gfx value="$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.' + _key)")
+	(var name="_varName + 'E'" type=gfx value="$scope[_varName + 'W'].entity" (event "$scope[_varName + 'W'].event"))
+	(var name="_varName + 'C'" type=gfx value="$scope[_varName + 'E'] ? $scope[_varName + 'E'].mods_DataComponent : null")
+	(var name="_varName" type=gfx value="$scope[_varName + 'C'] ? $scope[_varName + 'C'].data : null" (event "$scope[_varName + 'C'].evDataChanged"))
+)
+
+# Lands `_varName` bool: is the mod with this SLUG installed? Python scans state into modPrefs.installedMods
+# (dynamic-named -- a scope can ask about several). Framework's own row is absent from that set, so it always reads false.
+(def macro TT_IS_MOD_INSTALLED (_varName:expression, _slug:expression)
+	(var name="_varName + 'W'" type=gfx value="$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.installedMods')")
+	(var name="_varName + 'E'" type=gfx value="$scope[_varName + 'W'].entity" (event "$scope[_varName + 'W'].event"))
+	(var name="_varName + 'C'" type=gfx value="$scope[_varName + 'E'] ? $scope[_varName + 'E'].mods_DataComponent : null")
+	# Landed as a real array before the membership test -- `in` on a gfx materializes the whole object.
+	(var name="_varName + 'L'" type=array value="$scope[_varName + 'C'] ? ($scope[_varName + 'C'].data.mods ? $scope[_varName + 'C'].data.mods : []) : []" (event "$scope[_varName + 'C'].evDataChanged"))
+	(var name="_varName" type=bool value="_slug in $scope[_varName + 'L']")
+)
+
+# Pulls modPrefs.registry into `mods` ({slug, modName, tree}[]). Fixed-named (one per scope); the (event regComp.evDataChanged) sub is required so a late registry publish still repopulates.
+(def macro TT_GET_REGISTRY ()
+	(var regWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.registry')")
+	(var regEntity:gfx  = "regWatcher.entity" (event "regWatcher.event"))
+	(var regComp:gfx    = "regEntity ? regEntity.mods_DataComponent : null")
+	(var mods:array     = "regComp ? (regComp.data.mods ? regComp.data.mods : []) : []" (event "regComp.evDataChanged"))
+)
+
+# Pulls modPrefs.framework to the component gfx `fwComp` (stops short of .data): the two call sites need different terminal vars off this same chain, each with its own final var + event sub.
+(def macro TT_GET_FRAMEWORK ()
+	(var fwWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, 'modPrefs.framework')")
+	(var fwEntity:gfx  = "fwWatcher.entity" (event "fwWatcher.event"))
+	(var fwComp:gfx    = "fwEntity ? fwEntity.mods_DataComponent : null")
+)
+
+# Shared opener scope for the two CLICK-opened config buttons: mouse-active read + the popup COUNT that TT_CONFIG_BEHAVIOUR's evClickOutside close-gate reads.
+(def macro TT_OPENER_SCOPE ()
+	# Three names, one meaning: ours split by reach, plus VANILLA's, which several vanilla elements raise and we keep listening to so a global infotip-hide still closes the window.
+	(event evHideInfotip)
+	(event evTTSelfHideInfotip)
+	(event evTTUpHideInfotip)
+	(var mouse:gfx = "$datahub.getSingleComponent(CC.mouse)")
+	(var isMouseActive:bool = "mouse.active" (event "mouse.evActiveChanged"))
+
+	# The window-teardown pair TT_CONFIG_BEHAVIOUR dispatches DOWN from here. A DISPATCHER must declare what it raises in any direction; only the elements BETWEEN dispatcher and consumer are exempt.
+	(event evTTDownCommitPending)
+	(event evTTDownCloseAll)
+
+	(macro TT_POPUP_DEPTH_SCOPE _tag="'window'")
+)
+
+# --- popup depth: each host counts nested popups open at-or-below it (a counter, not a latch).
+
+# The counter alone. Take THIS if you only need "is something open at or below me" -- a hint
+# suppressor does: no popup of its own, nothing to gate.
+(def macro TT_POPUP_COUNT_SCOPE (_tag:expression="''")
+	(event evTTUpPopupShown)
+	(event evTTUpPopupHidden)
+
+	# Clamped at the WRITE, not the read -- error can't accumulate, and a lost close leaves this high (gate stuck shut) rather than silently opening the gate.
+	(var ttOpenHere:number = 0)
+	(bind ttOpenHere "max(0, ttOpenHere + 1)" watch=false init=false (event "evTTUpPopupShown"))
+	(bind ttOpenHere "max(0, ttOpenHere - 1)" watch=false init=false (event "evTTUpPopupHidden"))
+
+	# To watch live: a BARE (trace) is the reactive form ((trace) silently drops on=). Put VALUES in the string (identical log lines dedup); _tag labels one.
+)
+
+# Popup-host contract scope, paired with TT_POPUP_BEHAVIOUR/TT_CONFIG_BEHAVIOUR: supplies ttCanClose and declares every event they dispatch (a macro owns the declaration for what it dispatches).
+(def macro TT_POPUP_DEPTH_SCOPE (_tag:expression="''")
+	(macro TT_POPUP_COUNT_SCOPE _tag="_tag")
+
+	(event evTTSelfPopupShown)
+	(event evTTSelfPopupHidden)
+	(event evTTSelfHidePopup)
+
+	# Counts AT OR BELOW, not below: a host hears its OWN dir=UP dispatch, so "just my popup" is 1 and
+	# "something deeper" is > 1 -- do NOT change this to == 0 (shuts the gate the instant it opens). Don't
+	# subtract self either: every popup closes itself on open, so that makes the count depend on dispatch order.
+	(var ttCanClose:bool = "ttOpenHere <= 1")
+)
+
+# Shared open/close contract for every nested popup -- hand-rolled per popup, these disagree silently.
+# Needs TT_POPUP_DEPTH_SCOPE in the host's scope for ttCanClose + event declarations. A popup body also needs a full-size hit surface, or an interior click reads as evClickOutside.
+(def macro TT_POPUP_BEHAVIOUR (_priority:expression="1", _align:expression="bottom|center",
+								_position:expression="border", _offset:expression="{ x: 0, y: 4 }")
+	(macro DEFAULT_INFOTIP_ANIMATIONS)
+	(bindcall show on='click')
+	# The ONLY gated close: without it, a click in a deeper popup would tear this one down too. Gated via
+	# DISPATCH, not (bindcall hide (bind enabled ...)) -- enabled on a bindcall is not a trigger condition; its false->true edge FIRES with no trigger, taking this popup with it when nested.
+	(dispatch evTTSelfHidePopup args="{}" on='evClickOutside' (bind enabled "ttCanClose"))
+	(bindcall hide (event "evTTSelfHidePopup"))
+	# Window teardown -- NOT evTTUpMenuClosed: TT_SelectOption raises that dir=UP on click, which would
+	# close the popup out from under the write. A host needing that adds it at the call site.
+	(bindcall hide (event "evTTDownCloseAll"))
+	# Tell every ancestor host a popup is open below it (the HOST's evShow, not the body's addedToStage -- see TT_POPUP_DEPTH_SCOPE).
+	(dispatch evTTUpPopupShown dir="EventDirection.UP" args="{}" on=evShow)
+	# Matching close, same element/controller as the show. Must be the HOST's (not the body's): an ancestor's
+	# click-outside gate is evaluated before evStartHide->evHide->removedFromStage (deferred by the hide animation), and a body torn down with its ancestor is already unlinked by then.
+	(dispatch evTTUpPopupHidden dir="EventDirection.UP" args="{}" on=evHide)
+	# Self-heal: once this host's popup fully closes, nothing below can be open, so assert count 0 rather
+	# than trust every descendant's close (a 3-level teardown can lose one). Safe because ttOpenHere clamps at the write.
+	(bind ttOpenHere "0" watch=false init=false on='evHide')
+
+	# Local twin for THIS host's own press highlight, not the UP pair -- its close is deferred by the hide animation, leaving the highlight lit briefly after the popup went. A visual flag stays local.
+	(dispatch evTTSelfPopupShown  args="{}" on=evShow)
+	(dispatch evTTSelfPopupHidden args="{}" on=evHide)
+
+	(priority = "_priority")
+	(offset = "_offset")
+	(align = "_align")
+	(position = "_position")
+	(screenBoundsOffset = "{ left: M, top: M, right: M, bottom: M }")
+	(pinTop='InfotipPinTop')
+	(pinBottom='InfotipPinBottom')
+	(cache = false)
+)
+
+# Vanilla DEFAULT_TOOLTIP_BEHAVIOUR + removedFromStage hide: the vanilla macro (shared, can't edit) hides only on rollOut, so a tooltip whose host vanishes while showing would orphan on screen.
+(def macro TT_STATUS_TOOLTIP_BEHAVIOUR (_priority:expression = "0")
+	(macro DEFAULT_TOOLTIP_BEHAVIOUR "_priority")
+	(bindcall hide on='removedFromStage')
+)
+
+(def macro TT_TOOLTIP_BEHAVIOUR (_priority:expression = "0")
+
+	(showAnimation = {
+		duration: 0.05,
+		delay	: 0.0,
+		from	: {alpha: 0, top: 5},
+		to		: {alpha: 1, top: 0}
+	})
+	(hideAnimation = {
+		duration: 0.05,
+		delay	: 0.0,
+		from	: {alpha:1},
+		to		: {alpha:0, top: -5}
+	})
+
+	(bindcall show on='rollOver')
+
+	(bindcall hide on='rollOut')
+	(bindcall hide on='removedFromStage')
+
+	(offset = {	x: 0, y: 15})
+
+	(screenBoundsOffset = {			left:	10,
+									top:	10,
+									right:	10,
+									bottom:	10 })
+	
+	(priority = "_priority")
+
+	(align="bottom|right")
+	(position="trackMouse")
+)
+
+(def macro TT_CONFIG_BEHAVIOUR (_priority:expression = "1", _position:expression="border", _align:expression="innerTop|outerLeft")
+	(bindcall show
+		animation = {
+			duration: 0.15,
+			easing	: "Easing.quint_in",
+			from	: { alpha: 0, top: 10 },
+			to		: { alpha: 1, top: 0 }
+		}
+		on='click'
+	)
+
+	(bindcall hide
+		animation =	{
+			duration: 0.1,
+			easing	: "Easing.quint_out",
+			from	: { alpha: 1, top: 0 },
+			to		: { alpha: 0, top: 10 }
+		}
+		(event "evHideInfotip") (event "evTTSelfHideInfotip") (event "evTTUpHideInfotip")
+	)
+	# A click inside any descendant popup reads as outside this window; without the gate it tears down under what's in use.
+	(dispatch evTTSelfHideInfotip args="{}" on='evClickOutside' (bind enabled "ttCanClose"))
+	# Popup-depth up-dispatches, self-heal reset, and local press pair -- see TT_POPUP_BEHAVIOUR.
+	(dispatch evTTUpPopupShown dir="EventDirection.UP" args="{}" on=evShow)
+	(dispatch evTTUpPopupHidden dir="EventDirection.UP" args="{}" on=evHide)
+	(bind ttOpenHere "0" watch=false init=false on='evHide')
+
+	(dispatch evTTSelfPopupShown  args="{}" on=evShow)
+	(dispatch evTTSelfPopupHidden args="{}" on=evHide)
+
+	# Two-phase teardown DOWN on evStartHide (fires at the START of the fade): commit pending edits before
+	# closing child popups. Two SEPARATE events (not one) guarantee that order -- each propagates synchronously before the next fires. Declared in TT_OPENER_SCOPE.
+	(dispatch evTTDownCommitPending dir="EventDirection.DOWN" args="{}" on=evStartHide)
+	(dispatch evTTDownCloseAll      dir="EventDirection.DOWN" args="{}" on=evStartHide)
+
+	(screenBoundsOffset = {
+		left	: "TT_ELEMENT_SIZE.WIDTH",
+		top		: "TT_ELEMENT_SIZE.HEIGHT",
+		right	: "TT_ELEMENT_SIZE.WIDTH",
+		bottom	: "TT_ELEMENT_SIZE.HEIGHT"
+	})
+	(position = "_position")
+	(align = "_align")
+	(priority = "_priority")
+)

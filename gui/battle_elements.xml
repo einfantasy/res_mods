@@ -23,9 +23,6 @@
 		<element autoPerfTestGroup="markers" class="lesta.unbound2.UbElement" elementName="MarkersContainer" name="ubMarkersContainer" url="gui_slots.swf,scenario_markers.swf">
 			<properties hitTest="true"/>
 		</element>
-		<element autoPerfTestGroup="markers" class="lesta.unbound2.UbElement" elementName="BattleframeTpd" name="ubBattleframeTpd" url="scenario_markers.swf">
-			<properties hitTest="true"/>
-		</element>
 		<element autoPerfTestGroup="poi_indicators" class="lesta.unbound2.UbElement" elementName="POIIndicatorsContainer" name="unboundPOIIndicators">
 			<properties hitTest="false"/>
 		</element>
@@ -68,7 +65,7 @@
 		<element autoPerfTestGroup="header" class="lesta.unbound2.UbElement" elementName="MainHud" name="mainHud" url="main_hud.swf,central_feedback.swf,minimap.swf">
 			<properties hitTest="true"/>
 		</element>
-		<element class="lesta.unbound2.UbElement" elementName="TTaroModConfig" name="unbound2TTaroModConfig">
+		<element class="lesta.unbound2.UbElement" elementName="TTaroModUtils" name="unbound2TTaroModUtils">
 			<properties hitTest="true"/>
 		</element>
 		<element class="lesta.unbound2.UbElement" elementName="TTaroMinimap" name="unbound2TTaroMinimap">
@@ -86,10 +83,10 @@
 		<element autoPerfTestGroup="header" class="lesta.libs.unbound.UnboundElement" name="ubMainHudPC">
 			<properties hitTest="true" rootElementId="MainHUDPCContainer"/>
 		</element>
-		<element class="lesta.libs.unbound.UnboundElement" name="unboundSecondaryArmament" url="battle_stats.swf">
+		<element class="lesta.libs.unbound.UnboundElement" name="unboundSecondaryArmament">
 			<properties hitTest="true" rootElementId="SecondaryArmament"/>
 		</element>
-		<element class="lesta.libs.unbound.UnboundElement" name="unboundInfoPanelSelf" url="battle_stats.swf">
+		<element class="lesta.libs.unbound.UnboundElement" name="unboundInfoPanelSelf">
 			<properties hitTest="true" rootElementId="InfoPanelSelf"/>
 		</element>
 		<element autoPerfTestGroup="header_texts" class="lesta.unbound2.UbElement" elementName="TutorialContextHintsContainer" name="ubExpectedAction">
@@ -110,7 +107,7 @@
 		<element autoPerfTestGroup="header" class="lesta.unbound2.UbElement" elementName="HUDModalWindowsContainer" name="ubHUDModalWindowsContainer" url="main_hud.swf,central_feedback.swf,minimap.swf">
 			<properties hitTest="true"/>
 		</element>
-		<element class="lesta.unbound2.UbElement" elementName="RadarTimer" name="unbound2RadarTimer" url="battle_stats.swf">
+		<element class="lesta.unbound2.UbElement" elementName="RadarTimer" name="unbound2RadarTimer">
 			<properties hitTest="false"/>
 		</element>
 		<element class="lesta.unbound2.UbElement" elementName="ShotTimer" name="unbound2ShotTimer">

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwh0002v014y7cviwuz",
+  "author": "ttaro",
+  "modName": "3D Radio",
+  "slug": "3d-radio",
+  "order": 2,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmtktamm600k0v0d4hx053u7u",
+      "display": "section",
+      "label": "IDS_TT_TITLE_DISPLAY_MODE",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "dropdown",
+          "key": "3dRadio.displayMode",
+          "label": "IDS_TT_DISPLAY_ONLY_ON_ALT",
+          "default": 1,
+          "options": [
+            {
+              "value": 0,
+              "phrase": "IDS_TURN_OFF"
+            },
+            {
+              "value": 1,
+              "phrase": "IDS_TURN_ON"
+            },
+            {
+              "value": 2,
+              "phrase": "IDS_ALT_VISION_MODE_1",
+              "icon": "CMD_ICONS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktam5z0079v0d4rp3927zk",
+      "display": "section",
+      "label": "IDS_TT_APPEARANCE",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "color",
+          "key": "3dRadio.appearance.lineColor",
+          "label": "IDS_TT_TITLE_LINE_COLOR",
+          "default": 872415231,
+          "min": 0,
+          "max": 4294967295
+        },
+        {
+          "kind": "setting",
+          "control": "color",
+          "key": "3dRadio.appearance.sectorColor",
+          "label": "IDS_TT_TITLE_SECTOR_COLOR",
+          "default": 184549375,
+          "min": 0,
+          "max": 4294967295
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktalyn001nv0d4kye3lsq9",
+      "display": "section",
+      "label": "IDS_TT_TITLE_RPF_ANIMATION",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "3dRadio.maxBrightness",
+          "label": "IDS_TT_MAX_BRIGHTNESS",
+          "default": 2,
+          "min": 0,
+          "max": 10,
+          "step": 1
+        }
+      ]
+    }
+  ]
+}

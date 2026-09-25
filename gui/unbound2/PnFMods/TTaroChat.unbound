@@ -1,76 +1,5 @@
-(def constant TT_CHAT_INSTALLED true) # For modconfig
-
-(def constant TTChat_ELEMENT_NAME 'TTChat')
-
 # AS3 htmlText does not support multiple classes in a single tag, apparently.
 (def constant TTChat_BASE_HTML '<font color=\"%(color)s\" size=\"%(size)d\"><span class=\"%(weight)s\">%(message)s</span></font>')
-
-(def constant TTChat_SHIP_ICON_COLOR_PRESET [
-	#Use -(234-0x??)
-	#None
-	{
-		Auxiliary:	{},
-		AirCarrier:	{},
-		Battleship:	{},
-		Cruiser:	{},
-		Destroyer: 	{},
-		Submarine:	{},
-	},
-	#Aslain v1
-	{
-		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset:    0},
-		AirCarrier:	{redOffset: -106, greenOffset:  -64, blueOffset:   21, alphaOffset:    0},
-		Battleship:	{redOffset:   21, greenOffset: -106, blueOffset: -106, alphaOffset:    0},
-		Cruiser:	{redOffset:	  21, greenOffset: 	  0, blueOffset: -106, alphaOffset:    0},
-		Destroyer: 	{redOffset:	 -64, greenOffset: 	 21, blueOffset: -106, alphaOffset:    0},
-		Submarine:	{redOffset: -207, greenOffset:    4, blueOffset:   11, alphaOffset:    0},
-	},
-	#Aslain v2
-	{
-		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset:    0},
-		AirCarrier:	{redOffset:  -43, greenOffset: -106, blueOffset:   21, alphaOffset:    0},
-		Battleship:	{redOffset:   21, greenOffset: -106, blueOffset: -106, alphaOffset:    0},
-		Cruiser:	{redOffset:	  21, greenOffset: 	  0, blueOffset: -106, alphaOffset:    0},
-		Destroyer: 	{redOffset:	 -64, greenOffset: 	 21, blueOffset: -106, alphaOffset:    0},
-		Submarine:	{redOffset: -106, greenOffset:  -64, blueOffset:   21, alphaOffset:    0},
-	},
-	#AutoSpy
-	{
-		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset: -128},
-		AirCarrier:	{redOffset: -134, greenOffset: -134, blueOffset: -134, alphaOffset: -128},
-		Battleship:	{redOffset: -234, greenOffset: -184, blueOffset: -154, alphaOffset: -128},
-		Cruiser:	{redOffset: -89,  greenOffset: -159, blueOffset: -234, alphaOffset: -128},
-		Destroyer: 	{redOffset: -184, greenOffset: -134, blueOffset: -184, alphaOffset: -128},
-		Submarine:	{redOffset: -224, greenOffset: -224, blueOffset: -224, alphaOffset: -128},
-	},
-	#Roslich
-	{
-		Auxiliary:	{redOffset:   21, greenOffset: -234, blueOffset:   21, alphaOffset:    0},
-		AirCarrier:	{redOffset:   21, greenOffset:   21, blueOffset: -234, alphaOffset:    0},
-		Battleship:	{redOffset:   21, greenOffset: -234, blueOffset: -234, alphaOffset:    0},
-		Cruiser:	{redOffset: -234, greenOffset: -234, blueOffset:   21, alphaOffset:    0},
-		Destroyer: 	{redOffset: -234, greenOffset:    0, blueOffset: -234, alphaOffset:    0},
-		Submarine:	{redOffset: -234, greenOffset:   21, blueOffset:   21, alphaOffset:    0},
-	},
-	#DeCease
-	{
-		Auxiliary:	{redOffset:   11, greenOffset: -235, blueOffset:   40, alphaOffset:    0},
-		AirCarrier:	{redOffset:   -9, greenOffset:  -60, blueOffset: -119, alphaOffset:    0},
-		Battleship:	{redOffset:  -65, greenOffset:  -74, blueOffset:   40, alphaOffset:    0},
-		Cruiser:	{redOffset:   20, greenOffset:  -76, blueOffset: -128, alphaOffset:    0},
-		Destroyer: 	{redOffset: -137, greenOffset:   11, blueOffset: -124, alphaOffset:    0},
-		Submarine:	{redOffset: -255, greenOffset: -255, blueOffset: -255, alphaOffset:    0},
-	},
-	#Hakabase
-	{
-		Auxiliary:	{redOffset: -184, greenOffset: -134, blueOffset: -234, alphaOffset:  -70},
-		AirCarrier:	{redOffset: -226, greenOffset:   -7, blueOffset:   21, alphaOffset:  -70},
-		Battleship:	{redOffset:   21, greenOffset: -234, blueOffset: -234, alphaOffset:  -70},
-		Cruiser:	{redOffset:	  21, greenOffset: 	 21, blueOffset: -234, alphaOffset:  -70},
-		Destroyer: 	{redOffset:	-234, greenOffset: 	 21, blueOffset: -234, alphaOffset:  -70},
-		Submarine:	{redOffset:   21, greenOffset: -234, blueOffset:  -81, alphaOffset:  -70},
-	},
-])
 
 (def constant TTChat_STYLE_INDEX_TO_RENDERER [
 	'TTChat_CombatLogMessageRendererStandard',
@@ -117,20 +46,32 @@
 (def macro TTChat_GET_MOD_DATA ()
 	# Prefs
 	# We do not use the in-game settings because it is difficult to modify
-	(macro TT_GET_PREF_NUMBER	_varName="'shipInfoFontSize'"		_pref="TTChat_PREFS.SHIP_INFO.FONT_SIZE")
-	(macro TT_GET_PREF_BOOL		_varName="'isShipInfoBold'"			_pref="TTChat_PREFS.SHIP_INFO.BOLD_FONT")
-	(macro TT_GET_PREF_BOOL		_varName="'isShipNameVisible'" 		_pref="TTChat_PREFS.SHIP_INFO.NAME")
-	(macro TT_GET_PREF_BOOL		_varName="'isShipIconVisible'" 		_pref="TTChat_PREFS.SHIP_INFO.ICON")
-	(macro TT_GET_PREF_BOOL		_varName="'isShipTierVisible'" 		_pref="TTChat_PREFS.SHIP_INFO.TIER")
+	(macro TT_GET_PREF _varName="'__shipFontSizePref'" _key="'ttaro.ttChat.shipInfo.font.size'")
+	(var shipInfoFontSize:number = "null != __shipFontSizePref && null != __shipFontSizePref.value ? __shipFontSizePref.value : 12")
+	(macro TT_GET_PREF _varName="'__shipBoldPref'" _key="'ttaro.ttChat.shipInfo.font.bold'")
+	(var isShipInfoBold:bool = "null != __shipBoldPref && null != __shipBoldPref.value ? __shipBoldPref.value : true")
+	(macro TT_GET_PREF _varName="'__shipNamePref'" _key="'ttaro.ttChat.shipInfo.name'")
+	(var isShipNameVisible:bool = "null != __shipNamePref && null != __shipNamePref.value ? __shipNamePref.value : true")
+	(macro TT_GET_PREF _varName="'__shipIconPref'" _key="'ttaro.ttChat.shipInfo.icon'")
+	(var isShipIconVisible:bool = "null != __shipIconPref && null != __shipIconPref.value ? __shipIconPref.value : true")
+	(macro TT_GET_PREF _varName="'__shipTierPref'" _key="'ttaro.ttChat.shipInfo.tier'")
+	(var isShipTierVisible:bool = "null != __shipTierPref && null != __shipTierPref.value ? __shipTierPref.value : true")
 
-	(macro TT_GET_PREF_NUMBER	_varName="'senderFontSize'"			_pref="TTChat_PREFS.PLAYER_INFO.FONT_SIZE")
-	(macro TT_GET_PREF_BOOL		_varName="'isSenderNameBold'"		_pref="TTChat_PREFS.PLAYER_INFO.BOLD_FONT")
-	(macro TT_GET_PREF_BOOL		_varName="'isSenderNameVisible'"	_pref="TTChat_PREFS.PLAYER_INFO.NAME")
-	(macro TT_GET_PREF_BOOL		_varName="'isClanNameVisible'" 		_pref="TTChat_PREFS.PLAYER_INFO.CLAN_TAG")
-	(macro TT_GET_PREF_BOOL		_varName="'isOwnShipNameVisible'"	_pref="TTChat_PREFS.PLAYER_INFO.MY_SHIP")
+	(macro TT_GET_PREF _varName="'__senderFontSizePref'" _key="'ttaro.ttChat.playerInfo.font.size'")
+	(var senderFontSize:number = "null != __senderFontSizePref && null != __senderFontSizePref.value ? __senderFontSizePref.value : 15")
+	(macro TT_GET_PREF _varName="'__senderBoldPref'" _key="'ttaro.ttChat.playerInfo.font.bold'")
+	(var isSenderNameBold:bool = "null != __senderBoldPref && null != __senderBoldPref.value ? __senderBoldPref.value : true")
+	(macro TT_GET_PREF _varName="'__senderNamePref'" _key="'ttaro.ttChat.playerInfo.name'")
+	(var isSenderNameVisible:bool = "null != __senderNamePref && null != __senderNamePref.value ? __senderNamePref.value : true")
+	(macro TT_GET_PREF _varName="'__clanTagPref'" _key="'ttaro.ttChat.playerInfo.clan'")
+	(var isClanNameVisible:bool = "null != __clanTagPref && null != __clanTagPref.value ? __clanTagPref.value : true")
+	(macro TT_GET_PREF _varName="'__myShipPref'" _key="'ttaro.ttChat.playerInfo.showMyShip'")
+	(var isOwnShipNameVisible:bool = "null != __myShipPref && null != __myShipPref.value ? __myShipPref.value : false")
 
-	(macro TT_GET_PREF_NUMBER	_varName="'messageFontSize'"		_pref="TTChat_PREFS.FONT_SIZE")
-	(macro TT_GET_PREF_BOOL		_varName="'isMessageBold'"			_pref="TTChat_PREFS.BOLD_FONT")
+	(macro TT_GET_PREF _varName="'__messageFontSizePref'" _key="'ttaro.ttChat.style.font.size'")
+	(var messageFontSize:number = "null != __messageFontSizePref && null != __messageFontSizePref.value ? __messageFontSizePref.value : 15")
+	(macro TT_GET_PREF _varName="'__messageBoldPref'" _key="'ttaro.ttChat.style.font.bold'")
+	(var isMessageBold:bool = "null != __messageBoldPref && null != __messageBoldPref.value ? __messageBoldPref.value : false")
 
 	# Avatar
 	(var avatarComponent:gfx = "playerEntity ? playerEntity.avatar : null")
@@ -347,9 +288,6 @@
 		(var isSpectator:bool = "spectatorStateValue == SC.Common.SPECTATOR_STATE.TRAINING_SPECTATOR")
 		(var isTeamSpectator:bool = "isEventBattle ? allTeammatesAreDead : isSpectator")
 
-		# Mod
-		(macro TT_GET_USERPREF)
-
 		# From main hud
 		(var avatarEntity:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
 		(var healthComponent:gfx = "avatarEntity.health")
@@ -365,19 +303,18 @@
 		(var isUnderwater:number = "depthIndex > SC.Battle.DEPTH_STATE.PERISCOPE")
 		#
 
-		(macro TT_GET_PREF_BOOL		_varName="'isDragDropDisabled'"		_pref="TTChat_PREFS.DISABLE_DRAGDROP")
-		(macro TT_GET_PREF_NUMBER	_varName="'widthScale'"				_pref="TTChat_PREFS.WIDTH_SCALE")
-		(macro TT_GET_PREF_NUMBER	_varName="'heightScale'"			_pref="TTChat_PREFS.HEIGHT_SCALE")
-
-		(var chatBoxWidth:number = "COMBAT_LOG_WIDTH * widthScale")
-		(var chatBoxHeight:number = "COMBAT_LOG_HEIGHT * heightScale")
-
-		(var draggableSize:number = "32px - 5px") # There is 5px margin in the image
+		(macro TT_GET_PREF _varName="'dragLockPref'" _key="'ttaro.ttChat.disableDragDrop'")
+		(var isDragDropDisabled:bool = "null != dragLockPref && null != dragLockPref.value ? dragLockPref.value : true")
+		(macro TT_GET_PREF _varName="'widthPref'" _key="'ttaro.ttChat.style.width'")
+		(var chatBoxWidth:number = "widthPref.value")
+		(macro TT_GET_PREF _varName="'heightPref'" _key="'ttaro.ttChat.style.height'")
+		(var chatBoxHeight:number = "heightPref.value")
 
 		(macro STAGE_SIZE)
-		(var defaultPosY:number = "stageHeight - 326 - chatBoxHeight - COMBAT_LOG_INPUT_HEIGHT") # 326 from main hud
-		(var defaultPos:dict = "{'positionX': 10, 'positionY': max(0, defaultPosY)}")
-		(macro DRAGGABLE_GET_DROP_POSITION _elementName="TTChat_ELEMENT_NAME" _defaultPosition="defaultPos")
+		# Python owns the position value, its resKey bucket AND the first-placement default
+		# (ttaro.ttChat.position's left/bottom anchor, which the pivot below matches), so the old
+		# stage math and its max(0, ...) clamp are gone -- Python clamps.
+		(macro TT_DRAGGABLE_POSITION _fullKey="'ttaro.ttChat.position'")
 
 		(var mouseComponent:gfx = "$datahub.getSingleComponent(CC.mouse)")
 		(var isMouseActive:bool = "mouseComponent.active" (event "mouseComponent.evActiveChanged"))
@@ -397,11 +334,37 @@
 
 		(style
 			(position = "absolute")
-			(bind left "dragPosX")
-			(bind top "dragPosY")
-			
+			(bind left "dragX")
+			(bind top "dragY")
+
 			(bind width "chatBoxWidth")
 			(bind height "chatBoxHeight")
+			# NO pivot -- top-left origin, as legacy.  A stored position is an ORIGIN, so a pivot change
+			# re-reads the folded legacy TTChat_positionY (a TOP edge) as a BOTTOM edge and moves every
+			# migrated chat up by chatBoxHeight.
+			# The schema's bottom anchor still resolves correctly without a matching pivot: Python is
+			# size-aware and the pivot cancels (boxTop = P - f*size, via the reported poy), so the
+			# default top is stageHeight - 355 - chatBoxHeight at any chatBoxHeight -- exactly the legacy
+			# formula, since COMBAT_LOG_INPUT_HEIGHT is 29 and 326 + 29 = 355.
+			# Consequence, and it matches legacy: the box grows DOWNWARD from a fixed top when
+			# chatBoxHeight changes, not upward from a fixed bottom.
+		)
+
+		# Full-size drag surface over the whole chat box.  It has to be this and not the grip icon:
+		# reportGeometry describes the block TT_DRAGGABLE sits in, and Python places THAT box against
+		# the schema anchor -- a 27x27 handle would relocate the chat by its own size (open item #7).
+		# Declared FIRST so the injected signifier stays behind the log (zindex does not cross a block
+		# boundary) and so the log above keeps its own hit-testing: a grab only starts where the chat
+		# does not consume the click.
+		(block
+			(class $FullsizeAbsolute)
+			# hitTest is a STYLE property when BOUND -- directly under a (block ...) it throws at
+			# build time.  Dropping it is also what suppresses the drag-hint tooltip when locked.
+			(style
+				(backgroundColor = 0x00FFFFFF)
+				(bind hitTest "!isDragDropDisabled")
+			)
+			(macro TT_DRAGGABLE _fullKey="'ttaro.ttChat.position'" _isDragEnabled="!isDragDropDisabled")
 		)
 
 		# Config/Draggable
@@ -411,19 +374,14 @@
 				(top = 100%)
 				(left = 100%)
 			)
-			
-			# Draggable Icon
+
+			# Draggable Icon -- purely visual now (see the drag surface above)
 			(controller $Instance renderer='TTChat_DraggableGripIcon'
 				(bind enabled "!isDragDropDisabled")
-				(args
-					_elementName="TTChat_ELEMENT_NAME"
-					_defaultPosition="defaultPos"
-					_screenBoundsOffset="{left: chatBoxWidth, top: chatBoxHeight}"
-				)
 			)
 
 			# Config
-			(element TT_ConfigButtonElement _modIndex = "16" _tooltipPosition="borderNoTrack" _tooltipAlign="innerTop|outerRight"
+			(element TT_ConfigButtonElement _modSlug = "'ttaro.chat'" _tooltipPosition="borderNoTrack" _tooltipAlign="innerTop|outerRight"
 				(style
 					(bind left "isDragDropDisabled ? 0px : 30px")
 				)
@@ -434,7 +392,6 @@
 		(controller $Instance renderer='TTChat_CombatLogPanelContent'
 			(bind enabled "!isTeamSpectator")
 			(args
-				_userPrefsNum = "_userPrefsNum"
 				_chatBoxWidth = "chatBoxWidth"
 				_chatBoxHeight= "chatBoxHeight"
 			)
@@ -465,7 +422,7 @@
 )
 
 # battle\combat_log\combat_log.unbound
-(def element TTChat_CombatLogPanelContent (_chatBoxWidth:number, _chatBoxHeight:number, _userPrefsNum:gfx=null) layout=true
+(def element TTChat_CombatLogPanelContent (_chatBoxWidth:number, _chatBoxHeight:number) layout=true
 	(scope
 		(event evNewMessageEvent)
 
@@ -633,7 +590,6 @@
 					(args
 						_messageEntity	= "battleChatAndLogMessagesItems[$index]"
 						_messagesCount	= "battleChatAndLogMessagesCount"
-						_userPrefsNum	= "_userPrefsNum"
 					)
 					(exprs
 						(style
@@ -734,14 +690,16 @@
 	# )
 )
 
-(def element TTChat_CombatLogMessageWrapper (_messageEntity:gfx, _messagesCount:number, _userPrefsNum:gfx=null) layout=true
+(def element TTChat_CombatLogMessageWrapper (_messageEntity:gfx, _messagesCount:number) layout=true
 	(scope
-		(macro TT_GET_PREF_NUMBER	_varName="'styleIndexPref'"		_pref="TTChat_PREFS.STYLE_INDEX")
-		(var styleIndex:number = "styleIndexPref < TTChat_STYLE_INDEX_TO_RENDERER.length ? styleIndexPref : 0")
+		(macro TT_GET_PREF _varName="'styleIndexPref'" _key="'ttaro.ttChat.style.preset'")
+		(var styleIndexValue:number = "null != styleIndexPref && null != styleIndexPref.value ? styleIndexPref.value : 0")
+		(var styleIndex:number = "styleIndexValue < TTChat_STYLE_INDEX_TO_RENDERER.length ? styleIndexValue : 0")
 		(var renderer:str = "TTChat_STYLE_INDEX_TO_RENDERER[styleIndex]")
 
 		# I have to manually implment the gap here because it refuses to work properly
-		(macro TT_GET_PREF_NUMBER	_varName="'gapSize'"		_pref="TTChat_PREFS.GAP_SIZE")
+		(macro TT_GET_PREF _varName="'gapSizePref'" _key="'ttaro.ttChat.style.gap'")
+		(var gapSize:number = "null != gapSizePref && null != gapSizePref.value ? gapSizePref.value : 0")
 		(var halfGap:number = "gapSize / 2")
 		(var mTop:number = "$index == 0 ? 0 : halfGap")
 		(var mBottom:number = "($index + 1) == _messagesCount ? 0 : halfGap")
@@ -756,7 +714,6 @@
 		(bind renderer "renderer")
 		(args
 			_messageEntity	= "_messageEntity"
-			_userPrefsNum	= "_userPrefsNum"
 		)
 		(exprs
 			(style
@@ -767,7 +724,7 @@
 )
 
 # battle\combat_log\combat_log.unbound
-(def element TTChat_CombatLogMessageRendererStandard(_messageEntity:gfx, _userPrefsNum:gfx=null) layout=true
+(def element TTChat_CombatLogMessageRendererStandard(_messageEntity:gfx) layout=true
 	(scope
 		(macro TTChat_GET_ORIGINAL_DATA)
 		(macro TTChat_GET_MOD_DATA)
@@ -829,7 +786,7 @@
 	#
 )
 
-(def element TTChat_CombatLogMessageRendererModern(_messageEntity:gfx, _userPrefsNum:gfx=null) layout=true
+(def element TTChat_CombatLogMessageRendererModern(_messageEntity:gfx) layout=true
 	(scope
 		(macro TTChat_GET_ORIGINAL_DATA)
 		(macro TTChat_GET_MOD_DATA)
@@ -958,7 +915,7 @@
 	#
 )
 
-(def element TTChat_CombatLogMessageRendererClassic(_messageEntity:gfx, _userPrefsNum:gfx=null) layout=true
+(def element TTChat_CombatLogMessageRendererClassic(_messageEntity:gfx) layout=true
 	(scope
 		(macro TTChat_GET_ORIGINAL_DATA)
 		(macro TTChat_GET_MOD_DATA)
@@ -1208,18 +1165,14 @@
 	)
 )
 
-(def element TTChat_DraggableGripIcon(_elementName:str, _defaultPosition:dict, _screenBoundsOffset:dict)
+# The move-hand affordance.  Purely visual: the drag surface is the full-size block declared at the
+# top of the chat box, so what Python is told about is the CHAT BOX, not this 27x27 icon.
+(def element TTChat_DraggableGripIcon()
 	(scope
 		(var draggableSize:number = "32px - 5px") # There is 5px margin in the image
 
 		(var mouseComponent:gfx = "$datahub.getSingleComponent(CC.mouse)")
 		(var isMouseActive:bool = "mouseComponent.active" (event "mouseComponent.evActiveChanged"))
-	)
-
-	(element ModDraggableElement
-		_elementName="_elementName"
-		_defaultPosition="_defaultPosition"
-		_screenBoundsOffset="_screenBoundsOffset"
 	)
 
 	# Grip

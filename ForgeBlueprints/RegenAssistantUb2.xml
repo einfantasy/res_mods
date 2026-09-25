@@ -1,0 +1,10 @@
+<mod name="RegenAssistantUb2" version="2.1.0" priority="0">
+  <requires installer="&gt;=1.0.0"/>
+
+  <!-- Unbound 2 view; the .unbound file is auto-discovered, only the battle mount is needed. -->
+  <ubMountInBattle unbound="2"
+                   rootElementId="RegenAssistantUb2"
+                   name="unbound2RegenAssistantUb2"
+                   hitTest="true"
+                   after="MainHud"/>
+</mod>

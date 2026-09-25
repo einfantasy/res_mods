@@ -1,0 +1,6979 @@
+{
+  "schemaVersion": 5,
+  "opVocabularyVersion": 3,
+  "slug": "minimap",
+  "migrations": [
+    {
+      "version": 1,
+      "description": "flat keys → dotted ancestry keys; legacy values decoded and folded onto the derived keys",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "ttMinimapAimMarkerType",
+          "to": "ttMinimap.aimMarker.shape"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportDisplayMode",
+          "to": "ttMinimap.rangeCircle.airSupport.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAirSupportOutlineType",
+          "to": "ttMinimap.rangeCircle.airSupport.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAllyDetectionVisible",
+          "to": "ttMinimap.shipMarker.detection.show"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAntiAirDisplayMode",
+          "to": "ttMinimap.rangeCircle.antiAir.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAntiAirOutlineType",
+          "to": "ttMinimap.rangeCircle.antiAir.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAttentionMarkerDistanceDisplayMode",
+          "to": "ttMinimap.attentionMarker.distance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAttentionMarkerNameDisplayMode",
+          "to": "ttMinimap.attentionMarker.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapAttentionMarkerWorldVisible",
+          "to": "ttMinimap.attentionMarker.showInWorld"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapContestedCapsVisible",
+          "to": "ttMinimap.showContestedCaps"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapDirEnemyShipDisplayMode",
+          "to": "ttMinimap.shipMarker.direction.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapDirEnemySquadronDisplayMode",
+          "to": "ttMinimap.squadronMarker.direction.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapDisableDragDrop",
+          "to": "ttMinimap.disableDragDrop"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapExtendScale",
+          "to": "ttMinimap.extendScale"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapGradientBackgroundMode",
+          "to": "ttMinimap.background.gradient"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHealthAllyDisplayMode",
+          "to": "ttMinimap.shipMarker.health.ally"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHealthEnemyDisplayMode",
+          "to": "ttMinimap.shipMarker.health.enemy"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHealthMaxHide",
+          "to": "ttMinimap.shipMarker.health.hideAtFull"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHealthType",
+          "to": "ttMinimap.shipMarker.health.format"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.hydro.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyVisibleOnActivation",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroAllyVisibleOnAlt",
+          "to": "ttMinimap.rangeCircle.hydro.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroSelfDisplayMode",
+          "to": "ttMinimap.rangeCircle.hydro.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydroSelfOutlineType",
+          "to": "ttMinimap.rangeCircle.hydro.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydrophoneSelfDisplayMode",
+          "to": "ttMinimap.rangeCircle.hydrophone.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapHydrophoneSelfOutlineType",
+          "to": "ttMinimap.rangeCircle.hydrophone.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapLastSpottedTimerVisibleOnAlt",
+          "to": "ttMinimap.shipMarker.showLastSpottedOnAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentDisplayMode",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapMainArmamentOutlineType",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapNearbyAARangeOutlineType",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapNearbyAARangeVisible",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapNearbyRadarRangeVisible",
+          "to": "ttMinimap.radarWarning.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapPingerDisplayMode",
+          "to": "ttMinimap.rangeCircle.pinger.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapPingerOutlineType",
+          "to": "ttMinimap.rangeCircle.pinger.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapPlayerNameDisplayMode",
+          "to": "ttMinimap.shipMarker.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRPFAllyDisplayMode",
+          "to": "ttMinimap.rpfAlly.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRPFKeybind",
+          "to": "ttMinimap.rpfSelf.keybind"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.radar.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.radar.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.radar.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.radar.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.radar.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.radar.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyVisibleOnActivation",
+          "to": "ttMinimap.rangeCircle.radar.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarAllyVisibleOnAlt",
+          "to": "ttMinimap.rangeCircle.radar.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.radar.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.radar.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.radar.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.radar.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.radar.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.radar.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.radar.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarSelfDisplayMode",
+          "to": "ttMinimap.rangeCircle.radar.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRadarSelfOutlineType",
+          "to": "ttMinimap.rangeCircle.radar.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapRangeOutlineFix",
+          "to": "ttMinimap.rangeCircle.outlineFix"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.atba.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.atba.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.atba.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.atba.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.atba.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.atba.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.atba.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryDisplayMode",
+          "to": "ttMinimap.rangeCircle.atba.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.atba.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.atba.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.atba.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.atba.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.atba.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.atba.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.atba.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSecondaryOutlineType",
+          "to": "ttMinimap.rangeCircle.atba.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapShowDeadPlayer",
+          "to": "ttMinimap.shipMarker.showDead"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSquadronOwnerAirSupports",
+          "to": "ttMinimap.squadronMarker.owner.showAirSupport"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSquadronOwnerMainSquadrons",
+          "to": "ttMinimap.squadronMarker.owner.showMain"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSquadronOwnerNameDisplayMode",
+          "to": "ttMinimap.squadronMarker.owner.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSquadronOwnerShipDisplayMode",
+          "to": "ttMinimap.squadronMarker.owner.shipName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyVisibleOnActivation",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarAllyVisibleOnAlt",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarSelfDisplayMode",
+          "to": "ttMinimap.rangeCircle.subRadar.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapSubRadarSelfOutlineType",
+          "to": "ttMinimap.rangeCircle.subRadar.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpMarkerVisible",
+          "to": "ttMinimap.showTorpedoes"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoDisplayMode",
+          "to": "ttMinimap.rangeCircle.torpedo.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapTorpedoOutlineType",
+          "to": "ttMinimap.rangeCircle.torpedo.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapUseBlur",
+          "to": "ttMinimap.background.useBlur"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilityAir.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilityAirOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilityAir.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaAllyOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilitySea.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyDisplayMode",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyEnableInAirCarrier",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyEnableInBattleship",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyEnableInCruiser",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyEnableInDestroyer",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyEnableInSubmarine",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaEnemyOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySeaOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilitySea.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySmokeOutlineType",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySmokeVisibleInSmoke",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.showWhen.inSmoke"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimapVisibilitySmokeVisibleOnAlt",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.showWhen.onAlt"
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.aimMarker.color",
+          "sources": [
+            {
+              "key": "ttMinimapAimMarkerColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.aimMarker.scale",
+          "sources": [
+            {
+              "key": "ttMinimapAimMarkerScale"
+            }
+          ],
+          "value": {
+            "add": [
+              0.5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.background.blurIntensity",
+          "sources": [
+            {
+              "key": "ttMinimapBlurIntensity"
+            }
+          ],
+          "value": {
+            "add": [
+              0.2,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.font.size",
+          "sources": [
+            {
+              "key": "ttMinimapMarkerFontSize"
+            }
+          ],
+          "value": {
+            "add": [
+              9,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.radarWarning.alpha",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyRadarRangeOpacity"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.radarWarning.scale",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyRadarRangeScale"
+            }
+          ],
+          "value": {
+            "add": [
+              0.5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapAirSupportAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapAirSupportEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapAirSupportFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.airSupport.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapAirSupportOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyAARangeColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyAARangeOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapNearbyAARangeFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyAARangeOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapNearbyAARangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapAntiAirColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapAntiAirOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapAntiAirFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.antiAir.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapAntiAirOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapSecondaryAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapSecondaryEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapSecondaryFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.atba.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSecondaryOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapHydroAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapHydroAllyOpacity",
+              "default": 1
+            },
+            {
+              "key": "ttMinimapHydroAllyFillCircle",
+              "default": 1
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapHydroAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapHydroEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapHydroEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapHydroEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapHydroEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapHydroEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapHydroEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapHydroSelfColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapHydroSelfOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapHydroSelfFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydro.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapHydroSelfOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydrophone.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapHydrophoneSelfColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydrophone.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapHydrophoneSelfOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapHydrophoneSelfFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.hydrophone.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapHydrophoneSelfOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.pinger.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapPingerColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.pinger.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapPingerOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapPingerFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.pinger.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapPingerOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapMainArmamentAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapMainArmamentEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapMainArmamentFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.primaryWeapon.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapMainArmamentOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapRadarAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapRadarAllyOpacity",
+              "default": 1
+            },
+            {
+              "key": "ttMinimapRadarAllyFillCircle",
+              "default": 1
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapRadarAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapRadarEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapRadarEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRadarEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapRadarEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapRadarEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapRadarEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapRadarSelfColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapRadarSelfOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRadarSelfFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.radar.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapRadarSelfOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarAllyOpacity",
+              "default": 1
+            },
+            {
+              "key": "ttMinimapSubRadarAllyFillCircle",
+              "default": 1
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapSubRadarEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarSelfColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarSelfOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapSubRadarSelfFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.subRadar.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapSubRadarSelfOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapTorpedoAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapTorpedoEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapTorpedoFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.torpedo.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapTorpedoOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilityAirAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilityAirEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilityAirFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilityAir.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilityAirOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaAllyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaAllyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilitySeaAllyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaAllyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.ally.maxDistance",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaAllyRangeLimit"
+            }
+          ],
+          "value": {
+            "add": [
+              5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaEnemyColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaEnemyOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilitySeaEnemyFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaEnemyOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.radiusOffset",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaEnemyRangeOffset"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.enemy.sectorAngle",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaEnemySectorAngle"
+            }
+          ],
+          "value": {
+            "add": [
+              10,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilitySeaFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySea.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySeaOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.color",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySmokeColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.fillAlpha",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySmokeOpacity",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapVisibilitySmokeFillCircle",
+              "default": 0
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              }
+            ]
+          },
+          "value": {
+            "mul": [
+              {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  0.35
+                ]
+              },
+              {
+                "not": {
+                  "not": {
+                    "src": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rangeCircle.visibilitySmoke.self.lineThickness",
+          "sources": [
+            {
+              "key": "ttMinimapVisibilitySmokeOutlineThickness"
+            }
+          ],
+          "value": {
+            "add": [
+              1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rpfAlly.color",
+          "sources": [
+            {
+              "key": "ttMinimapRPFAllyOpacity",
+              "default": 1
+            },
+            {
+              "key": "ttMinimapRPFAllyRed",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRPFAllyGreen",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRPFAllyBlue",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              },
+              {
+                "present": 2
+              },
+              {
+                "present": 3
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 1
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "g": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 2
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "b": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 3
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              }
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.rpfSelf.color",
+          "sources": [
+            {
+              "key": "ttMinimapRPFSelfOpacity",
+              "default": 1
+            },
+            {
+              "key": "ttMinimapRPFSelfRed",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRPFSelfGreen",
+              "default": 10
+            },
+            {
+              "key": "ttMinimapRPFSelfBlue",
+              "default": 10
+            }
+          ],
+          "when": {
+            "or": [
+              {
+                "present": 0
+              },
+              {
+                "present": 1
+              },
+              {
+                "present": 2
+              },
+              {
+                "present": 3
+              }
+            ]
+          },
+          "value": {
+            "argb": {
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 0
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "r": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 1
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "g": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 2
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              },
+              "b": {
+                "mul": [
+                  {
+                    "add": [
+                      0,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 3
+                            }
+                          },
+                          0.1
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              }
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.shipMarker.detection.color",
+          "sources": [
+            {
+              "key": "ttMinimapAllyDetectionColorIndex"
+            },
+            {
+              "key": "ttMinimapAllyDetectionOpacity",
+              "default": 3
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": {
+                "mul": [
+                  {
+                    "add": [
+                      0.1,
+                      {
+                        "mul": [
+                          {
+                            "round": {
+                              "src": 1
+                            }
+                          },
+                          0.05
+                        ]
+                      }
+                    ]
+                  },
+                  255
+                ]
+              }
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.shipMarker.direction.color",
+          "sources": [
+            {
+              "key": "ttMinimapDirEnemyShipColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.shipMarker.direction.scale",
+          "sources": [
+            {
+              "key": "ttMinimapDirEnemyShipScale"
+            }
+          ],
+          "value": {
+            "add": [
+              0.1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.shipMarker.health.width",
+          "sources": [
+            {
+              "key": "ttMinimapHealthWidth"
+            }
+          ],
+          "value": {
+            "add": [
+              20,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  2
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.squadronMarker.direction.color",
+          "sources": [
+            {
+              "key": "ttMinimapDirEnemySquadronColorIndex"
+            }
+          ],
+          "value": {
+            "argb": {
+              "rgb": {
+                "table": {
+                  "index": {
+                    "src": 0
+                  },
+                  "values": [
+                    12303291,
+                    7266807,
+                    7266776,
+                    15770914,
+                    11125362,
+                    52479,
+                    13421772,
+                    0,
+                    16711680,
+                    16724224,
+                    16736768,
+                    16749568,
+                    16762112,
+                    16774656,
+                    14024448,
+                    10813184,
+                    7601920,
+                    4325120,
+                    1113856,
+                    65312,
+                    65362,
+                    65411,
+                    65460,
+                    65510,
+                    59135,
+                    46335,
+                    33791,
+                    21247,
+                    8447,
+                    1048831,
+                    4260095,
+                    7536895,
+                    10748159,
+                    13959423,
+                    16711926,
+                    16711877,
+                    16711828,
+                    16711778,
+                    16711729,
+                    16711680
+                  ],
+                  "fallback": 12303291
+                }
+              },
+              "a": 255
+            }
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "ttMinimap.squadronMarker.direction.scale",
+          "sources": [
+            {
+              "key": "ttMinimapDirEnemySquadronScale"
+            }
+          ],
+          "value": {
+            "add": [
+              0.1,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "legacyPositions": [
+    {
+      "key": "ttMinimap.position",
+      "element": "TTaroMinimap"
+    },
+    {
+      "key": "ttMinimap.radarWarning.position",
+      "element": "TTaroMinimapRadarWarning"
+    }
+  ]
+}

@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwy000gv014jc4619yu",
+  "author": "ttaro",
+  "modName": "Chat",
+  "slug": "chat",
+  "order": 16,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmtktam9i00a3v0d41bnhc9y6",
+      "display": "section",
+      "label": "IDS_TT_TITLE_GENERAL",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.exportChat",
+          "label": "IDS_TT_EXPORT_CHAT",
+          "hint": {
+            "text": "IDS_TT_HINT_EXPORT_CHAT"
+          },
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.disableDragDrop",
+          "label": "IDS_TT_DISABLE_DRAG_DROP",
+          "hint": {
+            "text": "IDS_TT_HINT_DISABLE_DRAG_DROP"
+          },
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "position",
+          "key": "ttChat.position",
+          "label": "IDS_TT_DRAGDROP_RESET",
+          "hint": {
+            "text": "IDS_TT_HINT_DRAGDROP_RESET"
+          },
+          "defaultPosition": {
+            "x": {
+              "anchor": "left",
+              "offset": 10
+            },
+            "y": {
+              "anchor": "bottom",
+              "offset": 355
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktameo00ecv0d46ow8rfd1",
+      "display": "section",
+      "label": "IDS_TT_TITLE_STYLE",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "dropdown",
+          "key": "ttChat.style.preset",
+          "label": "IDS_TT_STYLE",
+          "default": 0,
+          "options": [
+            {
+              "value": 0,
+              "phrase": "IDS_TT_STYLE_STANDARD"
+            },
+            {
+              "value": 1,
+              "phrase": "IDS_TT_STYLE_MODERN"
+            },
+            {
+              "value": 2,
+              "phrase": "IDS_TT_STYLE_CLASSIC"
+            }
+          ],
+          "optionStyle": "CUSTOM_TEXT"
+        },
+        {
+          "kind": "group",
+          "key": "cmt4us0gc000sv0rwf97a9tw7",
+          "display": "transparent",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "toggle",
+              "key": "ttChat.style.font.bold",
+              "label": "IDS_TT_BOLD_FONT",
+              "default": false
+            },
+            {
+              "kind": "setting",
+              "control": "slider",
+              "key": "ttChat.style.font.size",
+              "label": "IDS_TT_FONT_SIZE",
+              "default": 15,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "decimals": 0
+            }
+          ]
+        },
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "ttChat.style.width",
+          "label": "IDS_TT_WIDTH",
+          "default": 255,
+          "min": 130,
+          "max": 630,
+          "step": 25,
+          "decimals": 0
+        },
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "ttChat.style.height",
+          "label": "IDS_TT_HEIGHT",
+          "default": 200,
+          "min": 100,
+          "max": 500,
+          "step": 20,
+          "decimals": 0
+        },
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "ttChat.style.gap",
+          "label": "IDS_TT_BLOCK_MARGIN",
+          "default": 0,
+          "min": 0,
+          "max": 10,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktamkh00j6v0d43lra0xjw",
+      "display": "section",
+      "label": "IDS_TT_TITLE_PLAYER_INFO",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmt4us0gg000uv0rwnubp6aag",
+          "display": "transparent",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "toggle",
+              "key": "ttChat.playerInfo.font.bold",
+              "label": "IDS_TT_BOLD_FONT",
+              "default": true
+            },
+            {
+              "kind": "setting",
+              "control": "slider",
+              "key": "ttChat.playerInfo.font.size",
+              "label": "IDS_TT_FONT_SIZE",
+              "default": 15,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "decimals": 0,
+              "enabledWhen": {
+                "kind": "group",
+                "join": "all",
+                "conditions": [
+                  {
+                    "kind": "compare",
+                    "key": "ttChat.style.preset",
+                    "op": "in",
+                    "values": [
+                      1,
+                      2
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.playerInfo.name",
+          "label": "IDS_TT_PLAYER_NAME",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.playerInfo.clan",
+          "label": "IDS_TT_CLAN_NAME",
+          "default": true,
+          "enabledWhen": {
+            "kind": "group",
+            "join": "all",
+            "conditions": [
+              {
+                "kind": "compare",
+                "key": "ttChat.playerInfo.name",
+                "op": "in",
+                "values": [
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.playerInfo.showMyShip",
+          "label": "IDS_TT_SHOW_OWN_SHIP",
+          "default": false
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktamh500gev0d49ha4gdkp",
+      "display": "section",
+      "label": "IDS_TT_TITLE_SHIP_INFO",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmt4us0gj000wv0rwhjt9fj2u",
+          "display": "transparent",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "toggle",
+              "key": "ttChat.shipInfo.font.bold",
+              "label": "IDS_TT_BOLD_FONT",
+              "default": true,
+              "enabledWhen": {
+                "kind": "group",
+                "join": "all",
+                "conditions": [
+                  {
+                    "kind": "compare",
+                    "key": "ttChat.style.preset",
+                    "op": "in",
+                    "values": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "kind": "setting",
+              "control": "slider",
+              "key": "ttChat.shipInfo.font.size",
+              "label": "IDS_TT_FONT_SIZE",
+              "default": 12,
+              "min": 10,
+              "max": 20,
+              "step": 1,
+              "decimals": 0,
+              "enabledWhen": {
+                "kind": "group",
+                "join": "all",
+                "conditions": [
+                  {
+                    "kind": "compare",
+                    "key": "ttChat.style.preset",
+                    "op": "in",
+                    "values": [
+                      2
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.shipInfo.name",
+          "label": "IDS_TT_SHIP_NAME",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.shipInfo.icon",
+          "label": "IDS_TT_CLASS_ICON",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.shipInfo.tier",
+          "label": "IDS_TT_TIER",
+          "default": true
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktam2f004cv0d4lm8su1y1",
+      "display": "section",
+      "label": "IDS_TT_TITLE_ENEMY_CHAT",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.enemy.showChats",
+          "label": "IDS_TT_PLAYER_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.enemy.showAchievements",
+          "label": "IDS_TT_ACHIEVEMENT_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.enemy.showWellDone",
+          "label": "IDS_TT_WELL_DONE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.enemy.showGoodLuck",
+          "label": "IDS_TT_GOOD_LUCK_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.enemy.showWtf",
+          "label": "IDS_TT_WTF_CHATS",
+          "default": true
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktamir00hov0d4tfvhgc8e",
+      "display": "section",
+      "label": "IDS_TT_TITLE_ALLY_CHAT",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showChats",
+          "label": "IDS_TT_PLAYER_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showAchievements",
+          "label": "IDS_TT_ACHIEVEMENT_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showWellDone",
+          "label": "IDS_TT_WELL_DONE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showGoodLuck",
+          "label": "IDS_TT_GOOD_LUCK_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showWtf",
+          "label": "IDS_TT_WTF_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showAffirmative",
+          "label": "IDS_TT_AFFIRMATIVE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showNegative",
+          "label": "IDS_TT_NEGATIVE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showGetBack",
+          "label": "IDS_TT_GET_BACK_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showNeedSmoke",
+          "label": "IDS_TT_NEED_SMOKE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showNeedSupport",
+          "label": "IDS_TT_NEED_SUPPORT_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showNeedAirDefense",
+          "label": "IDS_TT_NEED_AIR_DEFENSE_CHATS",
+          "default": true
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.ally.showNeedSpotting",
+          "label": "IDS_TT_NEED_SPOTTING_CHATS",
+          "default": true
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktamdk00dgv0d4hffj0oiy",
+      "display": "section",
+      "label": "IDS_TT_TITLE_DIVISION_CHAT",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "ttChat.div.showAchievements",
+          "label": "IDS_TT_ACHIEVEMENT_CHATS",
+          "default": true
+        }
+      ]
+    }
+  ]
+}

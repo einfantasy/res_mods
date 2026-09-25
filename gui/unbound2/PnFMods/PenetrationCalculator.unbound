@@ -1,13 +1,4 @@
 (def constant PENCALC_COMPONENT_KEY 'modPenetrationCalculator')
-(def constant TT_PENCALCULATOR_INSTALLED true) #for modconfig
-
-(def constant PenCalc_FONT_COLORS [
-	"FONT_CLASS_TO_COLOR['$FontColorDefault']",
-	"FONT_CLASS_TO_COLOR['$FontColorBuoyancy']",
-	"FONT_CLASS_TO_COLOR['$FontColorGolden']",
-	"FONT_CLASS_TO_COLOR['$FontColorGreen']",
-	"FONT_CLASS_TO_COLOR['$FontColorOrange']",
-])
 
 (def constant PenCalc_INVALID_VALUE -1)
 
@@ -55,16 +46,15 @@
 		(var altVision:bool = "cameraEntity.camera.altVision" (event "cameraEntity.camera.evAltVisionChanged"))
 
 		# UserPrefs
-		(macro TT_GET_USERPREF)
+		(macro TT_GET_PREF _varName="'heightOffsetPref'" _key="'ttaro.penCalc.rowIndex'")
+		(var heightOffset:number = "null != heightOffsetPref && null != heightOffsetPref.value ? heightOffsetPref.value : 1")
+		(macro TT_GET_PREF _varName="'impactAnglePref'" _key="'ttaro.penCalc.alwaysShowImpactAngle'")
+		(var isImpactAngleAlwaysVisible:bool = "null != impactAnglePref && null != impactAnglePref.value ? impactAnglePref.value : false")
 
-		(macro TT_GET_PREF_NUMBER _varName="'heightOffset'" 				_pref="PENCALC_PREFS.HEIGHT_OFFSET")
-		(macro TT_GET_PREF_NUMBER _varName="'fontStylePrefIndex'" 			_pref="PENCALC_PREFS.FONT_STYLE_INDEX")
-
-		(macro TT_GET_PREF_BOOL   _varName="'isImpactAngleAlwaysVisible'" _pref="PENCALC_PREFS.IMPACT_ANGLE_ALWAYS_VISIBLE")
-
-		# Font style
-		(var fontStyleIndex:number = "fontStylePrefIndex < PenCalc_FONT_COLORS.length ? fontStylePrefIndex : 0")
-		(var fontColor:number = "PenCalc_FONT_COLORS[fontStyleIndex]")
+		# Font colour -- a packed `color` setting, so `value` binds straight through to the ARGB target;
+		# never recompute a packed colour in the view (>= 2^31 overflows).
+		(macro TT_GET_PREF _varName="'fontColorPref'" _key="'ttaro.penCalc.font.color'")
+		(var fontColor:number = "null != fontColorPref && null != fontColorPref.value ? fontColorPref.value : 0xFFEEEEEE")
 
 		# Pen Data Entity
 		(var penEntityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, PENCALC_COMPONENT_KEY)")
@@ -188,7 +178,6 @@
 				_detonatorLength	= "detonatorLength"
 				_overmatch			= "overmatch"
 				_apSkipData			= "apSkipData"
-				_userPrefsNum		= "_userPrefsNum"
 			)
 			(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
 		)
@@ -241,7 +230,7 @@
 	)
 )
 
-(def element PenCalc_TooltipItem(_alwaysRicochet:number, _startRicochet:number, _impactAngle:number, _detonatorDelay:number, _detonatorThreshold:number, _detonatorLength:number, _overmatch:number, _apSkipData:dict, _userPrefsNum:gfx=null)
+(def element PenCalc_TooltipItem(_alwaysRicochet:number, _startRicochet:number, _impactAngle:number, _detonatorDelay:number, _detonatorThreshold:number, _detonatorLength:number, _overmatch:number, _apSkipData:dict)
 	(scope
 		(var isRicochetVisible:bool = "_alwaysRicochet > 0 && _startRicochet > 0")
 		(var isImpactAngleVisible:bool = "_impactAngle > 0")
@@ -265,14 +254,13 @@
 		(var isInformationAvailable:bool = "(isRicochetVisible || isImpactAngleVisible || isDetonatorVisible)")
 
 		# Translations
-		(macro TT_GET_LANGUAGE_INDEX)
-		(macro TT_GET_TRANSLATION _varName="'ricochetAngleTitle'" _key="'IDS_TT_RICOCHET_ANGLES'")
-		(macro TT_GET_TRANSLATION _varName="'impactAngleTitle'" _key="'IDS_TT_IMPACT_ANGLE'")
-		(macro TT_GET_TRANSLATION _varName="'fuseDelayTitle'" _key="'IDS_TT_FUSE_DELAY'")
-		(macro TT_GET_TRANSLATION _varName="'fuseThresholdTitle'" _key="'IDS_TT_FUSE_THRESHOLD'")
-		(macro TT_GET_TRANSLATION _varName="'fuseDistanceTitle'" _key="'IDS_TT_FUSE_DISTANCE'")
-		(macro TT_GET_TRANSLATION _varName="'overmatchTitle'" _key="'IDS_TT_OVERMATCH'")
-		(macro TT_GET_TRANSLATION _varName="'noInfoTitle'" _key="'IDS_TT_NO_INFORMATION'")
+		(var ricochetAngleTitle:str = "tr('IDS_TT_RICOCHET_ANGLES')")
+		(var impactAngleTitle:str = "tr('IDS_TT_IMPACT_ANGLE')")
+		(var fuseDelayTitle:str = "tr('IDS_TT_FUSE_DELAY')")
+		(var fuseThresholdTitle:str = "tr('IDS_TT_FUSE_THRESHOLD')")
+		(var fuseDistanceTitle:str = "tr('IDS_TT_FUSE_DISTANCE')")
+		(var overmatchTitle:str = "tr('IDS_TT_OVERMATCH')")
+		(var noInfoTitle:str = "tr('IDS_TT_NO_INFORMATION')")
 	)
 
 	(style

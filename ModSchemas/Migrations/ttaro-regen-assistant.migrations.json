@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 5,
+  "opVocabularyVersion": 3,
+  "slug": "regen-assistant",
+  "migrations": [
+    {
+      "version": 1,
+      "description": "flat keys → dotted ancestry keys; legacy values decoded and folded onto the derived keys",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "regenAssistantDisableDragDrop",
+          "to": "regenAssistant.disableDragDrop"
+        },
+        {
+          "op": "rename",
+          "from": "regenAssistantWarningAnimationRepeats",
+          "to": "regenAssistant.warningRepeats"
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "regenAssistant.background.alpha",
+          "sources": [
+            {
+              "key": "regenAssistantBackgroundOpacity"
+            }
+          ],
+          "value": {
+            "add": [
+              0,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "regenAssistant.scale",
+          "sources": [
+            {
+              "key": "regenAssistantScale"
+            }
+          ],
+          "value": {
+            "add": [
+              0.5,
+              {
+                "mul": [
+                  {
+                    "round": {
+                      "src": 0
+                    }
+                  },
+                  0.1
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "legacyPositions": [
+    {
+      "key": "regenAssistant.position",
+      "element": "regenAssistant"
+    }
+  ]
+}

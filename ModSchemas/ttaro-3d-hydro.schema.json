@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwg0001v0141l4cai5w",
+  "author": "ttaro",
+  "modName": "3D Hydro",
+  "slug": "3d-hydro",
+  "order": 1,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmslc0n550013v08c3v9ugjsz",
+      "display": "transparent",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmslc0n570017v08c4n3jyuxk",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_READY",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.ready.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.ready.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n5c001fv08c5h2eggju",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_RELOAD",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.reload.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.reload.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n5i001nv08cs38cms5s",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_ACTIVE",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.active.color",
+              "label": "IDS_TT_COLOR",
+              "default": 860678314,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.ownTeam.active.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 2152523946,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktam0j002tv0d4yxeq67ok",
+      "display": "section",
+      "label": "IDS_TT_TITLE_WITH_ENEMY_DISTANCE_OFFSET",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "3dHydro.distanceOffset",
+          "label": "IDS_TT_DISTANCE_OFFSET",
+          "default": 1,
+          "min": 0,
+          "max": 10,
+          "step": 0.5
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmslc0n560015v08cra9s0ehc",
+      "display": "section",
+      "label": "IDS_TT_TITLE_OTHER_TEAM",
+      "hint": {
+        "text": "IDS_TT_HINT_OTHER_TEAM_SPECTATOR"
+      },
+      "collapse": "collapsed",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmslc0n570019v08cyodp06fh",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_READY",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.ready.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.ready.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n5d001hv08cppbf226b",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_RELOAD",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.reload.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.reload.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n5j001pv08ce4fz4d7u",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_ACTIVE",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.active.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872362752,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dHydro.otherTeam.active.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 2164208384,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

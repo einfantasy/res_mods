@@ -1,0 +1,1026 @@
+# Reusable UI primitives for the config view.
+
+# Flash keyCodes, not DirectInput scancodes.
+(def constant TT_BACKSPACE_KEY 0x08)
+(def constant TT_DELETE_KEY 0x2e)
+
+
+# Writes the chosen VALUE (falls back to $index if no _valueKey), never an index.
+# _writeArg0 is gfx, not str: a dotted uiState path may need to be a LIST -- setUiState splits dots, and mod slugs (e.g. 'ttaro.minimap') contain them too.
+(def element TT_Select(_name:str='', _disabled:bool=false, _items:array=[], _listItemRenderer:str='', _listItemRendererData:gfx={}, _writeAction:str='', _writeArg0:gfx='',
+							_selectedValue:gfx=null, _valueKey:str='value', _itemChooserTooltipText:str='', _customDropdown:str='', _maxDropDownHeight:number=220,
+							_dropDownWidth:number=140, _selectedMaxWidth:number=0, _choosedItemRenderer:str='', _choosedItemRendererParams:gfx={}, _userPrefsNum:gfx=null, _centerChosen:bool=false,
+							_showNavigateIcon:bool=true) layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE)
+		(event evTTDownCloseAll)
+		(event evTTUpMenuClosed)
+		(event evTTUpItemChooserInner)
+
+		(event evTTSelfClickedElem)
+		(event evTTUpClickedOutside)
+		(event evTTUpMenuItemClicked)
+
+
+		(macro TT_POPUP_DEPTH_SCOPE _tag="'dropdown'")
+
+		(var isDropdownChooserListVisible:bool = false)
+		(bind isDropdownChooserListVisible	"false" init=false watch=false (event "evTTUpClickedOutside") (event "evTTUpMenuItemClicked"))
+		(bind isDropdownChooserListVisible	"!isDropdownChooserListVisible" init=false watch=false (event "evTTSelfClickedElem"))
+
+		# All three writers are load-bearing: the click bind flips with no round-trip; the last repaints on a reset or external pref write.
+		(var selValue:gfx = "_selectedValue")
+		(bind selValue "$event.value" init=false watch=false (event "evTTUpItemChooserInner"))
+		(bind selValue "_selectedValue" init=false)
+
+		(var isEnabled:bool = "!_disabled")
+		# Also gates the chosen box's hitTest below -- folding in _showNavigateIcon makes the dropdown unopenable.
+		(var isItemNavigateVisible:bool = "_items.length > 1 && isEnabled")
+		# Callers with their own prev/next arrows set _showNavigateIcon false -- the chevron crowds them when centred.
+		(var isNavigateIconVisible:bool = "_showNavigateIcon && isItemNavigateVisible")
+		(var selectedItemMaxWidth:number = "_selectedMaxWidth ? _selectedMaxWidth : 9999")
+		(var selectedItemRightPadding:number = "isNavigateIconVisible ? 23 : 0")
+
+		(var tooltipData:gfx = "!_itemChooserTooltipText || (_items.length <= 1) ? null : { _text: _itemChooserTooltipText }")
+		(var dropdownElemName:str = "_customDropdown ? _customDropdown : 'TT_SelectList'")
+	)
+
+	(bind name "_name")
+
+
+	# Deliberately does NOT dispatch the selection UP -- one shared event name would feed every dropdown.
+	# Callers re-read the DataHub after Python republishes; '' _writeAction is the no-op.
+	(bindcall externalCall "'' != _writeAction ? 'direct.action' : ''" "[_writeAction, [_writeArg0, $event.value]]" init=false watch=false (event "evTTUpItemChooserInner"))
+	(dispatch evTTSelfClickedElem dir="EventDirection.NONE" on='click')
+
+
+	(controller $Tooltip
+		(renderer = "dropdownElemName")
+		(args
+			_items = "_items"
+			_listItemRenderer = "_listItemRenderer"
+			_listItemRendererData = "_listItemRendererData"
+			_selValue = "selValue"
+			_valueKey = "_valueKey"
+			_maxDropDownHeight = "_maxDropDownHeight"
+			_dropDownWidth = "_dropDownWidth"
+			_userPrefsNum = "_userPrefsNum"
+		)
+
+		(macro TT_POPUP_BEHAVIOUR)
+		# This owner DOES want the evTTUpMenuClosed hide TT_POPUP_BEHAVIOUR leaves out -- it's how picking an item closes the list.
+		(bindcall hide (event "evTTUpMenuClosed"))
+
+		(dispatch evTTUpMenuItemClicked dir="EventDirection.UP" (event "evTTUpMenuClosed"))
+
+		(dispatch evTTUpClickedOutside dir="EventDirection.UP" on='evClickOutside')
+
+	)
+
+	(controller $Tooltip
+		(bind enabled "tooltipData")
+		(renderer = 'SimpleStatusTooltip')
+		(args
+			_text = "tooltipData._text"
+		)
+		# Wrapper hides on removedFromStage, or the hint orphans when the window closes.
+		(macro TT_STATUS_TOOLTIP_BEHAVIOUR "0")
+	)
+
+	(style
+		(bind hitTest "isItemNavigateVisible")
+		(flow = "horizontal")
+		# Fill the parent unless given a width, or the box shrinks to the option text.
+		(bind width "_selectedMaxWidth ? _selectedMaxWidth : 100%")
+		(maxWidth = "selectedItemMaxWidth")
+	)
+
+	
+	(block
+		(bind visible "isEnabled")
+		(class $FullsizeAbsolute)
+
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(alpha = 0)
+				(scale9grid = 4)
+				(backgroundImage = 'url:../service_kit/buttons/button_dock/over.png')
+			)
+
+			(controller $Animation
+				(bindcall play
+					duration = 0.15
+					from	 = { alpha: 0 }
+					to		 = { alpha: 1 }
+					reverse	 = "!(rollOver && !mouseDown)"
+					(bind trigger "rollOver && !mouseDown")
+					(bind enabled "!isDropdownChooserListVisible")
+				)
+			)
+		)
+
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(alpha = 0)
+				(scale9grid = 4)
+				(backgroundImage = 'url:../service_kit/buttons/button_dock/down.png')
+			)
+
+			(controller $Animation
+				(bindcall play
+					duration = 0.15
+					from	 = { alpha: 0 }
+					to		 = { alpha: 1 }
+					reverse	 = "!(mouseDown || isDropdownChooserListVisible)"
+					(bind trigger "mouseDown || isDropdownChooserListVisible")
+				)
+			)
+		)
+	)
+	
+
+	(block
+		# _centerChosen reserves the arrow width on both sides to keep the label centred; off by default since small pref boxes elide once reserved twice.
+		(style
+			(width = 100%)
+			(align = "center|middle")
+			(bind paddingLeft "_centerChosen ? selectedItemRightPadding : 0")
+			(bind paddingRight "selectedItemRightPadding")
+		)
+
+		# One chosen-renderer per option, hidden unless it matches -- rebuilding a single renderer on selection replays the entrance animation and the box rotates.
+		(controller $Repeat count="_items.length" renderer="_choosedItemRenderer"
+			(args
+				_item = "_items[$index]"
+				_selValue = "selValue"
+				_valueKey = "_valueKey"
+				_choosedItemRendererParams = "_choosedItemRendererParams"
+				_labelMaxWidth = "selectedItemMaxWidth - selectedItemRightPadding * (_centerChosen ? 2 : 1)"
+				_userPrefsNum = "_userPrefsNum"
+			)
+		)
+	)
+
+	(block
+		(bind visible "isNavigateIconVisible")
+
+		(style
+			(position = "absolute")
+			(right = 0px)
+
+			(align = "middle")
+			(height = 100%)
+			(marginLeft = 5px)
+			(marginRight = "XS")
+			(hitTest = "false")
+		)
+
+		(block
+			(style
+				(width = 14px)
+				(height = 14px)
+				(backgroundImage = 'url:../service_kit/buttons/icon_navigate/down.png')
+			)
+		)
+	)
+
+	(macro MOUSE_HANDLER
+		_enabled = "isEnabled"
+		_soundSet = "'dropdown'"
+	)
+)
+
+(def element TT_SelectList (	_items:array=[], _listItemRenderer:str='TT_SelectOption', _selValue:gfx=null, _valueKey:str='value', _listItemRendererData:gfx={},
+									_dropDownWidth:number=140, _maxDropDownHeight:number=220, _userPrefsNum:gfx=null) layout=true
+	(scope
+		(var dockDataEntity:gfx = "$datahub.getSingleEntity(CC.dockData)")
+		(var isShipOverviewEnabled:bool = "dockDataEntity ? dockDataEntity.dockData.isShipOverviewEnabled : false" (event "dockDataEntity.dockData.evIsShipOverviewEnabledChanged"))
+		(macro MOUSE_HANDLER_SCOPE) # Required for scrolling in battle.
+		
+		(var itemHeight:number = "INFOTIP_DEFAULT_TEXT_LIST_ITEM_RENDERER_ITEM_HEIGHT")
+		(var infotipHeight:number = "_maxDropDownHeight >= _items.length * itemHeight	? _items.length * itemHeight
+																						: _maxDropDownHeight")
+		
+	)
+
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND "true")
+
+	(bindcall externalCall 'inputMapping.onAction' "['battleChat.rollOverChanged', { rollOver: rollOver }]" init=false watch=false (bind trigger "rollOver"))
+	(macro MOUSE_EVENTS_DISPATCHER)
+
+	(style
+		(position = "absolute")
+		(bind width "_dropDownWidth")
+		(backgroundImage = 'url:../service_kit/panel_backgrounds/infotip_panel.png')
+		(scale9grid = 3)
+		(bind hitTest "!isShipOverviewEnabled")
+		(bind maxHeight "infotipHeight")
+	)
+
+	(controller $Animation
+		(bindcall play
+			duration = "isShipOverviewEnabled ? 0.4 : 0.25"
+			delay	 = "!isShipOverviewEnabled ? 0.15 : 0.5"
+			easing	 = "Easing.quad_in"
+			from	 = { alpha: 1 }
+			to		 = { alpha: 0 }
+			reverse	 = "!isShipOverviewEnabled"
+			(bind trigger "isShipOverviewEnabled")
+		)
+	)
+
+	(block
+		(name = 'ItemChooserDropdown')
+		(class $FullsizeAbsolute)
+		(style
+			(backgroundColor = 0x01000000)
+			(hitTest = false)
+		)
+	)
+
+	(scrollArea
+		(style
+			(width = 100%)
+			(bind height "infotipHeight")
+		)
+
+		(verticalSlider='ScrollBarVLight')
+
+		(topShadow='InfotipShadowTop')
+		(bottomShadow='InfotipShadowBottom')
+
+		(hscrollPolicy='off')
+		(vscrollPolicy='auto')
+
+		(repeatController='infotip')
+
+		(scrollPerItem = "true")
+		(wheelScrollSpeed = "1.0")
+		(wheelScrollAcceleration = "0.85")
+		(maxScrollingAnimatedDistance = "150")
+
+		(content
+			(style
+				(width = "_dropDownWidth")
+				(height = "infotipHeight")
+			)
+
+			(controller $Repeat count="_items.length" renderer="_listItemRenderer" name='infotip'
+				(reuseElements=true)
+				(itemHeight = "INFOTIP_DEFAULT_TEXT_LIST_ITEM_RENDERER_ITEM_HEIGHT")
+				(itemWidth = "_dropDownWidth")
+				(itemOffset = "INFOTIP_DEFAULT_TEXT_LIST_ITEM_RENDERER_ITEM_HEIGHT * 5")
+				(args
+					_selValue = "_selValue"
+					_valueKey = "_valueKey"
+					_listItemRendererData = "_listItemRendererData"
+					_itemText = "_items[$index]"
+					_userPrefsNum = "_userPrefsNum"
+				)
+			)
+		)
+	)
+)
+
+(def element TT_TextListItemRenderer (_selValue:gfx=null, _valueKey:str='value', _itemText:str='', _listItemRendererData:gfx={}, _isInactive:bool=false, _userPrefsNum:gfx=null) layout=true
+	(scope
+		(event evTTSelfAddedToStage)
+		(event evTTUpMenuClosed)
+
+		(macro MOUSE_HANDLER_SCOPE)
+		(var optValue:gfx = "_itemText")
+		(var isSelected:bool = "optValue == _selValue")
+	)
+
+	(bind name "_itemText")
+	(style (width = 100%))
+
+	
+	(block
+		(controller $Animation
+			(bindcall play
+				duration = 0.05
+				from	 = { alpha: 1 }
+				to		 = { alpha: 0.7 }
+				reverse	 = "!(mouseDown)"
+				(bind trigger "mouseDown")
+			)
+		)
+
+		(class $FullsizeAbsolute)
+		(style (hitTest = false) (alpha = 1))
+
+		(block
+			(controller $Animation
+				(bindcall play
+					duration = 0.05
+					from	 = { alpha: 1 }
+					to		 = { alpha: 1.75 }
+					reverse	 = "!(rollOver && !mouseDown)"
+					(bind trigger "rollOver && !mouseDown")
+				)
+			)
+
+			(class $FullsizeAbsolute)
+			(style (alpha = 1))
+
+			(block
+				(controller $Animation
+					(bindcall play
+						duration = 0.05
+						from	 = { alpha: 0 }
+						to		 = { alpha: 0.7 }
+						reverse	 = "!(rollOver || isSelected)"
+						(bind trigger "rollOver || isSelected")
+						(event "evTTSelfAddedToStage")
+					)
+				)
+
+				(class $FullsizeAbsolute)
+				(style
+					(scale9grid = 3)
+					(bind backgroundImage "_isInactive ? '' : 'url:../service_kit/panel_backgrounds/menu_item_panel.png'")
+				)
+			)
+		)
+	)
+	
+
+	(block
+		(class $SimpleDropdownElement)
+		(style
+			(bind alpha "_isInactive ? 0.5 : 1")
+		)
+
+		(tf
+			(bind name "'menu_item_' + _itemText")
+
+			(bind class "isSelected ? '$DropdownSimpleOptionTextSelected': '$DropdownSimpleOptionText'")
+			(style
+				(alpha = "TA")
+				(elideMode = true)
+				(textAlign = "left")
+			)
+
+			(bind text "tr(_itemText)")
+		)
+	)
+
+	(dispatch evTTUpMenuClosed dir="EventDirection.UP" on='click' (bind enabled "!_isInactive"))
+	(dispatch evTTSelfAddedToStage dir="EventDirection.NONE" on=addedToStage)
+	(dispatch "'evTTUpItemChooserInner'" args="{ value: optValue }" dir="EventDirection.UP" on='click' (bind enabled "!_isInactive"))
+
+	(macro MOUSE_HANDLER
+		_enabled = "!_isInactive"
+		_soundSet = "'button_default'"
+	)
+)
+
+(def element TT_DefaultItemChooserPickedItemRenderer (_item:str='', _selValue:gfx=null, _valueKey:str='value', _choosedItemRendererParams:gfx={}, _labelMaxWidth:number=0, _userPrefsNum:gfx=null)
+	(scope
+		(var optValue:gfx = "_item")
+	)
+	(bind visible "optValue == _selValue")
+	(style
+		(height = "L")
+		(hitTest = false)
+	)
+
+	(tf
+		(class $TextDefaultBold17NM)
+		(class $FontColorBlueish)
+
+		(style
+			(maxWidth = "_labelMaxWidth")
+
+			(marginLeft = 7px)
+			(marginRight = 3px)
+			(marginTop = 9px)
+			(marginBottom = 6px)
+
+			(elideMode = true)
+			(textAlign = "left")
+		)
+
+		(bind text "(tr(_item))")
+	)
+)
+
+(def element TT_DefaultButton (_name:str='', _enabled:bool=true, _type:str="SC.Ui_styles.BUTTON_TYPE.DEFAULT", _labelPadding:number="S",
+							_size:number="SIZE.MEDIUM", _width:number=0, _label:str='',
+							_focusIndex:number=0, _clickInterval:number=0, _defaultFocused:bool=false,
+							_dispatchedEv:str='', _dispatchParams:gfx={}, _methods:array=[], _tooltipText:str='') layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE)
+		
+		(var isFocused:bool = false)
+		(var isDisabledVisual:bool = "!_enabled")
+		(var isDown:bool = "!isDisabledVisual && mouseDown")
+		(var isRollover:bool = "!isDisabledVisual && rollOver")
+
+		(var isIconBtn:bool = "_type == SC.Ui_styles.BUTTON_TYPE.ICON")
+		(var btnHeight:str = "	isIconBtn				? MS :
+								_size == SIZE.LARGE		? LM :
+								_size == SIZE.SMALL		? MS
+														: L")
+		(var btnWidth:str = "	isIconBtn				? MS :
+								_width					? _width
+														: 'auto'")
+		(var isAutoWidth:bool = "btnWidth == 'auto'")
+
+		(var isSecondaryBtn:bool = "_type ==  SC.Ui_styles.BUTTON_TYPE.SECONDARY")
+		
+		(var ctRollOver:dict = "isSecondaryBtn	?	{ redMultiplier: 1,	greenMultiplier: 1,	blueMultiplier: 1,	alphaMultiplier: 1,
+													  redOffset: 45,	greenOffset: 45,	blueOffset: 45,		alphaOffset: 0 }
+												:	{ redMultiplier: 1,	greenMultiplier: 1,	blueMultiplier: 1,	alphaMultiplier: 1,
+													  redOffset: 15,	greenOffset: 15,	blueOffset: 15,		alphaOffset: 0 }")
+		(var ctDown:dict = "	isSecondaryBtn	?	{ redMultiplier: 1,	greenMultiplier: 1,	blueMultiplier: 1,	alphaMultiplier: 1,
+													  redOffset: -45,	greenOffset: -45,	blueOffset: -45,	alphaOffset: 0 }
+												:	{ redMultiplier: 1,	greenMultiplier: 1,	blueMultiplier: 1,	alphaMultiplier: 1,
+													  redOffset: -15,	greenOffset: -15,	blueOffset: -15,	alphaOffset: 0 }")
+		
+
+		(var focusImage:str = "_type	? 'url:../service_kit/buttons/backgrounds/' + _type + '_focused.png'
+										: 'url:../service_kit/buttons/backgrounds/default_focused.png'")
+		(var backgroundImage:str = "isDisabledVisual && _type	? 'url:../service_kit/buttons/backgrounds/' + _type + '_disabled.png' :
+									_type						? 'url:../service_kit/buttons/backgrounds/' + _type + '.png' :
+									isDisabledVisual 			? 'url:../service_kit/buttons/backgrounds/default_disabled.png'
+																: 'url:../service_kit/buttons/backgrounds/default.png'")
+	)
+
+	(bind name "_name ? _name : null")
+
+	(style
+		(width = "btnWidth")
+		(height = "btnHeight")
+	)
+
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(hitTest = false)
+			(bind backgroundImage "backgroundImage")
+			(scale9grid = 10)
+		)
+	)
+
+	(block
+		(bind visible "isRollover || isDown")
+		(bind colorTransform "	isRollover && !isDown	? ctRollOver :
+								isDown					? ctDown
+														: CT_NONE")
+		(class $FullsizeAbsolute)
+		(style
+			(hitTest = false)
+			(bind backgroundImage "backgroundImage")
+			(scale9grid = 10)
+		)
+	)
+
+	(hblock
+		(style
+			(hitTest = false)
+			(align = "middle|center")
+			(height = 100%)
+			(bind width "isAutoWidth ? btnWidth : 100%")
+		)
+
+		(bind alpha "	isDown || isDisabledVisual					? TS :
+						isRollover									? 1.1 :
+						_type == SC.Ui_styles.BUTTON_TYPE.SECONDARY	? TC
+																	: TA")
+
+		(block
+			(bind visible "isFocused && !isDisabledVisual")
+			(class $FullsizeAbsolute)
+			(style (backgroundImage = "focusImage") (scale9grid = 2))
+		)
+
+		(block
+			(bind visible "null != _label && _label.length && !isIconBtn")
+
+			(style
+				(align = "center|middle")
+				(bind width "isAutoWidth ? btnWidth : 100%")
+				(bind minWidth "!isAutoWidth	? 0
+												: 110")
+				(bind paddingLeft "	_labelPadding")
+				(bind paddingRight "_labelPadding")
+				(bind marginTop "_size == SIZE.MEDIUM ? -1 : 0")
+			)
+
+			(tf
+				(style
+					(elideMode = true)
+					(textAlign = "center")
+				)
+				(class $FontEnableReadability)
+				(bind class "	_type == SC.Ui_styles.BUTTON_TYPE.ACCENT && _size == SIZE.LARGE	? '$TextDefaultBold25NM' :
+								_size == SIZE.LARGE												? '$TextDefaultBold17NM' :
+								_size == SIZE.SMALL												? '$TextDefaultBold12NM'
+																								: '$TextDefaultBoldNM'")
+
+				(bind text "toUpper(tr(_label))")
+			)
+		)
+	)
+
+	(macro INPUT "_name")
+
+	(macro MOUSE_HANDLER
+		_enabled = "_enabled"
+		_dispatchedEv = "_dispatchedEv"
+		_dispatchParams = "_dispatchParams"
+		_methods = "_methods"
+		_soundSet = "'button_default'"
+	)
+
+	(controller $Tooltip
+		(renderer='SimpleStatusTooltip')
+		(bind enabled "_tooltipText")
+		(args
+			_text = "_tooltipText"
+		)
+		(macro TT_STATUS_TOOLTIP_BEHAVIOUR "0")
+		(align = "right|innerTop")
+		(offset = { x: 6, y: -26 })
+	)
+)
+
+(def element TT_TooltipHintElement (_text:str, _unifiedStatus:str="SC.Ui_styles.UNIFIED_STATUS.INFO", _image:str=null)
+	(scope
+		(var hasVisaulContent:bool = "_image")
+		
+		(var isMovie:bool = "hasVisaulContent && '.webm' in _image")
+		(var isImage:bool = "hasVisaulContent && !isMovie")
+		(var imagePath:str = "isMovie	? 'coui://gui/ttaro/mod_utils/' + _image
+										: 'url:../ttaro/mod_utils/' + _image "
+		)
+
+		(var gfName:str = "SC.Gameface.DATA_PROVIDER_NAME.SHIP_DESTRUCTION + 'ttaroModHint'")
+		(var gfPath:str = "'gui/ttaro/mod_utils/gameface/index.html'")
+
+		(bindcall externalCall 'inputMapping.onAction' "['setNewVideoSource', {videoSourcePath: imagePath}]" init="isMovie" watch=false)
+	)
+	(style
+		(width = 320)
+		(hitTest = false)
+	)
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(style
+			(align = "middle|center")
+		)
+		(controller $Instance renderer='TooltipSystemStatusLine'
+			(bind enabled "_text")
+			(args
+				_text="_text"
+				_unifiedStatus="_unifiedStatus"
+			)
+			
+		)
+		(block
+			(bind visible "isImage")
+			(style
+				(bind marginTop "_text ? 10px : 0")
+				(width = 100%)
+				# Guarded, not just hidden: with no _image the path composes to the DIRECTORY and the engine still tries to load it.
+				(bind backgroundImage "isImage ? imagePath : ''")
+				(backgroundSize = "autosize")
+			)
+		)
+		(block
+			(bind visible "isMovie")
+			(style
+				(width = 100%)
+				(height = 300px)
+				(bind marginTop "_text ? 10px : 0")
+			)
+			(controller $Instance renderer='GamefaceWidget'
+				(bind enabled "isMovie")
+				(args
+					_gfPath = "gfPath"
+					_gfName = "gfName"
+				)
+			)
+		)
+	)
+)
+
+(def element TT_BackgroundElement()
+	(scope
+		(macro HIGH_CONTRAST_DATA_SCOPE)
+	)
+	
+	(class $FullsizeAbsolute)
+
+	(controller $Instance renderer='InfotipSystemBlur'
+		(bind enabled "!isHighContrast")
+		(exprs
+			(style
+				(zindex = "ZIndex.BACKGROUND")
+			)
+		)
+	)
+
+	(mc contrast_panel
+		(class $FullsizeAbsolute)
+		(style
+			(bind alpha "!isHighContrast ? 0.4 : 1.3")
+			(hitTest = "true")
+		)
+	)
+)
+
+(def element TT_HorizontalDivider(_margin:number="3px", _alpha:number=1.5, _width:number=100%)
+	(style
+		(bind width "_width")
+		(bind marginTop "_margin")
+		(bind marginBottom "_margin")
+		(align = "middle|center")
+		(hitTest = false)
+		(bind alpha "_alpha")
+	)
+	(element HorizontalDividerTwoPx)
+)
+
+# UNUSED -- mod nav is a TT_Select dropdown, not a tab strip. Kept for a possible adaptive mode (tabs for few, dropdown for many).
+(def element TT_TabButton (_label:str='', _isSelected:bool=false, _isDisabled:bool=false, _width:number=120,
+						_dispatchedEv:str='', _dispatchParams:gfx={}, _methods:array=[], _name:str='') layout=true
+	(scope
+		(macro MOUSE_HANDLER_SCOPE)
+
+		(var state:number = "	_isDisabled	? SC.Ui_styles.BUTTON_STATE.DISABLED :
+								_isSelected	? SC.Ui_styles.BUTTON_STATE.SELECTED :
+								mouseDown	? SC.Ui_styles.BUTTON_STATE.DOWN :
+								rollOver	? SC.Ui_styles.BUTTON_STATE.OVER
+											: SC.Ui_styles.BUTTON_STATE.UP")
+		(var labelAlpha:number = "TAB_BUTTON_LABEL_ALPHA[state]")
+		(var lineAlpha:number  = "TAB_BUTTON_LINE_ALPHA[state]")
+		(var label:str = "_label ? toUpper(tr(_label)) : ''")
+
+		(var labelPadding:number = 8)
+		(var maskW:number = "_width - labelPadding * 2")
+
+		# textW is 0 until the glyphs lay out, so the char-count estimate stands in.
+		(var textW:number = 0)
+		(var estW:number = "label.length * 9")
+		(var effTextW:number = "textW > 0 ? textW : estW")
+
+		(var overflow:number = "effTextW - maskW")
+		(var isOverflowing:bool = "overflow > 2")
+		# Full ping-pong cycle length, in seconds.
+		(var marqueeDur:number = "max(3.0, overflow / 22.0 + 2.0)")
+	)
+
+	(bind name "_name")
+
+	(style
+		(align = "center")
+		(width = "_width")
+		(height = "TAB_BUTTON_DEFAULT_HEIGHT")
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(bind left "labelPadding")
+			(top = 10px)
+			(bind width "maskW")
+			(height = 20px)
+			(bind alpha "labelAlpha" watch=false)
+		)
+		(macro DEFAULT_CONTROL_STATE_ANIMATION_ALPHA _trigger="state" _alpha="labelAlpha")
+
+		(block
+			(class $FullsizeAbsolute)
+			(isMask = true)
+			(style (backgroundColor = 0xFFFFFFFF))
+		)
+
+		(block
+			(style
+				(position = "absolute")
+				(top = 0px)
+				(bind left "isOverflowing ? 0 : max(0, (maskW - effTextW) / 2)")
+			)
+			(controller $Animation
+				# Do NOT rebuild on onComplete -- it never fires here. isOverflowing is already true at construction (from estW), so `enabled` alone never sees a false->true edge.
+				# init=true starts it at build; (bind trigger "overflow") restarts it once textWidth syncs in.
+				(bindcall play
+					keyframes = "[
+						{ percent: 0,   to: { visualOffsetX: 0 } },
+						{ percent: 18,  to: { visualOffsetX: 0 } },
+						{ percent: 50,  to: { visualOffsetX: -overflow } },
+						{ percent: 68,  to: { visualOffsetX: -overflow } },
+						{ percent: 100, to: { visualOffsetX: 0 } }
+					]"
+					repeatCount = "-1"
+					duration = "marqueeDur"
+					action = "killAll"
+					init = true
+					(bind enabled "isOverflowing")
+					(bind trigger "overflow")
+				)
+				(bindcall play
+					to = "{ visualOffsetX: 0 }"
+					duration = 0.15
+					action = "killAll"
+					(bind enabled "!isOverflowing")
+					(bind trigger "overflow")
+				)
+			)
+			(tf
+				(class $TextDefaultBoldNM)
+				(style (multiline = false))
+				(bind text "label")
+				# addedToStage can fire before textWidth is measured (0); re-read on $evLayoutBoundsChanged.
+				(sync textW "'textWidth'" on='addedToStage' (event "$evLayoutBoundsChanged"))
+			)
+		)
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(bind alpha "lineAlpha" watch=false)
+			(width = 100%)
+			(bottom = 0px)
+			(height = 2px)
+			(backgroundColor = 0xFFFFFFFF)
+		)
+		(macro DEFAULT_CONTROL_STATE_ANIMATION_ALPHA _trigger="state" _alpha="lineAlpha")
+	)
+
+	(macro MOUSE_HANDLER
+		_enabled = "!_isDisabled && !_isSelected"
+		_dispatchedEv = "_dispatchedEv"
+		_dispatchParams = "_dispatchParams"
+		_methods = "_methods"
+		_soundSet = "'button_tab'"
+	)
+)
+
+
+# TT_TextInputElement -- editable numeric field on a plain (tf). Do NOT rebuild via (mc 'flash.text.TextField') -- a raw mc sits outside unbound's layout/style systems.
+
+(def constant TT_INPUT_KEY_ENTER 13)
+# The numpad's Enter is a DISTINCT keyCode, not 13.  Both codes must be gated.
+(def constant TT_INPUT_KEY_NUMPAD_ENTER 108)
+(def constant TT_INPUT_KEY_ESC 27)
+
+# Width of one digit glyph -- exact because the font is tabular for digits. Tied to $TextDefault @ fontSize 15; wrong if the text class changes.
+(def constant TT_INPUT_GLYPH_WIDTH 7.2)
+# Non-glyph width (textWidth measures glyph extent only): 4px gutter + 2px caret room + 4px inset.
+# Valid only while text is CENTRED; a left-aligned field needs extra caret slack.
+(def constant TT_INPUT_BOX_PADDING 10)
+
+# Width precedence: _fillWidth fills the parent, else non-zero _width, else AUTO from _maxChars (which always bounds TYPED LENGTH regardless).
+# _fillWidth needs a parent with a definite width -- a caller in a shrink-wrapped hblock must not use it.
+(def element TT_TextInputElement (_value:number, _isText:bool=false, _textValue:str='', _minChars:number=0, _min:number=0, _max:number=255, _width:number=0, _height:number=22, _maxChars:number=3, _enabled:bool=true, _step:number=1, _decimals:number=0, _fillWidth:bool=false, _minLabel:str='', _maxLabel:str='', _atMin:bool=false, _atMax:bool=false) layout=true
+	(scope
+		(event evTTSelfInputSeed)		# -> re-seed the field's text from _value
+		(event evTTSelfInputKeyDown)	# raw keyDown relay out of the field
+		(event evTTSelfInputEnter)
+		(event evTTSelfInputEsc)
+		(event evTTUpInputCommit)		# UP to the host row: {value: <clamped>}
+		(event evTTDownCommitPending)	# window-close flush: commit a typed-but-unblurred value
+		(event evTTSelfInputFocusIn)
+		(event evTTSelfInputFocusOut)	# native focusOut -- blur, Esc, or a click on a native widget
+		(event evTTSelfInputFocusSettled)	# focusIn + a beat, so the click's caret placement has happened
+		# Declared HERE: `dirty` below subscribes to it, and a subscription to a later-declared event never binds.
+		(event evTTSelfInputTyped)		# native 'textInput' -- real user entry only
+		(event evTTSelfInputFlashEnd)	# ends the commit flash
+
+		# A label stands in for the value at its own extreme. _atMin/_atMax come from the caller (decided in index space -- recomputing from a float here would disagree on a fractional step).
+		# Its commit-side counterpart, shownCommit below, reads `clamped` and must follow it.
+		(var shownValue:str = "_isText ? _textValue :
+								_atMax && '' != _maxLabel ? _maxLabel :
+								_atMin && '' != _minLabel ? _minLabel :
+								_decimals > 0 ? formatFloatingPoint(_value, _decimals) : toString(round(_value))")
+
+		# The field's live text, read back by (sync) below. NOT named `text` -- that's the tf's own registered property, whose apply is deferred.
+		# Every (bind text ...) on the tf below must pair with a bind on THIS var -- `clamped`, sent to Python on commit, derives from here.
+		(var textInput:str = '')
+		(bind textInput "shownValue" watch=false init=false (event "evTTSelfInputSeed"))
+		(bind textInput "shownCommit" watch=false init=false (event "evTTUpInputCommit"))
+		(bind textInput "shownValue" watch=false init=false (event "evTTSelfInputEsc"))
+
+		(var isFocused:bool = false)
+
+		# `dirty` = has the USER edited since last commit/seed? Every commit path gates on it. Do NOT drive it from the tf's 'change' -- that fires on the engine's own writes too, latching true forever.
+		# `textInput` fires on real entry only, not deletion, hence the second bind below.
+
+		# Last key seen. MUST be declared before the `dirty` deletion bind -- declarations are order-sensitive.
+		(var keyCode:number = "$event.keyCode" init=false watch=false (event "evTTSelfInputKeyDown"))
+
+		(var dirty:bool = false)
+		(bind dirty "true" watch=false init=false (event "evTTSelfInputTyped"))
+		# GATED, not `… ? true : dirty`: a self-referencing form writes dirty on EVERY keyDown (Enter too).
+		(bind dirty "true" watch=false init=false (bind enabled "keyCode == TT_BACKSPACE_KEY || keyCode == TT_DELETE_KEY") (event "evTTSelfInputKeyDown"))
+		(bind dirty "false" watch=false init=false (event "evTTUpInputCommit") (event "evTTSelfInputSeed") (event "evTTSelfInputEsc"))
+
+		# --- string -> number ---
+		# toNumber() is the only working parse -- (number)text fails the bind, and text*1 returns 0 for every input (silently committing _min). Empty-string must be gated: toNumber('') logs.
+		# `raw` stays :gfx -- a :number would coerce, making isNumber() always true. Test null FIRST, on the LEFT, or it casts through to toNumber (unimplemented for gfx).
+		# `pattern` is a FULL match ('1.2.3' never reaches toNumber); character classes only, no backslash escapes ([.] not \., [0-9] not \d). All parts optional, so '' matches too -- isEmpty gates that.
+		(var pattern:str = "(_min < 0 ? '-?' : '') + '[0-9]*' + (_decimals > 0 ? '[.]?[0-9]*' : '')")
+		# A label is a legal spelling of its extreme; without this it fails the pattern, lights the invalid ring, and clamps wrong. Case-insensitive.
+		(var typedLower:str = "toLower(textInput)")
+		(var isLabelText:bool = "('' != _maxLabel && typedLower == toLower(_maxLabel))
+								|| ('' != _minLabel && typedLower == toLower(_minLabel))")
+		(var wellFormed:bool = "_isText ? true : isLabelText || isMatch(textInput, pattern)")
+
+		# toNumber() must never see free text: it logs on every unparseable keystroke.
+		(var raw:gfx = "!_isText && null != textInput && '' != textInput && wellFormed ? toNumber(textInput) : null")
+		# isNumber() gate, NOT bare "raw" -- assigning a null :gfx into a :number fails the assignment. 0 is safe since every consumer of `numeric` gates on isValid/isEmpty first.
+		(var numeric:number = "isNumber(raw) ? raw : 0")
+
+		# Do NOT add a round-trip check (toString(round(numeric)) == textInput) -- a leading zero can't be normalised in unbound2, so it would reject legitimate input.
+		# EMPTY is explicit, not invalid: clear + Enter = zero.
+		(var isEmpty:bool = "null == textInput || '' == textInput")
+		(var isValid:bool = "_isText ? textInput.length >= _minChars : isEmpty || isNumber(raw)")
+
+		# Empty resolves to 0 then clamps (a channel whose _min > 0 commits _min). Snapping is measured FROM _min, not zero, or an off-grid origin is unreachable.
+		(var snapped:number = "isEmpty ? 0 :
+								(_decimals > 0 || _step != 1
+									? _min + round((numeric - _min) / _step) * _step
+									: round(numeric))")
+		(var clamped:number = "'' != _maxLabel && typedLower == toLower(_maxLabel) ? _max :
+								'' != _minLabel && typedLower == toLower(_minLabel) ? _min :
+								min(max(_min, snapped), _max)")
+
+		# MUST be declared after `clamped` -- a var initialiser is evaluated where written; a `bind` may reference forward, a `var` may not.
+		(var commitValue:gfx = "_isText ? textInput : clamped")
+
+		(var shownCommit:str = "_isText ? textInput :
+								'' != _maxLabel && clamped >= _max ? _maxLabel :
+								'' != _minLabel && clamped <= _min ? _minLabel :
+								_decimals > 0 ? formatFloatingPoint(clamped, _decimals) : toString(clamped)")
+
+		# --- visual state ---
+		# Hover dispatches off the ROOT, NOT via MOUSE_HANDLER -- that macro paints a full-size hit block over the tf and swallows the click Scaleform needs for keyboard focus.
+		(event evTTSelfInputRollOver)
+		(event evTTSelfInputRollOut)
+		(var isHover:bool = "$event.isOver" init=false watch=false (event "evTTSelfInputRollOver") (event "evTTSelfInputRollOut"))
+
+		(var boxWidth:number = "_width > 0 ? _width : round(_maxChars * TT_INPUT_GLYPH_WIDTH + TT_INPUT_BOX_PADDING)")
+
+		# ONE focus flag, owned by Scaleform -- the two native edges arrive as separate events so each consumer binds flatly on the one it wants.
+		# Do NOT add a second flag from unbound's $Focus -- it sees only field-to-field moves, so a click elsewhere leaves it stale.
+		(bind isFocused "true"  watch=false init=false (event "evTTSelfInputFocusIn"))
+		(bind isFocused "false" watch=false init=false (event "evTTSelfInputFocusOut"))
+
+		# Select-all must run a beat AFTER focus lands -- the click that grants focus places the caret afterwards, so selecting on focusIn selects nothing.
+		# delay=0 is a no-op (no "caret placed" event); `click` would cost an extra click in an already-focused field. Gated on isFocused so a focus loss inside the delay cancels it.
+		(dispatch evTTSelfInputFocusSettled args="{}" delay=0.05 reset=true (event "evTTSelfInputFocusIn"))
+
+
+		(var justSaved:bool = false)
+		(bind justSaved "true" watch=false init=false (event "evTTUpInputCommit"))
+		(bind justSaved "false" watch=false init=false (event "evTTSelfInputFlashEnd"))
+
+		# "There is typed text here that is not saved yet." A VALUE COMPARISON, deliberately NOT `dirty` -- depends on no event ordering or writer.
+		# isFocused gates it so the ring stays quiet when unfocused. Fractional values compare as TEXT -- float equality is unreliable.
+		(var isPending:bool = "_isText ? isFocused && textInput != shownValue :
+								isFocused && (isEmpty || (_decimals > 0 ? textInput != shownValue : numeric != round(_value)))")
+
+		# Ring states, MUTUALLY EXCLUSIVE, so exactly one animation is ever enabled.
+		(var stSaved:bool   = "_enabled && justSaved")
+		(var stPending:bool = "_enabled && !justSaved && isPending")
+		(var stFocus:bool   = "_enabled && !justSaved && !isPending && isFocused")
+		(var stHover:bool   = "_enabled && !justSaved && !isPending && !isFocused && isHover")
+		(var stIdle:bool    = "!stSaved && !stPending && !stFocus && !stHover")
+
+		# --- ring colour + brightness, as ANIMATED SCOPE VARS ---
+		# Tweens VARIABLES, not element properties -- alpha rides as alphaMultiplier (no separate `alpha` to clobber).
+		# Source art is white; multipliers are channel/255 of SERVICE_COLORS.GREEN 0xFF4CE8AA and .ORANGE 0xFFFF9933.
+		(var ringR:number = 1.0)
+		(var ringG:number = 1.0)
+		(var ringB:number = 1.0)
+		(var ringA:number = 0.10)	# idle = the resting border
+		(controller $Animation
+			(bindcall play id='ring' duration=0.06 to="{ringR:0.298, ringG:0.910, ringB:0.667, ringA:1.0}"  action="kill" watch=false (bind enabled "stSaved"))
+			(bindcall play id='ring' duration=0.10 to="{ringR:1.0,   ringG:0.600, ringB:0.200, ringA:1.0}"  action="kill" watch=false (bind enabled "stPending"))
+			(bindcall play id='ring' duration=0.10 to="{ringR:1, ringG:1, ringB:1, ringA:1.0}"              action="kill" watch=false (bind enabled "stFocus"))
+			(bindcall play id='ring' duration=0.10 to="{ringR:1, ringG:1, ringB:1, ringA:0.5}"              action="kill" watch=false (bind enabled "stHover"))
+			(bindcall play id='ring' duration=0.15 to="{ringR:1, ringG:1, ringB:1, ringA:0.10}"             action="kill" watch=false (bind enabled "stIdle"))
+		)
+	)
+
+	# --- seeding ---
+	# UNGATED deliberately -- _value moves only on deliberate user actions; a stuck-shut gate would freeze the shown number.
+	(dispatch evTTSelfInputSeed args="{}" on='addedToStage')
+	(dispatch evTTSelfInputSeed args="{}" (bind trigger "_value"))
+	# Text mode never moves _value, so the trigger above can't re-seed it -- without this, a reset or external write leaves stale typed text on screen.
+	(dispatch evTTSelfInputSeed args="{}" (bind trigger "_textValue"))
+
+	# --- commit / revert ---
+	(dispatch evTTSelfInputEnter args="{}" (bind enabled "keyCode == TT_INPUT_KEY_ENTER || keyCode == TT_INPUT_KEY_NUMPAD_ENTER") (event "evTTSelfInputKeyDown"))
+	(dispatch evTTSelfInputEsc args="{}" (bind enabled "keyCode == TT_INPUT_KEY_ESC") (event "evTTSelfInputKeyDown"))
+
+	# Both commit paths require `dirty`. ENTER and BLUR treat EMPTY differently: Enter commits 0 (explicit intent); blur reverts (clicking away is ambiguous).
+	(dispatch evTTUpInputCommit dir="EventDirection.UP" args="{value: commitValue}" (bind enabled "isValid && dirty") (event "evTTSelfInputEnter"))
+	# Unparseable text reverts via the reused Esc path (re-seeds + clears dirty), mutually exclusive with the isValid commit above; EMPTY is valid and commits zero.
+	(dispatch evTTSelfInputEsc args="{}" (bind enabled "!isValid") (event "evTTSelfInputEnter"))
+
+	# Window-close flush: evStartHide broadcasts evTTDownCommitPending DOWN before close, since a programmatic hide gives no blur. EMPTY reverts here -- a force-close isn't a deliberate "set to zero".
+	(dispatch evTTUpInputCommit dir="EventDirection.UP" args="{value: commitValue}" (bind enabled "isValid && dirty && (!isEmpty || (_isText && _minChars <= 0))") (event "evTTDownCommitPending"))
+
+
+	# --- hover / flash / typing sound ---
+	(dispatch evTTSelfInputRollOver args="{isOver: true}"  on='rollOver')
+	(dispatch evTTSelfInputRollOut  args="{isOver: false}" on='rollOut')
+
+	# Ends the green flash. reset=true restarts the timer on a second commit, so the first can't cut the second short.
+	(dispatch evTTSelfInputFlashEnd args="{}" delay=0.45 reset=true (event "evTTUpInputCommit"))
+
+	# Typing tick. Do NOT use the set's 'enter' token (the enter-battle sting) or the tf's 'change' (ticks on programmatic seed too).
+	# Deletion needs its own keyDown bind ('textInput' skips it), gated via the COMMAND NAME ('' no-op) rather than (bind enabled).
+	(bindcall externalCall 'sound.playSetSoundDirect' "['hard_textinput', 'change']" init=false watch=false (event "evTTSelfInputTyped"))
+	(bindcall externalCall "keyCode == TT_BACKSPACE_KEY || keyCode == TT_DELETE_KEY ? 'sound.playSetSoundDirect' : ''" "['hard_textinput', 'change']" init=false watch=false (event "evTTSelfInputKeyDown"))
+
+
+	(style
+		# Paired with the tf's own width bind below -- change one without the other and box and text disagree. 100% can't route through boxWidth, which is :number.
+		(bind width "_fillWidth ? 100% : boxWidth")
+		(height = "_height")
+		# tf carries no height, so this centres its natural text height in the _height slot.
+		(align = "center|middle")
+		# NO alpha -- the host row already dims by _enabled; a second dim multiplies to near-invisible.
+		(bind hitTest "_enabled")
+		# NOT service_kit's slider_track.png -- that bakes a well+ring together, giving two stacked borders. Rasterised alongside state_ring.png so the corners agree.
+		# Painting the root is also what lets rollOver hit-test.
+		(backgroundImage = 'url:../ttaro/mod_utils/input/well_fill.png')
+		(backgroundSize = "fill")
+		(scale9grid = 3)
+	)
+
+	# State ring. NOT one_pixel_frame.png (its corner reads square once lit above 0.1). hitTest=false is not optional -- a live surface eats the click Scaleform needs to focus the tf.
+	# Declared before the tf so it can't paint over a digit. ONE writer -- alpha and alphaMultiplier are the same value, so a second writer can stick the ring bright.
+	(block
+		(class $FullsizeAbsolute)
+		(bind colorTransform "{redMultiplier: ringR, greenMultiplier: ringG, blueMultiplier: ringB, alphaMultiplier: ringA}")
+		(style
+			(hitTest = false)
+			(backgroundImage = 'url:../ttaro/mod_utils/input/state_ring.png')
+			(scale9grid = 3)
+		)
+	)
+
+	(tf
+		(class $TextDefault)		# family + fontSize 15 + $FontColorDefault 0xEEEEEE
+		(name = 'ttInput')
+		# EDITABILITY IS GATED HERE, NOT BY THE HOST ROW -- Scaleform grants keyboard focus via native mouse handling, so an ancestor's hitTest can't stop a click here.
+		# ALL THREE binds needed: type 'dynamic' is non-editable, selectable=false blocks the caret, mouseEnabled=false stops the click reaching the field.
+		(bind mouseEnabled "_enabled")
+		(bind type "_enabled ? 'input' : 'dynamic'")
+		(bind selectable "_enabled")
+		(bind maxChars "_maxChars")
+		# First line of defence (`pattern` above is the second). The minus MUST be written '\-' -- restrict reads a bare '-' as a range operator and swallows it.
+		# restrict is a character SET, so appending a label just permits its letters (junk caught by `wellFormed`); restrict='' permits NOTHING, null is AS3's "any character".
+		(bind restrict "_isText ? null : '0-9' + (_decimals > 0 ? '.' : '') + (_min < 0 ? '\-' : '') + _minLabel + _maxLabel")
+		# Cannot force the IME off (the only lever is a STATIC on another class); typing produces nothing while an IME is active.
+
+		# Width only. Height absent, so the root's center|middle centres the field vertically.
+		(style
+			(bind width "_fillWidth ? 100% : boxWidth")
+			(multiline = false)
+			(wordWrap = false)
+			# Centred -- TT_INPUT_BOX_PADDING assumes it and carries no caret slack.
+			(textAlign = "center")
+			# Second gate, independent of mouseEnabled.  A dead hitTest silently eats the click.
+			(bind hitTest "_enabled")
+		)
+
+		(sync textInput "'text'" on='change')
+
+		# Commit writes the clamped value at once -- waiting for the Python round-trip through _value would flash the stale value in between.
+		(bind text "shownValue" watch=false init=false (event "evTTSelfInputSeed"))
+		(bind text "shownCommit" watch=false init=false (event "evTTUpInputCommit"))
+		(bind text "shownValue" watch=false init=false (event "evTTSelfInputEsc"))
+
+		# Select-all on focus, so typing REPLACES instead of appending. _maxChars is a safe endIndex (AS3 clamps it); fired from the delayed focus event above, never focusIn directly.
+		(bindcall setSelection "0" "_maxChars" init=false watch=false (bind enabled "isFocused") (event "evTTSelfInputFocusSettled"))
+		# keyDown DOES fire on a tf; do NOT also wire on=stageKeyUp gated by isFocused (commits twice on Enter).
+		(dispatch evTTSelfInputFocusIn  args="{}" on='focusIn')
+		(dispatch evTTSelfInputFocusOut args="{}" on='focusOut')
+
+		# Drop the highlight on the way out, or the field looks selected while another holds the caret. Collapsing to 0,0 is the clear -- there is no deselect call.
+		(bindcall setSelection "0" "0" init=false watch=false on='focusOut')
+
+		# Leaving the field restores the stored value unless committable (covers unparseable text AND an emptied field -- empty means zero only on a deliberate Enter).
+		# Native event, not isFocused -- isFocused drops only when another FIELD takes focus, so focusOut is the superset.
+		(dispatch evTTSelfInputEsc args="{}" on='focusOut' (bind enabled "!isValid || (isEmpty && !(_isText && _minChars <= 0))"))
+		# ...and committable text commits: the exact complement of the revert above, so leaving always resolves one way.
+		# keyCode, NOT dispatch order, keeps Esc a revert -- Esc drops native focus too, and relying on the handler's `dirty := false` landing first would be a race.
+		(dispatch evTTUpInputCommit dir="EventDirection.UP" args="{value: commitValue}" on='focusOut' (bind enabled "isValid && dirty && (!isEmpty || (_isText && _minChars <= 0)) && keyCode != TT_INPUT_KEY_ESC"))
+
+		(dispatch evTTSelfInputTyped args="{}" on='textInput')
+
+		(dispatch evTTSelfInputKeyDown args="{keyCode: $event ? $event.keyCode : 0}" on='keyDown')
+	)
+)

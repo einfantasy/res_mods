@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwc0000v014t9y44dof",
+  "author": "ttaro",
+  "modName": "3D Radar",
+  "slug": "3d-radar",
+  "order": 0,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmslc0n4i000bv08cfsu6e4fb",
+      "display": "transparent",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmslc0n4k000fv08c3xppfxcg",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_READY",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.ready.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.ready.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n4q000nv08ckizxh1pk",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_RELOAD",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.reload.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.reload.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n4w000vv08cempj65us",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_ACTIVE",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.active.color",
+              "label": "IDS_TT_COLOR",
+              "default": 860678314,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.ownTeam.active.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 2152523946,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktamj000hwv0d4j6digubb",
+      "display": "section",
+      "label": "IDS_TT_TITLE_WITH_ENEMY_DISTANCE_OFFSET",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "3dRadar.distanceOffset",
+          "label": "IDS_TT_DISTANCE_OFFSET",
+          "default": 1,
+          "min": 0,
+          "max": 10,
+          "step": 0.5
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmslc0n4j000dv08cujegn8at",
+      "display": "section",
+      "label": "IDS_TT_TITLE_OTHER_TEAM",
+      "hint": {
+        "text": "IDS_TT_HINT_OTHER_TEAM_SPECTATOR"
+      },
+      "collapse": "collapsed",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmslc0n4l000hv08cyyb666va",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_READY",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.ready.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.ready.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872415231,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n4r000pv08ch74o862a",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_RELOAD",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.reload.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.reload.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 872388915,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "group",
+          "key": "cmslc0n4x000xv08cpy4jce4t",
+          "display": "section",
+          "label": "IDS_TT_CONSUMABLE_ACTIVE",
+          "collapse": "expanded",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.active.color",
+              "label": "IDS_TT_COLOR",
+              "default": 872362752,
+              "min": 0,
+              "max": 4294967295
+            },
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "3dRadar.otherTeam.active.colorEnemyInRange",
+              "label": "IDS_TT_COLOR_ENEMY_IN_RANGE",
+              "default": 2164208384,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,11 +12,14 @@
        <xmlfile>../unbound/mods/carousel_extended.xml</xmlfile>
        <swffile>../unbound/flash/carousel_extended.swf</swffile>
     -->
-		<swffile>../unbound/mods/InfoPanelSelf.swf</swffile>
+		<xmlfile>../unbound/mods/MyShip.xml</xmlfile>
 		<xmlfile>../unbound/mods/InfoPanelSelf.xml</xmlfile>
-		<swffile>../unbound/mods/PortInterface/Expressions.swf</swffile>
-		<xmlfile>../unbound/mods/PortInterface/Resources.xml</xmlfile>
-		<swffile>../unbound/mods/SecondaryArmament.swf</swffile>
+		<xmlfile>../unbound/mods/ON_AccountResourcesWidget.xml</xmlfile>
+		<xmlfile>../unbound/mods/ON_DockResourcesWidget.xml</xmlfile>
+		<xmlfile>../unbound/mods/ON_CurrencyWidgetTooltip.xml</xmlfile>
+		<xmlfile>../unbound/mods/DefaultDock.xml</xmlfile>
+		<xmlfile>../unbound/mods/Armament.xml</xmlfile>
 		<xmlfile>../unbound/mods/SecondaryArmament.xml</xmlfile>
+		<swffile>../unbound/mods/ForgeDefinitions.swf</swffile>
 	</mods>
 </uss_settings.xml>

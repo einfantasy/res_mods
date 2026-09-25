@@ -1,0 +1,4 @@
+<mod name="RadarTimer" version="1.0.0">
+	<requires installer=">=1.0.0"/>
+	<ubMountInBattle unbound="2" rootElementId="RadarTimer" name="unbound2RadarTimer" hitTest="false"/>
+</mod>

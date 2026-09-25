@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuws000bv014pbgmhpwd",
+  "author": "ttaro",
+  "modName": "Regen Assistant",
+  "slug": "regen-assistant",
+  "order": 11,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmtktamic00hev0d4ud5levyl",
+      "display": "section",
+      "label": "IDS_TT_TITLE_GENERAL",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "regenAssistant.scale",
+          "label": "IDS_TT_UI_SCALE",
+          "default": 1,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.01,
+          "decimals": 2
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "regenAssistant.disableDragDrop",
+          "label": "IDS_TT_DISABLE_DRAG_DROP",
+          "hint": {
+            "text": "IDS_TT_HINT_DISABLE_DRAG_DROP"
+          },
+          "default": false
+        },
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "regenAssistant.warningRepeats",
+          "label": "IDS_TT_REGEN_WARNING_ANIMATION_REPEATS",
+          "hint": {
+            "text": "IDS_TT_HINT_REGEN_WARNING_ANIMATION_REPEATS"
+          },
+          "default": 3,
+          "min": 0,
+          "max": 7,
+          "step": 1,
+          "decimals": 0,
+          "maxLabel": "Inf"
+        },
+        {
+          "kind": "setting",
+          "control": "position",
+          "key": "regenAssistant.position",
+          "label": "IDS_TT_DRAGDROP_RESET",
+          "hint": {
+            "text": "IDS_TT_HINT_DRAGDROP_RESET"
+          },
+          "defaultPosition": {
+            "x": {
+              "anchor": "left",
+              "offset": 320
+            },
+            "y": {
+              "anchor": "bottom",
+              "offset": 246
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "group",
+      "key": "cmtktam49005sv0d4cv3va0cp",
+      "display": "section",
+      "label": "IDS_TT_TITLE_BACKGROUND",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "regenAssistant.background.alpha",
+          "label": "IDS_TT_OPACITY",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "decimals": 2
+        }
+      ]
+    }
+  ]
+}

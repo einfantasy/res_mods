@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwt000cv014sewj7d42",
+  "author": "ttaro",
+  "modName": "Pen Calculator",
+  "slug": "pen-calculator",
+  "order": 12,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmtktam99009vv0d4iwea53my",
+      "display": "section",
+      "label": "IDS_TT_TITLE_GENERAL",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "group",
+          "key": "cmt4us0h2001av0rwp6z1o3yz",
+          "display": "transparent",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "color",
+              "key": "penCalc.font.color",
+              "label": "IDS_TT_COLOR",
+              "default": 4293848814,
+              "min": 0,
+              "max": 4294967295
+            }
+          ]
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "penCalc.alwaysShowImpactAngle",
+          "label": "IDS_TT_ALWAYS_SHOW_IMPACT_ANGLE",
+          "hint": {
+            "text": "IDS_TT_HINT_ALWAYS_SHOW_IMPACT_ANGLE"
+          },
+          "default": false
+        },
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "penCalc.rowIndex",
+          "label": "IDS_TT_ROW_INDEX",
+          "default": 1,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "decimals": 0
+        }
+      ]
+    }
+  ]
+}

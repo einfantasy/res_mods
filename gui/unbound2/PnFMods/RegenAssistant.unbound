@@ -1,5 +1,3 @@
-(def constant RA_ELEMENT_NAME "'regenAssistant'")
-(def constant TT_REGENASSISTANT_INSTALLED "true")
 (def constant RA_ANIM_LIMIT_INF 7)
 (def constant RA_ELEMENT_SIZE {
 	WIDTH: 95,
@@ -26,11 +24,14 @@
 		(var regenSpeedEntity:gfx = "regenConsEntity ? $datahub.getPrimaryEntity(CC.parameter, toString(regenConsEntity.id) + '_' + 'regenerationHPSpeed') : null")
 
 		# Prefs
-		(macro TT_GET_USERPREF)
-		(macro TT_GET_PREF_NUMBER _varName="'warningRepeatCountsPref'"	_pref="RA_PREFS.WARNING_REPEATS")
-		(macro TT_GET_PREF_NUMBER _varName="'scale'" 				_pref="RA_PREFS.SCALE")
-		(macro TT_GET_PREF_NUMBER _varName="'backgroundAlpha'" 		_pref="RA_PREFS.BACKGROUND_ALPHA")
-		(macro TT_GET_PREF_BOOL   _varName="'isPositionLocked'" 	_pref="RA_PREFS.DISABLE_DRAGDROP")
+		(macro TT_GET_PREF _varName="'warnRepeatsPref'" _key="'ttaro.regenAssistant.warningRepeats'")
+		(var warningRepeatCountsPref:number = "null != warnRepeatsPref && null != warnRepeatsPref.value ? warnRepeatsPref.value : 3")
+		(macro TT_GET_PREF _varName="'scalePref'" _key="'ttaro.regenAssistant.scale'")
+		(var scale:number = "null != scalePref && null != scalePref.value ? scalePref.value : 1")
+		(macro TT_GET_PREF _varName="'backgroundAlphaPref'" _key="'ttaro.regenAssistant.background.alpha'")
+		(var backgroundAlpha:number = "null != backgroundAlphaPref && null != backgroundAlphaPref.value ? backgroundAlphaPref.value : 0")
+		(macro TT_GET_PREF _varName="'dragLockPref'" _key="'ttaro.regenAssistant.disableDragDrop'")
+		(var isPositionLocked:bool = "null != dragLockPref && null != dragLockPref.value ? dragLockPref.value : false")
 
 		# Calculations
 		(macro GET_MARKER_ENTITY_COMPONENT 'health')
@@ -84,24 +85,37 @@
 		# Styles
 		(var isModVisible:bool = "isAlive && regenConsEntity && isRegenValueValid")
 		(var regenValueTextColor:number = "isRegenMaxEffeciency ? SC.Ui_styles.SERVICE_COLORS.ORANGE : SC.Ui_styles.SERVICE_COLORS.GREEN")
-		(macro DRAGGABLE_GET_DROP_POSITION _elementName = "RA_ELEMENT_NAME" _defaultPosition = "{positionX: 320, positionY: (stageHeight - 290)}")
+		# Python owns the position value, its resKey bucket AND the first-placement default; never
+		# inline a default here.
+		(macro TT_DRAGGABLE_POSITION _fullKey="'ttaro.regenAssistant.position'")
 	)
 	(block
-		# Draggable
-		(controller $Instance renderer='ModDraggableElement'
-			(bind enabled "!isPositionLocked")
-			(args
-				_elementName="RA_ELEMENT_NAME"
-				_defaultPosition = "{positionX: 320, positionY: (stageHeight - 290)}"
-			)
-		)
 		# Style
 		(bind visible "isModVisible")
 		(style
 			(position = "absolute")
-			(bind left "dragPosX")
-			(bind top "dragPosY")
+			(bind left "dragX")
+			(bind top "dragY")
+			# NO pivot -- top-left origin, as legacy.  A stored position is an ORIGIN, so a pivot change
+			# re-reads the folded legacy regenAssistant_positionY as a bottom edge and moves every
+			# migrated panel up by RA_ELEMENT_SIZE.HEIGHT (44).
+			# The schema's bottom anchor still resolves correctly without a matching pivot: Python is
+			# size-aware and the pivot cancels (boxTop = P - f*size, via the reported poy).  The legacy
+			# default stageHeight - 290 against schema offset 246 differ by exactly that 44 -- the size
+			# term the resolver supplies.
 			(margin = 2px)
+		)
+
+		# Draggable -- full-size surface coextensive with the positioned block, declared before the
+		# content so the injected signifier stays behind it.
+		(block
+			(class $FullsizeAbsolute)
+			# hitTest is a STYLE property when BOUND -- directly under a (block ...) it throws at build time.
+			(style
+				(backgroundColor = 0x00FFFFFF)
+				(bind hitTest "!isPositionLocked")
+			)
+			(macro TT_DRAGGABLE _fullKey="'ttaro.regenAssistant.position'" _isDragEnabled="!isPositionLocked")
 		)
 		(hblock	
 			(style
@@ -152,7 +166,7 @@
 		)
 
 		# Mod Config
-		(element TT_ConfigButtonElement _modIndex = "11" _tooltipAlign="top|center"
+		(element TT_ConfigButtonElement _modSlug = "'ttaro.regen-assistant'" _tooltipAlign="top|center"
 			(style
 				(left = -30px)
 			)

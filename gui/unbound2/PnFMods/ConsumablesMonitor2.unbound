@@ -24,16 +24,21 @@
 	(element SimpleMarkerTextItem "toUpper(buildingName)")
 )
 
+(def constant CM2_COMPONENT_KEY_LIST_PREFIX 'modConsumablesMonitor2List_')
+
 (def element CM2_ConsumablesMonitorItem(_markerEntity:gfx) layout=true
 	(scope
-		(macro GET_MARKER_ENTITY_COMPONENT 'data')
-		(var consData:array = "dataComponent ? dataComponent.data['consMonitor']: []" (event "dataComponent.evChanged"))
+		(var listKey:str = "CM2_COMPONENT_KEY_LIST_PREFIX + toString(_markerEntity ? _markerEntity.id : 0)")
+		(var listWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, listKey)")
+		(var listEntity:gfx = "listWatcher.entity" (event "listWatcher.event"))
+		(var listComponent:gfx = "listEntity ? listEntity.mods_DataComponent : null")
+		(var consIds:array = "listComponent ? listComponent.data.ids : []" (event "listComponent.evDataChanged"))
 	)
 	(hblock
 		(controller $Repeat renderer='CM2_ConsumableItem'
-			(bind enabled "consData.length > 0")
-			(bind count "consData.length")
-			(args "consData[$index]")
+			(bind enabled "consIds.length > 0")
+			(bind count "consIds.length")
+			(args _entityId="consIds[$index]")
 		)
 	)
 	(style
@@ -71,25 +76,28 @@
 
 (def constant TT_CONSUMABLESMONITOR_INSTALLED true)
 
-(def element CM2_ConsumableItem (_consData:dict) layout=true
+(def element CM2_ConsumableItem (_entityId:number) layout=true
 	(scope
 		(event evConsumableActivated)
 		(event evConsumableEnding)
 		(event evConsumableDeactivated)
 
-		(var iconPath:str = "'url:../consumables/consumable_' + _consData.icon + '.png'")
-		(var capacity:str = "_consData.capacity")
-		(var state:number = "_consData.state")
+		(var _consEntity:gfx = "$datahub.getEntity(_entityId)")
+		(var staticComponent:gfx = "_consEntity && _consEntity.hasComponent(CC.data) ? _consEntity.data : null" (event "_consEntity.evAdded") (event "_consEntity.evRemoved"))
+		(var dynamicComponent:gfx = "_consEntity && _consEntity.hasComponent(CC.mods_DataComponent) ? _consEntity.mods_DataComponent : null" (event "_consEntity.evAdded") (event "_consEntity.evRemoved"))
+		(var countDownComponent:gfx = "_consEntity && _consEntity.hasComponent(CC.countDown) ? _consEntity.countDown : null" (event "_consEntity.evAdded") (event "_consEntity.evRemoved"))
+
+		(var staticData:gfx = "staticComponent ? staticComponent.data : null")
+		(var consData:gfx = "dynamicComponent ? dynamicComponent.data : null" (event "dynamicComponent.evDataChanged"))
+
+		(var iconPath:str = "'url:../consumables/consumable_' + (staticData ? staticData.icon : '') + '.png'")
+		(var capacity:str = "consData ? consData.capacity : ''")
+		(var state:number = "consData ? consData.state : -1")
 		(var stateStr:str = "toString(state)")
-		(var stateEndTime:number = "_consData.endTime")
-		(bind stateEndTime "_consData.endTime" watch=false init=false (bind trigger "state"))
-		#(trace "toString(_entity.avatar.name) + ': isActive: ' + toString(isActive) + ', isUnderThreshold: ' + (stateTime <= CM2_BLINK_SETTINGS.THRESHOLD) + ', ' + _consData.consumableType + ', ' + timer.currentTime" watch=false (bind trigger "isConsumableEnding"))
-		# The ub scope updates dict values one by one
-		# which triggers `isConsumableEnding` change event because it satisfies (isActive == true && previousStateTime <= animationThreshold)
-		# It will immediately becomes false as the previousStateTime gets updated to the current value.
-		# However the fired event still starts the animation, of course.
-		(var canUse:bool = "_consData.canUse")
-		(var lifeCycleType:number = "_consData.lifeCycleType")
+		(var stateEndTime:number = "countDownComponent ? countDownComponent.endTime : 0")
+		(bind stateEndTime "countDownComponent ? countDownComponent.endTime : 0" watch=false init=false (bind trigger "state"))
+		(var canUse:bool = "consData ? consData.canUse : false")
+		(var lifeCycleType:number = "staticData ? staticData.lifeCycleType : -1")
 		(var isTimeBased:bool = "lifeCycleType == SC.Battle.CONSUMABLE_LIFECYCLE_TYPE.TIME_BASED")
 		
 		(var isReady:bool = "state == SC.Battle.CONSUMABLE_STATES.READY")
@@ -116,7 +124,7 @@
 											 : isReady  ? 'RDY'
 											 			: ' ' "
 		)
-		(var isCapacityHidden:bool = "(isTimeBased && isActive) || (capacity == 'inf')")
+		(var isCapacityHidden:bool = "!consData || (isTimeBased && isActive) || (capacity == 'inf')")
 		(var capacityPrefix:str = "isTimeBased ? '' : 'x'")
 		(var capacityStr:str = "isCapacityHidden	? ' '
 													: capacityPrefix + round(capacity)"
