@@ -1,3 +1,4 @@
+
 (def constant MSV_COMPONENT_KEY 'modModuleStateViewer')
 (def constant MSV_COMPONENT_KEY_ZINDEX_PREFIX 'modModuleStateViewerZIndex_')
 
@@ -16,48 +17,398 @@
 (def constant MSV_MODULE_MARKER_SETTINGS {
 	'1': {size: 24px, icon: 'main_caliber'},
 	'2': {size: 16px, icon: 'atba_gun'},
-	'9': {size: 24px, icon: 'torpedo_tube'}
+	'9': {size: 24px, icon: 'torpedo_tube'},
+	'5': {size: 24px, icon: 'engine'},
+	'14': {size: 24px, icon: 'steering_gear'}
 })
+
+
+
+(def constant MSV_PANEL_ROW_TYPES [5, 14])
+(def constant MSV_PANEL_FOOTER 28)
+
+(def constant MSV_PANEL_ROW_WIDTH 200)
+
+
+(def constant MSV_MODULE_TYPE_ATBA 2)
+
+
+
+(def constant MSV_PANEL_WIDTH 48)
+(def constant MSV_PANEL_HEIGHT 260)
 
 (def element ModuleStateViewer () layout=true
 	(scope
+
 		(var entityWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, MSV_COMPONENT_KEY)")
 		(var entity:gfx = "entityWatcher.entity" (event "entityWatcher.event"))
 		(var dataComponent:gfx = "entity ? entity.mods_DataComponent : null")
 		(var entityIds:array = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
 
 		(var counts:number = "entityIds ? entityIds.length : 0")
+
+		(macro IS_SPECTATOR_MODE)
+
+		(macro TT_GET_PREF _varName="'displayModePref'" _key="'ttaro.moduleStateViewer.panel.displayMode'")
+		(var displayMode:number = "null != displayModePref && null != displayModePref.value ? displayModePref.value : TT_CONST.DISPLAY_MODE.ENABLED")
+		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
+		(var altVision:bool = "camera.altVision" (event "camera.evAltVisionChanged"))
+		(var isPanelShown:bool = "displayMode == TT_CONST.DISPLAY_MODE.ADAPTIVE ? altVision : displayMode == TT_CONST.DISPLAY_MODE.ENABLED")
 	)
 
 	(block
-		(controller $Repeat renderer='MSV_ModuleViewer'
+
+		(style (hitTest = false))
+		(controller $Repeat renderer='MSV_MarkerGate'
 			(bind enabled "counts")
 			(bind count "counts")
 			(args
 				_entityId="entityIds[$index]"
+				_isSpectator="isSpectator"
+			)
+		)
+	)
+
+	(controller $Instance
+		(renderer = 'MSV_Panel')
+		(bind enabled "isSpectator && counts && isPanelShown")
+		(args
+			_entityIds="entityIds"
+		)
+	)
+)
+
+
+
+
+(def element MSV_MarkerGate(_entityId:number, _isSpectator:bool) layout=true
+	(scope
+		(var entity:gfx = "$datahub.getEntity(_entityId)")
+		(var dataComponent:gfx = "entity ? entity.mods_DataComponent : null")
+		(var moduleData:dict = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
+		(var type:number = "moduleData && 'type' in moduleData ? moduleData.type : -1")
+		(var state:number = "moduleData && 'state' in moduleData ? moduleData.state : -1")
+		(var isBroken:bool = "isIn(state, MSV_MODULE_STATE.TIMED_STATES)")
+		(var isPanelOnly:bool = "isIn(type, MSV_PANEL_ROW_TYPES)")
+
+
+
+
+		(var zIndexWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, MSV_COMPONENT_KEY_ZINDEX_PREFIX + toString(_entityId))")
+		(var zIndexEntity:gfx = "zIndexWatcher.entity" (event "zIndexWatcher.event"))
+		(var zIndexComponent:gfx = "zIndexEntity ? zIndexEntity.mods_DataComponent : null")
+		(var zIndex:number = "zIndexComponent && null != zIndexComponent.data ? zIndexComponent.data.zIndex : 0" (event "zIndexComponent.evDataChanged"))
+	)
+
+
+	(style (bind zindex "zIndex"))
+
+	(controller $Instance
+		(renderer = 'MSV_ModuleViewer')
+		(bind enabled "type != -1 && (!_isSpectator || (type != MSV_MODULE_TYPE_ATBA && !isPanelOnly && isBroken))")
+		(args
+			_entityId="_entityId"
+			_isSpectator="_isSpectator"
+		)
+	)
+)
+
+(def element MSV_Panel(_entityIds:array) layout=true
+	(scope
+
+		(var firstEntity:gfx = "$datahub.getEntity(_entityIds[0])")
+		(var firstComponent:gfx = "firstEntity ? firstEntity.mods_DataComponent : null")
+		(var firstData:dict = "firstComponent ? firstComponent.data : null" (event "firstComponent.evDataChanged"))
+		(var hasTarget:bool = "firstData && 'type' in firstData")
+
+		(macro TT_GET_PREF _varName="'dragLockPref'" _key="'ttaro.moduleStateViewer.panel.disableDragDrop'")
+		(var isPositionLocked:bool = "null != dragLockPref && null != dragLockPref.value ? dragLockPref.value : false")
+		(macro TT_DRAGGABLE_POSITION _fullKey="'ttaro.moduleStateViewer.panel.position'")
+		(macro TT_GET_PREF _varName="'scalePref'" _key="'ttaro.moduleStateViewer.panel.scale'")
+		(var scale:number = "null != scalePref && null != scalePref.value ? scalePref.value : 1")
+		(macro TT_GET_PREF _varName="'fontSizePref'" _key="'ttaro.moduleStateViewer.panel.font.size'")
+		(var fontSize:number = "null != fontSizePref && null != fontSizePref.value ? fontSizePref.value : 11")
+	)
+
+	(bind visible "hasTarget")
+
+	(style
+		(position = "absolute")
+		(bind left "dragX")
+		(bind top "dragY")
+		(bind width "MSV_PANEL_WIDTH * scale")
+		(bind height "(MSV_PANEL_HEIGHT + MSV_PANEL_FOOTER) * scale")
+	)
+
+
+	(block
+		(class $FullsizeAbsolute)
+		(style
+			(backgroundColor = 0x00FFFFFF)
+			(bind hitTest "!isPositionLocked")
+		)
+		(macro TT_DRAGGABLE _fullKey="'ttaro.moduleStateViewer.panel.position'" _isDragEnabled="!isPositionLocked")
+	)
+
+	(block
+		(style
+			(position = "absolute")
+			(width = "MSV_PANEL_WIDTH")
+			(height = "MSV_PANEL_HEIGHT")
+			(bind scaleX "scale")
+			(bind scaleY "scale")
+			(hitTest = false)
+		)
+		(block
+			(class $FullsizeAbsolute)
+			(style
+				(backgroundImage = "'url:../ttaro/module_state_viewer/panel_hull.png'")
+				(backgroundSize = "fill")
+			)
+		)
+
+		(controller $Repeat renderer='MSV_PanelItem'
+			(bind count "_entityIds.length")
+			(args
+				_entityId="_entityIds[$index]"
+				_fontSize="fontSize"
+			)
+		)
+
+		(block
+			(style
+				(position = "absolute")
+				(left = "(MSV_PANEL_WIDTH - MSV_PANEL_ROW_WIDTH) / 2")
+				(top = "MSV_PANEL_HEIGHT + 6")
+				(width = "MSV_PANEL_ROW_WIDTH")
+				(height = 20px)
+				(flow = "horizontal")
+				(align = "center|middle")
+			)
+			(controller $Repeat renderer='MSV_PanelRowGate'
+				(bind count "_entityIds.length")
+				(args
+					_entityId="_entityIds[$index]"
+					_fontSize="fontSize"
+				)
 			)
 		)
 	)
 )
 
-(def element MSV_ModuleViewer(_entityId:number) layout=true
+
+(def element MSV_PanelRowGate(_entityId:number, _fontSize:number=11) layout=true
+	(scope
+		(var entity:gfx = "$datahub.getEntity(_entityId)")
+		(var dataComponent:gfx = "entity ? entity.mods_DataComponent : null")
+		(var moduleData:dict = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
+		(var type:number = "moduleData && 'type' in moduleData ? moduleData.type : -1")
+		(var state:number = "moduleData && 'state' in moduleData ? moduleData.state : -1")
+		(var critTimer:number = "moduleData && 'critTimer' in moduleData ? moduleData.critTimer : 0")
+	)
+	(controller $Instance
+		(renderer = 'MSV_PanelRowItem')
+		(bind enabled "isIn(type, MSV_PANEL_ROW_TYPES)")
+		(args
+			_type="type"
+			_isBroken="isIn(state, MSV_MODULE_STATE.TIMED_STATES)"
+			_critTimer="critTimer"
+			_fontSize="_fontSize"
+		)
+	)
+)
+
+(def element MSV_PanelRowItem(_type:number, _isBroken:bool, _critTimer:number, _fontSize:number=11) layout=true
+	(scope
+		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+		(var critTimeLeft:number = "_critTimer > 0 ? max(0, _critTimer - timer.currentTime) : 0" (event "timer.evFrequent"))
+		(var critTimeText:str = "_critTimer > 0 ? formatFloatingPoint(critTimeLeft, critTimeLeft < 10 ? 1 : 0) + 's' : ''")
+		(var typeStr:str = "toString(_type)")
+		(var icon:str = "typeStr in MSV_MODULE_MARKER_SETTINGS ? MSV_MODULE_MARKER_SETTINGS[typeStr].icon : ''")
+
+
+		(var textWidth:number = "_fontSize * 2.4")
+		(var fullWidth:number = "31 + textWidth")
+
+		(var widthAnimated:number = "_isBroken ? fullWidth : 0" watch=false)
+		(controller $Animation
+			(bindcall play duration=0.25 to="{widthAnimated: fullWidth}" action="killAll" (bind enabled "_isBroken") (bind trigger "_isBroken"))
+			(bindcall play duration=0.25 delay=0.1 to="{widthAnimated: 0}" action="killAll" (bind enabled "!_isBroken") (bind trigger "_isBroken"))
+		)
+	)
+	(style
+		(bind width "widthAnimated")
+		(height = 20px)
+	)
+	(block
+		(style
+
+			(position = "absolute")
+			(bind left "widthAnimated / 2")
+			(top = 10px)
+			(bind width "fullWidth")
+			(height = 20px)
+			(flow = "horizontal")
+			(align = "center|middle")
+			(pivotX = 50%) (pivotY = 50%)
+			(scaleX = "_isBroken ? 1 : 0") (scaleY = "_isBroken ? 1 : 0")
+		)
+		(controller $Animation
+			(bindcall play duration=0.3 to="{scaleX: 1, scaleY: 1}" action="killAll" (bind enabled "_isBroken") (bind trigger "_isBroken"))
+			(bindcall play duration=0.3 to="{scaleX: 0, scaleY: 0}" action="killAll" (bind enabled "!_isBroken") (bind trigger "_isBroken"))
+		)
+		(block
+			(style
+				(width = 18px) (height = 18px)
+				(marginRight = 3px)
+				(bind backgroundImage "'url:../ttaro/module_state_viewer/panel_' + icon + '_crit.png'")
+				(backgroundSize = "fill")
+				(filters
+					(dropShadow
+						(distance = 1)
+						(angle = 90)
+						(color = 0x000000)
+						(blurX = 2.0)
+						(blurY = 2.0)
+						(strength = 0.8)
+						(quality = 3)
+					)
+				)
+			)
+		)
+		(element MSV_PanelText "critTimeText" "0xff2a00" "_fontSize")
+	)
+)
+
+(def element MSV_PanelItem(_entityId:number, _fontSize:number=11) layout=true
+	(scope
+		(var entity:gfx = "$datahub.getEntity(_entityId)")
+		(var dataComponent:gfx = "entity ? entity.mods_DataComponent : null")
+		(var moduleData:dict = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
+
+		(var type:number = "moduleData && 'type' in moduleData ? moduleData.type : -1")
+		(var state:number = "moduleData && 'state' in moduleData ? moduleData.state : -1")
+		(var currentHP:number = "moduleData && 'currentHP' in moduleData ? moduleData.currentHP : 0")
+		(var maxHP:number = "moduleData && 'maxHP' in moduleData ? moduleData.maxHP : 0")
+		(var x:number = "moduleData && 'x' in moduleData ? moduleData.x : 0")
+		(var y:number = "moduleData && 'y' in moduleData ? moduleData.y : 0")
+
+		(var isATBA:bool = "type == MSV_MODULE_TYPE_ATBA")
+		(var isDestroyed:bool = "state == MSV_MODULE_STATE.DESTROYED")
+		(var isCrit:bool = "isIn(state, MSV_MODULE_STATE.CRITICAL_STATES)")
+
+		(var hpPercent:number = "maxHP > 0 ? currentHP / maxHP : 0")
+		(var color:number = "	isDestroyed		? 0x646464 :
+								isCrit			? 0xff2a00 :
+								hpPercent > 0.8	? 0xffffff :
+								hpPercent > 0.3	? 0xffb600
+												: 0xff4b1d
+		")
+		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+		(var critTimer:number = "moduleData && 'critTimer' in moduleData ? moduleData.critTimer : 0")
+		(var isTimerActive:bool = "critTimer > 0 && isIn(state, MSV_MODULE_STATE.TIMED_STATES)")
+		(var critTimeLeft:number = "isTimerActive ? max(0, critTimer - timer.currentTime) : 0" (event "timer.evFrequent"))
+		(var hpPercentText:str = "formatFloatingPoint(hpPercent * 100, 0) + '%'")
+		(var hpText:str = "isTimerActive ? hpPercentText + '  ' + formatFloatingPoint(critTimeLeft, critTimeLeft < 10 ? 1 : 0) + 's' : hpPercentText")
+
+		(var typeStr:str = "toString(type)")
+		(var markerSettings:dict = "typeStr in MSV_MODULE_MARKER_SETTINGS ? MSV_MODULE_MARKER_SETTINGS[typeStr] : null")
+		(var iconState:str = "	isDestroyed ? 'dead' :
+								isCrit		? 'crit'
+											: 'normal'
+		")
+
+		(var iconPath:str = "markerSettings ? 'url:../ttaro/module_state_viewer/panel_' + markerSettings.icon + '_' + iconState + '.png' : ''")
+		(var dotState:str = "	isDestroyed		? 'dead' :
+								isCrit			? 'crit' :
+								hpPercent > 0.8	? 'ok' :
+								hpPercent > 0.3	? 'warn'
+												: 'low'
+		")
+
+		(var isPort:bool = "x < 0.45")
+	)
+
+	(bind visible "type != -1 && !isIn(type, MSV_PANEL_ROW_TYPES)")
+
+	(style
+		(position = "absolute")
+		(bind left "x * MSV_PANEL_WIDTH")
+		(bind top "y * MSV_PANEL_HEIGHT")
+	)
+
+	(block
+		(bind visible "isATBA")
+		(style
+			(position = "absolute")
+			(left = -3px) (top = -3px)
+			(width = 6px) (height = 6px)
+			(bind backgroundImage "'url:../ttaro/module_state_viewer/panel_dot_' + dotState + '.png'")
+		)
+	)
+
+	(block
+		(bind visible "!isATBA")
+		(style
+			(position = "absolute")
+			(left = -9px) (top = -9px)
+			(width = 18px) (height = 18px)
+			(bind backgroundImage "iconPath")
+			(backgroundSize = "fill")
+		)
+	)
+
+	(block
+		(bind visible "!isATBA && !isPort")
+		(style
+			(position = "absolute")
+			(bind left "(1 - x) * MSV_PANEL_WIDTH + 8")
+			(top = -8px)
+			(width = 80px) (height = 16px)
+			(align = "left|middle")
+		)
+		(element MSV_PanelText "hpText" "color" "_fontSize")
+	)
+	(block
+		(bind visible "!isATBA && isPort")
+		(style
+			(position = "absolute")
+			(bind left "-x * MSV_PANEL_WIDTH - 88")
+			(top = -8px)
+			(width = 80px) (height = 16px)
+			(align = "right|middle")
+		)
+		(element MSV_PanelText "hpText" "color" "_fontSize")
+	)
+)
+
+(def element MSV_PanelText(_value:str, _color:number, _fontSize:number=11) layout=true
+	(tf
+		(class $WorldMarkerTextItem)
+		(style
+			(bind textColor "_color")
+			(bind fontSize "_fontSize")
+		)
+		(bind text "_value")
+	)
+)
+
+(def element MSV_ModuleViewer(_entityId:number, _isSpectator:bool=false) layout=true
 	(scope
 		(event evPositionUpdate)
 		(var _markerEntity:gfx = "$datahub.getEntity(_entityId)")
+
 
 		(var dataComponent:gfx = "_markerEntity && _markerEntity.hasComponent(CC.mods_DataComponent) ? _markerEntity.mods_DataComponent : null" (event "_markerEntity.evAdded")(event "_markerEntity.evRemoved"))
 		(var moduleData:dict = "dataComponent ? dataComponent.data : null" (event "dataComponent.evDataChanged"))
 		(var state:number = "'state' in moduleData ? moduleData.state : -1")
 		(var isTimerActive:bool = "isIn(state, MSV_MODULE_STATE.TIMED_STATES)")
 
-		(var zIndexWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, MSV_COMPONENT_KEY_ZINDEX_PREFIX + toString(_entityId))")
-		(var zIndexEntity:gfx = "zIndexWatcher.entity" (event "zIndexWatcher.event"))
-		(var zIndexComponent:gfx = "zIndexEntity ? zIndexEntity.mods_DataComponent : null")
-		(var zIndex:number = "zIndexComponent && null != zIndexComponent.data ? zIndexComponent.data.zIndex : 0" (event "zIndexComponent.evDataChanged"))
 
 		(macro GET_MARKER_ENTITY_COMPONENT 'distance')
 		(var distanceIndex:number = "distanceComponent ? distanceComponent.distanceIndex : -1" (event "distanceComponent.evDistanceIndexChanged"))
 		(var isCloseToCamera:bool = "distanceIndex == DistanceType.NEAR")
+
 
 		(var camera:gfx = "$datahub.getSingleComponent(CC.camera)")
 		(var altVision:bool = "camera.altVision" (event "camera.evAltVisionChanged"))
@@ -88,19 +439,21 @@
 		(bind top "posY")
 		(position = "absolute")
 		(align = "center|bottom")
-		(bind zindex "zIndex")
 	)
 
 	(element MSV_ModuleItem
 		_moduleData		 = "moduleData"
 		_isCloseToCamera = "isCloseToCamera"
-		_heightOffset	 = "posDiffY"
+
+		_heightOffset	 = "_isSpectator ? 0 : posDiffY"
 	)
 )
 
 (def element MSV_ModuleItem(_moduleData:dict, _isCloseToCamera:bool, _heightOffset:number=0) layout=true
 	(scope
+
 		(var timer:gfx = "$datahub.getSingleComponent(CC.timer)")
+
 
 		(var type:number = "'type' in _moduleData ? _moduleData.type : -1")
 		(var state:number = "'state' in _moduleData ? _moduleData.state : -1")
@@ -116,8 +469,10 @@
 
 		(var isATBA:bool = "type == 2")
 
+
 		(var critTimeLeft:number = "isTimerActive ? critTimer - timer.currentTime : 0" (event "timer.evFrequent"))
-		(var critTimeLeftStr:str = "isTimerActive ? countdownFormat(critTimeLeft) : ' '")
+		(var critTimeLeftStr:str = "isTimerActive ? formatFloatingPoint(critTimeLeft, critTimeLeft < 10 ? 1 : 0) : ' '")
+
 
 		(var stateColor:number = "	isNormal	? SC.Ui_styles.SERVICE_COLORS.WHITE :
 									isDamaged	? SC.Ui_styles.SERVICE_COLORS.GREEN :
@@ -132,6 +487,7 @@
 		")
 		(var isTextVisible:bool = "_isCloseToCamera")
 
+
 		(var currentHPText:str = "formatFloatingPoint(currentHP, 0)")
 
 		(var typeStr:str = "toString(type)")
@@ -145,7 +501,7 @@
 								isCrit		? 'crit'
 											: 'normal'
 		")
-		(var iconPath:str = "_isCloseToCamera	? 'url:../ttaro_module_state_viewer/' + iconType +'_' + iconState + '.png'
+		(var iconPath:str = "_isCloseToCamera	? 'url:../ttaro/module_state_viewer/' + iconType +'_' + iconState + '.png'
 												: 'url:../battle_hud/markers/torpedoes/icon_torpedo_not_dangerous_enemy.png'
 		")
 		(var isVisible:bool = "(_isCloseToCamera || !isNormal) && !(isATBA && isNormal && hpPercent == 1)")
@@ -159,6 +515,7 @@
 		(marginTop = -50%)
 	)
 
+
 	(block
 		(controller $Instance
 			(renderer = 'MSV_ModuleViewerTextItem')
@@ -170,6 +527,7 @@
 			)
 		)
 	)
+
 	(block
 		(style
 			(bind width "iconSize")
@@ -180,6 +538,7 @@
 			(pivotY = 50%)
 		)
 	)
+
 	(block
 		(controller $Instance
 			(renderer = 'MSV_ModuleViewerTextItem')
@@ -191,6 +550,7 @@
 			)
 		)
 	)
+
 	(block
 		(bind visible "_heightOffset")
 		(style

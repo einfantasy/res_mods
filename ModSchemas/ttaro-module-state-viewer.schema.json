@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 5,
+  "id": "cmv46q8tt0002v0s8sipbp1ns",
+  "author": "ttaro",
+  "modName": "Module State Viewer",
+  "slug": "module-state-viewer",
+  "order": 26,
+  "migrationVersion": 0,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmv46q8tv0004v0s8wu11m2w4",
+      "display": "section",
+      "label": "IDS_TT_TITLE_STATE_PANEL",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "slider",
+          "key": "moduleStateViewer.panel.scale",
+          "label": "IDS_TT_UI_SCALE",
+          "default": 1,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.01,
+          "decimals": 2
+        },
+        {
+          "kind": "setting",
+          "control": "toggle",
+          "key": "moduleStateViewer.panel.disableDragDrop",
+          "label": "IDS_TT_DISABLE_DRAG_DROP",
+          "hint": {
+            "text": "IDS_TT_HINT_DISABLE_DRAG_DROP"
+          },
+          "default": false
+        },
+        {
+          "kind": "setting",
+          "control": "dropdown",
+          "key": "moduleStateViewer.panel.displayMode",
+          "label": "IDS_TT_DISPLAY_MODE",
+          "hint": {
+            "text": "IDS_TT_HINT_DISPLAY_MODE"
+          },
+          "default": 1,
+          "options": [
+            {
+              "value": 0,
+              "phrase": "IDS_TURN_OFF"
+            },
+            {
+              "value": 1,
+              "phrase": "IDS_TURN_ON"
+            },
+            {
+              "value": 2,
+              "phrase": "IDS_ALT_VISION_MODE_1",
+              "icon": "CMD_ICONS"
+            }
+          ],
+          "optionStyle": "KEY"
+        },
+        {
+          "kind": "group",
+          "key": "cmv46q8u3000cv0s8i2mddz8d",
+          "display": "transparent",
+          "children": [
+            {
+              "kind": "setting",
+              "control": "slider",
+              "key": "moduleStateViewer.panel.font.size",
+              "label": "IDS_TT_FONT_SIZE",
+              "default": 11,
+              "min": 8,
+              "max": 16,
+              "step": 1,
+              "decimals": 0
+            }
+          ]
+        },
+        {
+          "kind": "setting",
+          "control": "position",
+          "key": "moduleStateViewer.panel.position",
+          "label": "IDS_TT_DRAGDROP_RESET",
+          "hint": {
+            "text": "IDS_TT_HINT_DRAGDROP_RESET"
+          },
+          "defaultPosition": {
+            "x": {
+              "anchor": "left",
+              "offset": 120
+            },
+            "y": {
+              "anchor": "top",
+              "offset": 300
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

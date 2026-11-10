@@ -110,7 +110,7 @@ def _validateNumber(node, value, default):
 def _validateText(node, value, default):
     if not isinstance(value, basestring):
         return default
-    # len() on a utf-8 str counts BYTES; maxLength is code points.
+
     if isinstance(value, unicode):
         text = value
     else:
@@ -128,7 +128,7 @@ def _validateText(node, value, default):
                 return default
         except Exception:
             pass
-    # Absent means 0, so a node that never declares one keeps accepting the empty string.
+
     minLength = node.get('minLength')
     if minLength is not None:
         try:
@@ -174,7 +174,7 @@ def validatePosition(value):
         if not isinstance(entry, dict) or 'x' not in entry or 'y' not in entry:
             continue
         try:
-            # Round, never truncate -- Main._resolveDefaultPosition also rounds; int() here would drift a pixel.
+
             out[resKey] = {'x': int(round(float(entry['x']))),
                            'y': int(round(float(entry['y'])))}
         except Exception:

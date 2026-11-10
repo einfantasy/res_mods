@@ -1,3 +1,0 @@
-<ui>
-<block className="SecondaryArmament"><bind name="collectionRepeatDH" value="CC.avatar; 'Armament'; 'team.ally.sortedAlive'; {}"/></block>
-</ui>

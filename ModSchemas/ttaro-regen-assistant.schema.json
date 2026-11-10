@@ -5,6 +5,7 @@
   "modName": "Regen Assistant",
   "slug": "regen-assistant",
   "order": 11,
+  "migrationVersion": 1,
   "tree": [
     {
       "kind": "group",

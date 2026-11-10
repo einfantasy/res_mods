@@ -23,6 +23,8 @@
 
 	(event evNewMessageEvent)
 
+	(macro CONTEXT_MENU_HIDE_GUARD_SCOPE)
+
 	(var battleChatEntity:gfx = "$datahub.getSingleEntity(CC.battleChatAndLog)")
 
 	(var playerId:number = "_messageEntity.battleChatAndLogMessage.playerId")
@@ -46,31 +48,31 @@
 (def macro TTChat_GET_MOD_DATA ()
 	# Prefs
 	# We do not use the in-game settings because it is difficult to modify
-	(macro TT_GET_PREF _varName="'__shipFontSizePref'" _key="'ttaro.ttChat.shipInfo.font.size'")
+	(macro TT_GET_PREF _varName="'__shipFontSizePref'" _key="'ttaro.chat.shipInfo.font.size'")
 	(var shipInfoFontSize:number = "null != __shipFontSizePref && null != __shipFontSizePref.value ? __shipFontSizePref.value : 12")
-	(macro TT_GET_PREF _varName="'__shipBoldPref'" _key="'ttaro.ttChat.shipInfo.font.bold'")
+	(macro TT_GET_PREF _varName="'__shipBoldPref'" _key="'ttaro.chat.shipInfo.font.bold'")
 	(var isShipInfoBold:bool = "null != __shipBoldPref && null != __shipBoldPref.value ? __shipBoldPref.value : true")
-	(macro TT_GET_PREF _varName="'__shipNamePref'" _key="'ttaro.ttChat.shipInfo.name'")
+	(macro TT_GET_PREF _varName="'__shipNamePref'" _key="'ttaro.chat.shipInfo.name'")
 	(var isShipNameVisible:bool = "null != __shipNamePref && null != __shipNamePref.value ? __shipNamePref.value : true")
-	(macro TT_GET_PREF _varName="'__shipIconPref'" _key="'ttaro.ttChat.shipInfo.icon'")
+	(macro TT_GET_PREF _varName="'__shipIconPref'" _key="'ttaro.chat.shipInfo.icon'")
 	(var isShipIconVisible:bool = "null != __shipIconPref && null != __shipIconPref.value ? __shipIconPref.value : true")
-	(macro TT_GET_PREF _varName="'__shipTierPref'" _key="'ttaro.ttChat.shipInfo.tier'")
+	(macro TT_GET_PREF _varName="'__shipTierPref'" _key="'ttaro.chat.shipInfo.tier'")
 	(var isShipTierVisible:bool = "null != __shipTierPref && null != __shipTierPref.value ? __shipTierPref.value : true")
 
-	(macro TT_GET_PREF _varName="'__senderFontSizePref'" _key="'ttaro.ttChat.playerInfo.font.size'")
+	(macro TT_GET_PREF _varName="'__senderFontSizePref'" _key="'ttaro.chat.playerInfo.font.size'")
 	(var senderFontSize:number = "null != __senderFontSizePref && null != __senderFontSizePref.value ? __senderFontSizePref.value : 15")
-	(macro TT_GET_PREF _varName="'__senderBoldPref'" _key="'ttaro.ttChat.playerInfo.font.bold'")
+	(macro TT_GET_PREF _varName="'__senderBoldPref'" _key="'ttaro.chat.playerInfo.font.bold'")
 	(var isSenderNameBold:bool = "null != __senderBoldPref && null != __senderBoldPref.value ? __senderBoldPref.value : true")
-	(macro TT_GET_PREF _varName="'__senderNamePref'" _key="'ttaro.ttChat.playerInfo.name'")
+	(macro TT_GET_PREF _varName="'__senderNamePref'" _key="'ttaro.chat.playerInfo.name'")
 	(var isSenderNameVisible:bool = "null != __senderNamePref && null != __senderNamePref.value ? __senderNamePref.value : true")
-	(macro TT_GET_PREF _varName="'__clanTagPref'" _key="'ttaro.ttChat.playerInfo.clan'")
+	(macro TT_GET_PREF _varName="'__clanTagPref'" _key="'ttaro.chat.playerInfo.clan'")
 	(var isClanNameVisible:bool = "null != __clanTagPref && null != __clanTagPref.value ? __clanTagPref.value : true")
-	(macro TT_GET_PREF _varName="'__myShipPref'" _key="'ttaro.ttChat.playerInfo.showMyShip'")
+	(macro TT_GET_PREF _varName="'__myShipPref'" _key="'ttaro.chat.playerInfo.showMyShip'")
 	(var isOwnShipNameVisible:bool = "null != __myShipPref && null != __myShipPref.value ? __myShipPref.value : false")
 
-	(macro TT_GET_PREF _varName="'__messageFontSizePref'" _key="'ttaro.ttChat.style.font.size'")
+	(macro TT_GET_PREF _varName="'__messageFontSizePref'" _key="'ttaro.chat.style.font.size'")
 	(var messageFontSize:number = "null != __messageFontSizePref && null != __messageFontSizePref.value ? __messageFontSizePref.value : 15")
-	(macro TT_GET_PREF _varName="'__messageBoldPref'" _key="'ttaro.ttChat.style.font.bold'")
+	(macro TT_GET_PREF _varName="'__messageBoldPref'" _key="'ttaro.chat.style.font.bold'")
 	(var isMessageBold:bool = "null != __messageBoldPref && null != __messageBoldPref.value ? __messageBoldPref.value : false")
 
 	# Avatar
@@ -303,18 +305,18 @@
 		(var isUnderwater:number = "depthIndex > SC.Battle.DEPTH_STATE.PERISCOPE")
 		#
 
-		(macro TT_GET_PREF _varName="'dragLockPref'" _key="'ttaro.ttChat.disableDragDrop'")
+		(macro TT_GET_PREF _varName="'dragLockPref'" _key="'ttaro.chat.disableDragDrop'")
 		(var isDragDropDisabled:bool = "null != dragLockPref && null != dragLockPref.value ? dragLockPref.value : true")
-		(macro TT_GET_PREF _varName="'widthPref'" _key="'ttaro.ttChat.style.width'")
+		(macro TT_GET_PREF _varName="'widthPref'" _key="'ttaro.chat.style.width'")
 		(var chatBoxWidth:number = "widthPref.value")
-		(macro TT_GET_PREF _varName="'heightPref'" _key="'ttaro.ttChat.style.height'")
+		(macro TT_GET_PREF _varName="'heightPref'" _key="'ttaro.chat.style.height'")
 		(var chatBoxHeight:number = "heightPref.value")
 
 		(macro STAGE_SIZE)
 		# Python owns the position value, its resKey bucket AND the first-placement default
-		# (ttaro.ttChat.position's left/bottom anchor, which the pivot below matches), so the old
+		# (ttaro.chat.position's left/bottom anchor, which the pivot below matches), so the old
 		# stage math and its max(0, ...) clamp are gone -- Python clamps.
-		(macro TT_DRAGGABLE_POSITION _fullKey="'ttaro.ttChat.position'")
+		(macro TT_DRAGGABLE_POSITION _fullKey="'ttaro.chat.position'")
 
 		(var mouseComponent:gfx = "$datahub.getSingleComponent(CC.mouse)")
 		(var isMouseActive:bool = "mouseComponent.active" (event "mouseComponent.evActiveChanged"))
@@ -364,7 +366,7 @@
 				(backgroundColor = 0x00FFFFFF)
 				(bind hitTest "!isDragDropDisabled")
 			)
-			(macro TT_DRAGGABLE _fullKey="'ttaro.ttChat.position'" _isDragEnabled="!isDragDropDisabled")
+			(macro TT_DRAGGABLE _fullKey="'ttaro.chat.position'" _isDragEnabled="!isDragDropDisabled")
 		)
 
 		# Config/Draggable
@@ -692,13 +694,13 @@
 
 (def element TTChat_CombatLogMessageWrapper (_messageEntity:gfx, _messagesCount:number) layout=true
 	(scope
-		(macro TT_GET_PREF _varName="'styleIndexPref'" _key="'ttaro.ttChat.style.preset'")
+		(macro TT_GET_PREF _varName="'styleIndexPref'" _key="'ttaro.chat.style.preset'")
 		(var styleIndexValue:number = "null != styleIndexPref && null != styleIndexPref.value ? styleIndexPref.value : 0")
 		(var styleIndex:number = "styleIndexValue < TTChat_STYLE_INDEX_TO_RENDERER.length ? styleIndexValue : 0")
 		(var renderer:str = "TTChat_STYLE_INDEX_TO_RENDERER[styleIndex]")
 
 		# I have to manually implment the gap here because it refuses to work properly
-		(macro TT_GET_PREF _varName="'gapSizePref'" _key="'ttaro.ttChat.style.gap'")
+		(macro TT_GET_PREF _varName="'gapSizePref'" _key="'ttaro.chat.style.gap'")
 		(var gapSize:number = "null != gapSizePref && null != gapSizePref.value ? gapSizePref.value : 0")
 		(var halfGap:number = "gapSize / 2")
 		(var mTop:number = "$index == 0 ? 0 : halfGap")

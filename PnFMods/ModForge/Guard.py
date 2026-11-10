@@ -4,11 +4,11 @@ import time
 
 import Paths
 
-# Windows file timestamps advance on the ~15 ms system tick, so two writes
-# close together can share an mtime. A stamp that young proves nothing; only
-# one older than this is trusted to mean "unchanged". Measured: time.time()
-# is coarser than the mtime source here, so a fresh stamp can read ~1 ms in
-# the future -- the window is one-sided on purpose.
+
+
+
+
+
 _STAMP_SETTLE_SECONDS = 2.0
 
 def outputHashes(stagedPairs):
@@ -43,10 +43,10 @@ def _stampProvesUnchanged(absPath, known):
         return False
 
 def detectDrift(recordedHashes, recordedStamps=None):
-    """Recorded stat is a fast path to 'definitely unchanged' and nothing
-    else -- a mismatch always falls through to the hash, so the gate can
-    never invent drift, only (given a byte-length AND microsecond mtime
-    forgery) miss it."""
+
+
+
+
     stamps = recordedStamps or {}
     drifted = []
     for rel, expected in sorted(recordedHashes.items()):

@@ -288,11 +288,202 @@
           }
         }
       ]
+    },
+    {
+      "version": 2,
+      "description": "key moves (auto) — 37 rename(s)",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showAchievements",
+          "to": "chat.ally.showAchievements"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showAffirmative",
+          "to": "chat.ally.showAffirmative"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showChats",
+          "to": "chat.ally.showChats"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showGetBack",
+          "to": "chat.ally.showGetBack"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showGoodLuck",
+          "to": "chat.ally.showGoodLuck"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showNeedAirDefense",
+          "to": "chat.ally.showNeedAirDefense"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showNeedSmoke",
+          "to": "chat.ally.showNeedSmoke"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showNeedSpotting",
+          "to": "chat.ally.showNeedSpotting"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showNeedSupport",
+          "to": "chat.ally.showNeedSupport"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showNegative",
+          "to": "chat.ally.showNegative"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showWellDone",
+          "to": "chat.ally.showWellDone"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.ally.showWtf",
+          "to": "chat.ally.showWtf"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.disableDragDrop",
+          "to": "chat.disableDragDrop"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.div.showAchievements",
+          "to": "chat.div.showAchievements"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.enemy.showAchievements",
+          "to": "chat.enemy.showAchievements"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.enemy.showChats",
+          "to": "chat.enemy.showChats"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.enemy.showGoodLuck",
+          "to": "chat.enemy.showGoodLuck"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.enemy.showWellDone",
+          "to": "chat.enemy.showWellDone"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.enemy.showWtf",
+          "to": "chat.enemy.showWtf"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.exportChat",
+          "to": "chat.exportChat"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.playerInfo.clan",
+          "to": "chat.playerInfo.clan"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.playerInfo.font.bold",
+          "to": "chat.playerInfo.font.bold"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.playerInfo.font.size",
+          "to": "chat.playerInfo.font.size"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.playerInfo.name",
+          "to": "chat.playerInfo.name"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.playerInfo.showMyShip",
+          "to": "chat.playerInfo.showMyShip"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.position",
+          "to": "chat.position"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.shipInfo.font.bold",
+          "to": "chat.shipInfo.font.bold"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.shipInfo.font.size",
+          "to": "chat.shipInfo.font.size"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.shipInfo.icon",
+          "to": "chat.shipInfo.icon"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.shipInfo.name",
+          "to": "chat.shipInfo.name"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.shipInfo.tier",
+          "to": "chat.shipInfo.tier"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.font.bold",
+          "to": "chat.style.font.bold"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.font.size",
+          "to": "chat.style.font.size"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.gap",
+          "to": "chat.style.gap"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.height",
+          "to": "chat.style.height"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.preset",
+          "to": "chat.style.preset"
+        },
+        {
+          "op": "rename",
+          "from": "ttChat.style.width",
+          "to": "chat.style.width"
+        }
+      ]
     }
   ],
   "legacyPositions": [
     {
-      "key": "ttChat.position",
+      "key": "chat.position",
       "element": "TTChat"
     }
   ]

@@ -2,6 +2,7 @@
 
 import Manifest as manifestMod
 import Paths
+import Requires
 import Resources
 from Logger import logError, logInfo
 from Codec import _u1
@@ -53,23 +54,65 @@ def _readManifestFile(absPath):
         return None
     try:
         m = manifestMod.parseManifest(absPath, data)
-    except manifestMod.ManifestError as exc:
-        logError('invalid manifest %s: %s' % (absPath, exc))
+    except Exception as exc:
+
+
+        reason = exc.args[0] if exc.args else type(exc).__name__
+        if isinstance(reason, unicode):
+            reason = reason.encode('ascii', 'backslashreplace')
+        logError('invalid manifest %s: %s' % (absPath, reason))
         return None
     m.sourceHash = Paths.hashBytes(data)
     return m
 
 def validateRequirements(manifests, installerVersion):
     present = set(m.modName for m in manifests)
-    accepted = [m for m in manifests
-                if _checkInstallerRequirement(m, installerVersion)]
-    while True:
-        byName = dict((m.modName, m) for m in accepted)
-        survivors = [m for m in accepted
-                     if _checkModRequirements(m, byName, present)]
-        if len(survivors) == len(accepted):
-            return survivors
-        accepted = survivors
+    pending = [m for m in manifests
+               if _checkInstallerRequirement(m, installerVersion)]
+    accepted = []
+
+
+    while pending:
+        waiting = set(m.modName for m in pending)
+        ready = [m for m in pending
+                 if not [n for n in Requires.names(m.modRequirement)
+                         if n in waiting]]
+        if not ready:
+            circle = _circle(pending)
+            logError('%s name each other in <requires mods=>, in a circle; '
+                     'skipping them'
+                     % ', '.join("'%s'" % m.modName for m in circle))
+            pending = [m for m in pending if m not in circle]
+            continue
+        versions = installedVersions(accepted)
+        for m in ready:
+            if _checkModRequirement(m, versions, present):
+                accepted.append(m)
+        pending = [m for m in pending if m not in ready]
+    return [m for m in manifests if m in accepted]
+
+def _circle(pending):
+
+
+    waiting = dict((m.modName, m) for m in pending)
+    out = []
+    for m in pending:
+        seen = set()
+        todo = [m.modName]
+        while todo:
+            for name in Requires.names(waiting[todo.pop()].modRequirement):
+                if name in waiting and name not in seen:
+                    seen.add(name)
+                    todo.append(name)
+        if m.modName in seen:
+            out.append(m)
+    return out
+
+def installedVersions(manifests):
+    return dict((m.modName, m.version) for m in manifests)
+
+def requirementHolds(node, versions):
+    return Requires.holds(node, versions, manifestMod.satisfiesConstraint)
 
 def _checkInstallerRequirement(m, installerVersion):
     req = m.installerRequirement
@@ -82,30 +125,25 @@ def _checkInstallerRequirement(m, installerVersion):
         return False
     return True
 
-def _checkModRequirements(m, byName, present):
-    for depName, constraint in m.modRequirements:
-        dep = byName.get(depName)
-        if dep is None:
-            if depName in present:
-                logError(
-                    "'%s' requires mod '%s', which is present but was itself "
-                    "skipped; skipping" % (m.modName, depName))
-            else:
-                logError(
-                    "'%s' requires mod '%s' which is not installed; skipping"
-                    % (m.modName, depName))
-            return False
-        if constraint and not manifestMod.satisfiesConstraint(dep.version,
-                                                              constraint):
-            logError(
-                "'%s' requires %s %s but %s %s is installed; skipping"
-                % (m.modName, depName, constraint, depName, dep.version))
-            return False
-    return True
+def _checkModRequirement(m, versions, present):
+    node = m.modRequirement
+    if requirementHolds(node, versions):
+        return True
+    state = []
+    for name in Requires.names(node):
+        if name in versions:
+            state.append('%s %s is installed' % (name, versions[name]))
+        elif name in present:
+            state.append('%s is present but was itself skipped' % name)
+        else:
+            state.append('%s is not installed' % name)
+    logError("'%s' requires mods '%s', which does not hold (%s); skipping"
+             % (m.modName, Requires.describe(node), '; '.join(state)))
+    return False
 
-def validateFileReferences(m):
+def validateFileReferences(m, builds=None):
     missing = []
-    for t in m.builds:
+    for t in (m.builds if builds is None else builds):
         for action in t.actions:
             if action.kind not in ('insert', 'replace'):
                 continue
@@ -157,9 +195,9 @@ def _candidateRelPaths(candidate):
             out.append(relPath)
     return out
 
-# Never empty, whatever the derivation below manages. An allowlist that
-# silently degrades to "permit everything" is the shape that leaked three
-# times in link_mods.py.
+
+
+
 _ALWAYS_OWNED = (manifestMod.USS_SETTINGS, manifestMod.VANILLA_MARKUP,
                  manifestMod.VANILLA_STYLES)
 
@@ -172,16 +210,16 @@ _INSTEAD = {
 }
 
 def unboundOwnedTargets():
-    """Every file Unbound 1 owns, taken from vanilla's own `<default>` block.
 
-    Derived rather than listed so a file WG adds to `<default>` in a future
-    build is covered without anyone editing anything -- the hand-maintained
-    version of this list is what leaked repeatedly elsewhere."""
+
+
+
+
     owned = set(_ALWAYS_OWNED)
-    # Asked for rather than fetched: loadPristine reports a missing package
-    # loudly, and this is a refinement of a set that is already correct
-    # without it. The floor covers every file Unbound owns today; deriving
-    # only adds whatever WG puts in <default> next.
+
+
+
+
     if not Resources.pristineExists(manifestMod.USS_SETTINGS):
         logInfo('vanilla %s is not available; using the built-in list of '
                 'Unbound-owned files' % manifestMod.USS_SETTINGS)
@@ -204,11 +242,11 @@ def unboundOwnedTargets():
     return owned
 
 def validateTargets(m, owned):
-    """A mod may not write what Unbound owns.
 
-    Refusing the whole mod, not just that one `<build>`: its payload would
-    otherwise be written and never loaded, which is a mod that looks
-    installed and does nothing."""
+
+
+
+
     ownedByCase = dict((o.lower(), o) for o in owned)
     for t in m.builds:
         rel = t.file
@@ -232,7 +270,7 @@ def topoSort(manifests):
     inDegree = dict((m.modName, 0) for m in manifests)
     dependents = dict((m.modName, []) for m in manifests)
     for m in manifests:
-        for depName, _ in m.modRequirements:
+        for depName in Requires.names(m.modRequirement, positiveOnly=True):
             if depName in byName:
                 inDegree[m.modName] += 1
                 dependents[depName].append(m.modName)

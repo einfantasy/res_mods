@@ -1,5 +1,5 @@
 
-# Unknown control -> '' -> TT_SettingRowElement renders no widget (title still shows).
+
 (def constant TT_CONFIG_RENDERERS {
 	toggle		: 'TT_SwitchOptionElement',
 	slider		: 'TT_SliderOptionElement',
@@ -11,8 +11,8 @@
 	position	: 'TT_PositionOptionElement',
 })
 
-# Native settings (backend:minimapOption): bind CC.minimapOption, write direct.action
-# 'battle.saveMinimapOption'; never in the custom store.
+
+
 (def constant TT_MINIMAP_RENDERERS {
 	toggle		: 'TT_MinimapSwitchOptionElement',
 	slider		: 'TT_MinimapSliderOptionElement',
@@ -20,7 +20,7 @@
 })
 
 
-# Back-compat with the TT_Select dropdown infra; only the default text path applies here.
+
 (def constant TT_DROPWDOWN_RENDERERS {
 	DEFAULT: {
 		DROPDOWN	: 'TT_SelectList',

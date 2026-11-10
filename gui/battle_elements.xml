@@ -15,7 +15,7 @@
 			<properties hitTest="false"/>
 		</element>
 		<element class="lesta.unbound2.UbElement" elementName="ModuleStateViewer" name="unbound2ModuleStateViewer">
-			<properties hitTest="false"/>
+			<properties hitTest="true"/>
 		</element>
 		<element class="lesta.unbound2.UbElement" elementName="SM_WorldSmokeMarkersContainer" name="unbound2WorldSmokeMarkersContainer">
 			<properties hitTest="false"/>
@@ -92,8 +92,8 @@
 		<element autoPerfTestGroup="header_texts" class="lesta.unbound2.UbElement" elementName="TutorialContextHintsContainer" name="ubExpectedAction">
 			<properties hitTest="false"/>
 		</element>
-		<element autoPerfTestGroup="header_texts" class="lesta.libs.unbound.UnboundElement" name="ubStatsPanel">
-			<properties hitTest="true" rootElementId="BattleStats"/>
+		<element autoPerfTestGroup="header_texts" class="lesta.unbound2.UbElement" elementName="BattleStatsInBattle" name="ubStatsPanel">
+			<properties hitTest="true"/>
 		</element>
 		<element autoPerfTestGroup="quick_commands" class="lesta.unbound2.UbElement" elementName="ModalQuickCommandsFullscreenContainer" name="ubQuickCommandsPanel" url="quick_commands.swf">
 			<properties hitTest="true"/>
@@ -118,7 +118,6 @@
 		<controller class="lesta.dialogs.battle_window_controllers.IndicatorsController" clips="smokeIndicator,dangerousStateIndicator,localWeatherIndicator"/>
 		<controller class="lesta.dialogs.battle_window_controllers.FlyOffMessageController" clips="flyOffDamage"/>
 		<controller class="lesta.dialogs.battle_window_controllers.UnboundElementController" clips="ubMainHudPC"/>
-		<controller class="lesta.dialogs.battle_window_controllers.StatsPanelController" clips="ubStatsPanel"/>
 		<controller class="lesta.dialogs.battle_window_controllers.UnboundElementController" clips="unboundInfoPanelSelf"/>
 		<controller class="lesta.dialogs.battle_window_controllers.UnboundElementController" clips="unboundSecondaryArmament"/>
 	</controllers>

@@ -79,8 +79,6 @@
 			<bind name="watch" value="'aaEfficiency'; format((aaState/aaBaseState) * 100, 0) + '%'" />
 			<bind name="primaryEntityDH" value="'visionRangeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'visionRange'" />
 			<bind name="watchDH" value="'visionRange'; ['visionRangeEntity.parameter.evChanged']; (format(visionRangeEntity.parameter.currentValue, 1, true) + tr('IDS_KILOMETER_SPACE'))" />
-			<bind name="firstEntityDH" value="'localWeatherEntity'; CC.localWeather" />
-			<bind name="watchDH" value="'weatherName'; ['localWeatherEntity.localWeather.evChanged']; toUpperCase(localWeatherEntity.localWeather.gpName)" />
 			<bind name="collectionDH" value="CC.state; 'avatarStatesRoot'; 'byEntity.' + selfAvatarEntityId" />
 			<bind name="collectionDesign" value="DES_avatarStatesRoot; 'weatherStates'; {'filter': $entity.state.type == EntityState.INSIDE_WEATHER}" />
 			<bind name="primaryEntityDH" value="'shipHangarSizeEntity'; CC.parameter; selfAvatarEntityId + '_' + 'shipHangarSize'" />

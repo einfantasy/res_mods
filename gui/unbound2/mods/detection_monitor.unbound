@@ -2,6 +2,7 @@
 	(scope
 		(macro GET_MARKER_ENTITY_COMPONENT 'vehicle')
 		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+		(macro GET_BOT_CUSTOMIZATION_TAG_COMPONENT "_markerEntity")
 
 		(var relationValue:number = "relationComponent ? relationComponent.value : -1" (event "relationComponent.evChanged"))
 		(var isSelf:bool = "relationValue == SC.Battle.PLAYER_RELATION.SELF")
@@ -38,22 +39,12 @@
 			)
 		)
 
-		# Mod
-		(macro IS_SPECTATOR_MODE)
-		(var isDetected:bool = "vehicleComponent.visibilityFlags > 0" (event "vehicleComponent.evVisibilityFlagsChanged"))
-		(var wasDetected:bool=false)
-		(bind wasDetected "true" watch=false init=false (event "vehicleComponent.evVisibilityFlagsChanged"))
 
-		(var iconScale:number = "isTactical ? 0.35 : 0.65")
-		(var iconAlpha:number = "isDetected ? 1
-											: wasDetected	? 0.5
-															: 0"
-		)
-		(var iconCT:dict = "isDetected	? {}
-										: {redMultiplier:0,greenMultiplier:0,blueMultiplier:0,alphaMultiplier:1,redOffset:51,greenOffset:51,blueOffset:51,alphaOffset:0}"
-		)
+		(macro IS_SPECTATOR_MODE)
+
+		(var isDetected:bool = "vehicleComponent.visibilityFlags > 0" (event "vehicleComponent.evVisibilityFlagsChanged"))
 		(var isIconVisible:bool = "isSpectatorTrainingMode ? true : (relationValue == SC.Battle.PLAYER_RELATION.ALLY)")
-		#
+
 	)
 	(class $WorldMarkerItemMargins)
 	(style
@@ -66,7 +57,7 @@
 		(style
 			(width = 0) (height = 0)
 			(align = "center|middle")
-			(bind rotation "_rotation + addRotation")
+			(bind rotation "tagPrefix ? 0 : _rotation + addRotation")
 		)
 
 		(controller $Instance renderer='ShipMarkerIconSimple'
@@ -97,21 +88,188 @@
 		(bind colorTransform "{redOffset: colorOffset, greenOffset: colorOffset, blueOffset: colorOffset}")
 	)
 
-	# Mod
-	(block
-		(bind visible "isIconVisible")
 
-		(style
-			(position = "absolute")
-			(bind alpha "iconAlpha")
-			(bind marginLeft "iconWidth")
-			(marginTop = "6px")
-			(backgroundImage = 'url:../ttaro_detection_monitor/icon.png')
+	(controller $Instance renderer='DM_DetectionIcon'
+		(args "_markerEntity" "isDetected")
+		(bind enabled "isIconVisible")
+		(exprs
+
+			(style
+				(position = "absolute")
+				(left = 100%)
+				(top = 50%)
+				(bind marginLeft "11 * (isTactical ? 0.5 : 1)")
+			)
+			(macro BIND_FAIR_SCALE "isTactical ? 0.5 : 1")
+		)
+	)
+
+)
+
+
+(def constant DM_COMPONENT_KEY_PREFIX 'modDetectionMonitor_')
+
+
+(def constant DM_FADE_TIME 0.3)
+
+
+(def css $DM_CenteredImage ()
+	(position = "absolute")
+	(backgroundSize = "autosize")
+	(pivotX = 50%)
+	(pivotY = 50%))
+
+
+
+
+(def element DM_DetectionIcon (_markerEntity:gfx, _isDetected:bool) layout=true
+	(scope
+
+		(var avatarId:str = "_markerEntity && _markerEntity.avatar ? toString(_markerEntity.avatar.id) : ''")
+		(var detailWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, DM_COMPONENT_KEY_PREFIX + avatarId)")
+		(var detailEntity:gfx = "detailWatcher.entity" (event "detailWatcher.event"))
+		(var detailComponent:gfx = "detailEntity ? detailEntity.mods_DataComponent : null")
+		(var spotType:str = "detailComponent ? detailComponent.data.spotType : 'none'" (event "detailComponent.evDataChanged"))
+		(var wasSpotted:bool = "detailComponent ? detailComponent.data.wasSpotted : false" (event "detailComponent.evDataChanged"))
+
+
+		(var shownType:str = "spotType" watch=false)
+		(bind shownType "spotType" (bind enabled "spotType != 'none'"))
+
+
+		(var countdown:gfx = "detailEntity && detailEntity.hasComponent(CC.countDown) ? detailEntity.countDown : null" (event "detailEntity.evAdded") (event "detailEntity.evRemoved"))
+
+		(var isFiring:bool = "countdown != null")
+		(var iconKey:str = "isFiring ? 'gun' : shownType == 'none' ? 'ship' : shownType")
+
+
+
+		(var iconFade:number = "_isDetected ? 1 : 0" watch=false)
+		(controller $Animation
+			(bindcall play duration="DM_FADE_TIME" to={iconFade: 1} easing="Easing.quad_out" action="kill" init=false (bind enabled "_isDetected"))
+			(bindcall play duration="DM_FADE_TIME" to={iconFade: 0} easing="Easing.quad_in" action="kill" init=false (bind enabled "!(_isDetected)"))
 		)
 
-		(macro BIND_FAIR_SCALE "iconScale")
 
-		(bind colorTransform "iconCT")
+		(var flashOffset:number = "0" watch=false)
+		(controller $Animation
+			(bindcall play duration=0.15 to={flashOffset: 160} action="kill" (bind enabled "_isDetected") (bind trigger "iconKey"))
+			(bindcall play duration=0.45 delay=0.15 to={flashOffset: 0} (bind enabled "_isDetected") (bind trigger "iconKey"))
+		)
+
+		(var penaltyFade:number = "countdown != null ? 1 : 0" watch=false)
+		(controller $Animation
+			(bindcall play duration="DM_FADE_TIME" to={penaltyFade: 1} easing="Easing.quad_out" action="kill" init=false (bind enabled "countdown != null"))
+			(bindcall play duration="DM_FADE_TIME" to={penaltyFade: 0} easing="Easing.quad_in" action="kill" init=false (bind enabled "countdown == null"))
+		)
 	)
-	#
+
+
+	(class $ZeroSize)
+
+
+
+	(block
+		(class $DM_CenteredImage)
+		(style
+			(backgroundImage = 'url:../ttaro/detection_monitor/seen.png')
+			(bind alpha "1 - iconFade")
+		)
+		(bind visible "wasSpotted && iconFade < 1")
+	)
+
+	(block
+		(class $DM_CenteredImage)
+		(style
+			(bind backgroundImage "'url:../ttaro/detection_monitor/' + iconKey + '.png'")
+			(bind visualScaleX "2 - iconFade")
+			(bind visualScaleY "2 - iconFade")
+		)
+		(bind colorTransform "{alphaMultiplier: iconFade, redOffset: flashOffset, greenOffset: flashOffset, blueOffset: flashOffset}")
+		(bind visible "iconFade > 0")
+	)
+
+	(block
+		(class $ZeroSize)
+		(style
+			(position = "absolute")
+			(bind alpha "penaltyFade")
+			(bind visualScaleX "2 - penaltyFade")
+			(bind visualScaleY "2 - penaltyFade")
+		)
+
+
+		(controller $Instance renderer='DM_Penalty'
+			(args "countdown")
+			(bind enabled "countdown != null || penaltyFade > 0")
+		)
+	)
+)
+
+
+(def element DM_Penalty (_countdown:gfx) layout=true
+	(scope
+		(event evShow)
+
+		(var timerEntity:gfx = "$datahub.getSingleEntity(CC.timer)")
+		(var duration:number = "_countdown ? _countdown.duration : 0" (event "_countdown.evEndTimeChanged"))
+		(var remainTime:number = "_countdown ? _countdown.endTime - timerEntity.timer.currentTime : 0" (event "timerEntity.timer.evFrequent") (event "_countdown.evEndTimeChanged"))
+		(var progress:number = "duration > 0 ? min(max(remainTime / duration, 0), 1) : 0")
+		(var isBlinking:bool = "remainTime > 0 && remainTime <= 5")
+
+		(var blinkAlpha:number = "1" watch=false)
+		(controller $Animation
+			(bindcall play	duration=1 repeatCount=-1 action="kill"
+							keyframes="[
+								{percent:0, to:{blinkAlpha:1}},
+								{percent:50, to:{blinkAlpha:0.25}, easing:Easing.sine_in_out},
+								{percent:100, to:{blinkAlpha:1}, easing:Easing.sine_in_out}
+							]"
+							(event "evShow")
+							(bind enabled "isBlinking")
+			)
+			(bindcall play duration=0.15 to="{blinkAlpha: 1}" action="kill" (bind enabled "!(isBlinking)"))
+		)
+	)
+	(dispatch evShow on=addedToStage)
+
+	(class $ZeroSize)
+
+
+	(block
+		(class $DM_CenteredImage)
+		(style
+			(backgroundImage = 'url:../ttaro/detection_monitor/frame_track.png')
+		)
+	)
+
+	(block
+		(class $ZeroSize)
+		(style
+			(position = "absolute")
+			(bind alpha "blinkAlpha")
+		)
+
+		(block
+			(class $DM_CenteredImage)
+			(style
+				(backgroundImage = 'url:../ttaro/detection_monitor/frame.png')
+			)
+		)
+
+
+
+		(block
+			(style
+				(position = "absolute")
+			)
+			(isMask = true)
+			(controller $Sector
+				(bind arc "360 * progress")
+				(bind radius "16")
+				(bind color "0x000000")
+				(bind offset "-90")
+			)
+		)
+	)
 )

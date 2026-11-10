@@ -5,6 +5,7 @@
   "modName": "3D Hydro",
   "slug": "3d-hydro",
   "order": 1,
+  "migrationVersion": 1,
   "tree": [
     {
       "kind": "group",

@@ -52,8 +52,8 @@ def _saveIndex(relPath, tag, attr, data, index):
         pass
 
 def _headLength(raws):
-    """How many raw steps make the first location step: any leading `.`,
-    and the `//` that makes it a descendant step."""
+
+
     for cut in range(1, len(raws) + 1):
         raw = raws[cut - 1].strip()
         if raw and raw != '.':
@@ -63,7 +63,7 @@ def _headLength(raws):
 def _rest(nodes, raws):
     if not raws:
         return nodes
-    # `X//y`: the remainder starts at the empty step `//` leaves behind.
+
     expr = '/'.join(raws)
     if not raws[0].strip():
         expr = './' + expr
@@ -80,9 +80,9 @@ class Sources(object):
         self._fragments = {}
 
     def find(self, relPath, expr):
-        """The first step must name exactly one node, in any file; the steps
-        after it may match many. The index is only a faster way to evaluate
-        a `tag[@attr='v']` first step, and gives the same answer."""
+
+
+
         steps = Selector.parseSelector(expr)
         raws = Selector.splitSteps(expr)
         head = steps[0]

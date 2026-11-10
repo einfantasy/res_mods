@@ -4,7 +4,7 @@ API_VERSION = 'API_v1.0'
 MOD_NAME = 'TTaroModUtils'
 
 
-from Codec import _u1, _u6, _u7, _u8, _u9, _u10, _u11   # ref:fs-handle
+from Codec import _u1, _u6, _u7, _u8, _u9, _u10, _u11, _u12
 
 
 def logInfo(*args):
@@ -76,7 +76,7 @@ def listDir(path):
         return []
 
 
-# _u6.._u11: host-engine handles (write channel, input SM, cursor), resolved in Codec. ref:host-handle
+
 
 
 def getModDir():

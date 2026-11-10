@@ -1,3 +1,0 @@
-<ui>
-<block className="InfoPanelSelf"><bind name="collectionRepeatDH" value="CC.avatar; 'MyShip'; 'team.ally.sortedAlive'; {}"/></block>
-</ui>

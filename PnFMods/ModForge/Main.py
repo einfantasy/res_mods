@@ -4,16 +4,17 @@ API_VERSION = 'API_v1.0'
 MOD_NAME = 'ModForge'
 
 import time
-# ref:stdlib-preload
+
 import re
 import struct
 from xml.dom import minidom
 
 from Installer import runInstaller
 from Logger import logInfo, logError
+from Restart import restartClient
 
 __author__ = 'TTaro_'
-INSTALLER_VERSION = '1.0.0'
+INSTALLER_VERSION = '1.2.0'
 
 def _run():
     startedAt = time.time()
@@ -31,13 +32,15 @@ def _run():
         % (elapsed, stats.discovered, stats.installed, stats.updated,
            stats.unchanged, stats.noop, stats.skipped, stats.failed,
            stats.removed, stats.conflicts))
-    # Counted separately from mods because the interesting number is the one
-    # the author can compare against what they meant: expecting five
-    # overrides and reading 'created=1' is the only signal a name was typo'd.
+
+
+
     logInfo('definitions: %d registered (%d created, %d overridden), '
             '%d dropped'
             % (stats.definitions, stats.definitionsNew,
                stats.definitions - stats.definitionsNew,
                stats.definitionsDropped))
+    if stats.restartFor:
+        restartClient(stats.restartFor)
 
 _run()

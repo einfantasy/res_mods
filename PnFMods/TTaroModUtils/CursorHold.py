@@ -12,6 +12,7 @@ class CursorHold(object):
     def __init__(self):
         self._want = False
         self._suppressApplied = False
+        self._hoverApplied = False
         self._warned = set()
         try:
             self.releaseNow()
@@ -60,6 +61,30 @@ class CursorHold(object):
                 self._suppressApplied = False
 
 
+    def hover(self, over):
+
+
+
+        over = (over is True) or (over == 1)
+        ch = self._ch()
+        if ch is None:
+            self._hoverApplied = False
+            return
+        try:
+            Util._u12(ch, over)
+            self._hoverApplied = over
+        except Exception as e:
+            self._warnOnce('wheel hover toggle failed', e)
+
+    def _isObserver(self):
+
+
+
+        try:
+            return battle.getSelfPlayerShip() is None
+        except Exception:
+            return True
+
     def request(self, want):
         want = (want is True) or (want == 1)
         if want == self._want:
@@ -73,7 +98,8 @@ class CursorHold(object):
                 self._want = False
                 return
             self._apply(True)
-            self._applySuppress(True)
+            if not self._isObserver():
+                self._applySuppress(True)
         else:
             self.releaseNow()
 
@@ -81,6 +107,8 @@ class CursorHold(object):
         self._want = False
         self._apply(False)
         self._applySuppress(False)
+        if self._hoverApplied:
+            self.hover(False)
 
     def shutdown(self):
         try:

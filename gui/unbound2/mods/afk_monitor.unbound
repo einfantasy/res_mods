@@ -1,0 +1,549 @@
+# Mod
+# White (0xFFFFFF) to $FontColorOrange (0xFF9933).
+(def constant AFKM_COLOR_TRANSFORM_WHITE_TO_ORANGE {redOffset: 0, greenOffset: -102, blueOffset: -204})
+#
+
+(def element PlayerNameItem (_markerEntity:gfx) layout=true
+	(scope
+		(macro GET_MARKER_ENTITY_COMPONENT 'avatar')
+		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
+
+		(var playerName:str = "avatarComponent ? avatarComponent.name : ''")
+		(var tkStatus:bool = "avatarComponent ? avatarComponent.tkStatus : false" (event "avatarComponent.evTeamkillStatusChanged"))
+		(var isBot:bool = "avatarComponent ? avatarComponent.isBot : true")
+		(var relationValue:number = "relationComponent ? relationComponent.value : -1" (event "relationComponent.evChanged"))
+		(var isEnemy:bool = "relationValue == SC.Battle.PLAYER_RELATION.ENEMY")
+		# Mod
+		(macro IS_SPECTATOR_MODE)
+		(var isSelf:bool = "relationValue == SC.Battle.PLAYER_RELATION.SELF")
+		(var isLoadedInBattle:bool = "avatarComponent ? avatarComponent.isLoadedInBattle : true" (event "avatarComponent.evIsLoadedInBattleChanged"))
+		(var isAFK:bool = "!isSpectatorTrainingMode && !isSelf && !isBot && !isLoadedInBattle")
+		#
+	)
+	(block
+		(class $WorldMarkerItemMargins)
+		(tf
+			(class $WorldMarkerTextItem)
+			# Mod
+			(bind class "isAFK ? '$FontColorUnready' : tkStatus && !(isEnemy) ? '$FontColorTeamkiller' : '$None'")
+			#
+			(style
+				(fontSize = 13)
+				(textAlign = "center")
+				(bind noTranslate "!isBot")
+			)
+			(bind text "playerName")
+		)
+	)
+)
+
+(def element SimpleUIListTeamStructureRow (	_collection:gfx, _cellWidths:dict, _isBattleStats:bool, _isAnimShown:bool,
+											_isMirrored:bool = false, _isDynamicDivisionsEnabled:bool = false)
+	(scope
+		(event evStartShow)
+		(event evNewInviteCount)
+
+		(var avatarEntity:gfx = "_collection[$index]")
+		(var id:number = "avatarEntity.avatar.id")
+		(var name:str = "avatarEntity.avatar.name")
+		(var shipId:number = "avatarEntity.avatar.ship.ref.ship.id")
+		(var relation:number = "avatarEntity.relation.value" (event "avatarEntity.relation.evChanged"))
+		(var tkStatus:bool = "avatarEntity.avatar.tkStatus" (event "avatarEntity.avatar.evTeamkillStatusChanged"))
+		(var pureName:str = "avatarEntity.avatar.pureName")
+		(var isLeaver:bool = "avatarEntity.avatar.isLeaver" (event "avatarEntity.avatar.evIsLeaverChanged"))
+		(var clanId:number = "avatarEntity.clanman ? avatarEntity.clanman.clanId : 0" (event "avatarEntity.clanman.evClanIdChanged"))
+		(var hidden:bool = "avatarEntity.avatar.hidden")
+		(var isBot:bool = "avatarEntity.avatar.isBot")
+		(var isAlive:bool = "avatarEntity.health.isAlive" (event "avatarEntity.health.evIsAliveChanged"))
+		(var fragsCount:number = "avatarEntity.avatar.frags" (event "avatarEntity.avatar.evFragsChanged"))
+		(var divisionMember:gfx = "avatarEntity.divisionMember")
+		(var isInSameDivision:bool = "divisionMember ? divisionMember.isInSameDivision : false" (event "divisionMember.evDivisionChanged"))
+		(var division:number = "divisionMember ? divisionMember.division :0" (event "divisionMember.evDivisionChanged"))
+
+		(var battleInvite:gfx = "avatarEntity.battleInvite")
+		(var invitationsEnabled:bool = "battleInvite ? battleInvite.invitationsEnabled : false" (event "battleInvite.evInvitationsEnabledChanged"))
+		(var inviteCooldownEnabled:bool = "battleInvite ? battleInvite.inviteCooldownEnabled : false" (event "battleInvite.evInviteCooldownEnabledChanged"))
+
+		(var selfPlayer:gfx = "$datahub.getSingleEntity(CC.accountSelf)")
+		(var selfDivisionMember:gfx = "selfPlayer.divisionMember")
+		(var divisionId:number = "selfDivisionMember ? selfDivisionMember.divisionId : 0" (event "selfDivisionMember.evDivisionChanged"))
+		(var isSelfAlive:bool = "selfPlayer && selfPlayer.health ? selfPlayer.health.isAlive : false" (event "selfPlayer.health.evIsAliveChanged"))
+		(var isDivisionCommander:bool = "selfDivisionMember ? selfDivisionMember.isDivisionCommander : false" (event "selfDivisionMember.evIsDivisionCommanderUpdated") (event "evNewInviteCount"))
+		(var divisionIndex:number = "selfDivisionMember ? selfDivisionMember.division : 0" (event "selfDivisionMember.evDivisionChanged"))
+
+		(var preBattlePlayerSimpleEntity:gfx = "$datahub.getPrimaryEntity(CC.preBattlePlayerSimple, id)" (event "evNewInviteCount"))
+
+		(var invitedPlayersMembers:gfx =		"$datahub.getCollection(CC.playerInvitedToPrebattleInfo)")
+		(var invitedPlayersMembersCount:gfx =	"invitedPlayersMembers.items.length" (event "invitedPlayersMembers.evAdded") (event "invitedPlayersMembers.evRemoved"))
+
+		(var isInvited:bool = "invitedPlayersMembersCount != 0 && preBattlePlayerSimpleEntity ? preBattlePlayerSimpleEntity.hasComponent(CC.playerInvitedToPrebattleInfo) : false" (event "evNewInviteCount"))
+		
+		(var resourceEntity:gfx = "$datahub.getPrimaryEntity(CC.resource, 'byOwnerId.' + avatarEntity.id)")
+		(var resourceValue:number = "resourceEntity.progress ? resourceEntity.progress.value : 0" (event "resourceEntity.progress.evChanged"))
+		
+		(var playerEntity:gfx = "$datahub.getPrimaryEntity(CC.avatar, id)")
+		(var rawKeyTargetValue:gfx = "playerEntity.keyTargetMarkerBattle")
+
+		(macro NULL_SAFE_FEATURES "9")
+		(var isKeyTargetVisible:bool = "rawKeyTargetValue && feature_9 != 'locked'")
+
+		(var clanEntity:gfx = "$datahub.getPrimaryEntity(CC.clan, clanId)")
+		(var clanTag:str = "clanEntity ? clanEntity.clan.tag : ''" (event "clanEntity.clan.evTagChanged"))
+
+		(var shipEntity:gfx = "$datahub.getPrimaryEntity(CC.ship, shipId)")
+		(var shipIDS:str = "shipEntity.ship.nameIDS")
+		(var shipRlevel:str = "shipEntity.ship.levelRome")
+		(var shipLevelIcon:str = "shipEntity.ship.levelIcon")
+		(var shipType:str = "avatarEntity.avatar.shipType")
+
+		(var isSelf:bool = "relation == SC.Battle.PLAYER_RELATION.SELF")
+		(var iconColorTransform:gfx = "isSelf && !tkStatus ? COLOR_TRANSFORM_WHITE_TO_YELLOW : {}")
+		
+		
+		(var shipClassIconState:str = "	_isMirrored					? (isAlive ? 'enemy_white_' : 'enemy_sunk_') :
+										!isAlive					? 'sunk_' :
+										tkStatus					? 'teamkiller_' :
+										isSelf || isInSameDivision	? 'division_'
+																	: 'default_'")
+		(var shipClassIcon:str = "'url:../service_kit/ship_classes/icon_' + shipClassIconState + toLower(shipType) + '.png'")
+
+		(var dynamicDivisionEntity:gfx = "$datahub.getPrimaryEntity(CC.division, divisionId)")
+		(var inPortParticipantsCount:number = "dynamicDivisionEntity	? dynamicDivisionEntity.division ? dynamicDivisionEntity.division.inPortParticipantsCount : 0
+																		: 0" (event "dynamicDivisionEntity.division.evInPortParticipantsCountChanged"))
+		(var dynamicDivisionsCollection:gfx = "$datahub.getCollection(CC.dynamicDivisionMember).getChildByPath('byPreBattleId.' + divisionId)")
+		(var dynamicDivisionsByPrebattle:gfx = "dynamicDivisionsCollection ? dynamicDivisionsCollection.items : null")
+		(var membersCount:number = "dynamicDivisionsByPrebattle ? dynamicDivisionsByPrebattle.length : 0")
+		(var isFreePlacesInDivision:bool = "(membersCount ? membersCount : 0) + (inPortParticipantsCount ? inPortParticipantsCount : 0) < MAX_DYNAMIC_DIVISION_PARTICIPENTS_COUNT")
+
+		(macro MOUSE_HANDLER_SCOPE)
+
+		(var divisionHidden:bool = "divisionMember ? divisionMember.divisionHidden : false" (event "divisionMember.evDivisionChanged") (event "divisionMember.evDivisionHiddenChanged"))
+		(var divisionSign:number = "divisionMember ? divisionMember.divisionSign : 0" (event "divisionMember.evDivisionChanged"))
+
+		(var invitationDisableReason:str =			"isSelf										? 'YouCantInviteYourself' :
+													!isAlive									? 'IDS_INVITATION_DISABLE_REASON_DESTROYED' :
+													!isSelfAlive								? 'IDS_DIVISION_MANAGEMENT_LOCKED_FOR_DESTROYED' :
+													isLeaver									? 'IDS_INVITATION_DISABLE_REASON_PLAYER_IS_OUT_OF_BATTLE':
+													division != 0								? 'IDS_INVITATION_DISABLE_REASON_ALREADY_IN_DIVISION' :
+													isInvited									? 'PlayerIsAlreadyInvited' :
+													isInSameDivision							? 'PlayerIsAlreadyInYourDivision' :
+													divisionIndex != 0 && !isDivisionCommander	? 'IDS_INVITATION_DISABLE_REASON_NOT_COMMANDER' :
+													!isFreePlacesInDivision						? 'IDS_INVITATION_DISABLE_REASON_NO_FREE_PLACES' :
+													!invitationsEnabled							? 'IDS_INVITATION_DISABLE_REASON_INVITATIONS_DISABLED' :
+													inviteCooldownEnabled						? 'IDS_WAIT_TIMEOUT_TO_INVITE_TO_DIVISION'
+																								: 'no_reason'" (event "evNewInviteCount"))
+
+		
+		# Mod
+		(macro IS_SPECTATOR_MODE)
+		(var isReady:bool = "avatarEntity.avatar.isLoadedInBattle" (event "avatarEntity.avatar.evIsLoadedInBattleChanged"))
+		(var isAFK:bool = "!isSpectatorTrainingMode && !isReady && !isBot && isAlive && !isSelf")
+
+		# isAFK leads, so it also wins over the enemy side's forced white.
+		(var textColorClass:str = "	isAFK				? '$FontColorOrange' :
+									_isMirrored			? '$FontColorWhite' :
+									tkStatus			? '$FontColorTeamkiller' :
+									isSelf				? '$FontColorGolden' :
+									isInSameDivision	? '$FontColorGolden'
+														: '$FontColorWhite'")
+		#
+		(var mainTextColor:str = "FONT_CLASS_TO_COLOR[textColorClass]")
+		
+		(var fragsTextColor:str = "FONT_CLASS_TO_COLOR[tkStatus ? '$FontColorTeamkiller' : '$FontColorWhite']")
+	)
+
+	(dispatch evStartShow on='addedToStage' (bind enabled "!_isBattleStats && !_isAnimShown"))
+	(dispatch evNewInviteCount (bind trigger "invitedPlayersMembersCount"))
+
+	(macro MOUSE_EVENTS_DISPATCHER)
+
+	(bind visible "!hidden")
+	(style
+		(bind width "_cellWidths.row")
+		(height = "STRUCTURE_ITEM_PITCH")
+		(bind paddingTop "!_isAnimShown ? 10 : 0" init=true)
+	)
+	(bind alpha "!_isAnimShown ? 0 : 1" init=true)
+
+	(controller $Animation
+		(bindcall play duration=0.15 delay="0.75 + 0.075 * $index" action="combine" from="{alpha: 0, paddingTop: 10}" to="{alpha: 1, paddingTop: 0}" (event "evStartShow"))
+	)
+
+	
+	(block
+		(class $TeamRowLine)
+		(style
+			(hitTest = false)
+			(bind backgroundColor "isAlive ? TEAM_ROW_BACKGROUND_COLOR : TEAM_ROW_BACKGROUND_COLOR_DEAD")
+		)
+	)
+
+	
+	(block
+		(bind visible "!_isMirrored && _isBattleStats && resourceValue > 0")
+		(style (position = "absolute") (left = -52) (top = 10))
+		(tf
+			(class $TextDefaultNM)
+			(style (width = 50) (textAlign = "right") (multiline = false))
+			(bind text "resourceValue")
+		)
+	)
+	(block
+		(bind visible "_isMirrored && _isBattleStats && resourceValue > 0")
+		(style (position = "absolute") (right = -52) (top = 10))
+		(tf
+			(class $TextDefaultNM)
+			(style (width = 50) (multiline = false))
+			(bind text "resourceValue")
+		)
+	)
+	
+
+	
+	(element PlayerMenuAndTooltipsContainer
+		_playerId="id"
+		(class $TeamRowLine)
+	)
+
+	(hblock
+		(bind visible "!_isMirrored")
+		(style (width = 100%) (height = "STRUCTURE_ITEM_HEIGHT"))
+
+		
+		(block
+			(style (width = 27) (height = 100%))
+			
+			(block
+				(bind visible "division > 0 && !divisionHidden")
+				(class $FullsizeAbsolute)
+				(style (hitTest = false) (align = "middle|center"))
+				(block
+					(style
+						(width = "TEAM_ROW_DIVISION_ICON_SIZE")
+						(height = "TEAM_ROW_DIVISION_ICON_SIZE")
+						(bind backgroundImage "TEAM_ROW_DIVISION_ART + 'division_' + (isInSameDivision ? 'own_' : '') + max(divisionSign, 0) + '.png'")
+					)
+				)
+			)
+
+			(block
+				(bind visible "_isDynamicDivisionsEnabled")
+				(class $FullsizeAbsolute)
+				
+				(block
+					(bind visible "isInvited")
+					(class $FullsizeAbsolute)
+					(style (hitTest = false) (align = "middle|center"))
+
+					(controller $Animation
+						(bindcall play duration=0.15 action="combine" from="{alpha: 1}" to="{alpha: 0}" reverse="!rollOver" easing="Easing.quad_out" (bind trigger "rollOver"))
+					)
+
+					(block
+						(style
+							(width = "TEAM_ROW_DIVISION_ICON_SIZE")
+							(height = "TEAM_ROW_DIVISION_ICON_SIZE")
+							(backgroundImage = "TEAM_ROW_DIVISION_ART + 'division_invite.png'")
+						)
+					)
+				)
+				
+				(block
+					(class $FullsizeAbsolute)
+					(style (align = "middle|center") (alpha = 0))
+
+					(controller $Animation
+						(bindcall play duration=0.15 action="combine" from="{alpha: 0}" to="{alpha: 1}" reverse="!rollOver" easing="Easing.quad_out" (bind trigger "rollOver"))
+					)
+
+					(block
+						(bind visible "(invitationDisableReason == 'no_reason')")
+
+						(controller $Tooltip
+							(renderer='SimpleStatusTooltip')
+							(args
+								_text = "'IDS_INVITE_IN_DIVISION'"
+							)
+							(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+						)
+
+						(element TeamRowDivisionButton
+							_image = "'button_division_invite'"
+							_action = "'inviteToDivision'"
+							_actionArgs = "{playerId: avatarEntity.avatar.id, playerName: name, inviteType: SC.Pre_battle.PRE_BATTLE_INVITE_TYPE.COMMON}"
+						)
+					)
+
+					(block
+						(bind visible "isDivisionCommander && isInvited && !(division > 0 && !divisionHidden)")
+						(style (alpha = 0))
+						(controller $Animation
+							(bindcall play duration=0.15 action="combine" from="{alpha: 0}" to="{alpha: 1}" reverse="!rollOver" easing="Easing.quad_out" (bind trigger "rollOver"))
+						)
+						(element TeamRowDivisionButton
+							_image = "'button_division_cancel'"
+							_action = "'revokeInvitationToDivision'"
+							_actionArgs = "{id: avatarEntity.avatar.id}"
+						)
+
+						(controller $Tooltip
+							(renderer='SimpleStatusTooltip')
+							(args
+								_text = "'IDS_RECALL_INVITATION'"
+							)
+							(macro DEFAULT_TOOLTIP_BEHAVIOUR "0")
+						)
+					)
+				)
+			)
+		)
+
+		
+		(block
+			(style (position = "absolute") (left = "-TEAM_ROW_MUTE_ICONS_GUTTER") (hitTest = false))
+			(element UIListTextChatMuteIcon _playerId = "id")
+		)
+
+		
+		(block
+			(style (bind width "_cellWidths.name") (height = 100%) (align = "middle") (hitTest = false))
+			(bind name "'player_tab_name_' + name")
+			# Mod
+			# PlayerNameAndClanTag takes no colour: tint its white to $FontColorOrange instead.
+			(bind colorTransform "isAFK ? AFKM_COLOR_TRANSFORM_WHITE_TO_ORANGE : {}")
+			#
+
+			(element PlayerNameAndClanTag
+				_isSelf = "isSelf"
+				_tkStatus = "tkStatus"
+				_isInSameDivision = "isInSameDivision"
+				_playerName = "pureName"
+				_clanTag = "clanTag"
+				_isBot = "isBot"
+				_isEnemy = "relation == SC.Battle.PLAYER_RELATION.ENEMY"
+			)
+		)
+
+		
+		(block
+			(bind name "'player_tab_class_' + name")
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(block
+					(style (width = 27) (height = 27) (bind backgroundImage "shipClassIcon"))
+				)
+			)
+			(block
+				(bind visible "isKeyTargetVisible")
+				(style
+					(backgroundImage = 'url:../service_kit/markers/keytarget_teamlist.png')
+					(position = "absolute")
+					(width = 22) (height = 22)
+					(left = 3) (top = 3)
+				)
+			)
+		)
+
+		
+		
+		
+		(block
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(element LevelIconNM
+					_levelIcon = "shipLevelIcon.length > 0 ? shipLevelIcon : null"
+					_colorTransform = "iconColorTransform"
+					(bind visible "shipLevelIcon.length > 0")
+				)
+			)
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(tf
+					(class $TextDefaultNM)
+					(style
+						(bind fontFamily "isSelf ? '$WWSDefaultFontBold' : '$WWSDefaultFont'")
+						(bind textColor "mainTextColor")
+					)
+					(bind text "shipLevelIcon.length > 0 ? '' : shipRlevel")
+				)
+			)
+		)
+
+		
+		(block
+			(style (bind width "_cellWidths.ship") (height = 100%) (align = "middle") (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(tf
+				(bind name "'player_tab_ship_' + name")
+				(class $TextDefaultNM)
+				(style
+					(width = 100%)
+					(textAlign = "left")
+					(multiline = false)
+					(letterSpacing = -0.5)
+					(elideMode = true)
+					(bind fontFamily "isSelf ? '$WWSDefaultFontBold' : '$WWSDefaultFont'")
+					(bind textColor "mainTextColor")
+				)
+				(bind text "toUpper(tr(shipIDS))")
+			)
+		)
+
+		
+		(block
+			(bind name "'player_tab_frags_' + name")
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(block
+				(bind visible "fragsCount != 0")
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(tf
+					(class $TextDefaultNM)
+					(style (multiline = false) (bind textColor "fragsTextColor"))
+					(bind text "fragsCount")
+				)
+			)
+		)
+	)
+
+	(hblock
+		(bind visible "_isMirrored")
+		(class $TeamRowLine)
+
+		
+		(block
+			(bind name "'player_tab_frags_' + name")
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(block
+				(bind visible "fragsCount != 0")
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(tf
+					(class $TextDefaultNM)
+					(style (multiline = false) (bind textColor "mainTextColor"))
+					(bind text "fragsCount")
+				)
+			)
+		)
+
+		
+		(block
+			(style (bind width "_cellWidths.ship") (height = 100%) (align = "middle") (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(tf
+				(bind name "'player_tab_ship_' + name")
+				(class $TextDefaultNM)
+				(style
+					(width = 100%)
+					(textAlign = "right")
+					(multiline = false)
+					(letterSpacing = -0.5)
+					(elideMode = true)
+					(bind textColor "mainTextColor")
+				)
+				(bind text "toUpper(tr(shipIDS))")
+			)
+		)
+
+		
+		(block
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(bind alpha "isAlive ? 1 : TEAM_ROW_DEAD_CONTENT_ALPHA")
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(element LevelIconNM
+					_levelIcon = "shipLevelIcon.length > 0 ? shipLevelIcon : null"
+					_colorTransform = "{}"
+					(bind visible "shipLevelIcon.length > 0")
+				)
+			)
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(tf
+					(class $TextDefaultNM)
+					(style (bind textColor "mainTextColor"))
+					(bind text "shipLevelIcon.length > 0 ? '' : shipRlevel")
+				)
+			)
+		)
+
+		
+		(block
+			(bind name "'player_tab_class_' + name")
+			(style (width = 27) (height = 100%) (hitTest = false))
+			(block
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(block
+					(style (width = 27) (height = 27) (bind backgroundImage "shipClassIcon"))
+				)
+			)
+			(block
+				(bind visible "isKeyTargetVisible")
+				(style
+					(backgroundImage = 'url:../service_kit/markers/keytarget_teamlist.png')
+					(position = "absolute")
+					(width = 22) (height = 22)
+					(left = 3) (top = 3)
+				)
+			)
+		)
+
+		
+		(block
+			(style (bind width "_cellWidths.name") (height = 100%) (align = "middle") (hitTest = false))
+			(bind name "'player_tab_name_' + name")
+			# Mod
+			# PlayerNameAndClanTag takes no colour: tint its white to $FontColorOrange instead.
+			(bind colorTransform "isAFK ? AFKM_COLOR_TRANSFORM_WHITE_TO_ORANGE : {}")
+			#
+			(element PlayerNameAndClanTag
+				_isSelf = "false"
+				_tkStatus = "tkStatus"
+				_isInSameDivision = "isInSameDivision"
+				_playerName = "pureName"
+				_clanTag = "clanTag"
+				_isBot = "isBot"
+				_alignRight = "true"
+				_isEnemy = "relation == SC.Battle.PLAYER_RELATION.ENEMY"
+			)
+		)
+
+		
+		(block
+			(style (width = 27) (height = 100%))
+			(block
+				(bind visible "division > 0 && !divisionHidden")
+				(class $FullsizeAbsolute)
+				(style (align = "middle|center"))
+				(block
+					(style
+						(width = "TEAM_ROW_DIVISION_ICON_SIZE")
+						(height = "TEAM_ROW_DIVISION_ICON_SIZE")
+						(bind backgroundImage "TEAM_ROW_DIVISION_ART + 'division_' + (isInSameDivision ? 'own_' : '') + max(divisionSign, 0) + '.png'")
+					)
+				)
+			)
+		)
+
+		
+		(block
+			(style (position = "absolute") (right = "-TEAM_ROW_MUTE_ICONS_GUTTER") (hitTest = false))
+			(element UIListTextChatMuteIcon _playerId = "id")
+		)
+	)
+
+	(element HorizontalDividerTwoPx
+		(style (position = "absolute") (top = "STRUCTURE_ITEM_HEIGHT"))
+	)
+)

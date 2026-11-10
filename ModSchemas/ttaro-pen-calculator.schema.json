@@ -5,6 +5,7 @@
   "modName": "Pen Calculator",
   "slug": "pen-calculator",
   "order": 12,
+  "migrationVersion": 1,
   "tree": [
     {
       "kind": "group",

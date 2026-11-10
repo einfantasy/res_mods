@@ -45,7 +45,7 @@
 		(var selfVehicleEntity:gfx = "selfVehicleWatcher.entity" (event "selfVehicleWatcher.event"))
 		(var controller:gfx = "selfVehicleEntity ? selfVehicleEntity.weaponController : null" (event "selfVehicleEntity.evAdded") (event "selfVehicleEntity.evRemoved"))
 
-		
+
 		(var weaponType:number = "controller ? controller.selectedWeapon
 													: SC.Ships.SHIP_WEAPON_TYPES.NONE" (event "controller.evSelectedWeaponChanged"))
 		(var gunCollection:gfx = "$datahub.getCollection(CC.gun)")
@@ -54,7 +54,7 @@
 		(var usableGunsCount:number = "usableGuns ? usableGuns.items.length : 0" (event "usableGuns.evRemoved") (event "usableGuns.evAdded"))
 		(var isOutOfDistWeapon:bool = "usableGunsCount == 0")
 
-		
+
 		(var cameraMode:number = "cameraEntity.camera.mode" (event "cameraEntity.camera.evModeChanged"))
 		(var isAltVision:bool = "cameraEntity.camera.altVision" (event "cameraEntity.camera.evAltVisionChanged"))
 		(var isTacticalMap:bool = "cameraEntity.camera.isTactical" (event "cameraEntity.camera.evTacticalStateChanged"))
@@ -67,7 +67,7 @@
 		(var avatar:gfx = "$datahub.getSingleEntity(CC.playerAvatar)")
 		(var isAlive:bool = "avatar.health.isAlive" (event "avatar.health.evIsAliveChanged"))
 
-		
+
 		(var isAirplanesWeaponSelected:bool = "(weaponType == SC.Ships.SHIP_WEAPON_TYPES.AIRPLANES)")
 
 		(var aircarrier:gfx = "$datahub.getSingleComponent(CC.aircarrier)")
@@ -77,10 +77,12 @@
 		(var squadronCameraMode:str = "aircarrier ? aircarrier.squadronCameraMode : SquadronCameraModes.UNKNOWN" (event "aircarrier.evSquadronCameraModeChanged"))
 		(var isDefaultOrNoSquadronCameraMode:bool = "(squadronCameraMode == SquadronCameraModes.UNKNOWN) || (squadronCameraMode == SquadronCameraModes.DEFAULT)")
 
-		
-		(var isMissilesWeaponSelected:bool = "weaponType == SC.Ships.SHIP_WEAPON_TYPES.MISSILES")
 
-		
+		(var isMissilesWeaponSelected:bool = "weaponType == SC.Ships.SHIP_WEAPON_TYPES.MISSILES")
+		(var missileSlot:gfx = "$datahub.getPrimaryEntity(CC.weaponSlot, toLower(SC.Ships.SHIP_WEAPON_TYPES.VALUE_TO_NAME[SC.Ships.SHIP_WEAPON_TYPES.MISSILES]))")
+		(var missileCount:number = "isMissilesWeaponSelected && missileSlot? missileSlot.weaponSlot.currentGunShotCount : -1" (event "missileSlot.weaponSlot.evShotCountChanged"))
+
+
 		(var crosshairEntity:gfx = "$datahub.getSingleEntity(CC.crosshair)")
 		(var terrainAim:gfx = "crosshairEntity.terrainAim")
 		(var aimAssist:gfx = "crosshairEntity.aimAssist")
@@ -110,7 +112,7 @@
 		(var isOutOfShootingRange:bool = "isOutOfDistWeapon && !(activeSquadronEntity)")
 		(var shootDistanceText:str = "shootDistance <= -1 ? '-.--' : formatFloatingPoint(shootDistance, 2)")
 
-		
+
 		(var distanceRed:number = "isOutOfShootingRange ? 1.9 : 1" watch=false) #OlliN 1
 		(var distanceGreen:number = "isOutOfShootingRange ? 0 : 1" watch=false) #OlliN 0.25
 		(var distanceBlue:number = "isOutOfShootingRange ? 0 : 1" watch=false)
@@ -118,17 +120,17 @@
 			(bindcall play duration=0.25 to="{distanceRed:1.9,distanceGreen:0, distanceBlue:0}" watch=false init=false (bind enabled "isOutOfShootingRange"))
 			(bindcall play duration=0.25 to="{distanceRed:1,distanceGreen:1,distanceBlue:1}" watch=false init=false (bind enabled "!isOutOfShootingRange"))
 		)
-		
+
 		(var shootVisibilityBlue:number = -204)
 		(var shootVisibilityGreen:number = -102)
 
 		(controller $Animation
 			(bindcall play id='shootVisibility' duration=0.25 to="{shootVisibilityBlue: 0, shootVisibilityGreen: 0}" watch=false init=false (event "aimAssist.evShootVisibilityTimerBlink"))
-			
+
 			(bindcall play id='shootVisibility' duration=0.1 to="{shootVisibilityBlue: -204, shootVisibilityGreen: -102}" watch=false init=true (bind enabled "!isVisibilityPenaltyTimerActive || visibilityPenaltyTimer > 2"))
 		)
 
-		
+
 		(var baseVisibility:bool = "isAlive && !isTacticalMap && (isAirplanesWeaponSelected == isCameraTracking)")
 
 		(macro GET_PREF 'shootDistancePrefVisibility' "'battle.ui.crosshairIndicators.distanceToTarget'")
@@ -148,7 +150,7 @@
 		(var isHittingTerrainVisible:bool = "terrainAim.value" (event "terrainAim.evChanged"))
 		(var isHittingTerrainShifted:bool = "isShootDistanceVisible || isSpotDistanceVisible || isVisibilityPenaltyTimerVisible")
 
-		
+
 		(var isBattleStartAnimationTriggered:bool = "isBattleInProgress")
 
 		(var rageModesCollection:gfx = "$datahub.getCollection(CC.rageMode)")
@@ -178,10 +180,9 @@
 
 	)
 
-	
 	(block
 		(style (position = "absolute") (bind left "19 + arcOffset") (top = 14))
-		
+
 		(element CrosshairIndicator "'crosshair_indicator_distance'" "'km'" "0" "0"
 			(scope
 				(bind _valueText "shootDistanceText")
@@ -229,13 +230,20 @@
 			(width = 200) (align = "right")
 		)
 
-		
+
 		(element CrosshairIndicator "'crosshair_indicator_bullettime'" "'s'" "0" "0" "true"
 			(scope
 				(bind _valueText "bulletTimeText")
 				(bind _animationTrigger "isBattleStartAnimationTriggered")
 			)
 			(bind visible "isBulletTimeVisible")
+		)
+		(controller $Instance renderer='AmmoCountIndicator'
+			(bind enabled "isMissilesWeaponSelected && missileCount > 0")
+			(args
+				_ammoCount = "missileCount"
+				_weaponType = "toLower(SC.Ships.SHIP_WEAPON_TYPES.VALUE_TO_NAME[weaponType])"
+			)
 		)
 	)
 	(block
@@ -259,7 +267,7 @@
 		)
 	)
 
-	
+
 	(block
 		(style
 			(position = "absolute")
@@ -360,8 +368,8 @@
 		(var shipTTX:gfx = "isRealParams ? shipBattleInfo.shipTTX : shipParamsInBattle.shipTTX")
 		(var artilleryTTX:gfx = "shipTTX.artillery")
 		(var torpedoesTTX:gfx = "shipTTX.torpedoes")
-		(var bowTorpedoGroupTTX:gfx = "shipTTX.torpedoes ? shipTTX.torpedoes.bowGroup : null")
-		(var sternTorpedoGroupTTX:gfx = "shipTTX.torpedoes ? shipTTX.torpedoes.sternGroup : null")
+		(var bowTorpedoGroupTTX:gfx = "torpedoesTTX && torpedoesTTX.groups.length > 0 ? torpedoesTTX.groups[0] : null")
+		(var sternTorpedoGroupTTX:gfx = "torpedoesTTX && torpedoesTTX.groups.length > 1 ? torpedoesTTX.groups[1] : null")
 		(var visibilityTTX:gfx = "shipTTX.visibility")
 		(var mobilityTTX:gfx = "shipTTX.mobility")
 		(var squadronsTTX:gfx = "shipTTX.squadrons")
@@ -371,11 +379,11 @@
 		(var torpedoRange:number = "torpedoesTTX ? torpedoesTTX.torpedo.maxDist.value : 0")
 		(var torpedoAltRange:number = "torpedoesTTX ? torpedoesTTX.torpedoAlt.maxDist.value : 0")
 		(var torpedoDeepwaterRange:number = "torpedoesTTX ? torpedoesTTX.torpedoDeepwater.maxDist.value : 0")
-		(var torpedoGroupsRange:number = "bowTorpedoGroupTTX || sternTorpedoGroupTTX ? max(bowTorpedoGroupTTX.torpedo.maxDist.value, sternTorpedoGroupTTX.torpedo.maxDist.value) : 0")
+		(var torpedoGroupsRange:number = "0")
 		(var shipTorpedoRange:number = "max(torpedoRange, torpedoAltRange, torpedoDeepwaterRange, torpedoGroupsRange)")
 
 		(var torpedoReloadTime:number = "torpedoesTTX ? torpedoesTTX.reloadTime.value : 0")
-		(var torpedoGroupsReloadTime:number = "bowTorpedoGroupTTX || sternTorpedoGroupTTX ? min(bowTorpedoGroupTTX.reloadTime.value, sternTorpedoGroupTTX.reloadTime.value) : 0")
+		(var torpedoGroupsReloadTime:number = "sternTorpedoGroupTTX ? min(bowTorpedoGroupTTX.reloadTime.value, sternTorpedoGroupTTX.reloadTime.value) : bowTorpedoGroupTTX ? bowTorpedoGroupTTX.reloadTime.value : 0")
 		(var shipTorpedoReloadTime:number = "torpedoReloadTime > 0 ? torpedoReloadTime : torpedoGroupsReloadTime > 0 ? torpedoGroupsReloadTime : 0")
 
 		(var isDeepWater:bool = "torpedoesTTX.torpedoDeepwater ? torpedoesTTX.torpedoDeepwater.canHitClasses.length > 0 : false")

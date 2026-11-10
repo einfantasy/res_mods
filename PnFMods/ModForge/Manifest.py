@@ -2,6 +2,7 @@
 
 import re
 
+import Requires
 from Logger import logInfo, logError
 from Codec import _u2
 
@@ -20,7 +21,7 @@ class Manifest(object):
     __slots__ = (
         'modName', 'version', 'priority',
         'installerRequirement',
-        'modRequirements',
+        'modRequirement',
         'builds',
         'definitions',
         'sourcePath',
@@ -32,28 +33,34 @@ class Manifest(object):
         self.version = None
         self.priority = 0
         self.installerRequirement = None
-        self.modRequirements = []
+        self.modRequirement = None
         self.builds = []
         self.definitions = []
         self.sourcePath = None
         self.sourceHash = None
 
 class DefinitionSpec(object):
-    __slots__ = ('namespace', 'name', 'actions')
+    __slots__ = ('namespace', 'name', 'actions', 'requirement')
 
     def __init__(self):
         self.namespace = None
         self.name = None
         self.actions = []
+        self.requirement = None
 
 class BuildSpec(object):
-    __slots__ = ('file', 'root', 'guards', 'actions')
+    __slots__ = ('file', 'root', 'guards', 'actions', 'requirement',
+                 'restartOnChange')
 
     def __init__(self):
         self.file = None
         self.root = None
         self.guards = []
         self.actions = []
+        self.requirement = None
+
+
+        self.restartOnChange = False
 
 class Guard(object):
     __slots__ = ('kind', 'expr')
@@ -94,21 +101,21 @@ class ManifestError(Exception):
     pass
 
 _KNOWN_MOD_ATTRS = set(['name', 'version', 'priority'])
-_KNOWN_BUILD_ATTRS = set(['file', 'root'])
+_KNOWN_BUILD_ATTRS = set(['file', 'root', 'restartOnChange'])
 _KNOWN_INSERT_ATTRS = set(['into', 'before', 'after'])
 _KNOWN_REMOVE_ATTRS = set(['select'])
 _KNOWN_REPLACE_ATTRS = set(['select'])
 _KNOWN_SET_ATTRIBUTE_ATTRS = set(['select', 'attribute', 'from', 'to'])
 _KNOWN_COPY_ATTRS = set(['select', 'from', 'into', 'before', 'after'])
 _KNOWN_GUARD_ATTRS = set(['ifExists', 'ifNotExists'])
-_KNOWN_REQUIRES_ATTRS = set(['installer', 'mod', 'version'])
+_KNOWN_REQUIRES_ATTRS = set(['installer', 'mods'])
 _KNOWN_DEFINITION_ATTRS = set(['name'])
 _KNOWN_UB_MOUNT_ATTRS = set(['unbound', 'rootElementId', 'name', 'hitTest',
                              'url', 'before', 'after'])
 
-# Refused, not ignored: the unknown-element path below only logs, and a
-# blueprint that silently stops building anything is worse than one that
-# will not parse.
+
+
+
 _REMOVED_VERBS = {
     'ubBuild': "<ubBuild> is gone. Name the definition you edit -- "
                "<ubBuildBlock name='...'> or <ubBuildStyle name='...'> -- and "
@@ -138,9 +145,17 @@ def parseManifest(filePath, fileBytes):
     m.version = root.get('version')
     if not m.modName:
         raise ManifestError('<mod> requires a `name` attribute')
+    problem = Requires.nameProblem(m.modName)
+    if problem:
+
+        raise ManifestError("<mod name='%s'>: %s" % (m.modName, problem))
     if not m.version:
         raise ManifestError("<mod name='%s'> requires a `version` attribute"
                             % m.modName)
+    parts = parseVersion(m.version)
+    if parts and len(parts) > 3:
+        logInfo("%s: version='%s' has %d numbers; use major.minor.patch, "
+                "like 1.2.0" % (m.modName, m.version, len(parts)))
     try:
         m.priority = int(root.get('priority', '0'))
     except Exception:
@@ -150,7 +165,8 @@ def parseManifest(filePath, fileBytes):
 
     for child in root:
         if child.tag == 'requires':
-            _parseRequires(m, child)
+            m.modRequirement = Requires.allOf(
+                [m.modRequirement, _parseRequires(m, child, '<mod>')])
         elif child.tag == 'build':
             m.builds.append(_parseBuild(m, child))
         elif child.tag in _REMOVED_VERBS:
@@ -170,24 +186,45 @@ def parseManifest(filePath, fileBytes):
 
     return m
 
-def _parseRequires(m, node):
+def _parseRequires(m, node, scope):
+
+
+
+
+    if node.get('mod') is not None or node.get('version') is not None:
+        name = (node.get('mod') or 'Other').strip()
+        version = (node.get('version') or '').strip()
+        if version and version[0] not in '<>=':
+            version = '>=' + version
+        if Requires.nameProblem(name):
+            raise ManifestError(
+                "%s: <requires mod=> and version= are gone; write <requires "
+                "mods='Name%s'/>, with that mod renamed: %s"
+                % (m.modName, version, Requires.nameProblem(name)))
+        raise ManifestError(
+            "%s: <requires mod=> and version= are gone; write <requires "
+            "mods='%s%s'/>" % (m.modName, name, version))
     _warnUnknown(node, _KNOWN_REQUIRES_ATTRS, 'requires attribute', m.modName)
     inst = node.get('installer')
-    if inst is not None and (node.get('mod') is not None
-                             or node.get('version') is not None):
-        raise ManifestError('%s: <requires> takes installer= or mod=, not '
+    mods = node.get('mods')
+    if inst is not None and mods is not None:
+        raise ManifestError('%s: <requires> takes installer= or mods=, not '
                             'both; write two <requires>' % m.modName)
     if inst is not None:
+        if scope != '<mod>':
+            raise ManifestError('%s: <requires installer=> belongs directly '
+                                'under <mod>, not in %s' % (m.modName, scope))
         m.installerRequirement = inst.strip()
-        return
-    depMod = node.get('mod')
-    if depMod is None:
-        logInfo('%s: <requires> needs `installer` or `mod` attribute'
+        return None
+    if mods is None:
+        logInfo('%s: <requires> needs `installer` or `mods` attribute'
                 % m.modName)
-        return
-    constraint = node.get('version')
-    m.modRequirements.append((depMod.strip(),
-                              constraint.strip() if constraint else None))
+        return None
+    try:
+        return Requires.parse(mods)
+    except Requires.RequiresError as exc:
+        raise ManifestError("%s: <requires mods='%s'> in %s: %s"
+                            % (m.modName, mods, scope, exc))
 
 def _parseBuild(m, node):
     _warnUnknown(node, _KNOWN_BUILD_ATTRS, 'build attribute', m.modName)
@@ -200,6 +237,8 @@ def _parseBuild(m, node):
     if b.root is not None and not _TAG_RE.match(b.root):
         raise ManifestError("%s: <build root='%s'> is not a usable element name"
                             % (m.modName, b.root))
+    b.restartOnChange = _bool(m, node.get('restartOnChange'),
+                              "<build file='%s' restartOnChange" % b.file)
     for child in node:
         if child.tag == 'guard':
             if b.root:
@@ -208,6 +247,16 @@ def _parseBuild(m, node):
                     "it starts from an empty document" % (m.modName, b.file,
                                                           b.root))
             b.guards.append(_parseGuard(m, child))
+        elif child.tag == 'requires':
+            if b.root:
+
+
+                raise ManifestError(
+                    "%s: <build file='%s' root='%s'> cannot carry a "
+                    "<requires>; put it under <mod>, in a blueprint of its "
+                    "own" % (m.modName, b.file, b.root))
+            b.requirement = Requires.allOf([b.requirement, _parseRequires(
+                m, child, "<build file='%s'>" % b.file)])
         else:
             action = _parseAction(m, child, "<build file='%s'>" % b.file)
             if action is not None:
@@ -215,9 +264,9 @@ def _parseBuild(m, node):
     return b
 
 def _relPath(m, value, attr):
-    """One spelling per file. The pristine cache is keyed on it, so `..`
-    would write outside the cache, and a second spelling of an owned file
-    would pass the ownership check."""
+
+
+
     path = value.strip().replace('\\', '/')
     parts = [p for p in path.split('/') if p not in ('', '.')]
     if path.startswith('/') or (parts and ':' in parts[0]):
@@ -336,14 +385,14 @@ DEFINITION_DIRS = {'block': PAYLOAD_DIR, 'css': PAYLOAD_DIR + 'css/'}
 USS_DEFINITION_DIRS = {'block': USS_PAYLOAD_DIR,
                        'css': USS_PAYLOAD_DIR + 'css/'}
 
-# A definition name is used verbatim: every one of the 2,030 names vanilla
-# defines is already safe, `$Preset` included, and a readable file is worth
-# more than a uniform one. Escaping is the fallback for a name that would
-# otherwise build a path or an illegal filename.
+
+
+
+
 _FILE_SAFE = set('abcdefghijklmnopqrstuvwxyz'
                  'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._-$')
-# `markup`/`styles` are ref:uss-splice. The rest are Windows device names,
-# which are reserved WITH any extension -- `CON.xml` cannot be created at all.
+
+
 _RESERVED_STEMS = ('markup', 'styles', 'con', 'prn', 'aux', 'nul')
 _RESERVED_PREFIXES = ('com', 'lpt')
 
@@ -388,6 +437,10 @@ def _parseDefinition(m, node, namespace):
                 '%s: %s cannot carry a <guard>; a definition is assembled from '
                 'the vanilla one when it exists and from nothing when it does '
                 'not' % (m.modName, context))
+        if child.tag == 'requires':
+            d.requirement = Requires.allOf(
+                [d.requirement, _parseRequires(m, child, context)])
+            continue
         action = _parseAction(m, child, context)
         if action is not None:
             d.actions.append(action)
@@ -396,10 +449,10 @@ def _parseDefinition(m, node, namespace):
                             % (m.modName, context))
     return d
 
-# One shared SWF over every definition, not one each. Measured in-client:
-# ~33 ms per registered swffile against ~6.8 ms per xmlfile, and a per-file
-# SWF buys no failure isolation -- every fatal mode in the loader stalls the
-# whole boot. See PER_CLASS_PLAN.md section 4.
+
+
+
+
 DEFINITIONS_SWF = PAYLOAD_DIR + 'ForgeDefinitions.swf'
 USS_DEFINITIONS_SWF = USS_PAYLOAD_DIR + 'ForgeDefinitions.swf'
 
@@ -448,6 +501,13 @@ def _parseUbMountInBattle(m, node):
 
     b = BuildSpec()
     b.file = BATTLE_ELEMENTS
+    for child in node:
+        if child.tag == 'requires':
+            b.requirement = Requires.allOf([b.requirement, _parseRequires(
+                m, child, '<ubMountInBattle>')])
+        else:
+            logInfo('%s: ignoring unknown child <%s> inside <ubMountInBattle>'
+                    % (m.modName, child.tag))
     if unbound == '1':
         element.set('class', UNBOUND_ELEMENT_CLASS)
         props.set('rootElementId', rootElementId)
@@ -463,17 +523,17 @@ def _parseUbMountInBattle(m, node):
     return b
 
 def _mountAnchors(m, node):
-    """(before, after) selectors for a mount, from a plain element name.
 
-    Order in `elementList` is render order, so this is not cosmetic: an
-    element appended after `MarkersContainer` draws over what one placed
-    before it draws under. Without an anchor the entry lands last, which is
-    the right default and the wrong answer for anything layered.
 
-    The name is matched against `elementName`, which is what every entry the
-    game lays out carries and what every anchor in the wild names. Six of
-    vanilla's 24 entries have only `name`; anchor on one of those with
-    <build file="gui/battle_elements.xml"> instead."""
+
+
+
+
+
+
+
+
+
     before = (node.get('before') or '').strip()
     after = (node.get('after') or '').strip()
     if before and after:
@@ -502,14 +562,17 @@ _TAG_RE = re.compile(r'^[A-Za-z_][\w.-]*$')
 _NAME_RE = re.compile(r'^[A-Za-z0-9_.-]+$')
 
 def _hitTest(m, value):
-    """Off unless asked for: a battle element that hit-tests takes the
-    clicks under it, and one wrong value would eat the player's input."""
+
+
+    return _bool(m, value, '<ubMountInBattle hitTest')
+
+def _bool(m, value, label):
     if value is None:
         return False
     word = value.strip().lower()
     if word not in ('true', 'false'):
-        logError("%s: <ubMountInBattle hitTest='%s'> is not true or false; "
-                 "using false" % (m.modName, value))
+        logError("%s: %s='%s'> is not true or false; using false"
+                 % (m.modName, label, value))
     return word == 'true'
 
 def _warnUnknown(node, knownAttrs, label, context):

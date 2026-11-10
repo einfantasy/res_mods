@@ -9,9 +9,13 @@ from Codec import _u2
 class ActionError(Exception):
     pass
 
-# Claim markers live ON the node, written by applySetAttribute when a tracker
-# is passed. Stripped before the document is serialized.
+
+
 CLAIM_PREFIX = '_forgeClaim-'
+
+
+
+ORIGIN = CLAIM_PREFIX + '.origin'
 
 def _etToMinidomNodes(etElements, ownerDoc):
     out = []
@@ -60,19 +64,24 @@ def _resolveInsertionPoint(root, into, before, after):
 def _nextElementSibling(node):
     return node.nextSibling
 
-def _canonical(node):
+def _text(value):
+    return value if isinstance(value, unicode) else value.decode('utf-8')
+
+def canonical(node):
     pairs = []
     if node.attributes:
-        pairs = sorted((k, node.getAttribute(k))
+        pairs = sorted((_text(k), _text(node.getAttribute(k)))
                        for k in node.attributes.keys()
                        if not k.startswith(CLAIM_PREFIX))
-    text = ''.join(c.data for c in node.childNodes
-                   if c.nodeType == c.TEXT_NODE).strip()
-    kids = [_canonical(c) for c in node.childNodes
+    text = _text(''.join(c.data for c in node.childNodes
+                         if c.nodeType == c.TEXT_NODE).strip())
+    kids = [canonical(c) for c in node.childNodes
             if c.nodeType == c.ELEMENT_NODE]
-    # repr, not a joined string: a value holding the separator must not
-    # collide with a different attribute set.
-    return repr((node.tagName, pairs, text, kids))
+
+
+
+
+    return repr((_text(node.tagName), pairs, text, kids))
 
 def stripClaims(node):
     if node.nodeType == node.ELEMENT_NODE and node.attributes:
@@ -83,20 +92,42 @@ def stripClaims(node):
         stripClaims(child)
 
 def _childKeys(parent):
-    return set(_canonical(c) for c in parent.childNodes
+    return set(canonical(c) for c in parent.childNodes
                if c.nodeType == c.ELEMENT_NODE)
 
-def _insertDeduped(parent, nodes, anchor, label):
+def _insertDeduped(parent, nodes, anchor, label, claims=None):
     present = _childKeys(parent)
     inserted = 0
     for node in nodes:
-        if _canonical(node) in present:
-            logInfo('%s: <%s> is already present in <%s>; skipped'
-                    % (label, node.tagName, parent.tagName))
+        if canonical(node) in present:
+
+            if label:
+                logInfo('%s: <%s> is already present in <%s>; skipped'
+                        % (label, node.tagName, parent.tagName))
             continue
         parent.insertBefore(node, anchor)
+        _stamp(node, label, claims)
         inserted += 1
     return inserted
+
+def _stamp(node, label, claims):
+    if label and claims is not None:
+        node.setAttribute(ORIGIN, label)
+
+def _addedByAPeer(parent, node, label, claims):
+
+
+
+    if not label or claims is None:
+        return None
+    key = canonical(node)
+    for child in parent.childNodes:
+        if child.nodeType != child.ELEMENT_NODE:
+            continue
+        peer = child.getAttribute(ORIGIN)
+        if peer and peer != label and canonical(child) == key:
+            return peer
+    return None
 
 def evaluateGuards(root, guards):
     for g in guards:
@@ -112,7 +143,7 @@ def applyInsert(doc, action, label, root, sources, claims=None):
     parent, anchor = _resolveInsertionPoint(root, action.into,
                                             action.before, action.after)
     nodes = _etToMinidomNodes(action.payload, doc)
-    return _insertDeduped(parent, nodes, anchor, label)
+    return _insertDeduped(parent, nodes, anchor, label, claims)
 
 def applyRemove(doc, action, label, root, sources, claims=None):
     matches = Selector.findAll(root, action.select)
@@ -155,9 +186,13 @@ def applySetAttribute(doc, action, label, root, sources, claims=None):
             if action.fromValue not in current:
                 continue
             value = current.replace(action.fromValue, action.toValue)
-        # Only a write claims: a from= that finds nothing must not refuse a peer.
+
         if claims is not None and not claims.claim(node, action.attribute,
-                                                   label):
+                                                   label, value):
+            if (node.hasAttribute(action.attribute)
+                    and node.getAttribute(action.attribute) == value):
+
+                changed += 1
             continue
         node.setAttribute(action.attribute, value)
         changed += 1
@@ -184,11 +219,17 @@ def applyCopy(doc, action, label, root, sources, claims=None):
     for src in found:
         clone = (doc.importNode(src, True) if action.source
                  else src.cloneNode(True))
-        # A clone is a new node; its original's claims are not its own.
+
         stripClaims(clone)
         for nested in action.actions:
             applyAction(doc, nested, label, clone, sources, claims)
+        peer = _addedByAPeer(parent, clone, label, claims)
+        if peer:
+            logInfo("%s: <%s> is already in <%s>, from '%s'; skipped"
+                    % (label, clone.tagName, parent.tagName, peer))
+            continue
         parent.insertBefore(clone, anchor)
+        _stamp(clone, label, claims)
         count += 1
     return count
 

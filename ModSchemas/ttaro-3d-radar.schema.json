@@ -5,6 +5,7 @@
   "modName": "3D Radar",
   "slug": "3d-radar",
   "order": 0,
+  "migrationVersion": 1,
   "tree": [
     {
       "kind": "group",

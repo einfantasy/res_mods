@@ -26,7 +26,7 @@ HOT_RELOAD_KEY = 'ttModConfig.hotReloadEnabled'
 UISTATE_STORE_KEY = 'ttModConfig.__uiState'
 SELECTED_TAB_PATH = 'selectedTab'
 SELECTED_PAGE_PATH = 'selectedPage'
-# Loose-root page reuses an existing catalog key -- an invented one renders literally forever (tr() has no fallback).
+
 ROOT_PAGE_LABEL = 'IDS_TT_TITLE_GENERAL'
 
 _DISPLAY_FROM_AGGREGATE = {'inline': 'transparent', 'tooltip': 'popup'}
@@ -37,8 +37,8 @@ def _isPage(node):
 
 
 def _pagesFor(tree):
-    """Page 0 is loose root settings plus any group with no title (transparent/popup display),
-    then one page per visible top section. `idx` indexes the published tree, so pages hold refs."""
+
+
     pages = []
     loose = []
     for i, node in enumerate(tree):
@@ -61,8 +61,8 @@ def _pagesFor(tree):
 
 
 def _hasVisibleLeaf(group):
-    """Any non-hidden setting at or below this group; children are annotated first, so a
-    nested group's own flag is already final."""
+
+
     for child in group.get('children') or []:
         if not isinstance(child, dict):
             continue
@@ -105,6 +105,8 @@ class Framework(object):
         self._geom = {}
         self._posPublished = {}
         self._pageCounts = {}
+
+        self._colorHsv = {}
         self._cursor = CursorHold()
 
 
@@ -171,13 +173,25 @@ class Framework(object):
             pass
 
 
+
+
+    def _configSlugs(self):
+        return [s for s in self._index.displaySlugs()
+                if not self._store.isLocked(s) and self._pageCounts.get(s, 0) > 0]
+
     def _publishShared(self):
-        mods = []
+
+
+        published = {}
+        self._pageCounts = {}
         for slug in self._index.displaySlugs():
             tree = self._publishTree(slug)
             pages = _pagesFor(tree)
-            # Cached so _uiStateData (runs on every setUiState write) can clamp without re-walking.
+            published[slug] = (tree, pages)
             self._pageCounts[slug] = len(pages)
+        mods = []
+        for slug in self._configSlugs():
+            tree, pages = published[slug]
             mods.append({
                 'slug': slug,
                 'modName': self._index.modName(slug),
@@ -201,6 +215,7 @@ class Framework(object):
             'modName': self._index.modName(fwSlug),
             'tree': tree,
             'pages': _pagesFor(tree),
+            'locked': self._store.isLocked(fwSlug),
         }
 
 
@@ -217,17 +232,17 @@ class Framework(object):
             for name in node:
                 copied[name] = node[name]
             key = copied.get('key')
-            # A native key is the game's CC.minimapOption index; scoping it makes the view's lookup miss.
+
             if author and isinstance(key, basestring) and key and not SchemaScanner.isNative(copied):
                 copied['key'] = author + '.' + key
             children = copied.get('children')
             if isinstance(children, list):
                 copied['children'] = self._qualifyNodes(children, author)
-            # Derived, not authored -- `hidden` only lives on settings, so an all-hidden group needs this
-            # to avoid rendering empty. Annotated, not pruned: pruning would shift keys and collapse state.
+
+
             if copied.get('kind') == 'group':
                 copied['hasVisible'] = _hasVisibleLeaf(copied)
-                # A schemaVersion 4 schema (a mod not yet re-released) carries `aggregate` instead.
+
                 if not copied.get('display'):
                     copied['display'] = _DISPLAY_FROM_AGGREGATE.get(copied.get('aggregate'), 'section')
             out.append(copied)
@@ -247,13 +262,13 @@ class Framework(object):
         return blob if isinstance(blob, dict) else {}
 
     def _uiStateData(self):
-        slugs = self._index.displaySlugs()
+        slugs = self._configSlugs()
         tab = self._uiState.get('selectedTab', '')
         if tab not in slugs:
             tab = slugs[0] if slugs else ''
-        # The view steps the mod list by index; indexOf() can't help since `mods` holds dicts, not slugs.
-        # Guarded rather than caught: `tab` is in `slugs` unless `slugs` is empty (framework only),
-        # and a v1 mod can't name ValueError -- an except here would itself raise NameError.
+
+
+
         tabIndex = slugs.index(tab) if slugs else 0
         return {
             'selectedTab': tab,
@@ -262,13 +277,13 @@ class Framework(object):
             'selectedPage': self._clampedPages(),
         }
 
-    # Every display slug gets an entry -- a missing key throws when the view reads a gfx dict.
-    # Clamped too: a stored page can outlive its schema (hot-reload/update) and render blank.
+
+
     def _clampedPages(self):
         stored = self._uiState.get(SELECTED_PAGE_PATH, {})
         if not isinstance(stored, dict):
             stored = {}
-        # Self-heal: a non-int value is a nested leftover from a dotted slug -- would sit in the store forever.
+
         cleaned = {}
         for key in stored:
             value = stored[key]
@@ -278,7 +293,7 @@ class Framework(object):
             self._uiState[SELECTED_PAGE_PATH] = cleaned
             stored = cleaned
         out = {}
-        for slug in self._index.displaySlugs():
+        for slug in self._configSlugs():
             value = stored.get(slug, 0)
             if not isinstance(value, (int, long)) or isinstance(value, bool) or value < 0:
                 value = 0
@@ -314,6 +329,10 @@ class Framework(object):
                 self._cursor.releaseNow()
             except Exception:
                 pass
+
+    def setWheelHover(self, over):
+        if self._cursor is not None:
+            self._cursor.hover(over)
 
     def getSelectedTab(self):
         return self._uiState.get(SELECTED_TAB_PATH, '') or ''
@@ -352,7 +371,8 @@ class Framework(object):
             conds = self._index.conditionsFor(slug, fullKey)
             visible = Conditions.evaluate(conds, self._valueOf(slug), installed)
         if node.get('control') == 'color':
-            data = ColorMath.derive(value, node.get('min'), node.get('max'))
+            data = ColorMath.derive(value, node.get('min'), node.get('max'),
+                                    self._colorHsv.get(fullKey))
         elif node.get('control') == 'position':
             data = {'value': self._resolvePositionFor(slug, fullKey)}
         else:
@@ -646,6 +666,43 @@ class Framework(object):
             return
         self.setPref(fullKey, packed)
 
+    def setColorChannel(self, fullKey, channel, value, typed=False):
+        slug = self._index.ownerSlug(fullKey)
+        storeKey = self._sk(fullKey)
+        node = self._index.node(slug, storeKey) if slug is not None else None
+        if node is None or node.get('control') != 'color':
+            logError('setColorChannel: not a colour setting ' + str(fullKey))
+            return
+        if channel not in ColorMath.CHANNELS and channel not in ColorMath.HSV_RANGE:
+            logError('setColorChannel: unknown channel %r for %s' % (channel, fullKey))
+            return
+        stored = self._store.getEffective(slug, storeKey)
+        old = ColorMath.workingHsv(stored, self._colorHsv.get(fullKey))
+        edit = ColorMath.editChannel(stored, old, channel, value, Validate.toBool(typed))
+        if edit is None:
+            return
+        raw, hsv = edit
+        packed = Validate.validate(node, raw)
+
+        if packed == stored and (packed != raw or channel in ColorMath.CHANNELS):
+            return
+
+        self._colorHsv[fullKey] = hsv
+        if packed == stored:
+
+            self._updateComponent(slug, fullKey, stored)
+            return
+        self.setPref(fullKey, packed)
+
+    def releaseColorPicker(self, fullKey):
+
+
+        if self._colorHsv.pop(fullKey, None) is None:
+            return
+        slug = self._index.ownerSlug(fullKey)
+        if slug is not None:
+            self._updateComponent(slug, fullKey, self._store.getEffective(slug, self._sk(fullKey)))
+
     def setPrefs(self, slug, values):
         if not isinstance(values, dict):
             return
@@ -677,7 +734,8 @@ class Framework(object):
         storeKey = self._sk(fullKey)
         if slug is None or storeKey not in self._index.positionKeys(slug):
             return
-        self._store.removePositionBucket(slug, storeKey, Util.resKey())
+        if not self._store.removePositionBucket(slug, storeKey, Util.resKey()):
+            return
         self._updateComponent(slug, fullKey, None)
         self._scheduleFlush(slug)
 
@@ -809,9 +867,11 @@ class Framework(object):
             self._index = SchemaScanner.scan()
             self._store.setIndex(self._index)
             self._store.loadAll()
-            self._publishShared()
+
             self._createSettingComponents()
             self._initialVisibilityPass()
+            self._createGroupComponents()
+            self._publishShared()
             logInfo('hot-reload: re-scanned %d mod(s)'
                     % len(self._index.displaySlugs()))
         except Exception as e:
@@ -832,7 +892,8 @@ class Framework(object):
             return
         validated = Validate.validate(node, value)
         self._store.set(slug, storeKey, validated)
-        self._updateComponent(slug, fullKey, validated)
+
+        self._updateComponent(slug, fullKey, self._store.getEffective(slug, storeKey))
 
     def _updateComponent(self, slug, fullKey, value):
         installed = self._index.installedMods()

@@ -47,21 +47,21 @@ def _collect(absXmlPaths, contents):
     return collector
 
 def expressionKeys(absXmlPaths, contents=None):
-    """The keys these sources reference, by the same scan the compile uses.
 
-    An expression key no loaded SWF carries is not a load error:
-    `UbNativeExpression` stores null and `eval` calls it, so it is a #1006 on
-    whatever screen first builds that block."""
+
+
+
+
     return set(_collect(absXmlPaths, contents).expressions)
 
 def compileMarkup(absXmlPaths, contents=None, allowEmpty=False):
-    """`contents` supplies a source that is staged but not yet on disk, so a
-    payload and the SWF built from it can land in one commit.
 
-    `allowEmpty` returns (None, 0) for sources that carry no expression at
-    all, instead of raising. A mod naming a source it meant to compile wants
-    the error; Forge's own definitions are simply not all expression-bearing
-    -- and a registered SWF with no expressions stalls the boot."""
+
+
+
+
+
+
     abcFmt, ussBuild, ussSwf, ussTrans, ussXml = _modules()
 
     entries = _collect(absXmlPaths, contents).entries()
@@ -69,7 +69,7 @@ def compileMarkup(absXmlPaths, contents=None, allowEmpty=False):
         return None, 0
     abc = ussBuild.build_abc(entries)
 
-    # ref:uss-censor
+
     hits = censoredStrings(abc['cpool']['strings'])
     if hits:
         raise CompileError(

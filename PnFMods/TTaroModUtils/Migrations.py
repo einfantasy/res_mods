@@ -5,12 +5,12 @@ from Util import logInfo, logError, logException
 
 
 _SENTINEL = object()
-# A transform returning this means "I cannot produce a value" -- distinct from producing 0.
+
 _SKIP = object()
 
 
 def run(flat, storedVersion, migrationFile, legacyReader=None,
-        ownedKeys=None, slug='', protected=None):
+        ownedKeys=None, slug='', protected=None, target=None):
     ownedKeys = ownedKeys or set()
     migrations = []
     if migrationFile and isinstance(migrationFile.get('migrations'), list):
@@ -18,9 +18,12 @@ def run(flat, storedVersion, migrationFile, legacyReader=None,
             migrationFile['migrations'],
             key=lambda m: m.get('version', 0))
 
+    if target is not None:
+        migrations = [m for m in migrations if m.get('version', 0) <= target]
+
     newVersion = storedVersion
 
-    # No migrations means _importLegacy has no ops to derive keys from -- a no-op, so version sits at 0 forever.
+
     if storedVersion < 1 and migrations and legacyReader is not None:
         try:
             _importLegacy(flat, migrations, legacyReader, ownedKeys, slug)
@@ -44,6 +47,24 @@ def run(flat, storedVersion, migrationFile, legacyReader=None,
         newVersion = version
 
     return flat, newVersion
+
+
+
+
+
+def positionSources(migrationFile, storedVersion, positionKeys, target=None):
+    keys = set(positionKeys)
+    migrations = (migrationFile or {}).get('migrations')
+    if not isinstance(migrations, list):
+        return keys
+    pending = [m for m in migrations
+               if m.get('version', 0) > storedVersion
+               and (target is None or m.get('version', 0) <= target)]
+    for m in sorted(pending, key=lambda m: m.get('version', 0), reverse=True):
+        for op in reversed(m.get('ops', [])):
+            if op.get('op') == 'rename' and op.get('from') and op.get('to') in keys:
+                keys.add(op['from'])
+    return keys
 
 
 def _importLegacy(flat, migrations, legacyReader, ownedKeys, slug):
@@ -72,19 +93,19 @@ def _importLegacy(flat, migrations, legacyReader, ownedKeys, slug):
 def _applyOp(op, flat, ownedKeys, consumed=None, written=None, protected=None):
     kind = op.get('op')
     if kind == 'rename':
-        _rename(flat, op.get('from'), op.get('to'), ownedKeys)
+        _rename(flat, op.get('from'), op.get('to'), ownedKeys, consumed, written, protected)
     elif kind == 'drop':
         _drop(flat, op.get('from'), ownedKeys)
     elif kind == 'transform' and op.get('transform') == 'compose':
         _compose(flat, op, ownedKeys, consumed, written, protected)
     elif kind == 'transform':
-        _transform(flat, op, ownedKeys, consumed)
+        _transform(flat, op, ownedKeys, consumed, written, protected)
     else:
         logError('unknown migration op (no-op): ' + str(kind))
 
 
-# Sole answer to "what legacy keys does this op read" -- register new op shapes HERE, not at
-# call sites, or _importLegacy silently skips them and writes a wrong default.
+
+
 def _argSources(op):
     out = {}
     args = op.get('args')
@@ -99,16 +120,32 @@ def _argSources(op):
     return out
 
 
-def _rename(flat, frm, to, ownedKeys):
+
+
+def _occupied(flat, key, consumed, written, protected):
+    if key not in flat:
+        return False
+    if protected and key in protected:
+        return True
+    return not (consumed and key in consumed) or bool(written and key in written)
+
+
+def _wrote(written, key):
+    if written is not None:
+        written.add(key)
+
+
+def _rename(flat, frm, to, ownedKeys, consumed=None, written=None, protected=None):
     if not frm or frm in ownedKeys:
         return
     if frm not in flat:
         return
-    if to and to in flat:
+    if to and _occupied(flat, to, consumed, written, protected):
         del flat[frm]
         return
     if to:
         flat[to] = flat[frm]
+        _wrote(written, to)
     del flat[frm]
 
 
@@ -117,7 +154,7 @@ def _drop(flat, frm, ownedKeys):
         del flat[frm]
 
 
-def _transform(flat, op, ownedKeys, consumed=None):
+def _transform(flat, op, ownedKeys, consumed=None, written=None, protected=None):
     frm = op.get('from')
     to = op.get('to')
     if not frm or frm in ownedKeys:
@@ -140,7 +177,7 @@ def _transform(flat, op, ownedKeys, consumed=None):
         logException('transform %s failed' % name, e)
         return
 
-    # _SKIP: don't fabricate a value over the schema default; version still bumps, so cleanup still runs here.
+
     if value is _SKIP:
         if to != frm and frm in flat:
             del flat[frm]
@@ -149,8 +186,9 @@ def _transform(flat, op, ownedKeys, consumed=None):
         return
 
     if to:
-        if to == frm or to not in flat:
+        if to == frm or not _occupied(flat, to, consumed, written, protected):
             flat[to] = value
+            _wrote(written, to)
     if to != frm and frm in flat:
         del flat[frm]
 
@@ -158,9 +196,9 @@ def _transform(flat, op, ownedKeys, consumed=None):
         consumed.update(present if sources else [])
 
 
-# --- compose ----------------------------------------------------------------
-# Closed JSON expression trees over sources[] (no parser/eval); composeError is the only
-# validator, checked at scan time AND here so a bypassed file still fails closed.
+
+
+
 
 _MAX_DEPTH = 32
 _COMPOSE_FIELDS = frozenset(['op', 'transform', 'to', 'sources', 'value', 'when', 'onExisting'])
@@ -313,7 +351,7 @@ def _b(flag):
     return 1.0 if flag else 0.0
 
 
-# name -> (argument shape checked by _treeError, implementation)
+
 _NODES = {
     'src': ('index', _src),
     'present': ('index', _present),
@@ -325,7 +363,7 @@ _NODES = {
     'div': ('pair', _pair(_div)),
     'mod': ('pair', _pair(_mod)),
     'abs': ('unary', lambda a, ctx: abs(_n(a, ctx))),
-    # py2 round: half away from zero. Parity with stepIndex depends on it.
+
     'round': ('unary', lambda a, ctx: float(round(_n(a, ctx)))),
     'floor': ('unary', lambda a, ctx: _floor(_n(a, ctx))),
     'ceil': ('unary', lambda a, ctx: -_floor(-_n(a, ctx))),
@@ -351,7 +389,7 @@ _COUNTS = {'pair': 2, 'triple': 3, 'if': 3, 'byte': 2}
 
 
 def _treeError(node, nSources, depth, terminal):
-    """`terminal`: this position's result is the op's result, so `reset` may stand here."""
+
     if depth > _MAX_DEPTH:
         return 'tree deeper than %d' % _MAX_DEPTH
     if _isNumber(node):
@@ -414,7 +452,7 @@ def _treeError(node, nSources, depth, terminal):
 
 
 def composeError(op):
-    """None when the op is well-formed, else why not."""
+
     extra = set(op.keys()) - _COMPOSE_FIELDS
     if extra:
         return 'unknown compose field(s) %r' % sorted(extra)
@@ -483,11 +521,10 @@ def _compose(flat, op, ownedKeys, consumed=None, written=None, protected=None):
         if replace and to in flat:
             del flat[to]
         return
-    if to in flat and not replace:
+    if _occupied(flat, to, consumed, written, protected) and not replace:
         return
     flat[to] = value
-    if written is not None:
-        written.add(to)
+    _wrote(written, to)
 
 
 def _toNum(value, default=0):
@@ -523,7 +560,7 @@ def _builtinTransform(name, value, op, flat=None):
         hasDefault = args.get('default') is not None
         default = int(args['default']) if hasDefault else 0
         if value is None:
-            # Ordinal wasn't stored (only alpha was) -- None as index 0 would fabricate a colour over the default.
+
             if not hasDefault:
                 return _SKIP
             rgb = default & 0x00FFFFFF

@@ -10,8 +10,8 @@ SCENE = 'gui/flash/consumer_main_scene.swf'
 CONTROLLER_ROOT = 'UbController'
 
 def load():
-    """(class names, simple names of UbController and its subclasses) in
-    the running build's scene, or None when they cannot be read."""
+
+
     cached = _loadCache()
     if cached is not None:
         return cached
@@ -27,7 +27,7 @@ def load():
         logError('cannot read the classes of %s: %s' % (SCENE, exc))
         return None
     controllers = controllersOf(classes)
-    # An empty or rootless table would refuse every controller a mod names.
+
     if CONTROLLER_ROOT not in controllers:
         logError('%s yielded %d classes and no %s; class names are not '
                  'checked' % (SCENE, len(classes), CONTROLLER_ROOT))
@@ -38,7 +38,7 @@ def load():
     return result
 
 def classesOf(swf):
-    """{qualified class name: qualified superclass name or None}."""
+
     sig, _version, _length, body = AbcFmt.split_swf(swf)
     sig = str(sig)
     if sig == 'CWS':
@@ -52,7 +52,7 @@ def classesOf(swf):
     return out
 
 def _readInstances(abc, out):
-    # Stops after the instance table: method bodies are most of the ABC.
+
     r = AbcFmt.Reader(abc)
     r.u16()
     r.u16()
@@ -71,9 +71,9 @@ def _readInstances(abc, out):
             out[name] = _qname(pool, inst['super_name'])
 
 def _readPool(r):
-    # AbcFmt._read_cpool less the values: doubles are skipped undecoded,
-    # because the client raises FloatingPointError on creating a NaN and the
-    # scene's pool holds one.
+
+
+
     for _ in range(max(r.u30() - 1, 0)):
         r.s32()
     for _ in range(max(r.u30() - 1, 0)):

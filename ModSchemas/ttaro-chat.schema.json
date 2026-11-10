@@ -5,6 +5,7 @@
   "modName": "Chat",
   "slug": "chat",
   "order": 16,
+  "migrationVersion": 2,
   "tree": [
     {
       "kind": "group",
@@ -16,7 +17,7 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.exportChat",
+          "key": "chat.exportChat",
           "label": "IDS_TT_EXPORT_CHAT",
           "hint": {
             "text": "IDS_TT_HINT_EXPORT_CHAT"
@@ -26,7 +27,7 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.disableDragDrop",
+          "key": "chat.disableDragDrop",
           "label": "IDS_TT_DISABLE_DRAG_DROP",
           "hint": {
             "text": "IDS_TT_HINT_DISABLE_DRAG_DROP"
@@ -36,7 +37,7 @@
         {
           "kind": "setting",
           "control": "position",
-          "key": "ttChat.position",
+          "key": "chat.position",
           "label": "IDS_TT_DRAGDROP_RESET",
           "hint": {
             "text": "IDS_TT_HINT_DRAGDROP_RESET"
@@ -64,7 +65,7 @@
         {
           "kind": "setting",
           "control": "dropdown",
-          "key": "ttChat.style.preset",
+          "key": "chat.style.preset",
           "label": "IDS_TT_STYLE",
           "default": 0,
           "options": [
@@ -91,14 +92,14 @@
             {
               "kind": "setting",
               "control": "toggle",
-              "key": "ttChat.style.font.bold",
+              "key": "chat.style.font.bold",
               "label": "IDS_TT_BOLD_FONT",
               "default": false
             },
             {
               "kind": "setting",
               "control": "slider",
-              "key": "ttChat.style.font.size",
+              "key": "chat.style.font.size",
               "label": "IDS_TT_FONT_SIZE",
               "default": 15,
               "min": 10,
@@ -111,29 +112,29 @@
         {
           "kind": "setting",
           "control": "slider",
-          "key": "ttChat.style.width",
+          "key": "chat.style.width",
           "label": "IDS_TT_WIDTH",
           "default": 255,
           "min": 130,
           "max": 630,
-          "step": 25,
+          "step": 1,
           "decimals": 0
         },
         {
           "kind": "setting",
           "control": "slider",
-          "key": "ttChat.style.height",
+          "key": "chat.style.height",
           "label": "IDS_TT_HEIGHT",
           "default": 200,
           "min": 100,
           "max": 500,
-          "step": 20,
+          "step": 1,
           "decimals": 0
         },
         {
           "kind": "setting",
           "control": "slider",
-          "key": "ttChat.style.gap",
+          "key": "chat.style.gap",
           "label": "IDS_TT_BLOCK_MARGIN",
           "default": 0,
           "min": 0,
@@ -157,14 +158,14 @@
             {
               "kind": "setting",
               "control": "toggle",
-              "key": "ttChat.playerInfo.font.bold",
+              "key": "chat.playerInfo.font.bold",
               "label": "IDS_TT_BOLD_FONT",
               "default": true
             },
             {
               "kind": "setting",
               "control": "slider",
-              "key": "ttChat.playerInfo.font.size",
+              "key": "chat.playerInfo.font.size",
               "label": "IDS_TT_FONT_SIZE",
               "default": 15,
               "min": 10,
@@ -177,7 +178,7 @@
                 "conditions": [
                   {
                     "kind": "compare",
-                    "key": "ttChat.style.preset",
+                    "key": "chat.style.preset",
                     "op": "in",
                     "values": [
                       1,
@@ -192,14 +193,14 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.playerInfo.name",
+          "key": "chat.playerInfo.name",
           "label": "IDS_TT_PLAYER_NAME",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.playerInfo.clan",
+          "key": "chat.playerInfo.clan",
           "label": "IDS_TT_CLAN_NAME",
           "default": true,
           "enabledWhen": {
@@ -208,7 +209,7 @@
             "conditions": [
               {
                 "kind": "compare",
-                "key": "ttChat.playerInfo.name",
+                "key": "chat.playerInfo.name",
                 "op": "in",
                 "values": [
                   1
@@ -220,7 +221,7 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.playerInfo.showMyShip",
+          "key": "chat.playerInfo.showMyShip",
           "label": "IDS_TT_SHOW_OWN_SHIP",
           "default": false
         }
@@ -241,7 +242,7 @@
             {
               "kind": "setting",
               "control": "toggle",
-              "key": "ttChat.shipInfo.font.bold",
+              "key": "chat.shipInfo.font.bold",
               "label": "IDS_TT_BOLD_FONT",
               "default": true,
               "enabledWhen": {
@@ -250,7 +251,7 @@
                 "conditions": [
                   {
                     "kind": "compare",
-                    "key": "ttChat.style.preset",
+                    "key": "chat.style.preset",
                     "op": "in",
                     "values": [
                       2
@@ -262,7 +263,7 @@
             {
               "kind": "setting",
               "control": "slider",
-              "key": "ttChat.shipInfo.font.size",
+              "key": "chat.shipInfo.font.size",
               "label": "IDS_TT_FONT_SIZE",
               "default": 12,
               "min": 10,
@@ -275,7 +276,7 @@
                 "conditions": [
                   {
                     "kind": "compare",
-                    "key": "ttChat.style.preset",
+                    "key": "chat.style.preset",
                     "op": "in",
                     "values": [
                       2
@@ -289,21 +290,21 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.shipInfo.name",
+          "key": "chat.shipInfo.name",
           "label": "IDS_TT_SHIP_NAME",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.shipInfo.icon",
+          "key": "chat.shipInfo.icon",
           "label": "IDS_TT_CLASS_ICON",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.shipInfo.tier",
+          "key": "chat.shipInfo.tier",
           "label": "IDS_TT_TIER",
           "default": true
         }
@@ -319,35 +320,35 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.enemy.showChats",
+          "key": "chat.enemy.showChats",
           "label": "IDS_TT_PLAYER_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.enemy.showAchievements",
+          "key": "chat.enemy.showAchievements",
           "label": "IDS_TT_ACHIEVEMENT_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.enemy.showWellDone",
+          "key": "chat.enemy.showWellDone",
           "label": "IDS_TT_WELL_DONE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.enemy.showGoodLuck",
+          "key": "chat.enemy.showGoodLuck",
           "label": "IDS_TT_GOOD_LUCK_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.enemy.showWtf",
+          "key": "chat.enemy.showWtf",
           "label": "IDS_TT_WTF_CHATS",
           "default": true
         }
@@ -363,84 +364,84 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showChats",
+          "key": "chat.ally.showChats",
           "label": "IDS_TT_PLAYER_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showAchievements",
+          "key": "chat.ally.showAchievements",
           "label": "IDS_TT_ACHIEVEMENT_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showWellDone",
+          "key": "chat.ally.showWellDone",
           "label": "IDS_TT_WELL_DONE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showGoodLuck",
+          "key": "chat.ally.showGoodLuck",
           "label": "IDS_TT_GOOD_LUCK_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showWtf",
+          "key": "chat.ally.showWtf",
           "label": "IDS_TT_WTF_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showAffirmative",
+          "key": "chat.ally.showAffirmative",
           "label": "IDS_TT_AFFIRMATIVE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showNegative",
+          "key": "chat.ally.showNegative",
           "label": "IDS_TT_NEGATIVE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showGetBack",
+          "key": "chat.ally.showGetBack",
           "label": "IDS_TT_GET_BACK_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showNeedSmoke",
+          "key": "chat.ally.showNeedSmoke",
           "label": "IDS_TT_NEED_SMOKE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showNeedSupport",
+          "key": "chat.ally.showNeedSupport",
           "label": "IDS_TT_NEED_SUPPORT_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showNeedAirDefense",
+          "key": "chat.ally.showNeedAirDefense",
           "label": "IDS_TT_NEED_AIR_DEFENSE_CHATS",
           "default": true
         },
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.ally.showNeedSpotting",
+          "key": "chat.ally.showNeedSpotting",
           "label": "IDS_TT_NEED_SPOTTING_CHATS",
           "default": true
         }
@@ -456,7 +457,7 @@
         {
           "kind": "setting",
           "control": "toggle",
-          "key": "ttChat.div.showAchievements",
+          "key": "chat.div.showAchievements",
           "label": "IDS_TT_ACHIEVEMENT_CHATS",
           "default": true
         }

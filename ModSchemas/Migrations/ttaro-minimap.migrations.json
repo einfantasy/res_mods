@@ -6964,15 +6964,2074 @@
           }
         }
       ]
+    },
+    {
+      "version": 2,
+      "description": "extendScale toggle -> per-size map scales",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "ttMinimap.aimMarker.color",
+          "to": "minimap.aimMarker.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.aimMarker.scale",
+          "to": "minimap.aimMarker.scale"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.aimMarker.shape",
+          "to": "minimap.aimMarker.shape"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.attentionMarker.distance",
+          "to": "minimap.attentionMarker.distance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.attentionMarker.playerName",
+          "to": "minimap.attentionMarker.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.attentionMarker.showInWorld",
+          "to": "minimap.attentionMarker.showInWorld"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.background.blurIntensity",
+          "to": "minimap.background.blurIntensity"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.background.gradient",
+          "to": "minimap.background.gradient"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.background.useBlur",
+          "to": "minimap.background.useBlur"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.disableDragDrop",
+          "to": "minimap.disableDragDrop"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.font.size",
+          "to": "minimap.font.size"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.position",
+          "to": "minimap.position"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.radarWarning.alpha",
+          "to": "minimap.radarWarning.alpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.radarWarning.displayMode",
+          "to": "minimap.radarWarning.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.radarWarning.position",
+          "to": "minimap.radarWarning.position"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.radarWarning.scale",
+          "to": "minimap.radarWarning.scale"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.color",
+          "to": "minimap.rangeCircle.airSupport.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.displayMode",
+          "to": "minimap.rangeCircle.airSupport.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.fillAlpha",
+          "to": "minimap.rangeCircle.airSupport.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.lineStyle",
+          "to": "minimap.rangeCircle.airSupport.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.lineThickness",
+          "to": "minimap.rangeCircle.airSupport.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.maxDistance",
+          "to": "minimap.rangeCircle.airSupport.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.airSupport.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.airSupport.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.airSupport.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.airSupport.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.airSupport.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.color",
+          "to": "minimap.rangeCircle.airSupport.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.displayMode",
+          "to": "minimap.rangeCircle.airSupport.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.airSupport.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.lineStyle",
+          "to": "minimap.rangeCircle.airSupport.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.lineThickness",
+          "to": "minimap.rangeCircle.airSupport.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.airSupport.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.airSupport.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.airSupport.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.airSupport.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.airSupport.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.airSupport.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.airSupport.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.self.color",
+          "to": "minimap.rangeCircle.airSupport.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.self.displayMode",
+          "to": "minimap.rangeCircle.airSupport.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.self.fillAlpha",
+          "to": "minimap.rangeCircle.airSupport.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.self.lineStyle",
+          "to": "minimap.rangeCircle.airSupport.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.airSupport.self.lineThickness",
+          "to": "minimap.rangeCircle.airSupport.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.color",
+          "to": "minimap.rangeCircle.antiAir.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.displayMode",
+          "to": "minimap.rangeCircle.antiAir.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.fillAlpha",
+          "to": "minimap.rangeCircle.antiAir.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.lineStyle",
+          "to": "minimap.rangeCircle.antiAir.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.lineThickness",
+          "to": "minimap.rangeCircle.antiAir.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.maxDistance",
+          "to": "minimap.rangeCircle.antiAir.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.antiAir.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.antiAir.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.antiAir.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.antiAir.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.antiAir.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.color",
+          "to": "minimap.rangeCircle.antiAir.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.displayMode",
+          "to": "minimap.rangeCircle.antiAir.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.antiAir.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.lineStyle",
+          "to": "minimap.rangeCircle.antiAir.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.lineThickness",
+          "to": "minimap.rangeCircle.antiAir.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.antiAir.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.self.color",
+          "to": "minimap.rangeCircle.antiAir.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.self.displayMode",
+          "to": "minimap.rangeCircle.antiAir.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.self.fillAlpha",
+          "to": "minimap.rangeCircle.antiAir.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.self.lineStyle",
+          "to": "minimap.rangeCircle.antiAir.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.antiAir.self.lineThickness",
+          "to": "minimap.rangeCircle.antiAir.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.color",
+          "to": "minimap.rangeCircle.atba.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.displayMode",
+          "to": "minimap.rangeCircle.atba.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.fillAlpha",
+          "to": "minimap.rangeCircle.atba.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.lineStyle",
+          "to": "minimap.rangeCircle.atba.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.lineThickness",
+          "to": "minimap.rangeCircle.atba.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.maxDistance",
+          "to": "minimap.rangeCircle.atba.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.atba.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.atba.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.atba.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.atba.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.atba.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.color",
+          "to": "minimap.rangeCircle.atba.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.displayMode",
+          "to": "minimap.rangeCircle.atba.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.atba.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.lineStyle",
+          "to": "minimap.rangeCircle.atba.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.lineThickness",
+          "to": "minimap.rangeCircle.atba.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.atba.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.atba.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.atba.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.atba.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.atba.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.atba.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.atba.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.self.color",
+          "to": "minimap.rangeCircle.atba.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.self.displayMode",
+          "to": "minimap.rangeCircle.atba.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.self.fillAlpha",
+          "to": "minimap.rangeCircle.atba.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.self.lineStyle",
+          "to": "minimap.rangeCircle.atba.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.atba.self.lineThickness",
+          "to": "minimap.rangeCircle.atba.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.color",
+          "to": "minimap.rangeCircle.hydro.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.fillAlpha",
+          "to": "minimap.rangeCircle.hydro.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.lineStyle",
+          "to": "minimap.rangeCircle.hydro.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.lineThickness",
+          "to": "minimap.rangeCircle.hydro.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.hydro.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.hydro.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.hydro.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.hydro.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.hydro.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showWhen.onActivation",
+          "to": "minimap.rangeCircle.hydro.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.ally.showWhen.onAlt",
+          "to": "minimap.rangeCircle.hydro.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.color",
+          "to": "minimap.rangeCircle.hydro.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.displayMode",
+          "to": "minimap.rangeCircle.hydro.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.hydro.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.lineStyle",
+          "to": "minimap.rangeCircle.hydro.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.lineThickness",
+          "to": "minimap.rangeCircle.hydro.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.hydro.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.hydro.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.hydro.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.hydro.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.hydro.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.hydro.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.hydro.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.self.color",
+          "to": "minimap.rangeCircle.hydro.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.self.displayMode",
+          "to": "minimap.rangeCircle.hydro.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.self.fillAlpha",
+          "to": "minimap.rangeCircle.hydro.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.self.lineStyle",
+          "to": "minimap.rangeCircle.hydro.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydro.self.lineThickness",
+          "to": "minimap.rangeCircle.hydro.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.color",
+          "to": "minimap.rangeCircle.hydrophone.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.fillAlpha",
+          "to": "minimap.rangeCircle.hydrophone.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.lineStyle",
+          "to": "minimap.rangeCircle.hydrophone.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.lineThickness",
+          "to": "minimap.rangeCircle.hydrophone.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.hydrophone.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.hydrophone.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.hydrophone.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.hydrophone.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.hydrophone.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showWhen.onActivation",
+          "to": "minimap.rangeCircle.hydrophone.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.ally.showWhen.onAlt",
+          "to": "minimap.rangeCircle.hydrophone.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.color",
+          "to": "minimap.rangeCircle.hydrophone.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.displayMode",
+          "to": "minimap.rangeCircle.hydrophone.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.hydrophone.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.lineStyle",
+          "to": "minimap.rangeCircle.hydrophone.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.lineThickness",
+          "to": "minimap.rangeCircle.hydrophone.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.hydrophone.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.hydrophone.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.hydrophone.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.hydrophone.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.hydrophone.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.hydrophone.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.hydrophone.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.self.color",
+          "to": "minimap.rangeCircle.hydrophone.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.self.displayMode",
+          "to": "minimap.rangeCircle.hydrophone.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.self.fillAlpha",
+          "to": "minimap.rangeCircle.hydrophone.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.self.lineStyle",
+          "to": "minimap.rangeCircle.hydrophone.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.hydrophone.self.lineThickness",
+          "to": "minimap.rangeCircle.hydrophone.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.outlineFix",
+          "to": "minimap.rangeCircle.outlineFix"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.color",
+          "to": "minimap.rangeCircle.pinger.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.displayMode",
+          "to": "minimap.rangeCircle.pinger.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.fillAlpha",
+          "to": "minimap.rangeCircle.pinger.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.lineStyle",
+          "to": "minimap.rangeCircle.pinger.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.lineThickness",
+          "to": "minimap.rangeCircle.pinger.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.maxDistance",
+          "to": "minimap.rangeCircle.pinger.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.pinger.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.pinger.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.pinger.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.pinger.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.pinger.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.color",
+          "to": "minimap.rangeCircle.pinger.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.displayMode",
+          "to": "minimap.rangeCircle.pinger.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.pinger.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.lineStyle",
+          "to": "minimap.rangeCircle.pinger.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.lineThickness",
+          "to": "minimap.rangeCircle.pinger.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.pinger.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.pinger.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.pinger.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.pinger.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.pinger.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.pinger.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.pinger.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.self.color",
+          "to": "minimap.rangeCircle.pinger.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.self.displayMode",
+          "to": "minimap.rangeCircle.pinger.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.self.fillAlpha",
+          "to": "minimap.rangeCircle.pinger.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.self.lineStyle",
+          "to": "minimap.rangeCircle.pinger.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.pinger.self.lineThickness",
+          "to": "minimap.rangeCircle.pinger.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.color",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.displayMode",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.fillAlpha",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.lineStyle",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.lineThickness",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.maxDistance",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.primaryWeapon.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.color",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.displayMode",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.lineStyle",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.lineThickness",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.primaryWeapon.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.self.color",
+          "to": "minimap.rangeCircle.primaryWeapon.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.self.displayMode",
+          "to": "minimap.rangeCircle.primaryWeapon.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.self.fillAlpha",
+          "to": "minimap.rangeCircle.primaryWeapon.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.self.lineStyle",
+          "to": "minimap.rangeCircle.primaryWeapon.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.primaryWeapon.self.lineThickness",
+          "to": "minimap.rangeCircle.primaryWeapon.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.color",
+          "to": "minimap.rangeCircle.radar.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.fillAlpha",
+          "to": "minimap.rangeCircle.radar.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.lineStyle",
+          "to": "minimap.rangeCircle.radar.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.lineThickness",
+          "to": "minimap.rangeCircle.radar.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.radar.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.radar.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.radar.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.radar.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.radar.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showWhen.onActivation",
+          "to": "minimap.rangeCircle.radar.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.ally.showWhen.onAlt",
+          "to": "minimap.rangeCircle.radar.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.color",
+          "to": "minimap.rangeCircle.radar.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.displayMode",
+          "to": "minimap.rangeCircle.radar.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.radar.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.lineStyle",
+          "to": "minimap.rangeCircle.radar.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.lineThickness",
+          "to": "minimap.rangeCircle.radar.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.radar.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.radar.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.radar.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.radar.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.radar.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.radar.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.radar.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.self.color",
+          "to": "minimap.rangeCircle.radar.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.self.displayMode",
+          "to": "minimap.rangeCircle.radar.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.self.fillAlpha",
+          "to": "minimap.rangeCircle.radar.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.self.lineStyle",
+          "to": "minimap.rangeCircle.radar.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.radar.self.lineThickness",
+          "to": "minimap.rangeCircle.radar.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.color",
+          "to": "minimap.rangeCircle.subRadar.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.fillAlpha",
+          "to": "minimap.rangeCircle.subRadar.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.lineStyle",
+          "to": "minimap.rangeCircle.subRadar.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.lineThickness",
+          "to": "minimap.rangeCircle.subRadar.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.subRadar.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.subRadar.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.subRadar.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.subRadar.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.subRadar.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showWhen.onActivation",
+          "to": "minimap.rangeCircle.subRadar.ally.showWhen.onActivation"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.ally.showWhen.onAlt",
+          "to": "minimap.rangeCircle.subRadar.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.color",
+          "to": "minimap.rangeCircle.subRadar.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.displayMode",
+          "to": "minimap.rangeCircle.subRadar.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.subRadar.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.lineStyle",
+          "to": "minimap.rangeCircle.subRadar.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.lineThickness",
+          "to": "minimap.rangeCircle.subRadar.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.subRadar.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.subRadar.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.subRadar.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.subRadar.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.subRadar.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.subRadar.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.subRadar.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.self.color",
+          "to": "minimap.rangeCircle.subRadar.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.self.displayMode",
+          "to": "minimap.rangeCircle.subRadar.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.self.fillAlpha",
+          "to": "minimap.rangeCircle.subRadar.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.self.lineStyle",
+          "to": "minimap.rangeCircle.subRadar.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.subRadar.self.lineThickness",
+          "to": "minimap.rangeCircle.subRadar.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.color",
+          "to": "minimap.rangeCircle.torpedo.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.displayMode",
+          "to": "minimap.rangeCircle.torpedo.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.fillAlpha",
+          "to": "minimap.rangeCircle.torpedo.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.lineStyle",
+          "to": "minimap.rangeCircle.torpedo.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.lineThickness",
+          "to": "minimap.rangeCircle.torpedo.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.maxDistance",
+          "to": "minimap.rangeCircle.torpedo.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.torpedo.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.torpedo.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.torpedo.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.torpedo.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.torpedo.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.color",
+          "to": "minimap.rangeCircle.torpedo.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.displayMode",
+          "to": "minimap.rangeCircle.torpedo.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.torpedo.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.lineStyle",
+          "to": "minimap.rangeCircle.torpedo.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.lineThickness",
+          "to": "minimap.rangeCircle.torpedo.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.torpedo.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.torpedo.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.torpedo.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.torpedo.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.torpedo.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.torpedo.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.torpedo.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.self.color",
+          "to": "minimap.rangeCircle.torpedo.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.self.displayMode",
+          "to": "minimap.rangeCircle.torpedo.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.self.fillAlpha",
+          "to": "minimap.rangeCircle.torpedo.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.self.lineStyle",
+          "to": "minimap.rangeCircle.torpedo.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.torpedo.self.lineThickness",
+          "to": "minimap.rangeCircle.torpedo.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.color",
+          "to": "minimap.rangeCircle.visibilityAir.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.displayMode",
+          "to": "minimap.rangeCircle.visibilityAir.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.fillAlpha",
+          "to": "minimap.rangeCircle.visibilityAir.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.lineStyle",
+          "to": "minimap.rangeCircle.visibilityAir.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.lineThickness",
+          "to": "minimap.rangeCircle.visibilityAir.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.maxDistance",
+          "to": "minimap.rangeCircle.visibilityAir.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.visibilityAir.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.visibilityAir.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.visibilityAir.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.visibilityAir.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.visibilityAir.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.color",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.displayMode",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.lineStyle",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.lineThickness",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.visibilityAir.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.self.color",
+          "to": "minimap.rangeCircle.visibilityAir.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.self.displayMode",
+          "to": "minimap.rangeCircle.visibilityAir.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.self.fillAlpha",
+          "to": "minimap.rangeCircle.visibilityAir.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.self.lineStyle",
+          "to": "minimap.rangeCircle.visibilityAir.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilityAir.self.lineThickness",
+          "to": "minimap.rangeCircle.visibilityAir.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.color",
+          "to": "minimap.rangeCircle.visibilitySea.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.displayMode",
+          "to": "minimap.rangeCircle.visibilitySea.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySea.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySea.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySea.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.maxDistance",
+          "to": "minimap.rangeCircle.visibilitySea.ally.maxDistance"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.aircarrier",
+          "to": "minimap.rangeCircle.visibilitySea.ally.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.battleship",
+          "to": "minimap.rangeCircle.visibilitySea.ally.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.cruiser",
+          "to": "minimap.rangeCircle.visibilitySea.ally.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.destroyer",
+          "to": "minimap.rangeCircle.visibilitySea.ally.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.ally.showIn.submarine",
+          "to": "minimap.rangeCircle.visibilitySea.ally.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.color",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.displayMode",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.radiusOffset",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.radiusOffset"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.sectorAngle",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.sectorAngle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.aircarrier",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.showIn.aircarrier"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.battleship",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.showIn.battleship"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.cruiser",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.showIn.cruiser"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.destroyer",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.showIn.destroyer"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.enemy.showIn.submarine",
+          "to": "minimap.rangeCircle.visibilitySea.enemy.showIn.submarine"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.self.color",
+          "to": "minimap.rangeCircle.visibilitySea.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.self.displayMode",
+          "to": "minimap.rangeCircle.visibilitySea.self.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.self.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySea.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.self.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySea.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySea.self.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySea.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.color",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.showWhen.inSmoke",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.showWhen.inSmoke"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.ally.showWhen.onAlt",
+          "to": "minimap.rangeCircle.visibilitySmoke.ally.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.color",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.showWhen.inSmoke",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.showWhen.inSmoke"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.enemy.showWhen.onAlt",
+          "to": "minimap.rangeCircle.visibilitySmoke.enemy.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.color",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.fillAlpha",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.fillAlpha"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.lineStyle",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.lineStyle"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.lineThickness",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.lineThickness"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.showWhen.inSmoke",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.showWhen.inSmoke"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rangeCircle.visibilitySmoke.self.showWhen.onAlt",
+          "to": "minimap.rangeCircle.visibilitySmoke.self.showWhen.onAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rpfAlly.color",
+          "to": "minimap.rpf.ally.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rpfAlly.displayMode",
+          "to": "minimap.rpf.ally.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rpfSelf.color",
+          "to": "minimap.rpf.self.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.rpfSelf.keybind",
+          "to": "minimap.rpf.self.keybind"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.detection.color",
+          "to": "minimap.shipMarker.detection.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.detection.show",
+          "to": "minimap.shipMarker.detection.show"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.direction.color",
+          "to": "minimap.shipMarker.direction.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.direction.displayMode",
+          "to": "minimap.shipMarker.direction.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.direction.scale",
+          "to": "minimap.shipMarker.direction.scale"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.health.ally",
+          "to": "minimap.shipMarker.health.ally"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.health.enemy",
+          "to": "minimap.shipMarker.health.enemy"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.health.format",
+          "to": "minimap.shipMarker.health.format"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.health.hideAtFull",
+          "to": "minimap.shipMarker.health.hideAtFull"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.health.width",
+          "to": "minimap.shipMarker.health.width"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.playerName",
+          "to": "minimap.shipMarker.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.showDead",
+          "to": "minimap.shipMarker.showDead"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.shipMarker.showLastSpottedOnAlt",
+          "to": "minimap.shipMarker.showLastSpottedOnAlt"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.showContestedCaps",
+          "to": "minimap.capMarker.highlightContested"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.direction.color",
+          "to": "minimap.squadronMarker.direction.color"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.direction.displayMode",
+          "to": "minimap.squadronMarker.direction.displayMode"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.direction.scale",
+          "to": "minimap.squadronMarker.direction.scale"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.owner.playerName",
+          "to": "minimap.squadronMarker.owner.playerName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.owner.shipName",
+          "to": "minimap.squadronMarker.owner.shipName"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.owner.showAirSupport",
+          "to": "minimap.squadronMarker.owner.showAirSupport"
+        },
+        {
+          "op": "rename",
+          "from": "ttMinimap.squadronMarker.owner.showMain",
+          "to": "minimap.squadronMarker.owner.showMain"
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size0",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 2,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size1",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 2.5,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size2",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 3,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size3",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 3.5,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size4",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 4,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.mapScale.size5",
+          "sources": [
+            {
+              "key": "ttMinimap.extendScale"
+            }
+          ],
+          "value": 4.5,
+          "when": {
+            "src": 0
+          }
+        },
+        {
+          "op": "transform",
+          "transform": "compose",
+          "to": "minimap.torpedoMarker.displayMode",
+          "sources": [
+            {
+              "key": "ttMinimap.showTorpedoes"
+            }
+          ],
+          "value": {
+            "if": [
+              {
+                "src": 0
+              },
+              1,
+              0
+            ]
+          }
+        }
+      ]
     }
   ],
   "legacyPositions": [
     {
-      "key": "ttMinimap.position",
+      "key": "minimap.position",
       "element": "TTaroMinimap"
     },
     {
-      "key": "ttMinimap.radarWarning.position",
+      "key": "minimap.radarWarning.position",
       "element": "TTaroMinimapRadarWarning"
     }
   ]

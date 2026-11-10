@@ -1,0 +1,65 @@
+
+
+(def element AimedFireStateTooltip (_stateEntity:gfx) layout=true
+	(scope
+		(var state:gfx = "_stateEntity.state")
+		(var aimedFireStateAttributes:gfx = "_stateEntity.aimedFireStateAttributes")
+		(var activeAttributes:gfx = "aimedFireStateAttributes ? aimedFireStateAttributes.activeAttributes : null")
+		(var activatorAttributes:gfx = "aimedFireStateAttributes ? aimedFireStateAttributes.activatorAttributes : null" (event "aimedFireStateAttributes.evChanged"))
+		(var decayAttributes:gfx = "aimedFireStateAttributes ? aimedFireStateAttributes.decayAttributes : null" (event "aimedFireStateAttributes.evChanged"))
+		(var iconPath:str = 'url:../battle_hud/indicators/aimed_fire/aimedfire.png')
+	)
+
+	(style (width = 375) (hitTest = false))
+	(macro TOOLTIP_SYSTEM_DEFAULT_BACKGROUND)
+
+	(element TOOLTIP_SYSTEM_DEFAULT_CONTAINER
+		(element TooltipSystemHeaderWithIconAndText
+			_imageUrl="iconPath"
+			_imageWidth=60
+			_imageHeight=60
+			_headerText='IDS_SHIP_PARAM_HEADER_AA_AIMED_FIRE'
+			_subheaderText='IDS_SHIP_PARAM_ACTIVE_EFFECT_TYPE_BUFF'
+		)
+
+		(element TooltipSystemHorizontalDivider)
+
+		(element TooltipSystemDescriptionText
+			_descriptionText='IDS_SHIP_PARAM_AA_AIMED_FIRE_DESCRIPTION_BATTLE'
+		)
+
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemInnerHeaderText
+			_headerText='IDS_SHIP_PARAM_AA_AIMED_FIRE_ACTIVE_EFFECT'
+		)
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemParamsModifiersList
+			_attributesNegative="activeAttributes.negative"
+			_attributesPositive="activeAttributes.positive"
+			_attributesNeutral="activeAttributes.neutral"
+		)
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemInnerHeaderSubheaderText
+			_headerText='IDS_SHIP_PARAM_AA_AIMED_FIRE_ACTIVATION_CONDITIONS'
+			_subheaderText='IDS_SHIP_PARAM_AA_AIMED_FIRE_ACTIVATION_CONDITIONS_DESCRIPTION'
+		)
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemParamsModifiersList
+			_attributesNegative="activatorAttributes.negative"
+			_attributesNeutral="activatorAttributes.neutral"
+			_attributesPositive="activatorAttributes.positive"
+		)
+
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemInnerHeaderSubheaderText
+			_headerText='IDS_RAGE_MODE_DEACTIVATION_HEADER'
+			_subheaderText='IDS_RAGE_MODE_DEACTIVATION_DESCRIPTION'
+		)
+		(element TooltipSystemHorizontalDivider)
+		(element TooltipSystemParamsModifiersList
+			_attributesNegative="decayAttributes.negative"
+			_attributesNeutral="decayAttributes.neutral"
+			_attributesPositive="decayAttributes.positive"
+		)
+	)
+)

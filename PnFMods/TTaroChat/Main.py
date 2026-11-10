@@ -70,7 +70,7 @@ RPF_MESSAGE_TO_DIRECTION = {
 #
 # Only 18 of the 3x12 relation/kind combinations carry a setting.  A missing one means "no control
 # for this" and reads as visible.
-PREF_PREFIX = 'ttaro.ttChat.'
+PREF_PREFIX = 'ttaro.chat.'
 PREF_KEYS = (
     'exportChat',
 

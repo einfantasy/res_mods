@@ -35,13 +35,13 @@ def _validateXml(data):
     return []
 
 def _validateUnbound(data):
-    # ref:uss-splice -- an entry that yields no content kills the Unbound
-    # parser in native code, before mods load and before markup is parsed:
-    # nothing in python.log, nothing in ub_player_errors.log. The .xml path
-    # has always checked this; this one did not.
+
+
+
+
     if not data.strip():
         return ['file is empty']
-    # `#` is the only comment; both quote styles are strings.
+
     depth = 0
     line = 1
     inString = None
@@ -211,18 +211,18 @@ _NAME_CACHE_FILE = 'unbound2Names.txt'
 _DEFINITION_KEYS = (('block', 'className'), ('css', 'name'))
 
 def duplicateDefinitions(emitted):
-    """Top-level definitions more than one emitted file declares.
 
-    Read from `UbBlockFactory.loadPlansFromXml`, build 13187581: both loops
-    are E4X CHILD accessors (`xml.css`, `xml.block`, not `xml..block`), so
-    ONLY a top-level definition becomes a plan -- a nested <block className=>
-    is an inline child and nothing else. Registration is then a bare
-    `xmlElementPlans[name] = plan` over every registered file in load order,
-    so a second declaration of the same name silently replaces the first and
-    nothing is logged. Which one wins is load order, which the author does
-    not control.
 
-    `emitted` is (relPath, bytes) for each XML this run wrote."""
+
+
+
+
+
+
+
+
+
+
     import BlockSlice
     seen = {}
     problems = []
@@ -248,12 +248,12 @@ def duplicateDefinitions(emitted):
     return problems
 
 def styleClassUses(data):
-    """name -> how many `<styleClass value=>` name it, at any depth.
 
-    It is a child ELEMENT, not an attribute: 5,469 of them in vanilla
-    markup.xml across build 13187581, zero in the attribute form. The scan
-    goes through `BlockSlice.iter_tags`, so a commented-out example does not
-    count as a use."""
+
+
+
+
+
     import BlockSlice
     out = {}
     for _kind, tag, start, end in BlockSlice.iter_tags(data):
@@ -265,16 +265,16 @@ def styleClassUses(data):
     return out
 
 def unresolvedStyleClasses(emitted, definedElsewhere):
-    """`<styleClass value=>` naming no preset anything in this run defines.
 
-    The asymmetry is the point: a missing registered XML THROWS, but an
-    unresolved styleClass is completely silent -- `getStyleClassById` returns
-    undefined with no guard, the merge loop runs zero times, and nothing is
-    logged anywhere. The element renders with inherited values and the author
-    gets no signal at all. Forge holds both sides, so it can say so.
 
-    Calibrated against vanilla: 156 names used, 286 defined, 0 unresolved on
-    both 13015811 and 13187581 -- so a hit here is a real fault, not noise."""
+
+
+
+
+
+
+
+
     import BlockSlice
     defined = set(definedElsewhere)
     for _relPath, data in emitted:
@@ -301,12 +301,12 @@ def unbound2ElementNames():
 _installedScan = None
 
 def _scanInstalledUnbound2():
-    """{name: [paths]} plus the files that are empty, for everything under
-    res_mods/gui/unbound2. Cached for the run: two callers want it and it
-    reads every installed view."""
-    # Keyed on the directory, not a bare flag: one process can serve more
-    # than one res_mods (the offline harness does), and a stale hit there
-    # would answer about a tree that is no longer the one being installed.
+
+
+
+
+
+
     global _installedScan
     root = Paths.resModsDir() + _UNBOUND2_REL + '/'
     if _installedScan is not None and _installedScan[0] == root:
@@ -336,17 +336,17 @@ def _modElementNames():
     return None if owners is None else set(owners)
 
 def installedUnbound2Problems():
-    """What only the installed SET can reveal, which is why it is here and
-    not in the authoring linter: a view that is empty, and a name two
-    installed mods both define.
 
-    A mod shadowing a VANILLA name is how an Unbound 2 mod overrides a view
-    and is deliberate, so vanilla is not consulted -- only collisions between
-    two mods the player happens to have together.
 
-    Unbound 2 resolves a duplicate the OPPOSITE way to Unbound 1: the FIRST
-    registration wins. `duplicateDefinitions` above is the last-wins rule and
-    is right about Unbound 1; do not carry it across."""
+
+
+
+
+
+
+
+
+
     owners, empty = _scanInstalledUnbound2()
     problems = []
     for rel in sorted(empty):
@@ -415,10 +415,10 @@ def _walkFiles(root, suffix):
                 out.append(base + name)
     return out
 
-# A battle_elements `elementName=` may name either form. Measured on build
-# 13187581: of vanilla's own 18, `MarkersContainer` and `SpeedControl` are
-# `(def layout ...)` and the other 16 are `(def element ...)`. Scanning only
-# for the latter reports two stock entries as broken, every run.
+
+
+
+
 _DEF_FORMS = ('(def element', '(def layout')
 
 def _defElementNames(data):
@@ -509,8 +509,8 @@ def _xmlStubName(n):
         return _XML_STUB_STEM + '.xml'
     return '%s_%d.xml' % (_XML_STUB_STEM, n)
 
-# One file per entry: an xmlfile URL listed twice never finishes loading.
-# ref:uss-duplicate-url
+
+
 def ensureXmlStub(n=1):
     name = _xmlStubName(n)
     absPath = Paths.resModsDir() + _STUB_DIR_REL + name

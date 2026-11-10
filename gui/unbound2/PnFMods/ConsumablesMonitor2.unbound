@@ -24,14 +24,21 @@
 	(element SimpleMarkerTextItem "toUpper(buildingName)")
 )
 
+
 (def constant CM2_COMPONENT_KEY_LIST_PREFIX 'modConsumablesMonitor2List_')
 
 (def element CM2_ConsumablesMonitorItem(_markerEntity:gfx) layout=true
 	(scope
+
+
+
+
 		(var listKey:str = "CM2_COMPONENT_KEY_LIST_PREFIX + toString(_markerEntity ? _markerEntity.id : 0)")
 		(var listWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, listKey)")
 		(var listEntity:gfx = "listWatcher.entity" (event "listWatcher.event"))
 		(var listComponent:gfx = "listEntity ? listEntity.mods_DataComponent : null")
+
+
 		(var consIds:array = "listComponent ? listComponent.data.ids : []" (event "listComponent.evDataChanged"))
 	)
 	(hblock
@@ -82,6 +89,9 @@
 		(event evConsumableEnding)
 		(event evConsumableDeactivated)
 
+
+
+
 		(var _consEntity:gfx = "$datahub.getEntity(_entityId)")
 		(var staticComponent:gfx = "_consEntity && _consEntity.hasComponent(CC.data) ? _consEntity.data : null" (event "_consEntity.evAdded") (event "_consEntity.evRemoved"))
 		(var dynamicComponent:gfx = "_consEntity && _consEntity.hasComponent(CC.mods_DataComponent) ? _consEntity.mods_DataComponent : null" (event "_consEntity.evAdded") (event "_consEntity.evRemoved"))
@@ -96,6 +106,13 @@
 		(var stateStr:str = "toString(state)")
 		(var stateEndTime:number = "countDownComponent ? countDownComponent.endTime : 0")
 		(bind stateEndTime "countDownComponent ? countDownComponent.endTime : 0" watch=false init=false (bind trigger "state"))
+
+
+
+
+
+
+
 		(var canUse:bool = "consData ? consData.canUse : false")
 		(var lifeCycleType:number = "staticData ? staticData.lifeCycleType : -1")
 		(var isTimeBased:bool = "lifeCycleType == SC.Battle.CONSUMABLE_LIFECYCLE_TYPE.TIME_BASED")
@@ -124,6 +141,8 @@
 											 : isReady  ? 'RDY'
 											 			: ' ' "
 		)
+
+
 		(var isCapacityHidden:bool = "!consData || (isTimeBased && isActive) || (capacity == 'inf')")
 		(var capacityPrefix:str = "isTimeBased ? '' : 'x'")
 		(var capacityStr:str = "isCapacityHidden	? ' '

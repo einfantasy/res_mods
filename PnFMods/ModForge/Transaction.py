@@ -10,6 +10,7 @@ class Transaction(object):
     def __init__(self):
         self._pending = {}
         self._committed = {}
+        self.changed = set()
 
     def stage(self, absPath, newBytes):
         priorBytes = None
@@ -37,17 +38,20 @@ class Transaction(object):
             raise
         else:
             for absPath in written:
-                self._committed[absPath] = self._pending[absPath][1]
+                newBytes, prior = self._pending[absPath]
+                self._committed[absPath] = prior
+                if newBytes != prior:
+                    self.changed.add(absPath)
         finally:
             self._sweepTempFiles(self._pending.keys())
 
             self._pending.clear()
 
     def revertCommitted(self):
-        """Undo a batch that already landed, because a later batch that
-        depends on it failed. A compiled payload and the uss_settings entry
-        naming it have to move together: an XML registered against a SWF that
-        no longer carries its keys is a client that will not boot."""
+
+
+
+
         if not self._committed:
             return
         for absPath in sorted(self._committed):
@@ -60,6 +64,7 @@ class Transaction(object):
             except Exception as exc:
                 logError('revert failed for %s: %s' % (absPath, exc))
         self._committed.clear()
+        self.changed.clear()
 
     def _atomicWrite(self, absPath, data):
         Paths.ensureDir(Paths.dirName(absPath))

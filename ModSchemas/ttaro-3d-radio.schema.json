@@ -5,6 +5,7 @@
   "modName": "3D Radio",
   "slug": "3d-radio",
   "order": 2,
+  "migrationVersion": 1,
   "tree": [
     {
       "kind": "group",
